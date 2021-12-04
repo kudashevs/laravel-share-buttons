@@ -29,81 +29,64 @@ class RawLinksTest extends ExtendedTestCase
         $this->assertNotEmpty($result);
     }
 
-    /** @test */
-    public function it_can_return_only_facebook_built_link()
+    /**
+     * @test
+     * @dataProvider provide_media_for_one_link
+     */
+    public function it_returns_one_link($media, $link, $title, $expected)
     {
-        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://codeswitch.be';
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->facebook()
+        $result = ShareFacade::page($link, $title)
+            ->$media()
             ->getRawLinks();
 
         $this->assertEquals($expected, (string)$result);
     }
 
-    /** @test */
-    public function it_can_return_only_twitter_built_link()
+    public function provide_media_for_one_link()
     {
-        $expected = 'https://twitter.com/intent/tweet?text=My+share+title&url=https://codeswitch.be';
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->twitter()
-            ->getRawLinks();
-
-        $this->assertEquals($expected, (string)$result);
-    }
-
-    /** @test */
-    public function it_can_return_only_linkedin_built_link()
-    {
-        $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://codeswitch.be&title=My+share+title&summary=';
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->linkedin()
-            ->getRawLinks();
-
-        $this->assertEquals($expected, (string)$result);
-    }
-
-    /** @test */
-    public function it_can_return_only_whatsapp_built_link()
-    {
-        $expected = 'https://wa.me/?text=https://codeswitch.be';
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->whatsapp()
-            ->getRawLinks();
-
-        $this->assertEquals($expected, (string)$result);
-    }
-
-    /** @test */
-    public function it_can_return_only_pinterest_built_link()
-    {
-        $expected = 'https://pinterest.com/pin/create/button/?url=https://codeswitch.be';
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->pinterest()
-            ->getRawLinks();
-
-        $this->assertEquals($expected, (string)$result);
-    }
-
-    /** @test */
-    public function it_can_return_only_reddit_built_link()
-    {
-        $expected = 'https://www.reddit.com/submit?title=My+share+title&url=https://codeswitch.be';
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->reddit()
-            ->getRawLinks();
-
-        $this->assertEquals($expected, (string)$result);
-    }
-
-    /** @test */
-    public function it_can_return_only_telegram_built_link()
-    {
-        $expected = 'https://telegram.me/share/url?url=https://codeswitch.be&text=My+share+title';
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->telegram()
-            ->getRawLinks();
-
-        $this->assertEquals($expected, (string)$result);
+        return [
+            'facebook' => [
+                'facebook',
+                'https://mysite.com',
+                'My facebook title',
+                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+            ],
+            'twitter' => [
+                'twitter',
+                'https://mysite.com',
+                'My twitter title',
+                'https://twitter.com/intent/tweet?text=My+twitter+title&url=https://mysite.com',
+            ],
+            'linkedin' => [
+                'linkedin',
+                'https://mysite.com',
+                'My linkedin title',
+                'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=My+linkedin+title&summary=',
+            ],
+            'whatsapp' => [
+                'whatsapp',
+                'https://mysite.com',
+                'My whatsapp title',
+                'https://wa.me/?text=https://mysite.com'],
+            'pinterest' => [
+                'pinterest',
+                'https://mysite.com',
+                'My pinterest title',
+                'https://pinterest.com/pin/create/button/?url=https://mysite.com',
+            ],
+            'reddit' => [
+                'reddit',
+                'https://mysite.com',
+                'My reddit title',
+                'https://www.reddit.com/submit?title=My+reddit+title&url=https://mysite.com',
+            ],
+            'telegram' => [
+                'telegram',
+                'https://mysite.com',
+                'My telegram title',
+                'https://telegram.me/share/url?url=https://mysite.com&text=My+telegram+title',
+            ],
+        ];
     }
 
     /** @test */
