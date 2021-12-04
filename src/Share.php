@@ -70,13 +70,13 @@ class Share
 
     /**
      * @param string $url
-     * @param string|null $title
+     * @param string $title
      * @param array $options
      * @param string|null $prefix
      * @param string|null $suffix
      * @return $this
      */
-    public function page($url, $title = null, $options = [], $prefix = null, $suffix = null)
+    public function page($url, $title = '', $options = [], $prefix = null, $suffix = null)
     {
         $this->url = $url;
         $this->title = $title;
@@ -88,13 +88,13 @@ class Share
     }
 
     /**
-     * @param string|null $title
+     * @param string $title
      * @param array $options
      * @param string|null $prefix
      * @param string|null $suffix
      * @return $this
      */
-    public function currentPage($title = null, $options = [], $prefix = null, $suffix = null)
+    public function currentPage($title = '', $options = [], $prefix = null, $suffix = null)
     {
         $url = request()->getUri();
 
@@ -122,7 +122,7 @@ class Share
      */
     public function twitter()
     {
-        if (is_null($this->title)) {
+        if (empty($this->title)) {
             $this->title = config('laravel-share.services.twitter.text');
         }
 
@@ -141,7 +141,7 @@ class Share
      */
     public function reddit()
     {
-        if (is_null($this->title)) {
+        if (empty($this->title)) {
             $this->title = config('laravel-share.services.reddit.text');
         }
 
@@ -160,7 +160,7 @@ class Share
      */
     public function telegram()
     {
-        if (is_null($this->title)) {
+        if (empty($this->title)) {
             $this->title = config('laravel-share.services.telegram.text');
         }
 
