@@ -11,7 +11,7 @@ class RawLinksTest extends ExtendedTestCase
     /** @test */
     public function it_can_return_empty_array_with_no_links()
     {
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
+        $result = ShareFacade::page('https://mysite.com', 'My share title')
             ->getRawLinks();
 
         $this->assertIsArray($result);
