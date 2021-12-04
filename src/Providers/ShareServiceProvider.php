@@ -1,9 +1,9 @@
 <?php
 
-namespace Jorenvh\Share\Providers;
+namespace ShareButtons\Share\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Jorenvh\Share\Share;
+use ShareButtons\Share\Share;
 
 class ShareServiceProvider extends ServiceProvider
 {
