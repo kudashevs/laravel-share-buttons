@@ -1,6 +1,6 @@
 <?php
 
-namespace Jorenvh\Share\Test;
+namespace ShareButtons\Share\Test;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
@@ -14,6 +14,6 @@ class TestCase extends BaseTestCase
      */
     protected function getPackageProviders($application)
     {
-        return ['Jorenvh\Share\Providers\ShareServiceProvider'];
+        return ['ShareButtons\Share\Providers\ShareServiceProvider'];
     }
 }

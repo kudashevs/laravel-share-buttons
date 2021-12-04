@@ -1,8 +1,8 @@
 <?php
 
-namespace Jorenvh\Share\Test;
+namespace ShareButtons\Share\Test;
 
-use Jorenvh\Share\ShareFacade;
+use ShareButtons\Share\ShareFacade;
 
 class CombinedShareTest extends TestCase
 {
