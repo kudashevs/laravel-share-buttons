@@ -29,19 +29,6 @@ class RawLinksTest extends ExtendedTestCase
         $this->assertNotEmpty($result);
     }
 
-    /**
-     * @test
-     * @dataProvider provide_media_for_one_link
-     */
-    public function it_returns_one_link($media, $link, $title, $expected)
-    {
-        $result = ShareFacade::page($link, $title)
-            ->$media()
-            ->getRawLinks();
-
-        $this->assertEquals([$media => $expected], $result);
-    }
-
     public function provide_media_for_one_link()
     {
         return [
@@ -87,6 +74,19 @@ class RawLinksTest extends ExtendedTestCase
                 'https://telegram.me/share/url?url=https://mysite.com&text=My+telegram+title',
             ],
         ];
+    }
+
+    /**
+     * @test
+     * @dataProvider provide_media_for_one_link
+     */
+    public function it_returns_one_link($media, $link, $title, $expected)
+    {
+        $result = ShareFacade::page($link, $title)
+            ->$media()
+            ->getRawLinks();
+
+        $this->assertEquals([$media => $expected], $result);
     }
 
     /** @test */
