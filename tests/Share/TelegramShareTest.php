@@ -1,10 +1,11 @@
 <?php
 
-namespace ShareButtons\Share\Test;
+namespace ShareButtons\Share\Test\Share;
 
 use ShareButtons\Share\Facades\ShareFacade;
+use ShareButtons\Share\Test\ExtendedTestCase;
 
-class TelegramShareTest extends TestCase
+class TelegramShareTest extends ExtendedTestCase
 {
     /**
      * @test

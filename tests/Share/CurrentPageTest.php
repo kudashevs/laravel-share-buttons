@@ -1,10 +1,11 @@
 <?php
 
-namespace ShareButtons\Share\Test;
+namespace ShareButtons\Share\Test\Share;
 
 use ShareButtons\Share\Facades\ShareFacade;
+use ShareButtons\Share\Test\ExtendedTestCase;
 
-class CurrentPageTest extends TestCase
+class CurrentPageTest extends ExtendedTestCase
 {
     /**
      * @test

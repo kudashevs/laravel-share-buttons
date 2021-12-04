@@ -1,10 +1,11 @@
 <?php
 
-namespace ShareButtons\Share\Test;
+namespace ShareButtons\Share\Test\Share;
 
 use ShareButtons\Share\Facades\ShareFacade;
+use ShareButtons\Share\Test\ExtendedTestCase;
 
-class RawLinksTest extends TestCase
+class RawLinksTest extends ExtendedTestCase
 {
     /** @test */
     public function it_can_return_only_facebook_built_link()
