@@ -220,15 +220,11 @@ class Share
     /**
      * Get the raw generated links.
      *
-     * @return string|array
+     * @return array
      */
     public function getRawLinks()
     {
-        if(count($this->generatedUrls) === 1) {
-            return (string)current($this->generatedUrls);
-        }
-
-        return $this->generatedUrls;
+       return $this->generatedUrls;
     }
 
     /**

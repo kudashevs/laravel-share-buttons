@@ -19,13 +19,13 @@ class RawLinksTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_as_string()
+    public function it_can_return_one_link()
     {
         $result = ShareFacade::page('https://mysite.com', 'My share title')
             ->facebook()
             ->getRawLinks();
 
-        $this->assertIsString($result);
+        $this->assertIsArray($result);
         $this->assertNotEmpty($result);
     }
 
@@ -39,7 +39,7 @@ class RawLinksTest extends ExtendedTestCase
             ->$media()
             ->getRawLinks();
 
-        $this->assertEquals($expected, (string)$result);
+        $this->assertEquals([$media => $expected], $result);
     }
 
     public function provide_media_for_one_link()
