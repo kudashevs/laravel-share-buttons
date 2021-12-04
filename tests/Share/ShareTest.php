@@ -21,4 +21,10 @@ class ShareTest extends ExtendedTestCase
     {
         $this->assertInstanceOf(Share::class, $this->share->page('https://mysite.com'));
     }
+
+    /** @test */
+    public function it_create_self_instance_on_current_page()
+    {
+        $this->assertInstanceOf(Share::class, $this->share->currentPage());
+    }
 }
