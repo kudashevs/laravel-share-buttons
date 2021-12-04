@@ -7,6 +7,28 @@ use ShareButtons\Share\Test\ExtendedTestCase;
 
 class RawLinksTest extends ExtendedTestCase
 {
+
+    /** @test */
+    public function it_can_return_empty_array_with_no_links()
+    {
+        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
+            ->getRawLinks();
+
+        $this->assertIsArray($result);
+        $this->assertEmpty($result);
+    }
+
+    /** @test */
+    public function it_can_return_one_link_as_string()
+    {
+        $result = ShareFacade::page('https://mysite.com', 'My share title')
+            ->facebook()
+            ->getRawLinks();
+
+        $this->assertIsString($result);
+        $this->assertNotEmpty($result);
+    }
+
     /** @test */
     public function it_can_return_only_facebook_built_link()
     {
@@ -85,17 +107,7 @@ class RawLinksTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_empty_array_with_no_links()
-    {
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
-            ->getRawLinks();
-
-        $this->assertIsArray($result);
-        $this->assertEmpty($result);
-    }
-
-    /** @test */
-    public function it_can_return_one_link_as_string()
+    public function it_can_return_one_link()
     {
         $result = ShareFacade::page('https://codeswitch.be', 'My share title')
             ->facebook()
