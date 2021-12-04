@@ -2,7 +2,7 @@
 
 namespace ShareButtons\Share\Test;
 
-use ShareButtons\Share\ShareFacade;
+use ShareButtons\Share\Facades\ShareFacade;
 
 class TelegramShareTest extends TestCase
 {

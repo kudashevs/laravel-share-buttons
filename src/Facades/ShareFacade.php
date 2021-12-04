@@ -1,6 +1,6 @@
 <?php
 
-namespace ShareButtons\Share;
+namespace ShareButtons\Share\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
