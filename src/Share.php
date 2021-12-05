@@ -55,6 +55,13 @@ class Share
     protected $html = '';
 
     /**
+     * Share constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * Return a string with html at the end
      * of the chain.
      *
