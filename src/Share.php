@@ -5,50 +5,49 @@ namespace ShareButtons\Share;
 class Share
 {
     /**
-     * The url of the page to share
+     * The url of the page to share.
      *
      * @var string
      */
     protected $url;
 
     /**
-     * The generated urls
+     * The generated urls.
      *
      * @var string
      */
     protected $generatedUrls = [];
 
     /**
-     * Optional text for Twitter
-     * and Linkedin title
+     * Optional text for Twitter and Linkedin title.
      *
      * @var string
      */
     protected $title;
 
     /**
-     * Extra options for the share links
+     * Extra options for the share links.
      *
      * @var array
      */
     protected $options = [];
 
     /**
-     * Html to prefix before the share links
+     * An HTML code to prefix before the share links.
      *
      * @var string
      */
     protected $prefix = '<div id="social-links"><ul>';
 
     /**
-     * Html to append after the share links
+     * An HTML code to append after the share links.
      *
      * @var string
      */
     protected $suffix = '</ul></div>';
 
     /**
-     * The generated html
+     * The generated html.
      *
      * @var string
      */
@@ -62,8 +61,7 @@ class Share
     }
 
     /**
-     * Return a string with html at the end
-     * of the chain.
+     * Return a string with generated HTML code.
      *
      * @return string
      */
@@ -109,7 +107,7 @@ class Share
     }
 
     /**
-     * Facebook share link
+     * Generate Facebook share link.
      *
      * @return $this
      */
@@ -123,7 +121,7 @@ class Share
     }
 
     /**
-     * Twitter share link
+     * Generate Twitter share link.
      *
      * @return $this
      */
@@ -142,7 +140,7 @@ class Share
     }
 
     /**
-     * Reddit share link
+     * Generate Reddit share link.
      *
      * @return $this
      */
@@ -161,7 +159,7 @@ class Share
     }
 
     /**
-     * Telegram share link
+     * Generate Telegram share link.
      *
      * @return $this
      */
@@ -180,7 +178,7 @@ class Share
     }
 
     /**
-     * Whatsapp share link
+     * Generate Whatsapp share link.
      *
      * @return $this
      */
@@ -194,7 +192,7 @@ class Share
     }
 
     /**
-     * Linked in share link
+     * Generate Linked in share link.
      *
      * @param string $summary
      * @return $this
@@ -211,7 +209,7 @@ class Share
     }
 
     /**
-     * Pinterest share link
+     * Generate Pinterest share link.
      *
      * @return $this
      */
@@ -231,11 +229,11 @@ class Share
      */
     public function getRawLinks()
     {
-       return $this->generatedUrls;
+        return $this->generatedUrls;
     }
 
     /**
-     * Build a single link
+     * Build a single link.
      *
      * @param string $provider
      * @param string $url
@@ -257,7 +255,7 @@ class Share
     }
 
     /**
-     * Optionally Set custom prefix and/or suffix
+     * Set custom prefix and/or suffix optionally.
      *
      * @param string $prefix
      * @param string $suffix
