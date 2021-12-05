@@ -34,7 +34,7 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 ```php
 // config/app.php
 'providers' => [
-    ShareButtons\Share\Providers\ShareServiceProvider::class,
+    ShareButtons\Share\Providers\ShareButtonsServiceProvider::class,
 ];
 ```
 

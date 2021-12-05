@@ -14,6 +14,6 @@ class ExtendedTestCase extends BaseTestCase
      */
     protected function getPackageProviders($application)
     {
-        return ['ShareButtons\Share\Providers\ShareServiceProvider'];
+        return ['ShareButtons\Share\Providers\ShareButtonsServiceProvider'];
     }
 }

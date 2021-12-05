@@ -5,7 +5,7 @@ namespace ShareButtons\Share\Providers;
 use Illuminate\Support\ServiceProvider;
 use ShareButtons\Share\Share;
 
-class ShareServiceProvider extends ServiceProvider
+class ShareButtonsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
