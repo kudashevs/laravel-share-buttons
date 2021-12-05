@@ -2,7 +2,7 @@
 
 namespace ShareButtons\Share\Test\Share;
 
-use ShareButtons\Share\Facades\ShareFacade;
+use ShareButtons\Share\Facades\ShareButtonsFacade;
 use ShareButtons\Share\Test\ExtendedTestCase;
 
 class CombinedShareTest extends ExtendedTestCase
@@ -12,7 +12,7 @@ class CombinedShareTest extends ExtendedTestCase
      */
     public function it_can_generate_generate_multiple_share_links_at_once()
     {
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
+        $result = ShareButtonsFacade::page('https://codeswitch.be', 'My share title')
             ->facebook()
             ->twitter()
             ->linkedin()
@@ -30,7 +30,7 @@ class CombinedShareTest extends ExtendedTestCase
      */
     public function it_can_generate_multiple_share_links_at_once_and_multiple_times_after_each_other()
     {
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
+        $result = ShareButtonsFacade::page('https://codeswitch.be', 'My share title')
             ->facebook()
             ->twitter()
             ->linkedin()
@@ -43,7 +43,7 @@ class CombinedShareTest extends ExtendedTestCase
 
         $this->assertEquals($expected, (string)$result);
 
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title')
+        $result = ShareButtonsFacade::page('https://codeswitch.be', 'My share title')
             ->facebook()
             ->twitter();
 
@@ -57,7 +57,7 @@ class CombinedShareTest extends ExtendedTestCase
      */
     public function it_can_generate_generate_multiple_share_links_at_once_with_extra_options()
     {
-        $result = ShareFacade::page('https://codeswitch.be', 'My share title', ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://codeswitch.be', 'My share title', ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')
             ->facebook()
             ->twitter()
             ->whatsapp()

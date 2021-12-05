@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Facade;
  * @method pinterest()
  * @method array getRawLinks()
  */
-class ShareFacade extends Facade
+class ShareButtonsFacade extends Facade
 {
     /**
      * Get the registered name of the component.
