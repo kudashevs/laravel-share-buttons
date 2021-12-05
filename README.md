@@ -34,7 +34,7 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 ```php
 // config/app.php
 'providers' => [
-    ShareButtons\Share\Providers\ShareButtonsServiceProvider::class,
+    Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
 ];
 ```
 
@@ -43,7 +43,7 @@ And optionally add the facade in config/app.php
 ```php
 // config/app.php
 'aliases' => [
-    'Share' => ShareButtons\Share\ShareFacade::class,
+    'Share' => Kudashevs\ShareButtons\Facades\ShareFacade::class,
 ];
 ```
 

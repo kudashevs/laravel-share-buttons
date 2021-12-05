@@ -1,9 +1,9 @@
 <?php
 
-namespace ShareButtons\Share\Providers;
+namespace Kudashevs\ShareButtons\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use ShareButtons\Share\Share;
+use Kudashevs\ShareButtons\Share;
 
 class ShareButtonsServiceProvider extends ServiceProvider
 {

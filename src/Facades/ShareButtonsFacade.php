@@ -1,6 +1,6 @@
 <?php
 
-namespace ShareButtons\Share\Facades;
+namespace Kudashevs\ShareButtons\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

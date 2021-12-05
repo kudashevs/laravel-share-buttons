@@ -1,6 +1,6 @@
 <?php
 
-namespace ShareButtons\Share\Test;
+namespace Kudashevs\ShareButtons\Test;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
@@ -14,6 +14,6 @@ class ExtendedTestCase extends BaseTestCase
      */
     protected function getPackageProviders($application)
     {
-        return ['ShareButtons\Share\Providers\ShareButtonsServiceProvider'];
+        return ['Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider'];
     }
 }

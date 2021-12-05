@@ -1,6 +1,6 @@
 <?php
 
-namespace ShareButtons\Share;
+namespace Kudashevs\ShareButtons;
 
 class Share
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace ShareButtons\Share\Test\Share;
+namespace Kudashevs\ShareButtons\Test\Share;
 
-use ShareButtons\Share\Facades\ShareButtonsFacade;
-use ShareButtons\Share\Test\ExtendedTestCase;
+use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
+use Kudashevs\ShareButtons\Test\ExtendedTestCase;
 
 class FacebookShareTest extends ExtendedTestCase
 {

@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ShareButtons\\Share\\": "src"
+            "Kudashevs\\ShareButtons\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ShareButtons\\Share\\Test\\": "tests"
+            "Kudashevs\\ShareButtons\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,10 +47,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ShareButtons\\Share\\Providers\\ShareButtonsServiceProvider"
+                "Kudashevs\\ShareButtons\\Providers\\ShareButtonsServiceProvider"
             ],
             "aliases": {
-                "Share": "ShareButtons\\Share\\ShareFacade"
+                "Share": "Kudashevs\\ShareButtons\\Facades\\ShareButtonsFacade"
             }
         }
     }
