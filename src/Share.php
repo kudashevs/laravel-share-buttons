@@ -255,6 +255,15 @@ class Share
     }
 
     /**
+     * @param string $provider
+     * @param string $socialNetworkUrl
+     */
+    protected function rememberRawLink($provider, $socialNetworkUrl)
+    {
+        $this->generatedUrls[$provider] = $socialNetworkUrl;
+    }
+
+    /**
      * Set custom prefix and/or suffix optionally.
      *
      * @param string $prefix
@@ -269,14 +278,5 @@ class Share
         if (!is_null($suffix)) {
             $this->suffix = $suffix;
         }
-    }
-
-    /**
-     * @param string $provider
-     * @param string $socialNetworkUrl
-     */
-    protected function rememberRawLink($provider, $socialNetworkUrl)
-    {
-        $this->generatedUrls[$provider] = $socialNetworkUrl;
     }
 }
