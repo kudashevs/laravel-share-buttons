@@ -122,7 +122,8 @@ class ShareTest extends ExtendedTestCase
                 'whatsapp',
                 'https://mysite.com',
                 'My whatsapp title',
-                'https://wa.me/?text=https://mysite.com'],
+                'https://wa.me/?text=https://mysite.com',
+            ],
             'pinterest' => [
                 'pinterest',
                 'https://mysite.com',
