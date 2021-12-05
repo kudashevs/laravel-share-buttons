@@ -5,8 +5,10 @@ namespace ShareButtons\Share\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method page($url, ?string $title = null, array $options = [], ?string $prefix = null, ?string $suffix = null)
- * @method currentPage($url, ?string $title = null, array $options = [], ?string $prefix = null, ?string $suffix = null)
+ * @todo constantly update this signature mapper.
+ *
+ * @method page($url, string $title = '', array $options = [], ?string $prefix = null, ?string $suffix = null)
+ * @method currentPage($url, string $title = '', array $options = [], ?string $prefix = null, ?string $suffix = null)
  * @method facebook()
  * @method twitter()
  * @method reddit()
