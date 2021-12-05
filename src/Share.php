@@ -255,6 +255,8 @@ class Share
     }
 
     /**
+     * Remember a processed link.
+     *
      * @param string $provider
      * @param string $socialNetworkUrl
      */
