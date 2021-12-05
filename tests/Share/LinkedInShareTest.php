@@ -7,9 +7,7 @@ use ShareButtons\Share\Test\ExtendedTestCase;
 
 class LinkedinShareTest extends ExtendedTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_linkedin_share_link()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Title')->linkedin('A summary can be passed here');
@@ -18,9 +16,7 @@ class LinkedinShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_linkedin_share_link_without_summary()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Title')->linkedin();
@@ -29,9 +25,7 @@ class LinkedinShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_linkedin_share_link_with_a_custom_class()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Title', ['class' => 'my-class'])
@@ -41,9 +35,7 @@ class LinkedinShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_linkedin_share_link_with_a_custom_class_and_custom_id()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Title', ['class' => 'my-class', 'id' => 'my-id'])
@@ -53,9 +45,7 @@ class LinkedinShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_linkedin_share_link_with_custom_prefix_and_suffix()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Title', [], '<ul>', '</ul>')
@@ -65,9 +55,7 @@ class LinkedinShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_linkedin_share_link_with_all_extra_options()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Title', ['class' => 'my-class my-class2', 'id' => 'linkedin-share', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')

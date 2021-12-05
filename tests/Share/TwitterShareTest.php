@@ -7,9 +7,7 @@ use ShareButtons\Share\Test\ExtendedTestCase;
 
 class TwitterShareTest extends ExtendedTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_twitter_share_link_with_default_share_text()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be')->twitter();
@@ -18,9 +16,7 @@ class TwitterShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_twitter_share_link_with_custom_share_text()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Meet Joren Van Hocht a php developer with a passion for laravel')
@@ -30,9 +26,7 @@ class TwitterShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_facebook_share_link_with_a_custom_class()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Meet Joren Van Hocht a php developer with a passion for laravel', ['class' => 'my-class'])
@@ -42,9 +36,7 @@ class TwitterShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_twitter_share_link_with_a_custom_id()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Meet Joren Van Hocht a php developer with a passion for laravel', ['id' => 'my-id'])
@@ -54,9 +46,7 @@ class TwitterShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_twitter_share_link_with_a_custom_class_and_custom_id()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Meet Joren Van Hocht a php developer with a passion for laravel', ['class' => 'my-class', 'id' => 'my-id'])
@@ -66,9 +56,7 @@ class TwitterShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_twitter_share_link_with_custom_prefix_and_suffix()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', null, [], '<ul>', '</ul>')
@@ -78,9 +66,7 @@ class TwitterShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_twitter_share_link_with_all_extra_options()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'Meet Joren Van Hocht a php developer with a passion for laravel', ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')

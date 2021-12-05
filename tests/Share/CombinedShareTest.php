@@ -7,9 +7,7 @@ use ShareButtons\Share\Test\ExtendedTestCase;
 
 class CombinedShareTest extends ExtendedTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_generate_multiple_share_links_at_once()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'My share title')
@@ -25,9 +23,7 @@ class CombinedShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_multiple_share_links_at_once_and_multiple_times_after_each_other()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'My share title')
@@ -52,9 +48,7 @@ class CombinedShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_generate_multiple_share_links_at_once_with_extra_options()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', 'My share title', ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')

@@ -7,9 +7,7 @@ use ShareButtons\Share\Test\ExtendedTestCase;
 
 class WhatsappShareTest extends ExtendedTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_default_share_text()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be')->whatsapp();
@@ -18,9 +16,7 @@ class WhatsappShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_a_custom_class()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', null, ['class' => 'my-class'])
@@ -30,9 +26,7 @@ class WhatsappShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_a_custom_id()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', null, ['id' => 'my-id'])
@@ -42,9 +36,7 @@ class WhatsappShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_a_custom_class_and_custom_id()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', null, ['class' => 'my-class', 'id' => 'my-id'])
@@ -54,9 +46,7 @@ class WhatsappShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_custom_prefix_and_suffix()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', null, [], '<ul>', '</ul>')
@@ -66,9 +56,7 @@ class WhatsappShareTest extends ExtendedTestCase
         $this->assertEquals($expected, (string)$result);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_all_extra_options()
     {
         $result = ShareButtonsFacade::page('https://codeswitch.be', null, ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')
