@@ -2,7 +2,6 @@
 
 namespace ShareButtons\Share\Test\Share;
 
-use ShareButtons\Share\Facades\ShareFacade;
 use ShareButtons\Share\Share;
 use ShareButtons\Share\Test\ExtendedTestCase;
 
