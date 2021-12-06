@@ -12,13 +12,6 @@ class ShareButtons
     protected $url;
 
     /**
-     * The generated urls.
-     *
-     * @var string
-     */
-    protected $generatedUrls = [];
-
-    /**
      * Optional text for Twitter and Linkedin title.
      *
      * @var string
@@ -45,6 +38,13 @@ class ShareButtons
      * @var string
      */
     protected $suffix = '</ul></div>';
+
+    /**
+     * The generated urls.
+     *
+     * @var string
+     */
+    protected $generatedUrls = [];
 
     /**
      * The generated html.
