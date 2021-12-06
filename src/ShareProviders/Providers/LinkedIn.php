@@ -10,7 +10,7 @@ class LinkedIn implements ShareProvider
         $title = empty($options['title']) ? config('laravel-share.services.linkedin.text') : $options['title'];
         $summary = empty($options['summary']) ? '' : $options['summary'];
 
-        $providersUrl = config('laravel-share.services.linkedin.uri');
+        $providersUrl = config('laravel-share.services.linkedin.url');
         $mini = config('laravel-share.services.linkedin.extra.mini');
 
         return $providersUrl . '?mini=' . $mini . '&url=' . $url . '&title=' . urlencode($title) . '&summary=' . urlencode($summary);

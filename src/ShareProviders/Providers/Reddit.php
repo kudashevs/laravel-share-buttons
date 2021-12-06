@@ -9,7 +9,7 @@ class Reddit implements ShareProvider
     {
         $title = empty($options['title']) ? config('laravel-share.services.reddit.text') : $options['title'];
 
-        $providersUrl = config('laravel-share.services.reddit.uri');
+        $providersUrl = config('laravel-share.services.reddit.url');
 
         return $providersUrl . '?title=' . urlencode($title) . '&url=' . $url;
     }

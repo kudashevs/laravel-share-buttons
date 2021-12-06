@@ -7,7 +7,7 @@ class WhatsApp implements ShareProvider
 
     public function buildUrl(string $url, array $options = []): string
     {
-        $providersUrl = config('laravel-share.services.whatsapp.uri');
+        $providersUrl = config('laravel-share.services.whatsapp.url');
 
         return $providersUrl . $url;
     }

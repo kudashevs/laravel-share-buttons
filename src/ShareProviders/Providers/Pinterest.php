@@ -7,7 +7,7 @@ class Pinterest implements ShareProvider
 
     public function buildUrl(string $url, array $options = []): string
     {
-        $repository = config('laravel-share.services.pinterest.uri');
+        $repository = config('laravel-share.services.pinterest.url');
 
         return $repository . $url;
     }
