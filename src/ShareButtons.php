@@ -201,7 +201,6 @@ class ShareButtons
      * @param $arguments
      * @return $this
      * @throws \Error
-     * @throws \ReflectionException // todo eliminate this
      */
     public function __call($name, $arguments)
     {
@@ -219,7 +218,7 @@ class ShareButtons
             return $this;
         }
 
-        throw new \Error('Call to undefined method ' . (new \ReflectionClass($this))->getShortName() . '::' . $name . '()');
+        throw new \Error('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
     }
 
     /**

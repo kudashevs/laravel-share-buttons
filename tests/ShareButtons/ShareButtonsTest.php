@@ -17,6 +17,15 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_throw_error_on_wrong_provider_name()
+    {
+        $this->expectException(\Error::class);
+        $this->expectExceptionMessage('method ShareButtons::wrong()');
+
+        $this->share->page('https://mysite.com')->wrong();
+    }
+
+    /** @test */
     public function it_creates_self_instance_on_page()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->page('https://mysite.com'));
