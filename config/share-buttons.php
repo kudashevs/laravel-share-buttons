@@ -48,8 +48,8 @@ return [
     | Font Awesome
     |--------------------------------------------------------------------------
     |
-    | Specify the version of Font Awesome that you want to use.
-    | We support version 4 and 5.
+    | This value specifies the version of Font Awesome which is going to be used.
+    | At the moment the package supports version 5 (default value).
     |
     |
     */
