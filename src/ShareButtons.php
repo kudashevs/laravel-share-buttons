@@ -54,13 +54,6 @@ class ShareButtons
     protected $generatedRepresentation = [];
 
     /**
-     * The generated html.
-     *
-     * @var string
-     */
-    protected $html = '';
-
-    /**
      * Share constructor.
      */
     public function __construct()
@@ -252,19 +245,9 @@ class ShareButtons
      */
     protected function buildLink($provider, $url)
     {
-        $fontAwesomeVersion = config('laravel-share.fontAwesomeVersion', 5);
-
         $this->rememberRawLink($provider, $url);
 
         $this->rememberRepresentation($provider, $url);
-
-        $this->html .= trans("laravel-share::laravel-share-fa$fontAwesomeVersion.$provider", [
-            'url' => $url,
-            'class' => key_exists('class', $this->options) ? $this->options['class'] : '',
-            'id' => key_exists('id', $this->options) ? $this->options['id'] : '',
-            'title' => key_exists('title', $this->options) ? $this->options['title'] : '',
-            'rel' => key_exists('rel', $this->options) ? $this->options['rel'] : '',
-        ]);
     }
 
     /**
