@@ -40,11 +40,18 @@ class ShareButtons
     protected $suffix = '</ul></div>';
 
     /**
-     * The generated urls.
+     * Contains generated urls.
      *
      * @var string
      */
     protected $generatedUrls = [];
+
+    /**
+     * Contains generated representation.
+     *
+     * @var array
+     */
+    protected $generatedRepresentation = [];
 
     /**
      * The generated html.
