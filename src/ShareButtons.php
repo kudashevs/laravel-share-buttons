@@ -100,19 +100,16 @@ class ShareButtons
      * @param string $url
      * @param string $title
      * @param array $options
-     * @param string|null $prefix
-     * @param string|null $suffix
      * @return $this
      */
-    public function page($url, $title = '', $options = [], $prefix = null, $suffix = null)
+    public function page($url, $title = '', $options = [])
     {
         $this->clearState();
 
         $this->url = $url;
         $this->title = $title;
-        $this->options = $options;
 
-        $this->setPrefixAndSuffix($prefix, $suffix);
+        $this->initPrefixAndSuffix($options);
 
         return $this;
     }
@@ -129,15 +126,13 @@ class ShareButtons
     /**
      * @param string $title
      * @param array $options
-     * @param string|null $prefix
-     * @param string|null $suffix
      * @return $this
      */
-    public function currentPage($title = '', $options = [], $prefix = null, $suffix = null)
+    public function currentPage($title = '', $options = [])
     {
         $url = request()->getUri();
 
-        return $this->page($url, $title, $options, $prefix, $suffix);
+        return $this->page($url, $title, $options);
     }
 
     /**
@@ -261,11 +256,11 @@ class ShareButtons
     {
         $representation = '';
 
-        $representation .= $this->prefix;
+        $representation .= $this->options['prefix'];
         foreach ($this->generatedRepresentation as $link) {
             $representation .= $link;
         }
-        $representation .= $this->suffix;
+        $representation .= $this->options['suffix'];
 
         return $representation;
     }

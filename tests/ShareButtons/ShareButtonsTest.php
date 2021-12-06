@@ -198,7 +198,7 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_generate_multiple_share_links_at_once_with_extra_options()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title', ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')
+        $result = $this->share->page('https://mysite.com', 'My share title', ['prefix' => '<ul>', 'suffix' => '</ul>', 'class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'])
             ->facebook()
             ->twitter()
             ->whatsapp()
