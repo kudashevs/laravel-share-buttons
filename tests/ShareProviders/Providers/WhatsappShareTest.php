@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\ShareButtons\ShareProviders;
+namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;

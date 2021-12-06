@@ -1,11 +1,11 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\ShareButtons\ShareProviders;
+namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class FacebookTest extends ExtendedTestCase
+class FacebookShareTest extends ExtendedTestCase
 {
     /** @test */
     public function it_can_generate_a_facebook_share_link()
