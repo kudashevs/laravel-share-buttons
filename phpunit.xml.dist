@@ -19,6 +19,10 @@
         <include>
             <directory suffix=".php">./src</directory>
         </include>
+        <exclude>
+            <file>src/Facades/ShareButtonsFacade.php</file>
+            <file>src/Providers/ShareButtonsServiceProvider.php</file>
+        </exclude>
         <report>
             <html outputDirectory="build/coverage"/>
             <text outputFile="build/coverage.txt"/>
