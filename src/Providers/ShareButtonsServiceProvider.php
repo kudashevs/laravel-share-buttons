@@ -19,7 +19,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
         ], 'translations');
 
         $this->publishes([
-            __DIR__ . '/../../config/laravel-share.php' => config_path('laravel-share.php'),
+            __DIR__ . '/../../config/share-buttons.php' => config_path('share-buttons.php'),
         ], 'config');
 
         $this->publishes([
@@ -36,6 +36,6 @@ class ShareButtonsServiceProvider extends ServiceProvider
             return new ShareButtons();
         });
 
-        $this->mergeConfigFrom(__DIR__ . '/../../config/laravel-share.php', 'laravel-share');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');
     }
 }

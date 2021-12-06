@@ -6,7 +6,7 @@ class Facebook implements ShareProvider
 {
     public function buildUrl(string $url, array $options = []): string
     {
-        $providersUrl = config('laravel-share.providers.facebook.url');
+        $providersUrl = config('share-buttons.providers.facebook.url');
 
         return $providersUrl . $url;
     }
