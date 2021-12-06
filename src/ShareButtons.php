@@ -197,10 +197,10 @@ class ShareButtons
             "share-buttons::share-buttons-fontawesome-$fontAwesomeVersion.$provider",
             [
                 'url' => $url,
-                'class' => key_exists('class', $this->options) ? $this->options['class'] : '',
-                'id' => key_exists('id', $this->options) ? $this->options['id'] : '',
-                'title' => key_exists('title', $this->options) ? $this->options['title'] : '',
-                'rel' => key_exists('rel', $this->options) ? $this->options['rel'] : '',
+                'class' => !empty($this->options['class']) ? $this->options['class'] : '',
+                'id' => !empty($this->options['id']) ? $this->options['id'] : '',
+                'title' => !empty($this->options['title']) ? $this->options['title'] : '',
+                'rel' => !empty($this->options['rel']) ? $this->options['rel'] : '',
             ]);
     }
 
