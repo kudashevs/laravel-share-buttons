@@ -26,22 +26,10 @@ class ShareButtons
      * @var array
      */
     protected $options = [
+        'prefix' => '<div id="social-links"><ul>',
+        'suffix' => '</ul></div>',
         'fontAwesomeVersion' => 5,
     ];
-
-    /**
-     * An HTML code to prefix before the share links.
-     *
-     * @var string
-     */
-    protected $prefix = '<div id="social-links"><ul>';
-
-    /**
-     * An HTML code to append after the share links.
-     *
-     * @var string
-     */
-    protected $suffix = '</ul></div>';
 
     /**
      * Contains share providers instances.
@@ -70,6 +58,7 @@ class ShareButtons
     public function __construct(array $options = [])
     {
         $this->initFontAwesomeVersion($options);
+        $this->initPrefixAndSuffix($options);
         $this->initProviders();
     }
 
@@ -80,6 +69,20 @@ class ShareButtons
     {
         if (!empty($options['fontAwesomeVersion']) && is_int($options['fontAwesomeVersion'])) {
             $this->options['fontAwesomeVersion'] = $options['fontAwesomeVersion'];
+        }
+    }
+
+    /**
+     * @param array $options
+     */
+    private function initPrefixAndSuffix(array $options)
+    {
+        if (!empty($options['prefix'])) {
+            $this->options['prefix'] = $options['prefix'];
+        }
+
+        if (!empty($options['suffix'])) {
+            $this->options['suffix'] = $options['suffix'];
         }
     }
 
@@ -190,23 +193,6 @@ class ShareButtons
                 'title' => key_exists('title', $this->options) ? $this->options['title'] : '',
                 'rel' => key_exists('rel', $this->options) ? $this->options['rel'] : '',
             ]);
-    }
-
-    /**
-     * Set custom prefix and/or suffix optionally.
-     *
-     * @param string $prefix
-     * @param string $suffix
-     */
-    protected function setPrefixAndSuffix($prefix, $suffix)
-    {
-        if (!is_null($prefix)) {
-            $this->prefix = $prefix;
-        }
-
-        if (!is_null($suffix)) {
-            $this->suffix = $suffix;
-        }
     }
 
     /**
