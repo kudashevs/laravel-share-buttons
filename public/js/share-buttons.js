@@ -16,5 +16,4 @@ $(document).on('click', '.social-button', function (e) {
         popup.focus();
         e.preventDefault();
     }
-
 });
