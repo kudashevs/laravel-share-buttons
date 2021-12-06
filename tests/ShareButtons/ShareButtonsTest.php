@@ -153,6 +153,7 @@ class ShareButtonsTest extends ExtendedTestCase
             ],
         ];
     }
+
     /** @test */
     public function it_can_generate_generate_multiple_share_links_at_once()
     {
