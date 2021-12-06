@@ -251,7 +251,6 @@ class Share
             'title' => key_exists('title', $this->options) ? $this->options['title'] : '',
             'rel' => key_exists('rel', $this->options) ? $this->options['rel'] : '',
         ]);
-
     }
 
     /**
