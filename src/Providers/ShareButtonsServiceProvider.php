@@ -3,7 +3,7 @@
 namespace Kudashevs\ShareButtons\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Kudashevs\ShareButtons\Share;
+use Kudashevs\ShareButtons\ShareButtons;
 
 class ShareButtonsServiceProvider extends ServiceProvider
 {
@@ -33,7 +33,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('share', function () {
-            return new Share();
+            return new ShareButtons();
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/laravel-share.php', 'laravel-share');

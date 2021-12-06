@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Test\Share;
 
-use Kudashevs\ShareButtons\Share;
+use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Test\ExtendedTestCase;
 
 class ShareTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class ShareTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->share = new Share();
+        $this->share = new ShareButtons();
 
         parent::setUp();
     }
@@ -19,13 +19,13 @@ class ShareTest extends ExtendedTestCase
     /** @test */
     public function it_creates_self_instance_on_page()
     {
-        $this->assertInstanceOf(Share::class, $this->share->page('https://mysite.com'));
+        $this->assertInstanceOf(ShareButtons::class, $this->share->page('https://mysite.com'));
     }
 
     /** @test */
     public function it_create_self_instance_on_current_page()
     {
-        $this->assertInstanceOf(Share::class, $this->share->currentPage());
+        $this->assertInstanceOf(ShareButtons::class, $this->share->currentPage());
     }
 
     /** @test */

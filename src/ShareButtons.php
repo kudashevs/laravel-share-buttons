@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons;
 
-class Share
+class ShareButtons
 {
     /**
      * The url of the page to share.
