@@ -223,6 +223,17 @@ class ShareButtons
     }
 
     /**
+     * @param object $object
+     * @return string
+     */
+    private function getShortClassName(object $object): string
+    {
+        $parsed = explode('\\', get_class($object));
+
+        return end($parsed);
+    }
+
+    /**
      * @param array $arguments
      * @return array
      */
