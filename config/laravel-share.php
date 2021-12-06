@@ -22,7 +22,7 @@ return [
             'text' => 'Default share text',
         ],
         'linkedin' => [
-            'url' => 'https://www.linkedin.com/sharing/share-offsite', // oud: http://www.linkedin.com/shareArticle
+            'url' => 'https://www.linkedin.com/sharing/share-offsite',
             'text' => 'Default share text',
             'extra' => ['mini' => 'true'],
         ],
