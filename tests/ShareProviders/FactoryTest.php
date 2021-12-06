@@ -20,19 +20,24 @@ class FactoryTest extends TestCase
     public function it_returns_an_array_with_specific_providers()
     {
         $providers = Factory::create();
-        $firstKey = current(array_keys(Factory::PROVIDERS));
 
         $this->assertCount(count(Factory::PROVIDERS), $providers);
-        $this->assertArrayHasKey($firstKey, $providers);
+        $this->assertArrayHasKey($this->getProvidersFirstKey(), $providers);
     }
 
     /** @test */
     public function it_returns_an_array_with_specific_instances()
     {
         $providers = Factory::create();
-        $firstKey = current(array_keys(Factory::PROVIDERS));
+        $firstKey = $this->getProvidersFirstKey();
 
         $this->assertIsObject($providers[$firstKey]);
         $this->assertInstanceOf(ShareProvider::class, $providers[$firstKey]);
     }
+
+    private function getProvidersFirstKey()
+    {
+        return current(array_keys(Factory::PROVIDERS));
+    }
+
 }
