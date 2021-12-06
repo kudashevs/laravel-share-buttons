@@ -5,7 +5,7 @@ namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class RedditShareTest extends ExtendedTestCase
+class RedditTest extends ExtendedTestCase
 {
     /** @test */
     public function it_can_generate_a_reddit_share_link_with_default_share_text()
