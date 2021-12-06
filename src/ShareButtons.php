@@ -302,6 +302,32 @@ class ShareButtons
     }
 
     /**
+     * @param $name
+     * @param $arguments
+     * @return $this
+     * @throws \Error
+     * @throws \ReflectionException // todo eliminate this
+     */
+    public function __call($name, $arguments)
+    {
+        if (array_key_exists($name, $this->providers)) {
+            $additions = [
+                'title' => $this->title,
+            ];
+
+            $processedUrl = $this->providers[$name]->buildUrl(
+                $this->url,
+                array_merge($additions, $arguments[0])
+            );
+            $this->buildLink($name, $processedUrl);
+
+            return $this;
+        }
+
+        throw new \Error('Call to undefined method ' . (new \ReflectionClass($this))->getShortName() . '::' . $name . '()');
+    }
+
+    /**
      * Return a string with generated HTML code.
      *
      * @return string
