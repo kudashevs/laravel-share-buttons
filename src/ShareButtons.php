@@ -74,10 +74,15 @@ class ShareButtons
      */
     public function __toString()
     {
-        $this->html = $this->prefix . $this->html;
-        $this->html .= $this->suffix;
+        $representation = '';
 
-        return $this->html;
+        $representation .= $this->prefix;
+        foreach ($this->generatedRepresentation as $link) {
+            $representation .= $link;
+        }
+        $representation .= $this->suffix;
+
+        return $representation;
     }
 
     /**
