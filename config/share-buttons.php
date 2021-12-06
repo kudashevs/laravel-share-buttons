@@ -7,8 +7,8 @@ return [
     | Providers
     |--------------------------------------------------------------------------
     |
-    | Specify the base uri for each service.
-    |
+    | This value specifies basic settings for share providers.
+    | They include a share url, default share text, some extras.
     |
     |
     */
