@@ -5,7 +5,7 @@ namespace Kudashevs\ShareButtons\Tests\ShareButtons;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class ShareTest extends ExtendedTestCase
+class ShareButtonsTest extends ExtendedTestCase
 {
     private $share;
 
