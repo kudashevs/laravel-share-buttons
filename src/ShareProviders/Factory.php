@@ -6,10 +6,7 @@ use Kudashevs\ShareButtons\ShareProviders\Providers\ShareProvider;
 
 final class Factory
 {
-    /**
-     * @var array
-     */
-    public static $providers = [
+    public const PROVIDERS = [
         'facebook' => Providers\Facebook::class,
     ];
 
@@ -37,7 +34,7 @@ final class Factory
     {
         $providers = [];
 
-        foreach (self::$providers as $name => $class) {
+        foreach (self::PROVIDERS as $name => $class) {
             $providers[$name] = self::instantiateProvider($class);
         }
 
