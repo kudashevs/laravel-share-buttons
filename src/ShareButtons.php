@@ -177,7 +177,7 @@ class ShareButtons
      */
     protected function rememberRepresentation($provider, $url)
     {
-        $fontAwesomeVersion = config('laravel-share.fontAwesomeVersion', 5);
+        $fontAwesomeVersion = $this->options['fontAwesomeVersion'];
 
         $this->generatedRepresentation[$provider] = trans(
             "share-buttons::share-buttons-fontawesome-$fontAwesomeVersion.$provider",
