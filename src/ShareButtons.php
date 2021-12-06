@@ -251,7 +251,7 @@ class ShareButtons
     }
 
     /**
-     * Remember a processed link.
+     * Remembers a processed link.
      *
      * @param string $provider
      * @param string $socialNetworkUrl
@@ -261,6 +261,12 @@ class ShareButtons
         $this->generatedUrls[$provider] = $socialNetworkUrl;
     }
 
+    /**
+     * Remembers a processed link.
+     *
+     * @param $provider
+     * @param $url
+     */
     protected function rememberRepresentation($provider, $url)
     {
         $fontAwesomeVersion = config('laravel-share.fontAwesomeVersion', 5);
