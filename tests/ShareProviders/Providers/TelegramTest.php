@@ -5,7 +5,7 @@ namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class TelegramShareTest extends ExtendedTestCase
+class TelegramTest extends ExtendedTestCase
 {
     public function provide_different_data_for_one_link()
     {
