@@ -102,7 +102,7 @@ class ShareButtons
      * @param array $options
      * @return $this
      */
-    public function page($url, $title = '', $options = [])
+    public function page(string $url, string $title = '', array $options = []): self
     {
         $this->clearState();
 
@@ -128,7 +128,7 @@ class ShareButtons
      * @param array $options
      * @return $this
      */
-    public function currentPage($title = '', $options = [])
+    public function currentPage(string $title = '', array $options = []): self
     {
         $url = request()->getUri();
 

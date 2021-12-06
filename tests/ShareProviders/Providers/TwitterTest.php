@@ -59,7 +59,7 @@ class TwitterTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_twitter_share_link_with_custom_prefix_and_suffix()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, [], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', '', [], '<ul>', '</ul>')
             ->twitter();
         $expected = '<ul><li><a href="https://twitter.com/intent/tweet?text=Default+share+text&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul>';
 

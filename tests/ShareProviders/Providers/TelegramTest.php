@@ -66,7 +66,7 @@ class TelegramTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_telegram_share_link_with_custom_prefix_and_suffix()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, [], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', '', [], '<ul>', '</ul>')
             ->telegram();
         $expected = '<ul><li><a target="_blank" href="https://telegram.me/share/url?url=https://mysite.com&text=Default+share+text" class="social-button " id="" title="" rel=""><span class="fab fa-telegram"></span></a></li></ul>';
 

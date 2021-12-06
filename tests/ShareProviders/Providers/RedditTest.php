@@ -59,7 +59,7 @@ class RedditTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_reddit_share_link_with_custom_prefix_and_suffix()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, [], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', '', [], '<ul>', '</ul>')
             ->reddit();
         $expected = '<ul><li><a target="_blank" href="https://www.reddit.com/submit?title=Default+share+text&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-reddit"></span></a></li></ul>';
 

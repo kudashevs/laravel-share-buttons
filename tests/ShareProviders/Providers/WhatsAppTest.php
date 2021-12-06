@@ -19,7 +19,7 @@ class WhatsAppTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_a_custom_class()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, ['class' => 'my-class'])
+        $result = ShareButtonsFacade::page('https://mysite.com', '', ['class' => 'my-class'])
             ->whatsapp();
         $expected = '<div id="social-links"><ul><li><a target="_blank" href="https://wa.me/?text=https://mysite.com" class="social-button my-class" id="" title="" rel=""><span class="fab fa-whatsapp"></span></a></li></ul></div>';
 
@@ -29,7 +29,7 @@ class WhatsAppTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_a_custom_id()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, ['id' => 'my-id'])
+        $result = ShareButtonsFacade::page('https://mysite.com', '', ['id' => 'my-id'])
             ->whatsapp();
         $expected = '<div id="social-links"><ul><li><a target="_blank" href="https://wa.me/?text=https://mysite.com" class="social-button " id="my-id" title="" rel=""><span class="fab fa-whatsapp"></span></a></li></ul></div>';
 
@@ -39,7 +39,7 @@ class WhatsAppTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_a_custom_class_and_custom_id()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, ['class' => 'my-class', 'id' => 'my-id'])
+        $result = ShareButtonsFacade::page('https://mysite.com', '', ['class' => 'my-class', 'id' => 'my-id'])
             ->whatsapp();
         $expected = '<div id="social-links"><ul><li><a target="_blank" href="https://wa.me/?text=https://mysite.com" class="social-button my-class" id="my-id" title="" rel=""><span class="fab fa-whatsapp"></span></a></li></ul></div>';
 
@@ -49,7 +49,7 @@ class WhatsAppTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_custom_prefix_and_suffix()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, [], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', '', [], '<ul>', '</ul>')
             ->whatsapp();
         $expected = '<ul><li><a target="_blank" href="https://wa.me/?text=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-whatsapp"></span></a></li></ul>';
 
@@ -59,7 +59,7 @@ class WhatsAppTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_whatsapp_share_link_with_all_extra_options()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', '', ['class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')
             ->whatsapp();
         $expected = '<ul><li><a target="_blank" href="https://wa.me/?text=https://mysite.com" class="social-button my-class" id="my-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-whatsapp"></span></a></li></ul>';
 

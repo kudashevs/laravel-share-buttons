@@ -19,7 +19,7 @@ class PinterestTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_pinterest_share_link_with_a_custom_class()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, ['class' => 'my-class'])
+        $result = ShareButtonsFacade::page('https://mysite.com', '', ['class' => 'my-class'])
             ->pinterest();
         $expected = '<div id="social-links"><ul><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button my-class" id="" title="" rel=""><span class="fab fa-pinterest"></span></a></li></ul></div>';
 
@@ -29,7 +29,7 @@ class PinterestTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_pinterest_share_link_with_a_custom_class_and_custom_id()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, ['class' => 'my-class', 'id' => 'my-id'])
+        $result = ShareButtonsFacade::page('https://mysite.com', '', ['class' => 'my-class', 'id' => 'my-id'])
             ->pinterest();
         $expected = '<div id="social-links"><ul><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button my-class" id="my-id" title="" rel=""><span class="fab fa-pinterest"></span></a></li></ul></div>';
 
@@ -39,7 +39,7 @@ class PinterestTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_pinterest_share_link_with_custom_prefix_and_suffix()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', null, [], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', '', [], '<ul>', '</ul>')
             ->pinterest();
         $expected = '<ul><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-pinterest"></span></a></li></ul>';
 
