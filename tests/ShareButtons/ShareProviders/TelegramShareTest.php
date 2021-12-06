@@ -1,12 +1,19 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\ShareButtons;
+namespace Kudashevs\ShareButtons\Tests\ShareButtons\ShareProviders;
 
 use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TelegramShareTest extends ExtendedTestCase
 {
+    public function provide_different_data_for_one_link()
+    {
+        return [
+
+        ];
+    }
+
     /** @test */
     public function it_can_generate_a_telegram_share_link_with_default_share_text()
     {
