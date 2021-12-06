@@ -86,7 +86,7 @@ class ShareButtonsTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_media_for_one_link
+     * @dataProvider provide_different_share_providers_for_one_link
      */
     public function it_returns_one_link_on_get_raw_links($media, $link, $title, $expected)
     {
@@ -97,7 +97,7 @@ class ShareButtonsTest extends ExtendedTestCase
         $this->assertEquals([$media => $expected], $result);
     }
 
-    public function provide_media_for_one_link()
+    public function provide_different_share_providers_for_one_link()
     {
         return [
             'facebook' => [
