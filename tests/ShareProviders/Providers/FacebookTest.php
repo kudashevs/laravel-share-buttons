@@ -39,7 +39,7 @@ class FacebookTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_facebook_share_link_with_custom_prefix_and_suffix()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', '', [], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', '', ['prefix' => '<ul>', 'suffix' => '</ul>'])
             ->facebook();
         $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li></ul>';
 
@@ -49,7 +49,14 @@ class FacebookTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_facebook_share_link_with_all_extra_options()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com', 'title that is not used for fb', ['class' => 'my-class my-class2', 'id' => 'fb-share', 'title' => 'My Title for SEO', 'rel' => 'nofollow'], '<ul>', '</ul>')
+        $result = ShareButtonsFacade::page('https://mysite.com', 'title that is not used for fb', [
+            'prefix' => '<ul>',
+            'suffix' => '</ul>',
+            'class' => 'my-class my-class2',
+            'id' => 'fb-share',
+            'title' => 'My Title for SEO',
+            'rel' => 'nofollow',
+        ])
             ->facebook();
         $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button my-class my-class2" id="fb-share" title="My Title for SEO" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li></ul>';
 
