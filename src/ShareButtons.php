@@ -25,7 +25,9 @@ class ShareButtons
      *
      * @var array
      */
-    protected $options = [];
+    protected $options = [
+        'fontAwesomeVersion' => 5,
+    ];
 
     /**
      * An HTML code to prefix before the share links.
@@ -65,9 +67,20 @@ class ShareButtons
     /**
      * Share constructor.
      */
-    public function __construct()
+    public function __construct(array $options = [])
     {
+        $this->initFontAwesomeVersion($options);
         $this->initProviders();
+    }
+
+    /**
+     * @param array $options
+     */
+    private function initFontAwesomeVersion(array $options): void
+    {
+        if (!empty($options['fontAwesomeVersion']) && is_int($options['fontAwesomeVersion'])) {
+            $this->options['fontAwesomeVersion'] = $options['fontAwesomeVersion'];
+        }
     }
 
     /**
