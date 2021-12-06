@@ -7,9 +7,9 @@ class Telegram implements ShareProvider
 
     public function buildUrl(string $url, array $options = []): string
     {
-        $title = empty($options['title']) ? config('laravel-share.services.telegram.text') : $options['title'];
+        $title = empty($options['title']) ? config('laravel-share.providers.telegram.text') : $options['title'];
 
-        $providersUrl = config('laravel-share.services.telegram.url');
+        $providersUrl = config('laravel-share.providers.telegram.url');
 
         return $providersUrl . '?url=' . $url . '&text=' . urlencode($title);
     }

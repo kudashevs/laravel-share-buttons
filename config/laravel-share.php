@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Services
+    | Providers
     |--------------------------------------------------------------------------
     |
     | Specify the base uri for each service.
@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'services' => [
+    'providers' => [
         'facebook' => [
             'url' => 'https://www.facebook.com/sharer/sharer.php?u=',
         ],
