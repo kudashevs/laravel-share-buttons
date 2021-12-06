@@ -81,24 +81,6 @@ class ShareButtons
     }
 
     /**
-     * Return a string with generated HTML code.
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        $representation = '';
-
-        $representation .= $this->prefix;
-        foreach ($this->generatedRepresentation as $link) {
-            $representation .= $link;
-        }
-        $representation .= $this->suffix;
-
-        return $representation;
-    }
-
-    /**
      * @param string $url
      * @param string $title
      * @param array $options
@@ -317,5 +299,23 @@ class ShareButtons
         if (!is_null($suffix)) {
             $this->suffix = $suffix;
         }
+    }
+
+    /**
+     * Return a string with generated HTML code.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        $representation = '';
+
+        $representation .= $this->prefix;
+        foreach ($this->generatedRepresentation as $link) {
+            $representation .= $link;
+        }
+        $representation .= $this->suffix;
+
+        return $representation;
     }
 }
