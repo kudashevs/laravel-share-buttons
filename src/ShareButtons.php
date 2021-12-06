@@ -90,6 +90,8 @@ class ShareButtons
      */
     public function page($url, $title = '', $options = [], $prefix = null, $suffix = null)
     {
+        $this->clearState();
+
         $this->url = $url;
         $this->title = $title;
         $this->options = $options;
@@ -97,6 +99,15 @@ class ShareButtons
         $this->setPrefixAndSuffix($prefix, $suffix);
 
         return $this;
+    }
+
+    /**
+     * Clear the state of a previous call.
+     */
+    private function clearState(): void
+    {
+        $this->generatedUrls = [];
+        $this->generatedRepresentation = [];
     }
 
     /**
