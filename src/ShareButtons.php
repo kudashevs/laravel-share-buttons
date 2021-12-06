@@ -2,6 +2,8 @@
 
 namespace Kudashevs\ShareButtons;
 
+use Kudashevs\ShareButtons\ShareProviders\Factory;
+
 class ShareButtons
 {
     /**
@@ -40,6 +42,13 @@ class ShareButtons
     protected $suffix = '</ul></div>';
 
     /**
+     * Contains share providers instances.
+     *
+     * @var array
+     */
+    private $providers = [];
+
+    /**
      * Contains generated urls.
      *
      * @var string
@@ -58,6 +67,17 @@ class ShareButtons
      */
     public function __construct()
     {
+        $this->initProviders();
+    }
+
+    /**
+     * Initializes share providers.
+     *
+     * @return void
+     */
+    private function initProviders(): void
+    {
+        $this->providers = Factory::create();
     }
 
     /**
