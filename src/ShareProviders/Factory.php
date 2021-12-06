@@ -7,7 +7,9 @@ final class Factory
     /**
      * @var array
      */
-    private static $providers = [];
+    public static $providers = [
+        'facebook' => Providers\Facebook::class,
+    ];
 
     /**
      * Factory constructor.
