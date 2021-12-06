@@ -2,7 +2,10 @@
 
 namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
-class Facebook
+class Facebook implements ShareProvider
 {
-
+    public function buildUrl(): string
+    {
+        return 'facebook';
+    }
 }
