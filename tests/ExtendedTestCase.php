@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Test;
+namespace Kudashevs\ShareButtons\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
