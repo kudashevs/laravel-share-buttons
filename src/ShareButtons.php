@@ -201,7 +201,7 @@ class ShareButtons
 
             $processedUrl = $this->providers[$name]->buildUrl(
                 $this->url,
-                array_merge($additions, $arguments[0])
+                array_merge($additions, $this->normalizeArguments($arguments))
             );
             $this->buildLink($name, $processedUrl);
 
@@ -209,6 +209,27 @@ class ShareButtons
         }
 
         throw new \Error('Call to undefined method ' . (new \ReflectionClass($this))->getShortName() . '::' . $name . '()');
+    }
+
+    /**
+     * @param array $arguments
+     * @return array
+     */
+    private function normalizeArguments(array $arguments): array
+    {
+        if (empty($arguments) || !isset($arguments[0])) {
+            return [];
+        }
+
+        if (is_string($arguments[0])) {
+            return ['title' => $arguments[0]];
+        }
+
+        if (is_array($arguments[0])) {
+            return $arguments[0];
+        }
+
+        return [];
     }
 
     /**
