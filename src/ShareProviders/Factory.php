@@ -2,6 +2,8 @@
 
 namespace Kudashevs\ShareButtons\ShareProviders;
 
+use Kudashevs\ShareButtons\ShareProviders\Providers\ShareProvider;
+
 final class Factory
 {
     /**
@@ -33,6 +35,21 @@ final class Factory
      */
     private static function generate(): array
     {
-        return self::$providers;
+        $providers = [];
+
+        foreach (self::$providers as $name => $class) {
+            $providers[$name] = self::instantiateProvider($class);
+        }
+
+        return $providers;
+    }
+
+    /**
+     * @param $provider
+     * @return ShareProvider
+     */
+    private static function instantiateProvider(string $provider): ShareProvider
+    {
+        return new $provider();
     }
 }
