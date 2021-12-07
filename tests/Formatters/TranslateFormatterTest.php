@@ -65,15 +65,25 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_default_block_prefix_on_empty_option()
+    public function it_returns_default_block_prefix_on_nonset_option()
     {
         $default = config('share-buttons.block_prefix');
-        $this->formatter->updateOptions(['block_prefix' => '']);
 
         $result = $this->formatter->getOptions();
 
         $this->assertArrayHasKey('block_prefix', $result);
         $this->assertSame($default, $result['block_prefix']);
+    }
+
+    /** @test */
+    public function it_returns_empty_block_prefix_on_empty_option()
+    {
+        $this->formatter->updateOptions(['block_prefix' => '']);
+
+        $result = $this->formatter->getOptions();
+
+        $this->assertArrayHasKey('block_prefix', $result);
+        $this->assertSame('', $result['block_prefix']);
     }
 
     /** @test */
@@ -88,15 +98,25 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_default_block_suffix_on_empty_option()
+    public function it_returns_default_block_suffix_on_nonset_option()
     {
         $default = config('share-buttons.block_suffix');
-        $this->formatter->updateOptions(['block_suffix' => '']);
 
         $result = $this->formatter->getOptions();
 
         $this->assertArrayHasKey('block_suffix', $result);
         $this->assertSame($default, $result['block_suffix']);
+    }
+
+    /** @test */
+    public function it_returns_empty_block_suffix_on_empty_option()
+    {
+        $this->formatter->updateOptions(['block_suffix' => '']);
+
+        $result = $this->formatter->getOptions();
+
+        $this->assertArrayHasKey('block_suffix', $result);
+        $this->assertSame('', $result['block_suffix']);
     }
 
     /** @test */
@@ -111,15 +131,25 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_default_element_prefix_on_empty_option()
+    public function it_returns_default_element_prefix_on_nonset_option()
     {
         $default = config('share-buttons.element_prefix');
-        $this->formatter->updateOptions(['element_prefix' => '']);
 
         $result = $this->formatter->getOptions();
 
         $this->assertArrayHasKey('element_prefix', $result);
         $this->assertSame($default, $result['element_prefix']);
+    }
+
+    /** @test */
+    public function it_returns_empty_element_prefix_on_empty_option()
+    {
+        $this->formatter->updateOptions(['element_prefix' => '']);
+
+        $result = $this->formatter->getOptions();
+
+        $this->assertArrayHasKey('element_prefix', $result);
+        $this->assertSame('', $result['element_prefix']);
     }
 
     /** @test */
@@ -134,15 +164,25 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_default_element_suffix_on_empty_option()
+    public function it_returns_default_element_suffix_on_nonset_option()
     {
         $default = config('share-buttons.element_suffix');
-        $this->formatter->updateOptions(['element_suffix' => '']);
 
         $result = $this->formatter->getOptions();
 
         $this->assertArrayHasKey('element_suffix', $result);
         $this->assertSame($default, $result['element_suffix']);
+    }
+
+    /** @test */
+    public function it_returns_empty_element_suffix_on_empty_option()
+    {
+        $this->formatter->updateOptions(['element_suffix' => '']);
+
+        $result = $this->formatter->getOptions();
+
+        $this->assertArrayHasKey('element_suffix', $result);
+        $this->assertSame('', $result['element_suffix']);
     }
 
     /** @test */
