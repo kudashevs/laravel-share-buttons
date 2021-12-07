@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests;
 
+use Kudashevs\ShareButtons\Formatters\TranslateFormatter;
 use Kudashevs\ShareButtons\ShareButtons;
 
 class ShareButtonsTest extends ExtendedTestCase
@@ -10,9 +11,10 @@ class ShareButtonsTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->share = new ShareButtons();
+        parent::setUp(); // it goes first to initialize a container
 
-        parent::setUp();
+        $formatter = new TranslateFormatter();
+        $this->share = new ShareButtons($formatter);
     }
 
     /** @test */
