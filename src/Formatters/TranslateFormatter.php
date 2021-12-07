@@ -78,14 +78,6 @@ class TranslateFormatter implements Formatter
     }
 
     /**
-     * @return array
-     */
-    public function getOptions(): array
-    {
-        return $this->options;
-    }
-
-    /**
      * @param string $utl
      * @param array $options
      * @return string
@@ -93,5 +85,13 @@ class TranslateFormatter implements Formatter
     public function generateUrl(string $utl, array $options): string
     {
         // TODO: Implement generateUrl() method.
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 }
