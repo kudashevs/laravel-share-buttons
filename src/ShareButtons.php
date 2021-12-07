@@ -165,7 +165,7 @@ class ShareButtons
      * @param string $provider
      * @param string $url
      */
-    protected function buildLink($provider, $url)
+    protected function rememberProcessed($provider, $url)
     {
         $this->rememberRawLink($provider, $url);
 
@@ -216,13 +216,15 @@ class ShareButtons
 
             $arguments = $this->prepareArguments($arguments);
 
-            $processedUrl = $this->providers[$name]->buildUrl(
+            $url = $this->providers[$name]->buildUrl(
                 $this->url,
                 $arguments
             );
-            $this->buildLink($name, $processedUrl);
+
+            $this->rememberProcessed($name, $url);
 
             return $this;
+
         }
 
         throw new \Error('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
