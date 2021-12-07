@@ -214,12 +214,11 @@ class ShareButtons
     {
         if (array_key_exists($name, $this->providers)) {
 
-            $arguments = $this->normalizeArguments($arguments);
-            $additions = $this->getArgumentsFromState();
+            $arguments = $this->prepareArguments($arguments);
 
             $processedUrl = $this->providers[$name]->buildUrl(
                 $this->url,
-                array_merge($additions, $arguments)
+                $arguments
             );
             $this->buildLink($name, $processedUrl);
 
@@ -230,24 +229,15 @@ class ShareButtons
     }
 
     /**
+     * @param array $arguments
      * @return array
      */
-    private function getArgumentsFromState(): array
+    private function prepareArguments(array $arguments): array
     {
-        return [
-            'title' => $this->title,
-        ];
-    }
+        $arguments = $this->normalizeArguments($arguments);
+        $additions = $this->getArgumentsFromState();
 
-    /**
-     * @param object $object
-     * @return string
-     */
-    private function getShortClassName(object $object): string
-    {
-        $parsed = explode('\\', get_class($object));
-
-        return end($parsed);
+        return array_merge($additions, $arguments);
     }
 
     /**
@@ -269,6 +259,27 @@ class ShareButtons
         }
 
         return [];
+    }
+
+    /**
+     * @return array
+     */
+    private function getArgumentsFromState(): array
+    {
+        return [
+            'title' => $this->title,
+        ];
+    }
+
+    /**
+     * @param object $object
+     * @return string
+     */
+    private function getShortClassName(object $object): string
+    {
+        $parsed = explode('\\', get_class($object));
+
+        return end($parsed);
     }
 
     /**
