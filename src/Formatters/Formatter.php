@@ -11,9 +11,9 @@ interface Formatter
     public function updateOptions(array $options);
 
     /**
-     * @param string $utl
+     * @param string $url
      * @param array $options
      * @return string
      */
-    public function generateUrl(string $utl, array $options): string;
+    public function generateUrl(string $url, array $options): string;
 }
