@@ -42,7 +42,7 @@ class ShareButtonsTest extends ExtendedTestCase
     public function it_can_use_the_url_of_the_current_request()
     {
         $result = $this->share->currentPage()->facebook();
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com/" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com/" class="social-button"><span class="fab fa-facebook-square"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -167,7 +167,7 @@ class ShareButtonsTest extends ExtendedTestCase
             ->reddit()
             ->telegram();
 
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-twitter"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=My+share+title&summary=" class="social-button " id="" title="" rel=""><span class="fab fa-linkedin"></span></a></li><li><a href="https://wa.me/?text=https://mysite.com" class="social-button " id="" title="" rel="" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-pinterest"></span></a></li><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https://mysite.com" class="social-button " id="" title="" rel="" target="_blank"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https://mysite.com&text=My+share+title" class="social-button " id="" title="" rel="" target="_blank"><span class="fab fa-telegram"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=My+share+title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a></li><li><a href="https://wa.me/?text=https://mysite.com" class="social-button" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button"><span class="fab fa-pinterest"></span></a></li><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https://mysite.com" class="social-button" target="_blank"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https://mysite.com&text=My+share+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a></li></ul></div>';
         $this->assertEquals($expected, (string)$result);
     }
 
@@ -183,7 +183,7 @@ class ShareButtonsTest extends ExtendedTestCase
             ->reddit()
             ->telegram();
 
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-twitter"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=My+share+title&summary=" class="social-button " id="" title="" rel=""><span class="fab fa-linkedin"></span></a></li><li><a href="https://wa.me/?text=https://mysite.com" class="social-button " id="" title="" rel="" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-pinterest"></span></a></li><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https://mysite.com" class="social-button " id="" title="" rel="" target="_blank"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https://mysite.com&text=My+share+title" class="social-button " id="" title="" rel="" target="_blank"><span class="fab fa-telegram"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=My+share+title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a></li><li><a href="https://wa.me/?text=https://mysite.com" class="social-button" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button"><span class="fab fa-pinterest"></span></a></li><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https://mysite.com" class="social-button" target="_blank"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https://mysite.com&text=My+share+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
 
@@ -191,7 +191,7 @@ class ShareButtonsTest extends ExtendedTestCase
             ->facebook()
             ->twitter();
 
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -199,7 +199,7 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_generate_multiple_share_links_at_once_with_extra_options()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title', ['prefix' => '<ul>', 'suffix' => '</ul>', 'class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'])
+        $result = $this->share->page('https://mysite.com', 'My share title', ['block_prefix' => '<ul>', 'block_suffix' => '</ul>', 'class' => 'my-class', 'id' => 'my-id', 'title' => 'My Title for SEO', 'rel' => 'nofollow'])
             ->facebook()
             ->twitter()
             ->whatsapp()
