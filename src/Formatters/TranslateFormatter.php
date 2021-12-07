@@ -51,6 +51,14 @@ class TranslateFormatter implements Formatter
         if (!empty($options['block_suffix'])) {
             $this->options['block_suffix'] = $options['block_suffix'];
         }
+
+        if (!empty($options['element_prefix'])) {
+            $this->options['element_prefix'] = $options['element_prefix'];
+        }
+
+        if (!empty($options['element_suffix'])) {
+            $this->options['element_suffix'] = $options['element_suffix'];
+        }
     }
 
     /**
