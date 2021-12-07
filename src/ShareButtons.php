@@ -213,13 +213,16 @@ class ShareButtons
     public function __call($name, $arguments)
     {
         if (array_key_exists($name, $this->providers)) {
+
+            $arguments = $this->normalizeArguments($arguments);
+
             $additions = [
                 'title' => $this->title,
             ];
 
             $processedUrl = $this->providers[$name]->buildUrl(
                 $this->url,
-                array_merge($additions, $this->normalizeArguments($arguments))
+                array_merge($additions, $arguments)
             );
             $this->buildLink($name, $processedUrl);
 
