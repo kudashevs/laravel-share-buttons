@@ -28,6 +28,15 @@ class TranslateFormatter implements Formatter
     /**
      * @param array $options
      */
+    public function updateOptions(array $options): void
+    {
+        $this->initFontAwesomeVersion($options);
+        $this->initFormatterStyling($options);
+    }
+
+    /**
+     * @param array $options
+     */
     private function initFontAwesomeVersion(array $options): void
     {
         if (!empty($options['fontAwesomeVersion']) && is_int($options['fontAwesomeVersion'])) {
@@ -75,14 +84,6 @@ class TranslateFormatter implements Formatter
     public function getOptions(): array
     {
         return $this->options;
-    }
-
-    /**
-     * @param array $options
-     */
-    public function updateOptions(array $options): void
-    {
-        // TODO: Implement updateOptions() method.
     }
 
     /**
