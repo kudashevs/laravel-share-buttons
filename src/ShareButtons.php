@@ -159,50 +159,6 @@ class ShareButtons
         return $this->generatedUrls;
     }
 
-    /**
-     * Build a single link.
-     *
-     * @param string $provider
-     * @param string $url
-     */
-    protected function rememberProcessed($provider, $url)
-    {
-        $this->rememberRawLink($provider, $url);
-
-        $this->rememberRepresentation($provider, $url);
-    }
-
-    /**
-     * Remembers a processed link.
-     *
-     * @param string $provider
-     * @param string $url
-     */
-    protected function rememberRawLink($provider, $url)
-    {
-        $this->generatedUrls[$provider] = $url;
-    }
-
-    /**
-     * Remembers a processed link.
-     *
-     * @param $provider
-     * @param $url
-     */
-    protected function rememberRepresentation($provider, $url)
-    {
-        $fontAwesomeVersion = $this->options['fontAwesomeVersion'];
-
-        $this->generatedRepresentation[$provider] = trans(
-            "share-buttons::share-buttons-fontawesome-$fontAwesomeVersion.$provider",
-            [
-                'url' => $url,
-                'class' => !empty($this->options['class']) ? $this->options['class'] : '',
-                'id' => !empty($this->options['id']) ? $this->options['id'] : '',
-                'title' => !empty($this->options['title']) ? $this->options['title'] : '',
-                'rel' => !empty($this->options['rel']) ? $this->options['rel'] : '',
-            ]);
-    }
 
     /**
      * @param $name
@@ -282,6 +238,51 @@ class ShareButtons
         $parsed = explode('\\', get_class($object));
 
         return end($parsed);
+    }
+
+    /**
+     * Build a single link.
+     *
+     * @param string $provider
+     * @param string $url
+     */
+    protected function rememberProcessed($provider, $url)
+    {
+        $this->rememberRawLink($provider, $url);
+
+        $this->rememberRepresentation($provider, $url);
+    }
+
+    /**
+     * Remembers a processed link.
+     *
+     * @param string $provider
+     * @param string $link
+     */
+    protected function rememberRawLink($provider, $link)
+    {
+        $this->generatedUrls[$provider] = $link;
+    }
+
+    /**
+     * Remembers a processed link.
+     *
+     * @param $provider
+     * @param $url
+     */
+    protected function rememberRepresentation($provider, $url)
+    {
+        $fontAwesomeVersion = $this->options['fontAwesomeVersion'];
+
+        $this->generatedRepresentation[$provider] = trans(
+            "share-buttons::share-buttons-fontawesome-$fontAwesomeVersion.$provider",
+            [
+                'url' => $url,
+                'class' => !empty($this->options['class']) ? $this->options['class'] : '',
+                'id' => !empty($this->options['id']) ? $this->options['id'] : '',
+                'title' => !empty($this->options['title']) ? $this->options['title'] : '',
+                'rel' => !empty($this->options['rel']) ? $this->options['rel'] : '',
+            ]);
     }
 
     /**
