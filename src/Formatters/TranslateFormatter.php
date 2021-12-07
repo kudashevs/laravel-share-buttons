@@ -46,18 +46,26 @@ class TranslateFormatter implements Formatter
     {
         if (!empty($options['block_prefix'])) {
             $this->options['block_prefix'] = $options['block_prefix'];
+        } else {
+            $this->options['block_prefix'] = config('share-buttons.block_prefix', '<ul>');
         }
 
         if (!empty($options['block_suffix'])) {
             $this->options['block_suffix'] = $options['block_suffix'];
+        } else {
+            $this->options['block_suffix'] = config('share-buttons.block_suffix', '</ul>');
         }
 
         if (!empty($options['element_prefix'])) {
             $this->options['element_prefix'] = $options['element_prefix'];
+        } else {
+            $this->options['element_prefix'] = config('share-buttons.element_prefix', '<li>');
         }
 
         if (!empty($options['element_suffix'])) {
             $this->options['element_suffix'] = $options['element_suffix'];
+        } else {
+            $this->options['element_suffix'] = config('share-buttons.element_suffix', '</li>');
         }
     }
 

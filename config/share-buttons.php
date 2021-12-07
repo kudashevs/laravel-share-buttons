@@ -55,4 +55,24 @@ return [
     */
 
     'fontAwesomeVersion' => 5,
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Formatting elements
+    |--------------------------------------------------------------------------
+    |
+    | These values specify a share buttons representation. Here we can specify:
+    |
+    | - block wrapper (block_prefix starts a block, block_suffix ends a block)
+    | - element wrapper (element_prefix starts an element, element_suffix ends
+    |   an element)
+    |
+    */
+
+    'block_prefix' => '<div id="social-links"><ul>',
+    'block_suffix' => '</ul></div>',
+    'element_prefix' => '<li>',
+    'element_suffix' => '</li>',
+
 ];
