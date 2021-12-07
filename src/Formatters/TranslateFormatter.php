@@ -21,7 +21,7 @@ class TranslateFormatter implements Formatter
      */
     public function __construct(array $options = [])
     {
-       $this->initFontAwesomeVersion($options);
+        $this->initFontAwesomeVersion($options);
     }
 
     /**
@@ -31,7 +31,11 @@ class TranslateFormatter implements Formatter
     {
         if (!empty($options['fontAwesomeVersion']) && is_int($options['fontAwesomeVersion'])) {
             $this->options['formatter_version'] = $options['fontAwesomeVersion'];
+
+            return;
         }
+
+        $this->options['formatter_version'] = config('share-buttons.fontAwesomeVersion', 5);
     }
 
     /**

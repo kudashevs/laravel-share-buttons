@@ -3,9 +3,9 @@
 namespace Kudashevs\ShareButtons\Tests\Formatters;
 
 use Kudashevs\ShareButtons\Formatters\TranslateFormatter;
-use PHPUnit\Framework\TestCase;
+use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class TranslateFormatterTest extends TestCase
+class TranslateFormatterTest extends ExtendedTestCase
 {
     /** @test */
     public function it_can_setup_font_awesome_version()
@@ -16,5 +16,16 @@ class TranslateFormatterTest extends TestCase
 
         $this->assertArrayHasKey('formatter_version', $result);
         $this->assertSame(3, $result['formatter_version']);
+    }
+
+    /** @test */
+    public function it_can_return_default_font_awesome_version_on_empty_option()
+    {
+        $formatter = new TranslateFormatter(['fontAwesomeVersion' => 'wrong']);
+
+        $result = $formatter->getOptions();
+
+        $this->assertArrayHasKey('formatter_version', $result);
+        $this->assertSame(5, $result['formatter_version']);
     }
 }
