@@ -144,4 +144,17 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $result);
     }
+
+    /** @test */
+    public function it_can_format_a_url_with_custom_styling_from_formatter()
+    {
+        $this->formatter->updateOptions(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+
+        $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
+
+        $result = $this->formatter->generateUrl('facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
+
+        $this->assertNotEmpty($result);
+        $this->assertEquals($expected, $result);
+    }
 }

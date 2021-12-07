@@ -102,6 +102,18 @@ class TranslateFormatter implements Formatter
      */
     public function generateUrl(string $provider, string $url, array $options = []): string
     {
+        $preparedLink = $this->generateLink($provider, $url);
+
+        return $this->getElementPrefix() . $preparedLink . $this->getElementSuffix();
+    }
+
+    /**
+     * @param string $provider
+     * @param string $url
+     * @return string
+     */
+    private function generateLink(string $provider, string $url): string
+    {
         $providerStyles = "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
 
         return trans(
@@ -110,7 +122,7 @@ class TranslateFormatter implements Formatter
                 'url' => $url,
                 'class' => !empty($this->options['class']) ? (' ' . $this->options['class']) : '',
                 'id' => !empty($this->options['id']) ? (' id="' . $this->options['id'] . '"') : '',
-                'title' => !empty($this->options['title']) ? (' title="' . $this->options['title']. '"') : '',
+                'title' => !empty($this->options['title']) ? (' title="' . $this->options['title'] . '"') : '',
                 'rel' => !empty($this->options['rel']) ? (' rel="' . $this->options['rel'] . '"') : '',
             ]);
     }
@@ -121,5 +133,21 @@ class TranslateFormatter implements Formatter
     public function getOptions(): array
     {
         return $this->options;
+    }
+
+    /**
+     * @return string
+     */
+    private function getElementPrefix(): string
+    {
+        return $this->options['element_prefix'];
+    }
+
+    /**
+     * @return string
+     */
+    private function getElementSuffix(): string
+    {
+        return $this->options['element_suffix'];
     }
 }
