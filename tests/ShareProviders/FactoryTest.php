@@ -3,7 +3,7 @@
 namespace Kudashevs\ShareButtons\Tests\ShareProviders;
 
 use Kudashevs\ShareButtons\ShareProviders\Factory;
-use Kudashevs\ShareButtons\ShareProviders\Providers\ShareProvider;
+use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use PHPUnit\Framework\TestCase;
 
 class FactoryTest extends TestCase

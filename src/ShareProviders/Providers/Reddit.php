@@ -2,6 +2,8 @@
 
 namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
+use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
+
 class Reddit implements ShareProvider
 {
 

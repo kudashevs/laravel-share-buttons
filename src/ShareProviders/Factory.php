@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\ShareProviders;
 
-use Kudashevs\ShareButtons\ShareProviders\Providers\ShareProvider;
+use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Factory
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\ShareProviders\Providers;
+namespace Kudashevs\ShareButtons\ShareProviders;
 
 interface ShareProvider
 {
