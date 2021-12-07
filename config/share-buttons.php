@@ -45,7 +45,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Font Awesome
+    | Font Awesome version
     |--------------------------------------------------------------------------
     |
     | This value specifies the version of Font Awesome which is going to be used.
