@@ -235,7 +235,7 @@ class ShareButtons
      *
      * @return array
      */
-    public function getRawLinks()
+    public function getRawLinks(): array
     {
         return $this->generatedUrls;
     }
