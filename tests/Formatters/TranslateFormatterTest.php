@@ -186,7 +186,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_a_url_with_default_styling()
+    public function it_can_format_an_element_with_default_styling()
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
@@ -197,7 +197,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_a_url_with_custom_styling_from_formatter_options()
+    public function it_can_format_an_element_with_custom_styling_from_formatter_options()
     {
         $this->formatter->updateOptions(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
@@ -210,7 +210,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_cannot_format_a_url_with_custom_styling_from_call_options()
+    public function it_cannot_format_an_element_with_custom_styling_from_call_options()
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
