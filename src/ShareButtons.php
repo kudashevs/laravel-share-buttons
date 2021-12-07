@@ -215,10 +215,7 @@ class ShareButtons
         if (array_key_exists($name, $this->providers)) {
 
             $arguments = $this->normalizeArguments($arguments);
-
-            $additions = [
-                'title' => $this->title,
-            ];
+            $additions = $this->getArgumentsFromState();
 
             $processedUrl = $this->providers[$name]->buildUrl(
                 $this->url,
@@ -230,6 +227,16 @@ class ShareButtons
         }
 
         throw new \Error('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
+    }
+
+    /**
+     * @return array
+     */
+    private function getArgumentsFromState(): array
+    {
+        return [
+            'title' => $this->title,
+        ];
     }
 
     /**
