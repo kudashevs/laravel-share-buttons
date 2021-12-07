@@ -21,12 +21,13 @@ class TranslateFormatterTest extends ExtendedTestCase
     /** @test */
     public function it_can_return_default_font_awesome_version_on_empty_option()
     {
+        $version = config('share-buttons.fontAwesomeVersion');
         $formatter = new TranslateFormatter(['fontAwesomeVersion' => 'wrong']);
 
         $result = $formatter->getOptions();
 
         $this->assertArrayHasKey('formatter_version', $result);
-        $this->assertSame(5, $result['formatter_version']);
+        $this->assertSame($version, $result['formatter_version']);
     }
 
     /** @test */
