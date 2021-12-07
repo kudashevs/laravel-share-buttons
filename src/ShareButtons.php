@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons;
 
+use Kudashevs\ShareButtons\Formatters\Formatter;
 use Kudashevs\ShareButtons\ShareProviders\Factory;
 
 class ShareButtons
@@ -19,6 +20,11 @@ class ShareButtons
      * @var string
      */
     protected $title;
+
+    /**
+     * @var Formatter
+     */
+    private $formatter;
 
     /**
      * Extra options for the share links.
@@ -55,10 +61,11 @@ class ShareButtons
     /**
      * Share constructor.
      */
-    public function __construct(array $options = [])
+    public function __construct(Formatter $formatter, array $options = [])
     {
-        $this->initFontAwesomeVersion($options);
-        $this->initPrefixAndSuffix($options);
+        $this->formatter = $formatter;
+        $this->formatter->updateOptions($options);
+
         $this->initProviders();
     }
 
