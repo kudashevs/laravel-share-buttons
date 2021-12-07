@@ -54,6 +54,17 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_setup_prefix() // backward compatibility
+    {
+        $this->formatter->updateOptions(['prefix' => '<div>']);
+
+        $result = $this->formatter->getOptions();
+
+        $this->assertArrayHasKey('block_prefix', $result);
+        $this->assertSame('<div>', $result['block_prefix']);
+    }
+
+    /** @test */
     public function it_can_setup_block_prefix()
     {
         $this->formatter->updateOptions(['block_prefix' => '<div>']);
@@ -84,6 +95,17 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $this->assertArrayHasKey('block_prefix', $result);
         $this->assertSame('', $result['block_prefix']);
+    }
+
+    /** @test */
+    public function it_can_setup_suffix() // backward compatibility
+    {
+        $this->formatter->updateOptions(['suffix' => '</div>']);
+
+        $result = $this->formatter->getOptions();
+
+        $this->assertArrayHasKey('block_suffix', $result);
+        $this->assertSame('</div>', $result['block_suffix']);
     }
 
     /** @test */

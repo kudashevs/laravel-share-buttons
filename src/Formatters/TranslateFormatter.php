@@ -53,14 +53,16 @@ class TranslateFormatter implements Formatter
      */
     private function initFormatterStyling(array $options): void
     {
-        if (isset($options['block_prefix'])) {
-            $this->options['block_prefix'] = $options['block_prefix'];
+        // the key prefix could be used for convenience and backward compatibility
+        if (isset($options['block_prefix']) || isset($options['prefix'])) {
+            $this->options['block_prefix'] = $options['block_prefix'] ?? $options['prefix'];
         } else {
             $this->options['block_prefix'] = config('share-buttons.block_prefix', '<ul>');
         }
 
-        if (isset($options['block_suffix'])) {
-            $this->options['block_suffix'] = $options['block_suffix'];
+        // the key prefix could be used for convenience and backward compatibility
+        if (isset($options['block_suffix'])|| isset($options['suffix'])) {
+            $this->options['block_suffix'] = $options['block_suffix'] ?? $options['suffix'];
         } else {
             $this->options['block_suffix'] = config('share-buttons.block_suffix', '</ul>');
         }
