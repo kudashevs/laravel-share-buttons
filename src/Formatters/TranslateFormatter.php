@@ -42,7 +42,7 @@ class TranslateFormatter implements Formatter
     /**
      * @param array $options
      */
-    private function initPrefixAndSuffix(array $options)
+    private function initPrefixAndSuffix(array $options): void
     {
         if (!empty($options['block_prefix'])) {
             $this->options['block_prefix'] = $options['block_prefix'];
