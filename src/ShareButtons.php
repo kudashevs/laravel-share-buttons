@@ -116,17 +116,6 @@ class ShareButtons
     }
 
     /**
-     * Get the raw generated links.
-     *
-     * @return array
-     */
-    public function getRawLinks()
-    {
-        return $this->generatedUrls;
-    }
-
-
-    /**
      * @param $name
      * @param $arguments
      * @return $this
@@ -239,6 +228,16 @@ class ShareButtons
     protected function rememberRepresentation($provider, $url): void
     {
         $this->generatedRepresentation[$provider] = $this->formatter->generateUrl($provider, $url, []);
+    }
+
+    /**
+     * Get the raw generated links.
+     *
+     * @return array
+     */
+    public function getRawLinks()
+    {
+        return $this->generatedUrls;
     }
 
     /**
