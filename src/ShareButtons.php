@@ -200,7 +200,7 @@ class ShareButtons
      * @param string $provider
      * @param string $url
      */
-    protected function rememberProcessed($provider, $url): void
+    protected function rememberProcessed(string $provider, string $url): void
     {
         $this->rememberRawLink($provider, $url);
 
