@@ -85,7 +85,17 @@ class TranslateFormatter implements Formatter
      */
     public function generateUrl(string $provider, string $url, array $options = []): string
     {
-        // TODO: Implement generateUrl() method.
+        $key = "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
+
+        return trans(
+            $key,
+            [
+                'url' => $url,
+                'class' => !empty($this->options['class']) ? $this->options['class'] : '',
+                'id' => !empty($this->options['id']) ? $this->options['id'] : '',
+                'title' => !empty($this->options['title']) ? $this->options['title'] : '',
+                'rel' => !empty($this->options['rel']) ? $this->options['rel'] : '',
+            ]);
     }
 
     /**
