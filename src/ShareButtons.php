@@ -252,17 +252,7 @@ class ShareButtons
      */
     protected function rememberRepresentation($provider, $url): void
     {
-        $fontAwesomeVersion = 5;
-
-        $this->generatedRepresentation[$provider] = trans(
-            "share-buttons::share-buttons-fontawesome-$fontAwesomeVersion.$provider",
-            [
-                'url' => $url,
-                'class' => !empty($this->options['class']) ? $this->options['class'] : '',
-                'id' => !empty($this->options['id']) ? $this->options['id'] : '',
-                'title' => !empty($this->options['title']) ? $this->options['title'] : '',
-                'rel' => !empty($this->options['rel']) ? $this->options['rel'] : '',
-            ]);
+        $this->generatedRepresentation[$provider] = $this->formatter->generateUrl($provider, $url, []);
     }
 
     /**
