@@ -219,4 +219,26 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $result);
     }
+
+    /**
+     * @test
+     * @dataProvider provide_different_styling_for_a_link
+     */
+    public function it_can_format_a_link_with_custom_styling_from_call_options($url, $options, $expected)
+    {
+        $result = $this->formatter->generateUrl('facebook', $url, $options);
+
+        $this->assertEquals($expected, $result);
+    }
+
+    public function provide_different_styling_for_a_link()
+    {
+        return [
+            'check class option' => [
+                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+                ['class' => 'tested'],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>'
+            ]
+        ];
+    }
 }

@@ -102,6 +102,8 @@ class TranslateFormatter implements Formatter
      */
     public function generateUrl(string $provider, string $url, array $options = []): string
     {
+        $this->initMassOptions($options);
+
         $preparedLink = $this->generateLink($provider, $url);
 
         return $this->getElementPrefix() . $preparedLink . $this->getElementSuffix();
