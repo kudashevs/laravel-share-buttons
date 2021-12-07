@@ -166,7 +166,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_generate_multiple_share_links_at_once()
+    public function it_can_generate_multiple_share_links_at_once()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
@@ -207,7 +207,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_generate_multiple_share_links_at_once_with_extra_options()
+    public function it_can_generate_multiple_share_links_at_once_with_extra_options()
     {
         $result = $this->share->page(
             'https://mysite.com',
