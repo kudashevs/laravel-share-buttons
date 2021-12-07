@@ -22,6 +22,7 @@ class TranslateFormatter implements Formatter
     public function __construct(array $options = [])
     {
         $this->initFontAwesomeVersion($options);
+        $this->initPrefixAndSuffix($options);
     }
 
     /**
@@ -36,6 +37,20 @@ class TranslateFormatter implements Formatter
         }
 
         $this->options['formatter_version'] = config('share-buttons.fontAwesomeVersion', 5);
+    }
+
+    /**
+     * @param array $options
+     */
+    private function initPrefixAndSuffix(array $options)
+    {
+        if (!empty($options['block_prefix'])) {
+            $this->options['block_prefix'] = $options['block_prefix'];
+        }
+
+        if (!empty($options['block_suffix'])) {
+            $this->options['block_suffix'] = $options['block_suffix'];
+        }
     }
 
     /**

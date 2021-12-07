@@ -28,4 +28,26 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertArrayHasKey('formatter_version', $result);
         $this->assertSame(5, $result['formatter_version']);
     }
+
+    /** @test */
+    public function it_can_setup_block_prefix()
+    {
+        $formatter = new TranslateFormatter(['block_prefix' => '<div>']);
+
+        $result = $formatter->getOptions();
+
+        $this->assertArrayHasKey('block_prefix', $result);
+        $this->assertSame('<div>', $result['block_prefix']);
+    }
+
+    /** @test */
+    public function it_can_setup_block_suffix()
+    {
+        $formatter = new TranslateFormatter(['block_suffix' => '</div>']);
+
+        $result = $formatter->getOptions();
+
+        $this->assertArrayHasKey('block_suffix', $result);
+        $this->assertSame('</div>', $result['block_suffix']);
+    }
 }
