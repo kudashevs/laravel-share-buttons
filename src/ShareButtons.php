@@ -34,7 +34,6 @@ class ShareButtons
     protected $options = [
         'prefix' => '<div id="social-links"><ul>',
         'suffix' => '</ul></div>',
-        'fontAwesomeVersion' => 5,
     ];
 
     /**
@@ -67,16 +66,6 @@ class ShareButtons
         $this->formatter->updateOptions($options);
 
         $this->initProviders();
-    }
-
-    /**
-     * @param array $options
-     */
-    private function initFontAwesomeVersion(array $options): void
-    {
-        if (!empty($options['fontAwesomeVersion']) && is_int($options['fontAwesomeVersion'])) {
-            $this->options['fontAwesomeVersion'] = $options['fontAwesomeVersion'];
-        }
     }
 
     /**
@@ -279,7 +268,7 @@ class ShareButtons
      */
     protected function rememberRepresentation($provider, $url): void
     {
-        $fontAwesomeVersion = $this->options['fontAwesomeVersion'];
+        $fontAwesomeVersion = 5;
 
         $this->generatedRepresentation[$provider] = trans(
             "share-buttons::share-buttons-fontawesome-$fontAwesomeVersion.$provider",
