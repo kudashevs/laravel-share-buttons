@@ -145,18 +145,6 @@ class ShareButtons
      * @param array $arguments
      * @return array
      */
-    private function prepareArguments(array $arguments): array
-    {
-        $arguments = $this->normalizeArguments($arguments);
-        $additions = $this->getArgumentsFromState();
-
-        return array_merge($additions, $arguments);
-    }
-
-    /**
-     * @param array $arguments
-     * @return array
-     */
     private function normalizeArguments(array $arguments): array
     {
         if (empty($arguments) || !isset($arguments[0])) {
@@ -172,6 +160,17 @@ class ShareButtons
         }
 
         return [];
+    }
+
+    /**
+     * @param array $arguments
+     * @return array
+     */
+    private function prepareArguments(array $arguments): array
+    {
+        $additions = $this->getArgumentsFromState();
+
+        return array_merge($additions, $arguments);
     }
 
     /**
