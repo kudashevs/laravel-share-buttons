@@ -231,7 +231,7 @@ class ShareButtons
     }
 
     /**
-     * Get the raw generated links.
+     * Return generated raw links.
      *
      * @return array
      */
