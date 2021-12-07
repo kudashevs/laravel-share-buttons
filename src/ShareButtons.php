@@ -221,10 +221,10 @@ class ShareButtons
     /**
      * Remembers a processed link.
      *
-     * @param $provider
-     * @param $url
+     * @param string $provider
+     * @param string $url
      */
-    protected function rememberRepresentation($provider, $url): void
+    protected function rememberRepresentation(string $provider, string $url): void
     {
         $this->generatedRepresentation[$provider] = $this->formatter->generateUrl($provider, $url, []);
     }
