@@ -32,8 +32,6 @@ class ShareButtons
      * @var array
      */
     protected $options = [
-        'prefix' => '<div id="social-links"><ul>',
-        'suffix' => '</ul></div>',
     ];
 
     /**
@@ -69,20 +67,6 @@ class ShareButtons
     }
 
     /**
-     * @param array $options
-     */
-    private function initPrefixAndSuffix(array $options)
-    {
-        if (!empty($options['prefix'])) {
-            $this->options['prefix'] = $options['prefix'];
-        }
-
-        if (!empty($options['suffix'])) {
-            $this->options['suffix'] = $options['suffix'];
-        }
-    }
-
-    /**
      * Initializes share providers.
      *
      * @return void
@@ -105,7 +89,7 @@ class ShareButtons
         $this->url = $url;
         $this->title = $title;
 
-        $this->initPrefixAndSuffix($options);
+        $this->formatter->updateOptions($options);
         $this->initMassOptions($options);
 
         return $this;
@@ -290,11 +274,11 @@ class ShareButtons
     {
         $representation = '';
 
-        $representation .= $this->options['prefix'];
+        $representation .= $this->formatter->getOptions()['block_prefix'];
         foreach ($this->generatedRepresentation as $link) {
             $representation .= $link;
         }
-        $representation .= $this->options['suffix'];
+        $representation .= $this->formatter->getOptions()['block_suffix'];
 
         return $representation;
     }

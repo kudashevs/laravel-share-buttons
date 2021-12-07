@@ -5,6 +5,11 @@ namespace Kudashevs\ShareButtons\Formatters;
 interface Formatter
 {
     /**
+     * @return array
+     */
+    public function getOptions(): array;
+
+    /**
      * @param array $options
      * @return mixed
      */
