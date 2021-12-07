@@ -246,7 +246,7 @@ class ShareButtons
      * @param string $provider
      * @param string $url
      */
-    protected function rememberProcessed($provider, $url)
+    protected function rememberProcessed($provider, $url): void
     {
         $this->rememberRawLink($provider, $url);
 
@@ -259,7 +259,7 @@ class ShareButtons
      * @param string $provider
      * @param string $link
      */
-    protected function rememberRawLink($provider, $link)
+    protected function rememberRawLink($provider, $link): void
     {
         $this->generatedUrls[$provider] = $link;
     }
@@ -270,7 +270,7 @@ class ShareButtons
      * @param $provider
      * @param $url
      */
-    protected function rememberRepresentation($provider, $url)
+    protected function rememberRepresentation($provider, $url): void
     {
         $fontAwesomeVersion = $this->options['fontAwesomeVersion'];
 
