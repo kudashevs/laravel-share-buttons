@@ -238,7 +238,27 @@ class TranslateFormatterTest extends ExtendedTestCase
                 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
                 ['class' => 'tested'],
                 '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>'
-            ]
+            ],
+            'check id option' => [
+                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+                ['id' => 'tested'],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>'
+            ],
+            'check title option' => [
+                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+                ['title' => 'tested'],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>'
+            ],
+            'check rel option' => [
+                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+                ['rel' => 'nofollow'],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>'
+            ],
+            'check mass options' => [
+                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+                ['rel' => 'nofollow', 'title' => 'Title', 'id' => 'click', 'class' => 'hover active'],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>'
+            ],
         ];
     }
 }
