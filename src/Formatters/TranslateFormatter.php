@@ -31,6 +31,7 @@ class TranslateFormatter implements Formatter
     {
         $this->initFontAwesomeVersion($options);
         $this->initFormatterStyling($options);
+        $this->initMassOptions($options);
     }
 
     /**
@@ -75,6 +76,22 @@ class TranslateFormatter implements Formatter
         } else {
             $this->options['element_suffix'] = config('share-buttons.element_suffix', '</li>');
         }
+    }
+
+    /**
+     * @param array $options
+     */
+    private function initMassOptions(array $options): void
+    {
+        $massOptions = [
+            'class' => '',
+            'id' => '',
+            'title' => '',
+            'rel' => '',
+        ];
+
+        $allowed = array_intersect_key($options, $massOptions);
+        $this->options = array_merge($this->options, $allowed);
     }
 
     /**

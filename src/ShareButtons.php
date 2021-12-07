@@ -90,7 +90,6 @@ class ShareButtons
         $this->title = $title;
 
         $this->formatter->updateOptions($options);
-        $this->initMassOptions($options);
 
         return $this;
     }
@@ -102,19 +101,6 @@ class ShareButtons
     {
         $this->generatedUrls = [];
         $this->generatedRepresentation = [];
-    }
-
-    private function initMassOptions(array $options): void
-    {
-        $massOptions = [
-            'id' => '',
-            'class' => '',
-            'title' => '',
-            'rel' => '',
-        ];
-
-        $allowed = array_intersect_key($options, $massOptions);
-        $this->options = array_merge($this->options, $allowed);
     }
 
     /**
