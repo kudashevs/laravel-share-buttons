@@ -241,11 +241,11 @@ class ShareButtons
     }
 
     /**
-     * Return a string with generated HTML code.
+     * Return fully prepared share buttons.
      *
      * @return string
      */
-    public function __toString()
+    public function getShareButtons(): string
     {
         $representation = '';
 
@@ -256,5 +256,15 @@ class ShareButtons
         $representation .= $this->formatter->getOptions()['block_suffix'];
 
         return $representation;
+    }
+
+    /**
+     * Return a string with generated HTML code.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getShareButtons();
     }
 }
