@@ -91,10 +91,10 @@ class TranslateFormatter implements Formatter
             $providerStyles,
             [
                 'url' => $url,
-                'class' => !empty($this->options['class']) ? $this->options['class'] : '',
-                'id' => !empty($this->options['id']) ? $this->options['id'] : '',
-                'title' => !empty($this->options['title']) ? $this->options['title'] : '',
-                'rel' => !empty($this->options['rel']) ? $this->options['rel'] : '',
+                'class' => !empty($this->options['class']) ? (' ' . $this->options['class']) : '',
+                'id' => !empty($this->options['id']) ? (' id="' . $this->options['id'] . '"') : '',
+                'title' => !empty($this->options['title']) ? (' title="' . $this->options['title']. '"') : '',
+                'rel' => !empty($this->options['rel']) ? (' rel="' . $this->options['rel'] . '"') : '',
             ]);
     }
 

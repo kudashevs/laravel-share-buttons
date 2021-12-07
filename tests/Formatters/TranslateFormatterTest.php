@@ -137,12 +137,11 @@ class TranslateFormatterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_a_url_with_default_styling()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li>';
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
         $result = $this->formatter->generateUrl('facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $result);
-
     }
 }
