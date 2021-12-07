@@ -22,7 +22,7 @@ class TranslateFormatter implements Formatter
     public function __construct(array $options = [])
     {
         $this->initFontAwesomeVersion($options);
-        $this->initPrefixAndSuffix($options);
+        $this->initFormatterStyling($options);
     }
 
     /**
@@ -42,7 +42,7 @@ class TranslateFormatter implements Formatter
     /**
      * @param array $options
      */
-    private function initPrefixAndSuffix(array $options): void
+    private function initFormatterStyling(array $options): void
     {
         if (!empty($options['block_prefix'])) {
             $this->options['block_prefix'] = $options['block_prefix'];
