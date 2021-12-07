@@ -176,11 +176,11 @@ class ShareButtons
      * Remembers a processed link.
      *
      * @param string $provider
-     * @param string $socialNetworkUrl
+     * @param string $url
      */
-    protected function rememberRawLink($provider, $socialNetworkUrl)
+    protected function rememberRawLink($provider, $url)
     {
-        $this->generatedUrls[$provider] = $socialNetworkUrl;
+        $this->generatedUrls[$provider] = $url;
     }
 
     /**
