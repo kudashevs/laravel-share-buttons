@@ -11,7 +11,7 @@ class TwitterTest extends ExtendedTestCase
     public function it_can_generate_a_twitter_share_link_with_default_share_text()
     {
         $result = ShareButtonsFacade::page('https://mysite.com')->twitter();
-        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Default+share+text&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Default+share+text&url=https://mysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -22,7 +22,7 @@ class TwitterTest extends ExtendedTestCase
         $result = ShareButtonsFacade::page('https://mysite.com',
             'Meet Joren Van Hocht a php developer with a passion for laravel')
             ->twitter();
-        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -33,7 +33,7 @@ class TwitterTest extends ExtendedTestCase
         $result = ShareButtonsFacade::page('https://mysite.com',
             'Meet Joren Van Hocht a php developer with a passion for laravel', ['class' => 'my-class'])
             ->twitter();
-        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button my-class" id="" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button my-class"><span class="fab fa-twitter"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -44,7 +44,7 @@ class TwitterTest extends ExtendedTestCase
         $result = ShareButtonsFacade::page('https://mysite.com',
             'Meet Joren Van Hocht a php developer with a passion for laravel', ['id' => 'my-id'])
             ->twitter();
-        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button " id="my-id" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button" id="my-id"><span class="fab fa-twitter"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -55,7 +55,7 @@ class TwitterTest extends ExtendedTestCase
         $result = ShareButtonsFacade::page('https://mysite.com',
             'Meet Joren Van Hocht a php developer with a passion for laravel', ['class' => 'my-class', 'id' => 'my-id'])
             ->twitter();
-        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button my-class" id="my-id" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://twitter.com/intent/tweet?text=Meet+Joren+Van+Hocht+a+php+developer+with+a+passion+for+laravel&url=https://mysite.com" class="social-button my-class" id="my-id"><span class="fab fa-twitter"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -65,7 +65,7 @@ class TwitterTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com', '', ['prefix' => '<ul>', 'suffix' => '</ul>'])
             ->twitter();
-        $expected = '<ul><li><a href="https://twitter.com/intent/tweet?text=Default+share+text&url=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-twitter"></span></a></li></ul>';
+        $expected = '<ul><li><a href="https://twitter.com/intent/tweet?text=Default+share+text&url=https://mysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li></ul>';
 
         $this->assertEquals($expected, (string)$result);
     }

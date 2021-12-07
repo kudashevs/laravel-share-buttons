@@ -12,7 +12,7 @@ class LinkedInTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com',
             'Title')->linkedin(['summary' => 'A summary can be passed here']);
-        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button " id="" title="" rel=""><span class="fab fa-linkedin"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button"><span class="fab fa-linkedin"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -21,7 +21,7 @@ class LinkedInTest extends ExtendedTestCase
     public function it_can_generate_a_linkedin_share_link_without_summary()
     {
         $result = ShareButtonsFacade::page('https://mysite.com', 'Title')->linkedin();
-        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=" class="social-button " id="" title="" rel=""><span class="fab fa-linkedin"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -31,7 +31,7 @@ class LinkedInTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com', 'Title', ['class' => 'my-class'])
             ->linkedin(['summary' => 'A summary can be passed here']);
-        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button my-class" id="" title="" rel=""><span class="fab fa-linkedin"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button my-class"><span class="fab fa-linkedin"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -41,7 +41,7 @@ class LinkedInTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com', 'Title', ['class' => 'my-class', 'id' => 'my-id'])
             ->linkedin(['summary' => 'A summary can be passed here']);
-        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button my-class" id="my-id" title="" rel=""><span class="fab fa-linkedin"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button my-class" id="my-id"><span class="fab fa-linkedin"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -51,7 +51,7 @@ class LinkedInTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com', 'Title', ['prefix' => '<ul>', 'suffix' => '</ul>'])
             ->linkedin(['summary' => 'A summary can be passed here']);
-        $expected = '<ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button " id="" title="" rel=""><span class="fab fa-linkedin"></span></a></li></ul>';
+        $expected = '<ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here" class="social-button"><span class="fab fa-linkedin"></span></a></li></ul>';
 
         $this->assertEquals($expected, (string)$result);
     }

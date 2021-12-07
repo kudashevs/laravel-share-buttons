@@ -11,7 +11,7 @@ class FacebookTest extends ExtendedTestCase
     public function it_can_generate_a_facebook_share_link()
     {
         $result = ShareButtonsFacade::page('https://mysite.com')->facebook();
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -21,7 +21,7 @@ class FacebookTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com', '', ['class' => 'my-class'])
             ->facebook();
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button my-class" id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button my-class"><span class="fab fa-facebook-square"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -31,7 +31,7 @@ class FacebookTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com', '', ['class' => 'my-class', 'id' => 'my-id'])
             ->facebook();
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button my-class" id="my-id" title="" rel=""><span class="fab fa-facebook-square"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button my-class" id="my-id"><span class="fab fa-facebook-square"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
@@ -41,7 +41,7 @@ class FacebookTest extends ExtendedTestCase
     {
         $result = ShareButtonsFacade::page('https://mysite.com', '', ['prefix' => '<ul>', 'suffix' => '</ul>'])
             ->facebook();
-        $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button " id="" title="" rel=""><span class="fab fa-facebook-square"></span></a></li></ul>';
+        $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li></ul>';
 
         $this->assertEquals($expected, (string)$result);
     }
