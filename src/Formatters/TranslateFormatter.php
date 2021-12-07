@@ -21,7 +21,17 @@ class TranslateFormatter implements Formatter
      */
     public function __construct(array $options = [])
     {
-       $this->options = $options;
+       $this->initFontAwesomeVersion($options);
+    }
+
+    /**
+     * @param array $options
+     */
+    private function initFontAwesomeVersion(array $options): void
+    {
+        if (!empty($options['fontAwesomeVersion']) && is_int($options['fontAwesomeVersion'])) {
+            $this->options['formatter_version'] = $options['fontAwesomeVersion'];
+        }
     }
 
     /**
