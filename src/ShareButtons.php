@@ -133,7 +133,7 @@ class ShareButtons
                 $providerArguments
             );
 
-            $this->rememberProcessed($name, $url);
+            $this->rememberProcessed($name, $url, $arguments);
 
             return $this;
 
@@ -200,12 +200,13 @@ class ShareButtons
      *
      * @param string $provider
      * @param string $url
+     * @param array $options
      */
-    protected function rememberProcessed(string $provider, string $url): void
+    protected function rememberProcessed(string $provider, string $url, array $options = []): void
     {
         $this->rememberRawLink($provider, $url);
 
-        $this->rememberRepresentation($provider, $url);
+        $this->rememberRepresentation($provider, $url, $options);
     }
 
     /**
@@ -224,10 +225,11 @@ class ShareButtons
      *
      * @param string $provider
      * @param string $url
+     * @param array $options
      */
-    protected function rememberRepresentation(string $provider, string $url): void
+    protected function rememberRepresentation(string $provider, string $url, $options = []): void
     {
-        $this->generatedRepresentation[$provider] = $this->formatter->generateUrl($provider, $url, []);
+        $this->generatedRepresentation[$provider] = $this->formatter->generateUrl($provider, $url, $options);
     }
 
     /**
