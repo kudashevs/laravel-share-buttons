@@ -116,9 +116,9 @@ class TranslateFormatter implements Formatter
      */
     public function generateUrl(string $provider, string $url, array $options = []): string
     {
-        $this->initMassOptions($options);
+        $providerArguments = $this->initElementStyling($options);
 
-        $preparedLink = $this->generateLink($provider, $url);
+        $preparedLink = $this->generateLink($provider, $url, $providerArguments);
 
         return $this->getElementPrefix() . $preparedLink . $this->getElementSuffix();
     }
@@ -126,9 +126,10 @@ class TranslateFormatter implements Formatter
     /**
      * @param string $provider
      * @param string $url
+     * @param array $options
      * @return string
      */
-    private function generateLink(string $provider, string $url): string
+    private function generateLink(string $provider, string $url, array $options): string
     {
         $providerStyles = "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
 
