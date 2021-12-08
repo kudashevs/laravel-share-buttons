@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class WhatsApp implements ShareProvider
+class WhatsApp extends ShareProvider
 {
     public function buildUrl(string $url, string $title, array $options = []): string
     {

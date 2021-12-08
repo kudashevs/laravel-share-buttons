@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Pinterest implements ShareProvider
+class Pinterest extends ShareProvider
 {
     public function buildUrl(string $url, string $title, array $options = []): string
     {

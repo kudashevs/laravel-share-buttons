@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class LinkedIn implements ShareProvider
+class LinkedIn extends ShareProvider
 {
     public function buildUrl(string $url, string $title, array $options = []): string
     {
