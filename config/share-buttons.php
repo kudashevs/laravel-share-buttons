@@ -39,6 +39,7 @@ return [
         ],
         'vkontakte' => [
             'url' => 'https://vk.com/share.php?url=',
+            'text' => 'Default share text',
         ],
         'whatsapp' => [
             'url' => 'https://wa.me/?text=',

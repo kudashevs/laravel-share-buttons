@@ -20,7 +20,16 @@ class VkontakteTest extends ExtendedTestCase
     public function it_can_generate_a_twitter_share_link()
     {
         $result = $this->provider->buildUrl('https://mysite.com', '', []);
-        $expected = 'https://vk.com/share.php?url=https://mysite.com';
+        $expected = 'https://vk.com/share.php?url=https://mysite.com&title=Default+share+text';
+
+        $this->assertEquals($expected, $result);
+    }
+
+    /** @test */
+    public function it_can_generate_a_twitter_share_link_with_custom_title()
+    {
+        $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
+        $expected = 'https://vk.com/share.php?url=https://mysite.com&title=Title';
 
         $this->assertEquals($expected, $result);
     }

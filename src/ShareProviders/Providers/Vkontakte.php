@@ -13,6 +13,6 @@ class Vkontakte extends ShareProvider
     {
         $shareLink = config('share-buttons.providers.vkontakte.url');
 
-        return $shareLink . $url;
+        return $shareLink . $url . '&title=' . $this->prepareTitle($title);
     }
 }
