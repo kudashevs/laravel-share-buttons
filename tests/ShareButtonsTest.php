@@ -95,6 +95,15 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_return_one_link_on_string_casting()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->facebook();
+
+        $this->assertStringContainsString('facebook', (string)$result);
+    }
+
+    /** @test */
     public function it_can_return_one_link_on_get_share_buttons()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
