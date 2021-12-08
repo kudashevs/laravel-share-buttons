@@ -152,9 +152,7 @@ class TranslateFormatter implements Formatter
      */
     private function prepareElementTemplate(string $provider): string
     {
-        $providerStyles = "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
-
-        return $providerStyles;
+        return "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
     }
 
     /**
