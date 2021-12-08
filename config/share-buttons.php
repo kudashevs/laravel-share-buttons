@@ -23,7 +23,6 @@ return [
         ],
         'linkedin' => [
             'url' => 'https://www.linkedin.com/sharing/share-offsite',
-            'text' => 'Default share text',
             'extra' => ['mini' => 'true'],
         ],
         'whatsapp' => [
@@ -55,7 +54,6 @@ return [
     */
 
     'fontAwesomeVersion' => 5,
-
 
     /*
     |--------------------------------------------------------------------------
