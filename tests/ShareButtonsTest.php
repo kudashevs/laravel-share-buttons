@@ -39,7 +39,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_use_the_url_of_the_current_request()
+    public function it_can_use_the_url_from_the_current_request()
     {
         $result = $this->share->currentPage()->facebook();
         $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com/" class="social-button"><span class="fab fa-facebook-square"></span></a></li></ul></div>';
