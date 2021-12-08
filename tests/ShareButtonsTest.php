@@ -251,4 +251,16 @@ class ShareButtonsTest extends ExtendedTestCase
         $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=This+is+another+title&summary=" class="social-button" title="This is another title"><span class="fab fa-linkedin"></span></a></li></ul></div>';
         $this->assertEquals($expected, (string)$result);
     }
+
+    /** @test */
+    public function it_can_generate_multiple_share_links_and_add_provider_arguments()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->facebook(['rel' => 'nofollow'])
+            ->linkedin(['summary' => 'Test summary', 'class' => 'active'])
+            ->twitter(['rel' => 'follow']);
+
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=My+share+title&summary=Test+summary" class="social-button active"><span class="fab fa-linkedin"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button" rel="follow"><span class="fab fa-twitter"></span></a></li></ul></div>';
+        $this->assertEquals($expected, (string)$result);
+    }
 }
