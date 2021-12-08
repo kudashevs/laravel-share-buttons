@@ -1,241 +1,255 @@
 # Laravel Share Buttons
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jorenvanhocht/laravel-share.svg?style=flat-square)](https://packagist.org/packages/jorenvanhocht/laravel-share)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/jorenvh/laravel-share/master.svg?style=flat-square)](https://travis-ci.org/jorenvh/laravel-share)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/dde6008b-ccc6-4a3f-8a98-37d76532f956.svg?style=flat-square)](https://insight.sensiolabs.com/projects/dde6008b-ccc6-4a3f-8a98-37d76532f956)
-[![Total Downloads](https://img.shields.io/packagist/dt/jorenvanhocht/laravel-share.svg?style=flat-square)](https://packagist.org/packages/jorenvanhocht/laravel-share)
-
-This package is originated form [Laravel Share](https://github.com/jorenvh/laravel-share) package.
-
-Share links exist on almost every page in every project, creating the code for these share links over and over again can be a pain in the ass.
-With Laravel Share you can generate these links in just seconds in a way tailored for Laravel.
+This Laravel Share Buttons package was originated from [Laravel Share](https://github.com/jorenvh/laravel-share) package.
+The package gives you the possibility to create share buttons code for your site in a convenient and flexible way.
 
 ### Available services
 
 * Facebook
-* Twitter
-* Linkedin
-* WhatsApp
+* LinkedIn
+* Pinterest
 * Reddit
 * Telegram
+* Twitter
+* VKontakte
+* WhatsApp
 
 ## Installation
 
 You can install the package via composer:
 
 ``` bash
-composer require jorenvanhocht/laravel-share
+composer require kudashevs/laravel-share-buttons
 ```
 
-
-If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
+If you don't use auto-discovery just add a ServiceProvider to the config/app.php
 
 ```php
-// config/app.php
 'providers' => [
     Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
 ];
 ```
 
-And optionally add the facade in config/app.php
+If you want to add a Laravel Facade just add it in the config/app.php
 
 ```php
-// config/app.php
 'aliases' => [
-    'Share' => Kudashevs\ShareButtons\Facades\ShareFacade::class,
+    'Share' => Kudashevs\ShareButtons\Facades\ShareButtonsFacade::class,
 ];
 ```
 
-Publish the package config & resource files.
+Publish the package config & resource files. You might need to republish the config after major changes in the package.
 
 ```bash
-php artisan vendor:publish --provider="ShareButtons\Share\Providers\ShareServiceProvider"
+php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
 ```
 
-> You might need to republish the config file when updating to a newer version of Laravel Share
+This command will create three different files:
+```
+config/share-buttons.php - a configuration file
+resources/lang/vendor/en/share-buttons.php - a visual representation of elements
+public/js/share-buttons.js - javascript (jQuery) 
+```
 
-This will publish the ```laravel-share.php``` config file to your config folder, ```share.js``` in ```public/js/``` and ```laravel-share.php``` in your ```resources/lang/vendor/en/``` folder.
+### Font Awesome
 
-### Fontawesome
-
-Since this package relies on Fontawesome, you will have to require it's css, js & fonts in your app.
-You can do that by requesting a embed code [via their website](http://fontawesome.io/get-started/) or by installing it locally in your project.
-
-Laravel share supports Font Awesome v5. For Font Awsome 4 support use version [3](https://github.com/jorenvh/laravel-share/tree/3.3.1) of this package. 
+This package relies on Font Awesome, so you have to use it in your app. However, you can easily integrate any fonts, CSS, or JS.
+For further information on how to use Font Awesome please read the [introduction](https://fontawesome.io/get-started/).
 
 ### Javascript
 
-Load jquery.min.js & share.js by adding the following lines to your template files.
+To have javascript working you need to load jquery.min.js & share-buttons.js by adding the following lines to your templates.
 
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-<script src="{{ asset('js/share.js') }}"></script>
+<script src="{{ asset('js/share-buttons.js') }}"></script>
 ```
 
 ## Usage
 
-### Creating one share link
+The package is really easy to use and provides a fluent interface to build the share buttons code. You can use a couple
+of methods to start a method chaining. They are:
 
-#### Facebook
-
-``` php
-Share::page('http://jorenvanhocht.be')->facebook();
+```
+page($url, $title = '', $options = [])
+createForPage($url, $title = '', $options = [])
+createForCurrentPage($title = '', $options = [])
 ```
 
-#### Twitter
+### Share a specific page
 
 ``` php
-Share::page('http://jorenvanhocht.be', 'Your share text can be placed here')->twitter();
+ShareButtons::page('https://jorenvanhocht.be')->facebook();
+ShareButtons::page('https://jorenvanhocht.be', 'Your share text here')->twitter();
+ShareButtons::createForPage('https://jorenvanhocht.be')->facebook();
+ShareButtons::createForPage('https://jorenvanhocht.be', 'Your share text here')->twitter();
 ```
 
-#### Reddit
-
-``` php
-Share::page('http://jorenvanhocht.be', 'Your share text can be placed here')->reddit();
-```
-
-#### Linkedin
-
-``` php
-Share::page('http://jorenvanhocht.be', 'Share title')->linkedin('Extra linkedin summary can be passed here')
-```
-
-#### Whatsapp
-
-``` php
-Share::page('http://jorenvanhocht.be')->whatsapp()
-```
-
-#### Telegram
-
-``` php
-Share::page('http://jorenvanhocht.be', 'Your share text can be placed here')->telegram();
-```
-
-### Sharing the current url
-
-Instead of manually passing an url, you can opt to use the `currentPage` function.
+### Share a current page
 
 ```php
-Share::currentPage()->facebook();
+ShareButtons::currentPage()->facebook();
+ShareButtons::page('https://jorenvanhocht.be', 'Your share text here')->twitter();
+
 ```
 
 ### Creating multiple share Links
 
-If want multiple share links for (multiple) providers you can just chain the methods like this.
+The usual way of using the share buttons package is to create multiple links. You just need to chain the methods for this.
 
 ```php
-Share::page('http://jorenvanhocht.be', 'Share title')
+ShareButtons::page('https://jorenvanhocht.be', 'Share title')
 	->facebook()
 	->twitter()
-	->linkedin('Extra linkedin summary can be passed here')
+	->linkedin(['summary' => 'Extra linkedin summary can be passed here'])
 	->whatsapp();
 ```
 
-This will generate the following html
+This will generate the following HTML code
 
 ```html
 <div id="social-links">
 	<ul>
-		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="social-button " id=""><span class="fa fa-facebook-official"></span></a></li>
-		<li><a href="https://twitter.com/intent/tweet?text=my share text&amp;url=http://jorenvanhocht.be" class="social-button " id=""><span class="fa fa-twitter"></span></a></li>
-		<li><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="social-button " id=""><span class="fa fa-linkedin"></span></a></li>
-		<li><a href="https://wa.me/?text=http://jorenvanhocht.be" class="social-button " id=""><span class="fa fa-whatsapp"></span></a></li>    
+		<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button"><span class="fa fa-facebook-square"></span></a></li>
+		<li><a href="https://twitter.com/intent/tweet?text=my share text&amp;url=https://jorenvanhocht.be" class="social-button"><span class="fa fa-twitter"></span></a></li>
+		<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="social-button"><span class="fa fa-linkedin"></span></a></li>
+		<li><a href="https://wa.me/?text=https://jorenvanhocht.be" class="social-button"><span class="fa fa-whatsapp"></span></a></li>    
 	</ul>
 </div>
+```
+
+### Getting the result
+
+You can just use the object as a string or cast it to string to get the share buttons code. However, it is not a perfect
+way of using it. If you want to be precise and clear with your code intentions use the ```getShareButtons``` method.
+
+```php
+ShareButtons::page('https://jorenvanhocht.be', 'Share title')
+	->facebook()
+    ->getShareButtons();
 ```
 
 ### Getting the raw links
 
-In some cases you may only need the raw links without any html, you can get these by calling the `getRawLinks` method.
+In some cases, you may only need the raw links without any HTML. In such a case use the `getRawLinks` method.
 
-**A single link**
 ```php
-Share::page('http://jorenvanhocht.be', 'Share title')
+ShareButtons::page('https://jorenvanhocht.be', 'Share title')
 	->facebook()
 	->getRawLinks();
 ```
 
-Outputs:
+## Optional parameters
 
-```html 
-https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be
+### Add extra options to your buttons
+
+The package allows you to provide additional options to the share buttons code. It can be made globally (by providing options
+to the fluent interface start method), and locally (by providing options to the specific method).
+
+At the moment, the package supports the following options:
+
+### Global options
+
+```
+'block_prefix' => 'value' - set up a block prefix, e.g. <ul>
+'block_suffix' => 'value' - set up a block prefix, e.g. </ul>
+'element_prefix' => 'value' - set up an element prefix, e.g. <li>
+'element_suffix' => 'value' - set up an element suffix, e.g. </li>
+'id' => 'value' - add an id attribute to a link
+'class' => 'value' - add a class attribute to a link
+'title' => 'value' - add a title attribute to a link
+'rel' => 'value' - add a rel attribute to a link
 ```
 
-**Multiple links**
+### Local options
+
+```
+'id' => 'value' - add an id attribute to a link
+'class' => 'value' - add a class attribute to a link
+'title' => 'value' - add a title attribute to a link
+'rel' => 'value' - add a rel attribute to a link
+'summary' => 'value' - only used with a linkedin provider (special case)
+```
+
+#### Usage examples
 
 ```php
-Share::page('http://jorenvanhocht.be', 'Share title')
-	->facebook()
-	->twitter()
-	->linkedin('Extra linkedin summary can be passed here')
-	->whatsapp()
-    ->getRawLinks();
-```
-
-Outputs:
-
-```
-[
-  "facebook" => "https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be",
-  "twitter" => "https://twitter.com/intent/tweet?text=Share+title&url=http://jorenvanhocht.be",
-  "linkedin" => "http://www.linkedin.com/shareArticle?mini=true&url=http://jorenvanhocht.be&title=Share+title&summary=Extra+linkedin+summary+can+be+passed+here",
-  "whatsapp" => "https://wa.me/?text=http://jorenvanhocht.be",
-]
-```
-
-### Optional parameters
-
-#### Add extra classes, id's or titles to the social buttons
-
-You can simply add extra class(es), id('s), title(s) or relationship(s) by passing an array as the third parameter on the page method.
-
-```php
-Share::page('http://jorenvanhocht.be', null, ['class' => 'my-class', 'id' => 'my-id', 'title' => 'my-title', 'rel' => 'nofollow noopener noreferrer'])
+ShareButtons::page('https://jorenvanhocht.be', '', [
+        'block_prefix' => '<ul>',
+        'block_suffix' => '</ul>',
+        'class' => 'my-class',
+        'id' => 'my-id',
+        'title' => 'my-title',
+        'rel' => 'nofollow noopener noreferrer',
+    ])
     ->facebook();
 ```
 
-Which will result in the following html
-
-```html
-<div id="social-links">
-	<ul>
-		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="social-button my-class" id="my-id" rel="nofollow noopener noreferrer"><span class="fa fa-facebook-official"></span></a></li>
-	</ul>
-</div>
-```
-
-#### Custom wrapping
-
-By default social links will be wrapped in the following html
-
-```html
-<div id="social-links">
-	<ul>
-		<!-- social links will be added here -->
-	</ul>
-</div>
-```
-
-This can be customised by passing the prefix & suffix as a parameter.
-
-```php
-Share::page('http://jorenvanhocht.be', null, [], '<ul>', '</ul>')
-            ->facebook();
-```
-
-This will output the following html.
+will result into the following HTML code
 
 ```html
 <ul>
-	<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://jorenvanhocht.be" class="social-button " id=""><span class="fa fa-facebook-official"></span></a></li>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
 </ul>
 ```
 
-## Changelog
+```php
+ShareButtons::page('https://jorenvanhocht.be', '', [
+        'block_prefix' => '<ul>',
+        'block_suffix' => '</ul>',
+        'class' => 'my-class',
+        'id' => 'my-id',
+        'title' => 'my-title',
+        'rel' => 'nofollow noopener noreferrer',
+    ])
+    ->facebook()
+    ->linkedin(['id' => 'linked', 'class' => 'hover', 'rel' => 'follow', 'summary' => 'cool summary']);
+```
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+will result into the following HTML code
+
+```html
+<ul>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+    <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://jorenvanhocht.be&title=Default+share+text&summary=cool+summary" class="social-button hover" id="linked" title="my-title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
+</ul>
+```
+
+## Configuration
+
+The package comes with some configuration settings. These are:
+
+### Providers section
+
+Each share provider has specific settings that can be configured. 
+
+```
+'url' => 'value' - a share url which is used by a provider
+'text' => 'value' - a text which is used when page title is not set 
+'extra' => [] - extra options which are required by the specific providers
+```
+
+### Font Awesome setting
+
+```
+'fontAwesomeVersion' => number - specify a Font Awesome version to use
+```
+
+### Formatting elements section
+
+```
+'block_prefix' => 'value' - set up a block prefix, e.g. <ul>
+'block_suffix' => 'value' - set up a block prefix, e.g. </ul>
+'element_prefix' => 'value' - set up an element prefix, e.g. <li>
+'element_suffix' => 'value' - set up an element suffix, e.g. </li>
+```
+
+### React on errors section
+
+```
+'reactOnErrors' => bool - specify whether it throws exceptions on unexpected methods or not
+'throwException' => FQCN - specify the exception to throw (should be in the context-independent FQCN format)
+```
 
 ## Testing
 
@@ -246,15 +260,6 @@ $ composer test
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security
-
-If you discover any security related issues, please email jorenvh@gmail.com instead of using the issue tracker.
-
-## Credits
-
-- [Joren Van Hocht](https://github.com/jorenvh)
-- [All Contributors](../../contributors)
 
 ## License
 
