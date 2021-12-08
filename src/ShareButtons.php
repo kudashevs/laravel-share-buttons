@@ -14,6 +14,7 @@ use Kudashevs\ShareButtons\ShareProviders\Factory;
  * @method ShareButtons reddit(array $options = [])
  * @method ShareButtons telegram(array $options = [])
  * @method ShareButtons twitter(array $options = [])
+ * @method ShareButtons vkontakte(array $options = [])
  * @method ShareButtons whatsapp(array $options = [])
  */
 class ShareButtons

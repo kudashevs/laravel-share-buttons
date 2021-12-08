@@ -16,6 +16,7 @@ use Kudashevs\ShareButtons\ShareButtons;
  * @method ShareButtons reddit(array $option = [])
  * @method ShareButtons telegram(array $option = [])
  * @method ShareButtons twitter(array $option = [])
+ * @method ShareButtons vkontakte(array $options = [])
  * @method ShareButtons whatsapp(array $option = [])
  * @method array getRawLinks()
  * @method string getShareButtons()

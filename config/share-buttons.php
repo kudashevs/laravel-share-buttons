@@ -37,6 +37,9 @@ return [
             'url' => 'https://twitter.com/intent/tweet',
             'text' => 'Default share text',
         ],
+        'vkontakte' => [
+            'url' => 'https://vk.com/share.php?url=',
+        ],
         'whatsapp' => [
             'url' => 'https://wa.me/?text=',
             'extra' => ['mini' => 'true'],

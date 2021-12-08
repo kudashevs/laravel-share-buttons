@@ -16,6 +16,7 @@ final class Factory
         'reddit' => Providers\Reddit::class,
         'telegram' => Providers\Telegram::class,
         'twitter' => Providers\Twitter::class,
+        'vkontakte' => Providers\Vkontakte::class,
         'whatsapp' => Providers\WhatsApp::class,
     ];
 

@@ -73,6 +73,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My twitter title',
                 'https://twitter.com/intent/tweet?text=My+twitter+title&url=https://mysite.com',
             ],
+            'vkontakte' => [
+                'vkontakte',
+                'https://mysite.com',
+                'My twitter title',
+                'https://vk.com/share.php?url=https://mysite.com'
+            ],
             'whatsapp' => [
                 'whatsapp',
                 'https://mysite.com',
