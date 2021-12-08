@@ -133,6 +133,17 @@ class ShareButtons
     }
 
     /**
+     * @param string $url
+     * @param string $title
+     * @param array $options
+     * @return $this
+     */
+    public function createForPage(string $url, string $title = '', array $options = []): self
+    {
+        return $this->page($url, $title, $options);
+    }
+
+    /**
      * @param string $title
      * @param array $options
      * @return $this
