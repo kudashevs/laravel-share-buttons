@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests;
 
+use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\Formatters\TranslateFormatter;
 use Kudashevs\ShareButtons\ShareButtons;
 
@@ -18,12 +19,37 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_error_on_wrong_provider_name()
+    public function it_can_throw_default_exception_on_wrong_provider_name()
     {
+        config()->set('share-buttons.reactOnErrors', true);
+
         $this->expectException(\Error::class);
         $this->expectExceptionMessage('method ShareButtons::wrong()');
 
-        $this->share->page('https://mysite.com')->wrong();
+        ShareButtonsFacade::page('https://mysite.com')->wrong();
+    }
+
+    /** @test */
+    public function it_can_throw_provided_exception_on_wrong_provider_name()
+    {
+        config()->set('share-buttons.reactOnErrors', true);
+        config()->set('share-buttons.throwException', \BadMethodCallException::class);
+
+        $this->expectException(\BadMethodCallException::class);
+        $this->expectExceptionMessage('method ShareButtons::wrong()');
+
+        ShareButtonsFacade::page('https://mysite.com')->wrong();
+    }
+
+    /** @test */
+    public function it_can_skip_throwing_exception_on_wrong_provider_name()
+    {
+        config()->set('share-buttons.throwException', false);
+
+        $result = $this->share->page('https://mysite.com')->wrong()->getRawLinks();
+
+        $this->assertIsArray($result);
+        $this->assertEmpty($result);
     }
 
     /** @test */

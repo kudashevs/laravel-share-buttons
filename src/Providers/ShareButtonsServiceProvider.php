@@ -35,7 +35,13 @@ class ShareButtonsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('share', function () {
-            return new ShareButtons();
+            $formatter = $this->getDefaultFormatter();
+            $options = [
+                'reactOnErrors' => config('share-buttons.reactOnErrors'),
+                'throwException' => config('share-buttons.throwException'),
+            ];
+
+            return new ShareButtons($formatter, $options);
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');

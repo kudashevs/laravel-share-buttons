@@ -164,10 +164,14 @@ class ShareButtons
             $this->rememberProcessed($name, $url, $normalizedArguments);
 
             return $this;
-
         }
 
-        throw new \Error('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
+        if ($this->options['reactOnErrors'] === true) {
+            $exception = $this->options['throwException'];
+            throw new $exception('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
+        }
+
+        return $this;
     }
 
     /**
