@@ -39,6 +39,34 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_generate_one_link_without_a_title()
+    {
+        $result = $this->share->page('https://mysite.com')->facebook();
+
+        $this->assertStringContainsString('facebook', (string)$result);
+    }
+
+    /** @test */
+    public function it_can_generate_one_link_without_a_title_for_title_predefined_provider()
+    {
+        $expected = config('share-buttons.providers.twitter.text');
+
+        $result = $this->share->page('https://mysite.com')->twitter();
+
+        $this->assertStringContainsString(urlencode($expected), (string)$result);
+    }
+
+    /** @test */
+    public function it_can_generate_one_link_with_a_provided_title_for_title_predefined_provider()
+    {
+        $expected = 'Page title';
+
+        $result = $this->share->page('https://mysite.com', $expected)->twitter();
+
+        $this->assertStringContainsString(urlencode($expected), (string)$result);
+    }
+
+    /** @test */
     public function it_can_use_the_url_from_the_current_request()
     {
         $result = $this->share->currentPage()->facebook();

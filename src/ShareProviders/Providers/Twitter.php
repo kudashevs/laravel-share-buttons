@@ -11,8 +11,8 @@ class Twitter implements ShareProvider
     {
         $shareLink = config('share-buttons.providers.twitter.url');
 
-        $title = empty($options['title']) ? config('share-buttons.providers.twitter.text') : $options['title'];
+        $text = empty($title) ? config('share-buttons.providers.twitter.text') : $title;
 
-        return $shareLink . '?text=' . urlencode($title) . '&url=' . $url;
+        return $shareLink . '?text=' . urlencode($text) . '&url=' . $url;
     }
 }

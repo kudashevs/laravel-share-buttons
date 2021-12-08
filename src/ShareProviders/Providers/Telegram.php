@@ -11,8 +11,8 @@ class Telegram implements ShareProvider
     {
         $shareLink = config('share-buttons.providers.telegram.url');
 
-        $title = empty($options['title']) ? config('share-buttons.providers.telegram.text') : $options['title'];
+        $text = empty($title) ? config('share-buttons.providers.telegram.text') : $title;
 
-        return $shareLink . '?url=' . $url . '&text=' . urlencode($title);
+        return $shareLink . '?url=' . $url . '&text=' . urlencode($text);
     }
 }

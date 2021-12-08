@@ -11,8 +11,8 @@ class Reddit implements ShareProvider
     {
         $shareLink = config('share-buttons.providers.reddit.url');
 
-        $title = empty($options['title']) ? config('share-buttons.providers.reddit.text') : $options['title'];
+        $text = empty($title) ? config('share-buttons.providers.reddit.text') : $title;
 
-        return $shareLink . '?title=' . urlencode($title) . '&url=' . $url;
+        return $shareLink . '?title=' . urlencode($text) . '&url=' . $url;
     }
 }
