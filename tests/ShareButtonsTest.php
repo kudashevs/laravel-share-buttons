@@ -220,19 +220,18 @@ class ShareButtonsTest extends ExtendedTestCase
             [
                 'block_prefix' => '<ul>',
                 'block_suffix' => '</ul>',
-                'class' => 'my-class',
-                'id' => 'my-id',
                 'title' => 'My Title for SEO',
+                'class' => 'page-class',
+                'id' => 'page-id',
                 'rel' => 'nofollow',
             ])
             ->facebook()
             ->twitter()
             ->whatsapp()
-            ->pinterest()
             ->reddit()
             ->telegram();
 
-        $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button my-class" id="my-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button my-class" id="my-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-twitter"></span></a></li><li><a href="https://wa.me/?text=https://mysite.com" class="social-button my-class" id="my-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://pinterest.com/pin/create/button/?url=https://mysite.com" class="social-button my-class" id="my-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-pinterest"></span></a></li><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https://mysite.com" class="social-button my-class" id="my-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https://mysite.com&text=My+share+title" class="social-button my-class" id="my-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></li></ul>';
+        $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https://mysite.com" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-twitter"></span></a></li><li><a href="https://wa.me/?text=https://mysite.com" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https://mysite.com" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https://mysite.com&text=My+share+title" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></li></ul>';
 
         $this->assertEquals($expected, (string)$result);
     }
