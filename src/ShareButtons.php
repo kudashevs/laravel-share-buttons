@@ -5,6 +5,17 @@ namespace Kudashevs\ShareButtons;
 use Kudashevs\ShareButtons\Formatters\Formatter;
 use Kudashevs\ShareButtons\ShareProviders\Factory;
 
+/**
+ * @todo constantly update these method signatures.
+ *
+ * @method ShareButtons facebook(array $options = [])
+ * @method ShareButtons linkedin(array $options = [])
+ * @method ShareButtons pinterest(array $options = [])
+ * @method ShareButtons reddit(array $options = [])
+ * @method ShareButtons telegram(array $options = [])
+ * @method ShareButtons twitter(array $options = [])
+ * @method ShareButtons whatsapp(array $options = [])
+ */
 class ShareButtons
 {
     /**
