@@ -6,7 +6,7 @@ use Kudashevs\ShareButtons\Formatters\Formatter;
 use Kudashevs\ShareButtons\ShareProviders\Factory;
 
 /**
- * @todo constantly update these method signatures.
+ * @todo don't forget to update these method signatures
  *
  * @method ShareButtons facebook(array $options = [])
  * @method ShareButtons linkedin(array $options = [])

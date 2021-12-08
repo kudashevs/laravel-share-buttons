@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Facade;
 use Kudashevs\ShareButtons\ShareButtons;
 
 /**
- * @todo constantly update these method signatures.
+ * @todo don't forget to update these method signatures
  *
  * @method ShareButtons page($url, string $title = '', array $options = [])
  * @method ShareButtons currentPage($url, string $title = '', array $options = [])

@@ -32,7 +32,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /**
-     * @todo constantly update these test cases.
+     * @todo don't forget to update these test cases
      */
     public function provide_different_share_providers_for_one_link()
     {

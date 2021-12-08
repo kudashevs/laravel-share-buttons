@@ -6,6 +6,9 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Factory
 {
+    /**
+     * @todo don't forget to update these providers
+     */
     public const PROVIDERS = [
         'facebook' => Providers\Facebook::class,
         'linkedin' => Providers\LinkedIn::class,
