@@ -9,8 +9,8 @@ class Pinterest implements ShareProvider
 
     public function buildUrl(string $url, array $options = []): string
     {
-        $repository = config('share-buttons.providers.pinterest.url');
+        $providersUrl = config('share-buttons.providers.pinterest.url');
 
-        return $repository . $url;
+        return $providersUrl . $url;
     }
 }
