@@ -8,7 +8,7 @@ use Kudashevs\ShareButtons\ShareProviders\Factory;
 class ShareButtons
 {
     /**
-     * The url of the page to share.
+     * The url of a page to share.
      *
      * @var string
      */
