@@ -44,6 +44,8 @@ class ShareButtons
      * @var array
      */
     protected $options = [
+        'reactOnErrors' => null,
+        'throwException' => null,
     ];
 
     /**
@@ -75,10 +77,22 @@ class ShareButtons
      */
     public function __construct(Formatter $formatter, array $options = [])
     {
+        $this->initOptions($options);
+
         $this->formatter = $formatter;
         $this->formatter->updateOptions($options);
 
         $this->initProviders();
+    }
+
+    /**
+     * @param array $options
+     */
+    private function initOptions(array $options = []): void
+    {
+        $allowed = array_intersect_key($options, $this->options);
+
+        $this->options = array_merge($this->options, $allowed);
     }
 
     /**
