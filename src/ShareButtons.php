@@ -125,15 +125,15 @@ class ShareButtons
     {
         if (array_key_exists($name, $this->providers)) {
 
-            $arguments = $this->normalizeArguments($arguments);
-            $providerArguments = $this->prepareArguments($arguments);
+            $callArguments = $this->normalizeArguments($arguments);
+            $providerArguments = $this->prepareArguments($callArguments);
 
             $url = $this->providers[$name]->buildUrl(
                 $this->url,
                 $providerArguments
             );
 
-            $this->rememberProcessed($name, $url, $arguments);
+            $this->rememberProcessed($name, $url, $callArguments);
 
             return $this;
 
