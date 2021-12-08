@@ -8,12 +8,12 @@ final class Factory
 {
     public const PROVIDERS = [
         'facebook' => Providers\Facebook::class,
-        'twitter' => Providers\Twitter::class,
-        'reddit' => Providers\Reddit::class,
-        'telegram' => Providers\Telegram::class,
-        'whatsapp' => Providers\WhatsApp::class,
         'linkedin' => Providers\LinkedIn::class,
         'pinterest' => Providers\Pinterest::class,
+        'reddit' => Providers\Reddit::class,
+        'telegram' => Providers\Telegram::class,
+        'twitter' => Providers\Twitter::class,
+        'whatsapp' => Providers\WhatsApp::class,
     ];
 
     /**
