@@ -131,10 +131,10 @@ class TranslateFormatter implements Formatter
      */
     private function generateLink(string $provider, string $url, array $options): string
     {
-        $providerStyles = "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
+        $template = $this->prepareElementTemplate($provider);
 
         return trans(
-            $providerStyles,
+            $template,
             [
                 'url' => $url,
                 'class' => !empty($this->options['class']) ? (' ' . $this->options['class']) : '',
@@ -142,6 +142,17 @@ class TranslateFormatter implements Formatter
                 'title' => !empty($this->options['title']) ? (' title="' . $this->options['title'] . '"') : '',
                 'rel' => !empty($this->options['rel']) ? (' rel="' . $this->options['rel'] . '"') : '',
             ]);
+    }
+
+    /**
+     * @param string $provider
+     * @return string
+     */
+    private function prepareElementTemplate(string $provider): string
+    {
+        $providerStyles = "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
+
+        return $providerStyles;
     }
 
     /**
