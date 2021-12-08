@@ -132,16 +132,16 @@ class TranslateFormatter implements Formatter
     private function generateLink(string $provider, string $url, array $options): string
     {
         $template = $this->prepareElementTemplate($provider);
-        $attributes = $this->prepareElementStyling($options);
+        $styling = $this->prepareElementStyling($options);
 
         return trans(
             $template,
             [
                 'url' => $url,
-                'class' => !empty($attributes['class']) ? (' ' . $attributes['class']) : '',
-                'id' => !empty($attributes['id']) ? (' id="' . $attributes['id'] . '"') : '',
-                'title' => !empty($attributes['title']) ? (' title="' . $attributes['title'] . '"') : '',
-                'rel' => !empty($attributes['rel']) ? (' rel="' . $attributes['rel'] . '"') : '',
+                'class' => !empty($styling['class']) ? (' ' . $styling['class']) : '',
+                'id' => !empty($styling['id']) ? (' id="' . $styling['id'] . '"') : '',
+                'title' => !empty($styling['title']) ? (' title="' . $styling['title'] . '"') : '',
+                'rel' => !empty($styling['rel']) ? (' rel="' . $styling['rel'] . '"') : '',
             ]);
     }
 
