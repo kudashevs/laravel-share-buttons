@@ -10,8 +10,6 @@ class Twitter extends ShareProvider
     {
         $shareLink = config('share-buttons.providers.twitter.url');
 
-        $text = empty($title) ? config('share-buttons.providers.twitter.text') : $title;
-
-        return $shareLink . '?text=' . urlencode($text) . '&url=' . $url;
+        return $shareLink . '?text=' . $this->prepareTitle($title) . '&url=' . $url;
     }
 }

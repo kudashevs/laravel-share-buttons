@@ -13,6 +13,6 @@ class LinkedIn extends ShareProvider
 
         $summary = empty($options['summary']) ? '' : $options['summary'];
 
-        return $shareLink . '?mini=' . $mini . '&url=' . $url . '&title=' . urlencode($title) . '&summary=' . urlencode($summary);
+        return $shareLink . '?mini=' . $mini . '&url=' . $url . '&title=' . $this->prepareTitle($title) . '&summary=' . urlencode($summary);
     }
 }

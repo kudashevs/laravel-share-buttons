@@ -10,8 +10,6 @@ class Reddit extends ShareProvider
     {
         $shareLink = config('share-buttons.providers.reddit.url');
 
-        $text = empty($title) ? config('share-buttons.providers.reddit.text') : $title;
-
-        return $shareLink . '?title=' . urlencode($text) . '&url=' . $url;
+        return $shareLink . '?title=' . $this->prepareTitle($title) . '&url=' . $url;
     }
 }
