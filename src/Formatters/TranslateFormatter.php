@@ -99,14 +99,14 @@ class TranslateFormatter implements Formatter
      */
     private function initElementStyling(array $options): array
     {
-        $massOptions = [
+        $elementStyling = [
             'class' => '',
             'id' => '',
             'title' => '',
             'rel' => '',
         ];
 
-        return array_intersect_key($options, $massOptions);
+        return array_intersect_key($options, $elementStyling);
     }
 
     /**
