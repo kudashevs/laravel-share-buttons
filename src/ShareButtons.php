@@ -57,6 +57,9 @@ class ShareButtons
 
     /**
      * Share constructor.
+     *
+     * @param Formatter $formatter
+     * @param array $options
      */
     public function __construct(Formatter $formatter, array $options = [])
     {
