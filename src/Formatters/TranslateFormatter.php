@@ -31,7 +31,7 @@ class TranslateFormatter implements Formatter
     {
         $this->initFontAwesomeVersion($options);
         $this->initFormatterStyling($options);
-        $this->initElementStyling($options);
+        $this->initElementStylingForOptions($options);
     }
 
     /**
@@ -83,7 +83,18 @@ class TranslateFormatter implements Formatter
     /**
      * @param array $options
      */
-    private function initElementStyling(array $options): void
+    private function initElementStylingForOptions(array $options): void
+    {
+        $allowed = $this->initElementStyling($options);
+
+        $this->options = array_merge($this->options, $allowed);
+    }
+
+    /**
+     * @param array $options
+     * @return array
+     */
+    private function initElementStyling(array $options): array
     {
         $massOptions = [
             'class' => '',
@@ -92,8 +103,7 @@ class TranslateFormatter implements Formatter
             'rel' => '',
         ];
 
-        $allowed = array_intersect_key($options, $massOptions);
-        $this->options = array_merge($this->options, $allowed);
+        return array_intersect_key($options, $massOptions);
     }
 
     /**
