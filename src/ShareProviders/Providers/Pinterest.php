@@ -6,7 +6,6 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 class Pinterest implements ShareProvider
 {
-
     public function buildUrl(string $url, string $title, array $options = []): string
     {
         $shareLink = config('share-buttons.providers.pinterest.url');

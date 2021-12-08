@@ -6,7 +6,6 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 class Reddit implements ShareProvider
 {
-
     public function buildUrl(string $url, string $title, array $options = []): string
     {
         $shareLink = config('share-buttons.providers.reddit.url');
