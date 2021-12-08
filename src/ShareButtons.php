@@ -166,16 +166,6 @@ class ShareButtons
             return [];
         }
 
-        /**
-         * This possibility to get a string from a provider call was left
-         * only for backward compatibility and can be removed at any time.
-         *
-         * @deprecated
-         */
-        if (is_string($arguments[0])) {
-            return ['title' => $arguments[0]];
-        }
-
         if (is_array($arguments[0])) {
             return $arguments[0];
         }
