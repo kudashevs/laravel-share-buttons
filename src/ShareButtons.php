@@ -171,27 +171,6 @@ class ShareButtons
     }
 
     /**
-     * @param array $arguments
-     * @return array
-     */
-    private function prepareArguments(array $arguments): array
-    {
-        $additions = $this->prepareArgumentsFromState();
-
-        return array_merge($additions, $arguments);
-    }
-
-    /**
-     * @return array
-     */
-    private function prepareArgumentsFromState(): array
-    {
-        return [
-            'title' => $this->title,
-        ];
-    }
-
-    /**
      * @param object $object
      * @return string
      */
