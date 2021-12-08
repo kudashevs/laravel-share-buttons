@@ -169,7 +169,7 @@ class ShareButtons
      */
     private function prepareArguments(array $arguments): array
     {
-        $additions = $this->getArgumentsFromState();
+        $additions = $this->prepareArgumentsFromState();
 
         return array_merge($additions, $arguments);
     }
@@ -177,7 +177,7 @@ class ShareButtons
     /**
      * @return array
      */
-    private function getArgumentsFromState(): array
+    private function prepareArgumentsFromState(): array
     {
         return [
             'title' => $this->title,
