@@ -132,7 +132,7 @@ class TranslateFormatter implements Formatter
     private function generateLink(string $provider, string $url, array $options): string
     {
         $template = $this->prepareElementTemplate($provider);
-        $attributes = $this->prepareElementAttributes($options);
+        $attributes = $this->prepareElementStyling($options);
 
         return trans(
             $template,
@@ -160,7 +160,7 @@ class TranslateFormatter implements Formatter
      * @param array $options
      * @return array
      */
-    private function prepareElementAttributes(array $options): array
+    private function prepareElementStyling(array $options): array
     {
         return array_merge($this->options, $options);
     }
