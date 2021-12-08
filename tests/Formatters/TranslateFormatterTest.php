@@ -231,17 +231,6 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertEquals($expected, $result);
     }
 
-    /** @test */
-    public function it_cannot_format_an_element_with_custom_styling_from_call_options()
-    {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
-
-        $result = $this->formatter->generateUrl('facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
-
-        $this->assertNotEmpty($result);
-        $this->assertEquals($expected, $result);
-    }
-
     /**
      * @test
      * @dataProvider provide_different_styling_for_a_link
@@ -282,5 +271,16 @@ class TranslateFormatterTest extends ExtendedTestCase
                 '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
             ],
         ];
+    }
+
+    /** @test */
+    public function it_cannot_format_an_element_with_custom_styling_from_call_options()
+    {
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+
+        $result = $this->formatter->generateUrl('facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+
+        $this->assertNotEmpty($result);
+        $this->assertEquals($expected, $result);
     }
 }
