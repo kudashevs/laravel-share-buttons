@@ -11,7 +11,7 @@ interface Formatter
 
     /**
      * @param array $options
-     * @return mixed
+     * @return void|bool
      */
     public function updateOptions(array $options);
 
