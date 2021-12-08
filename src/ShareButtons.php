@@ -218,7 +218,7 @@ class ShareButtons
      * @param string $provider
      * @param string $link
      */
-    protected function rememberRawLink($provider, $link): void
+    protected function rememberRawLink(string $provider, string $link): void
     {
         $this->generatedUrls[$provider] = $link;
     }
