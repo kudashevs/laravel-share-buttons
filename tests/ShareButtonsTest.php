@@ -67,7 +67,7 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_create_self_instance_on_current_page()
     {
-        $this->assertInstanceOf(ShareButtons::class, $this->share->currentPage());
+        $this->assertInstanceOf(ShareButtons::class, $this->share->createForCurrentPage());
     }
 
     /** @test */
@@ -106,12 +106,12 @@ class ShareButtonsTest extends ExtendedTestCase
         $this->assertStringContainsString('facebook', (string)$result);
     }
 
-    public function it_can_use_the_url_from_the_current_request()
+    /** @test */
+   public function it_can_generate_one_link_from_create_for_current_page_using_request()
     {
-        $result = $this->share->currentPage()->facebook();
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com/" class="social-button"><span class="fab fa-facebook-square"></span></a></li></ul></div>';
+        $result = $this->share->createForCurrentPage()->facebook();
 
-        $this->assertEquals($expected, (string)$result);
+        $this->assertStringContainsString('facebook', (string)$result);
     }
 
     /** @test */
