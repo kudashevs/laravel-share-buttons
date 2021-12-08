@@ -1,12 +1,13 @@
 # Contributing
 
-Contributions are **welcome** and will be fully **credited**.
+Contribution is **welcome**. However, if you have a good idea on how to improve this package please propose it to the
+original [Laravel Share](https://github.com/jorenvh/laravel-share) package too.
 
 Please read and understand the contribution guide before creating an issue or pull request.
 
 ## Etiquette
 
-This project is open source, and as such, the maintainers give their free time to build and maintain the source code
+This project is open-source, and as such, the maintainers give their free time to build and maintain the source code
 held within. They make the code freely available in the hope that it will be of use to other developers. It would be
 extremely unfair for them to suffer abuse or anger for their hard work.
 
@@ -40,16 +41,16 @@ Before submitting a pull request:
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
+- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - the easiest way to apply the conventions is to use [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
 
-- **Add tests!** - Your patch won't be accepted if it doesn't have tests.
+- **Add tests!** - your patch won't be accepted if it doesn't have any tests.
 
-- **Document any change in behaviour** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+- **Document any change in behavior** - make sure the `README.md` and any other relevant documentation are up-to-date.
 
-- **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not an option.
+- **Consider our release cycle** - we try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not an option.
 
-- **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
+- **One pull request per feature** - if you want to do more than one thing, send multiple pull requests.
 
-- **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
+- **Send coherent history** - make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
 
 **Happy coding**!
