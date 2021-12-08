@@ -78,4 +78,19 @@ return [
     'element_prefix' => '<li>',
     'element_suffix' => '</li>',
 
+    /*
+    |--------------------------------------------------------------------------
+    | React on errors
+    |--------------------------------------------------------------------------
+    |
+    | This package uses a magic __call() method in its core. Despite the fact
+    | that this solution works pretty fine, it can lead to hard to find errors.
+    | If you want to be aware of all the unexpected calls on the __call() method,
+    | set the below option "reactOnErrors" to `true`. If not, set it to `false`.
+    |
+    */
+
+    'reactOnErrors' => true,
+    'throwException' => \Error::class,
+
 ];
