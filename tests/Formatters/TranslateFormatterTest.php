@@ -212,7 +212,8 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
-        $result = $this->formatter->generateUrl('facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
+        $result = $this->formatter->generateUrl('facebook',
+            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $result);
@@ -225,7 +226,8 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
 
-        $result = $this->formatter->generateUrl('facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
+        $result = $this->formatter->generateUrl('facebook',
+            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $result);
@@ -278,7 +280,34 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
-        $result = $this->formatter->generateUrl('facebook', 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+        $result = $this->formatter->generateUrl('facebook',
+            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+            ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+
+        $this->assertNotEmpty($result);
+        $this->assertEquals($expected, $result);
+    }
+
+    /** @test */
+    public function it_cannot_override_arguments_by_options()
+    {
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
+        $this->formatter->updateOptions([
+            'class' => 'options',
+            'id' => 'options',
+            'title' => 'options',
+            'rel' => 'options',
+        ]);
+
+        $result = $this->formatter->generateUrl(
+            'facebook',
+            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+            [
+                'class' => 'arguments',
+                'id' => 'arguments',
+                'title' => 'arguments',
+                'rel' => 'arguments',
+            ]);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $result);

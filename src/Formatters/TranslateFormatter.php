@@ -132,15 +132,16 @@ class TranslateFormatter implements Formatter
     private function generateLink(string $provider, string $url, array $options): string
     {
         $template = $this->prepareElementTemplate($provider);
+        $attributes = $this->prepareElementAttributes($options);
 
         return trans(
             $template,
             [
                 'url' => $url,
-                'class' => !empty($this->options['class']) ? (' ' . $this->options['class']) : '',
-                'id' => !empty($this->options['id']) ? (' id="' . $this->options['id'] . '"') : '',
-                'title' => !empty($this->options['title']) ? (' title="' . $this->options['title'] . '"') : '',
-                'rel' => !empty($this->options['rel']) ? (' rel="' . $this->options['rel'] . '"') : '',
+                'class' => !empty($attributes['class']) ? (' ' . $attributes['class']) : '',
+                'id' => !empty($attributes['id']) ? (' id="' . $attributes['id'] . '"') : '',
+                'title' => !empty($attributes['title']) ? (' title="' . $attributes['title'] . '"') : '',
+                'rel' => !empty($attributes['rel']) ? (' rel="' . $attributes['rel'] . '"') : '',
             ]);
     }
 
@@ -153,6 +154,15 @@ class TranslateFormatter implements Formatter
         $providerStyles = "share-buttons::share-buttons-fontawesome-{$this->options['formatter_version']}.{$provider}";
 
         return $providerStyles;
+    }
+
+    /**
+     * @param array $options
+     * @return array
+     */
+    private function prepareElementAttributes(array $options): array
+    {
+        return array_merge($this->options, $options);
     }
 
     /**
