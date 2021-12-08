@@ -3,20 +3,22 @@
 namespace Kudashevs\ShareButtons\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Kudashevs\ShareButtons\ShareButtons;
 
 /**
- * @todo constantly update this signature mapper.
+ * @todo constantly update these method signatures.
  *
- * @method page($url, string $title = '', array $options = [], ?string $prefix = null, ?string $suffix = null)
- * @method currentPage($url, string $title = '', array $options = [], ?string $prefix = null, ?string $suffix = null)
- * @method facebook()
- * @method twitter()
- * @method reddit()
- * @method telegram()
- * @method whatsapp()
- * @method linkedin(string $summary = '')
- * @method pinterest()
+ * @method ShareButtons page($url, string $title = '', array $options = [])
+ * @method ShareButtons currentPage($url, string $title = '', array $options = [])
+ * @method ShareButtons facebook($option = [])
+ * @method ShareButtons twitter($option = [])
+ * @method ShareButtons reddit($option = [])
+ * @method ShareButtons telegram($option = [])
+ * @method ShareButtons whatsapp($option = [])
+ * @method ShareButtons linkedin($option = [])
+ * @method ShareButtons pinterest($option = [])
  * @method array getRawLinks()
+ * @method string getShareButtons()
  */
 class ShareButtonsFacade extends Facade
 {
