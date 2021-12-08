@@ -17,17 +17,9 @@ return [
         'facebook' => [
             'url' => 'https://www.facebook.com/sharer/sharer.php?u=',
         ],
-        'twitter' => [
-            'url' => 'https://twitter.com/intent/tweet',
-            'text' => 'Default share text',
-        ],
         'linkedin' => [
             'url' => 'https://www.linkedin.com/sharing/share-offsite',
             'text' => 'Default share text',
-            'extra' => ['mini' => 'true'],
-        ],
-        'whatsapp' => [
-            'url' => 'https://wa.me/?text=',
             'extra' => ['mini' => 'true'],
         ],
         'pinterest' => [
@@ -40,6 +32,14 @@ return [
         'telegram' => [
             'url' => 'https://telegram.me/share/url',
             'text' => 'Default share text',
+        ],
+        'twitter' => [
+            'url' => 'https://twitter.com/intent/tweet',
+            'text' => 'Default share text',
+        ],
+        'whatsapp' => [
+            'url' => 'https://wa.me/?text=',
+            'extra' => ['mini' => 'true'],
         ],
     ],
 
