@@ -3,6 +3,8 @@
 namespace Kudashevs\ShareButtons\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Kudashevs\ShareButtons\Formatters\Formatter;
+use Kudashevs\ShareButtons\Formatters\TranslateFormatter;
 use Kudashevs\ShareButtons\ShareButtons;
 
 class ShareButtonsServiceProvider extends ServiceProvider
@@ -37,5 +39,13 @@ class ShareButtonsServiceProvider extends ServiceProvider
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');
+    }
+
+    /**
+     * @return Formatter
+     */
+    protected function getDefaultFormatter(): Formatter
+    {
+        return new TranslateFormatter();
     }
 }
