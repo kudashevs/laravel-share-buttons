@@ -5,6 +5,8 @@ namespace Kudashevs\ShareButtons\Formatters;
 class TranslateFormatter implements Formatter
 {
     /**
+     * Contain formatter options.
+     *
      * @var array
      */
     private $options = [
