@@ -35,21 +35,21 @@ class ShareButtons
     ];
 
     /**
-     * Contains share providers instances.
+     * Contain share providers instances.
      *
      * @var array
      */
     private $providers = [];
 
     /**
-     * Contains generated urls.
+     * Contain generated urls.
      *
      * @var string
      */
     protected $generatedUrls = [];
 
     /**
-     * Contains generated representation.
+     * Contain generated representation.
      *
      * @var array
      */
@@ -67,7 +67,7 @@ class ShareButtons
     }
 
     /**
-     * Initializes share providers.
+     * Initialize share providers.
      *
      * @return void
      */
@@ -210,7 +210,7 @@ class ShareButtons
     }
 
     /**
-     * Remembers a processed link.
+     * Remember a processed link.
      *
      * @param string $provider
      * @param string $link
@@ -221,7 +221,7 @@ class ShareButtons
     }
 
     /**
-     * Remembers a processed link.
+     * Remember a processed representation.
      *
      * @param string $provider
      * @param string $url
@@ -243,7 +243,7 @@ class ShareButtons
     }
 
     /**
-     * Return fully prepared share buttons.
+     * Return the prepared share buttons HTML code.
      *
      * @return string
      */
