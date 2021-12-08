@@ -231,4 +231,24 @@ class ShareButtonsTest extends ExtendedTestCase
 
         $this->assertEquals($expected, $result);
     }
+
+    /** @test */
+    public function it_can_return_one_link_and_use_string_argument_as_title()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->linkedin('This is a title');
+
+        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=This+is+a+title&summary=" class="social-button" title="This is a title"><span class="fab fa-linkedin"></span></a></li></ul></div>';
+        $this->assertEquals($expected, (string)$result);
+    }
+
+    /** @test */
+    public function it_can_return_one_link_and_override_title_with_provider_arguments()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->linkedin(['title' => 'This is another title']);
+
+        $expected = '<div id="social-links"><ul><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=This+is+another+title&summary=" class="social-button" title="This is another title"><span class="fab fa-linkedin"></span></a></li></ul></div>';
+        $this->assertEquals($expected, (string)$result);
+    }
 }
