@@ -27,4 +27,14 @@ interface Formatter
      * @return string
      */
     public function getBlockSuffix(): string;
+
+    /**
+     * @return string
+     */
+    public function getElementPrefix(): string;
+
+    /**
+     * @return string
+     */
+    public function getElementSuffix(): string;
 }
