@@ -247,7 +247,7 @@ class ShareButtons
      */
     protected function rememberElementRepresentation(string $provider, string $url, $options = []): void
     {
-        $this->generatedElements[$provider] = $this->formatter->generateUrl($provider, $url, $options);
+        $this->generatedElements[$provider] = $this->formatter->formatElement($provider, $url, $options);
     }
 
     /**

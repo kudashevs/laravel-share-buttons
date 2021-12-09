@@ -21,5 +21,5 @@ interface Formatter
      * @param array $options
      * @return string
      */
-    public function generateUrl(string $provider, string $url, array $options): string;
+    public function formatElement(string $provider, string $url, array $options): string;
 }

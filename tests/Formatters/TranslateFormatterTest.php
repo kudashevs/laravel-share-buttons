@@ -212,7 +212,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
-        $result = $this->formatter->generateUrl('facebook',
+        $result = $this->formatter->formatElement('facebook',
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
         $this->assertNotEmpty($result);
@@ -226,7 +226,7 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
 
-        $result = $this->formatter->generateUrl('facebook',
+        $result = $this->formatter->formatElement('facebook',
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
         $this->assertNotEmpty($result);
@@ -239,7 +239,7 @@ class TranslateFormatterTest extends ExtendedTestCase
      */
     public function it_can_format_a_link_with_custom_styling_from_call_options($url, $options, $expected)
     {
-        $result = $this->formatter->generateUrl('facebook', $url, $options);
+        $result = $this->formatter->formatElement('facebook', $url, $options);
 
         $this->assertEquals($expected, $result);
     }
@@ -280,7 +280,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
-        $result = $this->formatter->generateUrl('facebook',
+        $result = $this->formatter->formatElement('facebook',
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
             ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
@@ -299,7 +299,7 @@ class TranslateFormatterTest extends ExtendedTestCase
             'rel' => 'options',
         ]);
 
-        $result = $this->formatter->generateUrl(
+        $result = $this->formatter->formatElement(
             'facebook',
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
             [
