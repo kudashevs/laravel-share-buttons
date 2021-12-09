@@ -64,13 +64,6 @@ class ShareButtons
     protected $processedCalls = [];
 
     /**
-     * Contain generated urls.
-     *
-     * @var string
-     */
-    protected $generatedUrls = [];
-
-    /**
      * Contain generated representation.
      *
      * @var array
@@ -137,7 +130,6 @@ class ShareButtons
     private function clearState(): void
     {
         $this->processedCalls = [];
-        $this->generatedUrls = [];
         $this->generatedElements = [];
     }
 
@@ -255,8 +247,6 @@ class ShareButtons
     {
         $this->rememberProcessedCalls($provider, $url, $options);
 
-        $this->rememberElementLink($provider, $url);
-
         $this->rememberElementRepresentation($provider, $url, $options);
     }
 
@@ -268,17 +258,6 @@ class ShareButtons
             'element_link' => $url,
             'element_options' => $options,
         ];
-    }
-
-    /**
-     * Remember a processed link.
-     *
-     * @param string $provider
-     * @param string $link
-     */
-    protected function rememberElementLink(string $provider, string $link): void
-    {
-        $this->generatedUrls[$provider] = $link;
     }
 
     /**
@@ -300,7 +279,9 @@ class ShareButtons
      */
     public function getRawLinks(): array
     {
-        return $this->generatedUrls;
+        return array_map(static function ($calls) {
+            return $calls['element_link'];
+        }, $this->processedCalls);
     }
 
     /**
