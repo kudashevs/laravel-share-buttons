@@ -11,15 +11,20 @@ interface Formatter
     public function updateOptions(array $options);
 
     /**
-     * @return array
-     */
-    public function getOptions(): array;
-
-    /**
      * @param string $provider
      * @param string $url
      * @param array $options
      * @return string
      */
     public function formatElement(string $provider, string $url, array $options): string;
+
+    /**
+     * @return string
+     */
+    public function getStart(): string;
+
+    /**
+     * @return string
+     */
+    public function getEnd(): string;
 }
