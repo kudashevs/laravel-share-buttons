@@ -37,6 +37,12 @@ class ShareButtonsTest extends ExtendedTestCase
     public function provide_different_share_providers_for_one_link()
     {
         return [
+            'copylink' => [
+                'copylink',
+                'https://mysite.com',
+                'My facebook title',
+                'https://mysite.com',
+            ],
             'facebook' => [
                 'facebook',
                 'https://mysite.com',

@@ -5,6 +5,21 @@ $(document).ready(function () {
     };
 
     $(document).on('click', '.social-button', function (e) {
+        if ((e.target.id || e.target.parentElement.id) === 'clip') {
+            e.preventDefault();
+            if (window.clipboardData && window.clipboardData.setData) {
+                clipboardData.setData("Text", this.href);
+            } else {
+                var textArea = document.createElement("textarea");
+                textArea.value = this.href;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");  // Security exception may be thrown by some browsers.
+                textArea.remove();
+            }
+            return;
+        }
+
         var verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
             horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
 

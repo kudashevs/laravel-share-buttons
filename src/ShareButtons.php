@@ -8,6 +8,7 @@ use Kudashevs\ShareButtons\ShareProviders\Factory;
 /**
  * @todo don't forget to update these method signatures
  *
+ * @method ShareButtons copylink(array $options = [])
  * @method ShareButtons facebook(array $options = [])
  * @method ShareButtons linkedin(array $options = [])
  * @method ShareButtons pinterest(array $options = [])

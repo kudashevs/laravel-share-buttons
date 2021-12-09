@@ -10,6 +10,7 @@ final class Factory
      * @todo don't forget to update these providers
      */
     public const PROVIDERS = [
+        'copylink' => Providers\CopyLink::class,
         'facebook' => Providers\Facebook::class,
         'linkedin' => Providers\LinkedIn::class,
         'pinterest' => Providers\Pinterest::class,
