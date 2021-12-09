@@ -57,6 +57,13 @@ class ShareButtons
     private $providers = [];
 
     /**
+     * Contain processed calls.
+     *
+     * @var array
+     */
+    protected $processedCalls = [];
+
+    /**
      * Contain generated urls.
      *
      * @var string
@@ -129,6 +136,7 @@ class ShareButtons
      */
     private function clearState(): void
     {
+        $this->processedCalls = [];
         $this->generatedUrls = [];
         $this->generatedElements = [];
     }
@@ -245,9 +253,21 @@ class ShareButtons
      */
     protected function rememberProcessed(string $provider, string $url, array $options = []): void
     {
+        $this->rememberProcessedCalls($provider, $url, $options);
+
         $this->rememberElementLink($provider, $url);
 
         $this->rememberElementRepresentation($provider, $url, $options);
+    }
+
+    private function rememberProcessedCalls(string $provider, string $url, array $options): void
+    {
+        // @todo check if already exists
+        $this->processedCalls[$provider] = [
+            'element_provider' => $provider,
+            'element_link' => $url,
+            'element_options' => $options,
+        ];
     }
 
     /**
