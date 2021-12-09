@@ -67,7 +67,7 @@ class ShareButtons
      *
      * @var array
      */
-    protected $generatedRepresentation = [];
+    protected $generatedElements = [];
 
     /**
      * Share constructor.
@@ -129,7 +129,7 @@ class ShareButtons
     private function clearState(): void
     {
         $this->generatedUrls = [];
-        $this->generatedRepresentation = [];
+        $this->generatedElements = [];
     }
 
     /**
@@ -247,7 +247,7 @@ class ShareButtons
      */
     protected function rememberElementRepresentation(string $provider, string $url, $options = []): void
     {
-        $this->generatedRepresentation[$provider] = $this->formatter->generateUrl($provider, $url, $options);
+        $this->generatedElements[$provider] = $this->formatter->generateUrl($provider, $url, $options);
     }
 
     /**
@@ -270,7 +270,7 @@ class ShareButtons
         $representation = '';
 
         $representation .= $this->formatter->getOptions()['block_prefix'];
-        foreach ($this->generatedRepresentation as $link) {
+        foreach ($this->generatedElements as $link) {
             $representation .= $link;
         }
         $representation .= $this->formatter->getOptions()['block_suffix'];
