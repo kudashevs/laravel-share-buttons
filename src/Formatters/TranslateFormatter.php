@@ -175,6 +175,22 @@ class TranslateFormatter implements Formatter
     /**
      * @return string
      */
+    public function getStart(): string
+    {
+        return $this->options['block_prefix'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getEnd(): string
+    {
+        return $this->options['block_suffix'];
+    }
+
+    /**
+     * @return string
+     */
     private function getElementPrefix(): string
     {
         return $this->options['element_prefix'];
