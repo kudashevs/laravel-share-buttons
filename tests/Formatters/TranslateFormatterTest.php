@@ -106,7 +106,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_formatter_start_on_nonset_options()
+    public function it_can_return_formatter_block_start_on_nonset_options()
     {
         $default = config('share-buttons.block_prefix');
 
@@ -160,7 +160,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_formatter_end_on_nonset_options()
+    public function it_can_return_formatter_block_end_on_nonset_options()
     {
         $default = config('share-buttons.block_suffix');
 
