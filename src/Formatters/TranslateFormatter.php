@@ -134,9 +134,7 @@ class TranslateFormatter implements Formatter
     {
         $providerArguments = $this->initElementStyling($options);
 
-        $preparedLink = $this->generateLink($provider, $url, $providerArguments);
-
-        return $this->getElementPrefix() . $preparedLink . $this->getElementSuffix();
+        return $this->generateLink($provider, $url, $providerArguments);
     }
 
     /**

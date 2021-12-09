@@ -282,7 +282,7 @@ class TranslateFormatterTest extends ExtendedTestCase
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
         $this->assertNotEmpty($result);
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
     /** @test */
@@ -296,7 +296,7 @@ class TranslateFormatterTest extends ExtendedTestCase
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
         $this->assertNotEmpty($result);
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
     /**
@@ -307,7 +307,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $result = $this->formatter->formatElement('facebook', $url, $options);
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
     public function provide_different_styling_for_a_link()
@@ -351,7 +351,7 @@ class TranslateFormatterTest extends ExtendedTestCase
             ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
         $this->assertNotEmpty($result);
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
     /** @test */
@@ -376,6 +376,15 @@ class TranslateFormatterTest extends ExtendedTestCase
             ]);
 
         $this->assertNotEmpty($result);
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $this->applyElementWrapping($result));
+    }
+
+    /**
+     * @param string $result
+     * @return string
+     */
+    private function applyElementWrapping(string $result): string
+    {
+        return $this->formatter->getElementPrefix() . $result . $this->formatter->getElementSuffix();
     }
 }

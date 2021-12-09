@@ -311,7 +311,9 @@ class ShareButtons
         $representation = $this->formatter->getBlockPrefix();
 
         foreach ($this->generatedElements as $link) {
+            $representation .= $this->formatter->getElementPrefix();
             $representation .= $link;
+            $representation .= $this->formatter->getElementSuffix();
         }
 
         $representation .= $this->formatter->getBlockSuffix();
