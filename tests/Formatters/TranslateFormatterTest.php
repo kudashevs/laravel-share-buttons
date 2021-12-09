@@ -73,17 +73,6 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_setup_block_prefix_option_through_prefix() // backward compatibility
-    {
-        $this->formatter->updateOptions(['prefix' => '<div>']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('block_prefix', $result);
-        $this->assertSame('<div>', $result['block_prefix']);
-    }
-
-    /** @test */
     public function it_returns_default_block_prefix_option_on_nonset_options()
     {
         $default = config('share-buttons.block_prefix');
@@ -129,17 +118,6 @@ class TranslateFormatterTest extends ExtendedTestCase
     public function it_can_setup_block_suffix_option()
     {
         $this->formatter->updateOptions(['block_suffix' => '</div>']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('block_suffix', $result);
-        $this->assertSame('</div>', $result['block_suffix']);
-    }
-
-    /** @test */
-    public function it_can_setup_block_suffix_option_through_suffix() // backward compatibility
-    {
-        $this->formatter->updateOptions(['suffix' => '</div>']);
 
         $result = $this->formatter->getOptions();
 

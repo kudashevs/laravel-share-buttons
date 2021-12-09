@@ -68,12 +68,7 @@ class TranslateFormatter implements Formatter
      */
     private function setFormatterBlockPrefix(array $options): string
     {
-        // the key prefix can be used for convenience and backward compatibility
-        if (isset($options['block_prefix']) || isset($options['prefix'])) {
-            return $options['block_prefix'] ?? $options['prefix'];
-        }
-
-        return config('share-buttons.block_prefix', '<ul>');
+        return $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
     }
 
     /**
@@ -82,12 +77,7 @@ class TranslateFormatter implements Formatter
      */
     private function setFormatterBlockSuffix(array $options): string
     {
-        // the key prefix can be used for convenience and backward compatibility
-        if (isset($options['block_suffix']) || isset($options['suffix'])) {
-            return $options['block_suffix'] ?? $options['suffix'];
-        }
-
-        return config('share-buttons.block_suffix', '</ul>');
+        return $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
     /**
