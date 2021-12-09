@@ -204,12 +204,24 @@ class ShareButtons
     private function handleUnexpectedCall($name): ShareButtons
     {
         if ($this->options['reactOnErrors'] === true) {
-            $exception = $this->options['throwException'];
+            $exception = $this->prepareException();
 
             throw new $exception('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
         }
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    private function prepareException(): string
+    {
+        if (($exception = $this->options['throwException']) && class_exists($exception)) {
+            return $exception;
+        }
+
+        return \Error::class;
     }
 
     /**
