@@ -21,10 +21,10 @@ interface Formatter
     /**
      * @return string
      */
-    public function getStart(): string;
+    public function getBlockStart(): string;
 
     /**
      * @return string
      */
-    public function getEnd(): string;
+    public function getBlockEnd(): string;
 }
