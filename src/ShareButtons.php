@@ -224,7 +224,7 @@ class ShareButtons
     {
         $this->rememberElementLink($provider, $url);
 
-        $this->rememberRepresentation($provider, $url, $options);
+        $this->rememberElementRepresentation($provider, $url, $options);
     }
 
     /**
@@ -245,7 +245,7 @@ class ShareButtons
      * @param string $url
      * @param array $options
      */
-    protected function rememberRepresentation(string $provider, string $url, $options = []): void
+    protected function rememberElementRepresentation(string $provider, string $url, $options = []): void
     {
         $this->generatedRepresentation[$provider] = $this->formatter->generateUrl($provider, $url, $options);
     }
