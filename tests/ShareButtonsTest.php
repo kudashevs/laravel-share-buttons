@@ -65,19 +65,19 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_creates_self_instance_on_page()
+    public function it_creates_self_instance_on_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->page('https://mysite.com'));
     }
 
     /** @test */
-    public function it_create_self_instance_on_create_for_page()
+    public function it_create_self_instance_on_create_for_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForPage('https://mysite.com'));
     }
 
     /** @test */
-    public function it_create_self_instance_on_current_page()
+    public function it_create_self_instance_on_current_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForCurrentPage());
     }
@@ -111,7 +111,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-   public function it_can_generate_one_link_from_create_for_page()
+    public function it_can_generate_one_link_from_create_for_page_method()
     {
         $result = $this->share->createForPage('https://mysite.com')->facebook();
 
@@ -119,7 +119,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-   public function it_can_generate_one_link_from_create_for_current_page_using_request()
+    public function it_can_generate_one_link_from_create_for_current_page__method_using_request()
     {
         $result = $this->share->createForCurrentPage()->facebook();
 
