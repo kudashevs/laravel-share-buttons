@@ -206,7 +206,7 @@ class TranslateFormatter implements Formatter
     /**
      * @return string
      */
-    private function getElementPrefix(): string
+    public function getElementPrefix(): string
     {
         return $this->options['element_prefix'];
     }
@@ -214,7 +214,7 @@ class TranslateFormatter implements Formatter
     /**
      * @return string
      */
-    private function getElementSuffix(): string
+    public function getElementSuffix(): string
     {
         return $this->options['element_suffix'];
     }

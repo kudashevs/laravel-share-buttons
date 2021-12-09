@@ -201,6 +201,26 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_return_element_prefix_with_nonset_options()
+    {
+        $default = config('share-buttons.element_prefix');
+
+        $result = $this->formatter->getElementPrefix();
+
+        $this->assertSame($default, $result);
+    }
+
+    /** @test */
+    public function it_can_return_element_prefix_with_provided_options()
+    {
+        $this->formatter->updateOptions(['element_prefix' => '<p>']);
+
+        $result = $this->formatter->getElementPrefix();
+
+        $this->assertSame('<p>', $result);
+    }
+
+    /** @test */
     public function it_can_setup_element_suffix_option()
     {
         $this->formatter->updateOptions(['element_suffix' => '</p>']);
@@ -231,6 +251,26 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $this->assertArrayHasKey('element_suffix', $result);
         $this->assertSame('', $result['element_suffix']);
+    }
+
+    /** @test */
+    public function it_can_return_element_suffix_with_nonset_options()
+    {
+        $default = config('share-buttons.element_suffix');
+
+        $result = $this->formatter->getElementSuffix();
+
+        $this->assertSame($default, $result);
+    }
+
+    /** @test */
+    public function it_can_return_element_suffix_with_provided_options()
+    {
+        $this->formatter->updateOptions(['element_suffix' => '</p>']);
+
+        $result = $this->formatter->getElementSuffix();
+
+        $this->assertSame('</p>', $result);
     }
 
     /** @test */
