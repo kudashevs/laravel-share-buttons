@@ -5,15 +5,15 @@ namespace Kudashevs\ShareButtons\Formatters;
 interface Formatter
 {
     /**
-     * @return array
-     */
-    public function getOptions(): array;
-
-    /**
      * @param array $options
      * @return void|bool
      */
     public function updateOptions(array $options);
+
+    /**
+     * @return array
+     */
+    public function getOptions(): array;
 
     /**
      * @param string $provider
