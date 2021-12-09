@@ -42,7 +42,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_default_exception_on_wrong_exception_class()
+    public function it_can_throw_default_exception_on_wrong_provided_exception_class()
     {
         config()->set('share-buttons.reactOnErrors', true);
         config()->set('share-buttons.throwException', Wrong::class);
