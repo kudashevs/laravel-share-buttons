@@ -39,7 +39,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_font_awesome_version_on_nonset_options()
+    public function it_returns_default_font_awesome_version_with_nonset_options()
     {
         $version = config('share-buttons.fontAwesomeVersion');
 
@@ -73,7 +73,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_block_prefix_option_on_nonset_options()
+    public function it_returns_default_block_prefix_option_with_nonset_options()
     {
         $default = config('share-buttons.block_prefix');
 
@@ -84,7 +84,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_block_prefix_option_on_empty_option()
+    public function it_returns_empty_block_prefix_option_with_empty_option()
     {
         $this->formatter->updateOptions(['block_prefix' => '']);
 
@@ -95,7 +95,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_block_prefix_on_nonset_options()
+    public function it_can_return_block_prefix_with_nonset_options()
     {
         $default = config('share-buttons.block_prefix');
 
@@ -126,7 +126,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_block_suffix_option_on_nonset_options()
+    public function it_returns_default_block_suffix_option_with_nonset_options()
     {
         $default = config('share-buttons.block_suffix');
 
@@ -137,7 +137,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_block_suffix_option_on_empty_option()
+    public function it_returns_empty_block_suffix_option_with_empty_option()
     {
         $this->formatter->updateOptions(['block_suffix' => '']);
 
@@ -148,7 +148,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_block_suffix_on_nonset_options()
+    public function it_can_return_block_suffix_with_nonset_options()
     {
         $default = config('share-buttons.block_suffix');
 
@@ -179,7 +179,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_element_prefix_option_on_nonset_options()
+    public function it_returns_default_element_prefix_option_with_nonset_options()
     {
         $default = config('share-buttons.element_prefix');
 
@@ -190,7 +190,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_element_prefix_option_on_empty_option()
+    public function it_returns_empty_element_prefix_option_with_empty_option()
     {
         $this->formatter->updateOptions(['element_prefix' => '']);
 
@@ -212,7 +212,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_element_suffix_option_on_nonset_options()
+    public function it_returns_default_element_suffix_option_with_nonset_options()
     {
         $default = config('share-buttons.element_suffix');
 
@@ -223,7 +223,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_element_suffix_option_on_empty_option()
+    public function it_returns_empty_element_suffix_option_with_empty_option()
     {
         $this->formatter->updateOptions(['element_suffix' => '']);
 
