@@ -222,7 +222,7 @@ class ShareButtons
      */
     protected function rememberProcessed(string $provider, string $url, array $options = []): void
     {
-        $this->rememberRawLink($provider, $url);
+        $this->rememberElementLink($provider, $url);
 
         $this->rememberRepresentation($provider, $url, $options);
     }
@@ -233,7 +233,7 @@ class ShareButtons
      * @param string $provider
      * @param string $link
      */
-    protected function rememberRawLink(string $provider, string $link): void
+    protected function rememberElementLink(string $provider, string $link): void
     {
         $this->generatedUrls[$provider] = $link;
     }
