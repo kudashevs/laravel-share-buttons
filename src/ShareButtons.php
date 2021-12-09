@@ -267,15 +267,7 @@ class ShareButtons
      */
     public function getShareButtons(): string
     {
-        $representation = '';
-
-        $representation .= $this->formatter->getOptions()['block_prefix'];
-        foreach ($this->generatedElements as $link) {
-            $representation .= $link;
-        }
-        $representation .= $this->formatter->getOptions()['block_suffix'];
-
-        return $representation;
+        return $this->generateShareButtons();
     }
 
     /**
@@ -285,6 +277,22 @@ class ShareButtons
      */
     public function __toString()
     {
-        return $this->getShareButtons();
+        return $this->generateShareButtons();
+    }
+
+    /**
+     * @return string
+     */
+    private function generateShareButtons(): string
+    {
+        $representation = $this->formatter->getOptions()['block_prefix'];
+
+        foreach ($this->generatedElements as $link) {
+            $representation .= $link;
+        }
+
+        $representation .= $this->formatter->getOptions()['block_suffix'];
+
+        return $representation;
     }
 }
