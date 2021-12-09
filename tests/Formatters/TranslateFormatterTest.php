@@ -168,7 +168,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_setup_element_prefix()
+    public function it_can_setup_element_prefix_option()
     {
         $this->formatter->updateOptions(['element_prefix' => '<p>']);
 
@@ -179,7 +179,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_element_prefix_on_nonset_options()
+    public function it_returns_default_element_prefix_option_on_nonset_options()
     {
         $default = config('share-buttons.element_prefix');
 
@@ -190,7 +190,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_element_prefix_on_empty_option()
+    public function it_returns_empty_element_prefix_option_on_empty_option()
     {
         $this->formatter->updateOptions(['element_prefix' => '']);
 
@@ -201,7 +201,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_setup_element_suffix()
+    public function it_can_setup_element_suffix_option()
     {
         $this->formatter->updateOptions(['element_suffix' => '</p>']);
 
@@ -212,7 +212,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_element_suffix_on_nonset_options()
+    public function it_returns_default_element_suffix_option_on_nonset_options()
     {
         $default = config('share-buttons.element_suffix');
 
@@ -223,7 +223,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_element_suffix_on_empty_option()
+    public function it_returns_empty_element_suffix_option_on_empty_option()
     {
         $this->formatter->updateOptions(['element_suffix' => '']);
 
