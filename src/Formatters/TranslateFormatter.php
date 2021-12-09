@@ -64,7 +64,7 @@ class TranslateFormatter implements Formatter
         }
 
         // the key prefix could be used for convenience and backward compatibility
-        if (isset($options['block_suffix'])|| isset($options['suffix'])) {
+        if (isset($options['block_suffix']) || isset($options['suffix'])) {
             $this->options['block_suffix'] = $options['block_suffix'] ?? $options['suffix'];
         } else {
             $this->options['block_suffix'] = config('share-buttons.block_suffix', '</ul>');
