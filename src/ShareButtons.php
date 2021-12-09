@@ -64,13 +64,6 @@ class ShareButtons
     protected $processedCalls = [];
 
     /**
-     * Contain generated representation.
-     *
-     * @var array
-     */
-    protected $generatedElements = [];
-
-    /**
      * Share constructor.
      *
      * @param Formatter $formatter
@@ -130,7 +123,6 @@ class ShareButtons
     private function clearState(): void
     {
         $this->processedCalls = [];
-        $this->generatedElements = [];
     }
 
     /**
@@ -246,8 +238,6 @@ class ShareButtons
     protected function rememberProcessed(string $provider, string $url, array $options = []): void
     {
         $this->rememberProcessedCalls($provider, $url, $options);
-
-        $this->rememberElementRepresentation($provider, $url, $options);
     }
 
     private function rememberProcessedCalls(string $provider, string $url, array $options): void
@@ -258,18 +248,6 @@ class ShareButtons
             'element_link' => $url,
             'element_options' => $options,
         ];
-    }
-
-    /**
-     * Remember a processed representation.
-     *
-     * @param string $provider
-     * @param string $url
-     * @param array $options
-     */
-    protected function rememberElementRepresentation(string $provider, string $url, $options = []): void
-    {
-        $this->generatedElements[$provider] = $this->formatter->formatElement($provider, $url, $options);
     }
 
     /**
