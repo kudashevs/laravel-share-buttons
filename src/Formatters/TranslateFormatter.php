@@ -200,7 +200,7 @@ class TranslateFormatter implements Formatter
     /**
      * @return string
      */
-    public function getBlockStart(): string
+    public function getBlockPrefix(): string
     {
         return $this->options['block_prefix'];
     }
@@ -208,7 +208,7 @@ class TranslateFormatter implements Formatter
     /**
      * @return string
      */
-    public function getBlockEnd(): string
+    public function getBlockSuffix(): string
     {
         return $this->options['block_suffix'];
     }
