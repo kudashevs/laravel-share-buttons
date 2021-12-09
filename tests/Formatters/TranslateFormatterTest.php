@@ -110,7 +110,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $default = config('share-buttons.block_prefix');
 
-        $result = $this->formatter->getStart();
+        $result = $this->formatter->getBlockStart();
 
         $this->assertSame($default, $result);
     }
@@ -164,7 +164,7 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $default = config('share-buttons.block_suffix');
 
-        $result = $this->formatter->getEnd();
+        $result = $this->formatter->getBlockEnd();
 
         $this->assertSame($default, $result);
     }

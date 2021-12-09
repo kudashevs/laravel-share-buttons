@@ -307,13 +307,13 @@ class ShareButtons
      */
     private function generateShareButtons(): string
     {
-        $representation = $this->formatter->getStart();
+        $representation = $this->formatter->getBlockStart();
 
         foreach ($this->generatedElements as $link) {
             $representation .= $link;
         }
 
-        $representation .= $this->formatter->getEnd();
+        $representation .= $this->formatter->getBlockEnd();
 
         return $representation;
     }
