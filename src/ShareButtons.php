@@ -177,12 +177,7 @@ class ShareButtons
             return $this;
         }
 
-        if ($this->options['reactOnErrors'] === true) {
-            $exception = $this->options['throwException'];
-            throw new $exception('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
-        }
-
-        return $this;
+        return $this->handleUnexpectedCall($name);
     }
 
     /**
@@ -200,6 +195,21 @@ class ShareButtons
         }
 
         return [];
+    }
+
+    /**
+     * @param $name
+     * @return $this
+     */
+    private function handleUnexpectedCall($name): ShareButtons
+    {
+        if ($this->options['reactOnErrors'] === true) {
+            $exception = $this->options['throwException'];
+
+            throw new $exception('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
+        }
+
+        return $this;
     }
 
     /**
