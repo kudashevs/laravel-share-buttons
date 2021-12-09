@@ -20,6 +20,14 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_return_options()
+    {
+        $result = $this->formatter->getOptions();
+
+        $this->assertNotEmpty($result);
+    }
+
+    /** @test */
     public function it_can_setup_font_awesome_version()
     {
         $this->formatter->updateOptions(['fontAwesomeVersion' => 3]);
