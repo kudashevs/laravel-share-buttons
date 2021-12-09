@@ -56,31 +56,56 @@ class TranslateFormatter implements Formatter
      */
     private function initFormatterStyling(array $options): void
     {
-        // the key prefix could be used for convenience and backward compatibility
+        $this->options['block_prefix'] = $this->setFormatterBlockPrefix($options);
+        $this->options['block_suffix'] = $this->setFormatterBlockSuffix($options);
+        $this->options['element_prefix'] = $this->setFormatterElementPrefix($options);
+        $this->options['element_suffix'] = $this->setFormatterElementSuffix($options);
+    }
+
+    /**
+     * @param array $options
+     * @return string
+     */
+    private function setFormatterBlockPrefix(array $options): string
+    {
+        // the key prefix can be used for convenience and backward compatibility
         if (isset($options['block_prefix']) || isset($options['prefix'])) {
-            $this->options['block_prefix'] = $options['block_prefix'] ?? $options['prefix'];
-        } else {
-            $this->options['block_prefix'] = config('share-buttons.block_prefix', '<ul>');
+            return $options['block_prefix'] ?? $options['prefix'];
         }
 
-        // the key prefix could be used for convenience and backward compatibility
+        return config('share-buttons.block_prefix', '<ul>');
+    }
+
+    /**
+     * @param array $options
+     * @return string
+     */
+    private function setFormatterBlockSuffix(array $options): string
+    {
+        // the key prefix can be used for convenience and backward compatibility
         if (isset($options['block_suffix']) || isset($options['suffix'])) {
-            $this->options['block_suffix'] = $options['block_suffix'] ?? $options['suffix'];
-        } else {
-            $this->options['block_suffix'] = config('share-buttons.block_suffix', '</ul>');
+            return $options['block_suffix'] ?? $options['suffix'];
         }
 
-        if (isset($options['element_prefix'])) {
-            $this->options['element_prefix'] = $options['element_prefix'];
-        } else {
-            $this->options['element_prefix'] = config('share-buttons.element_prefix', '<li>');
-        }
+        return config('share-buttons.block_suffix', '</ul>');
+    }
 
-        if (isset($options['element_suffix'])) {
-            $this->options['element_suffix'] = $options['element_suffix'];
-        } else {
-            $this->options['element_suffix'] = config('share-buttons.element_suffix', '</li>');
-        }
+    /**
+     * @param array $options
+     * @return string
+     */
+    private function setFormatterElementPrefix(array $options): string
+    {
+        return $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
+    }
+
+    /**
+     * @param array $options
+     * @return string
+     */
+    private function setFormatterElementSuffix(array $options): string
+    {
+        return $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
     }
 
     /**
