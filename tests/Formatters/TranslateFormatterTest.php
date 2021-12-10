@@ -164,7 +164,7 @@ class TranslateFormatterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_formatter_setup_from_options_for_methods
+     * @dataProvider provide_different_formatter_setup_from_options_for_styling
      * @param array $options
      * @param string $method
      * @param string $expected
@@ -178,7 +178,7 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provide_different_formatter_setup_from_options_for_methods()
+    public function provide_different_formatter_setup_from_options_for_styling()
     {
         return [
             'getBlockPrefix method' => [
@@ -206,7 +206,7 @@ class TranslateFormatterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_formatter_setup_from_config_for_methods
+     * @dataProvider provide_different_formatter_setup_from_config_for_styling
      * @param string $configuration
      * @param string $method
      */
@@ -219,7 +219,7 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provide_different_formatter_setup_from_config_for_methods()
+    public function provide_different_formatter_setup_from_config_for_styling()
     {
         return [
             'getBlockPrefix method' => [
