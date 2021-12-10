@@ -49,7 +49,7 @@ This command will create three different files:
 ```
 config/share-buttons.php - a configuration file
 resources/lang/vendor/en/share-buttons.php - a visual representation of elements
-public/js/share-buttons.js - javascript (jQuery) 
+resources/assets/js/share-buttons.js - javascript (jQuery)
 ```
 
 ### Font Awesome
@@ -59,7 +59,9 @@ For further information on how to use Font Awesome please read the [introduction
 
 ### Javascript
 
-To have javascript working you need to load jquery.min.js & share-buttons.js by adding the following lines to your templates.
+To have javascript you need to load the jQuery library and integrate resources/assets/js/share-buttons.js into your
+template eco-system. One of the ways of doing it is to copy this file to public/js folder and use it like in the example
+below, or to add this file into your assets compiling flow.
 
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
