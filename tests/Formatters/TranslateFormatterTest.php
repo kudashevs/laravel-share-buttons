@@ -204,44 +204,41 @@ class TranslateFormatterTest extends ExtendedTestCase
         ];
     }
 
-    /** @test */
-    public function it_can_return_block_prefix_with_nonset_options()
+    /**
+     * @test
+     * @dataProvider provide_different_formatter_setup_from_config_for_methods
+     * @param string $configuration
+     * @param string $method
+     */
+   public function it_can_return_formatter_styling_without_options(string $configuration, string $method)
     {
-        $default = config('share-buttons.block_prefix');
+        $expected = config($configuration);
 
-        $result = $this->formatter->getBlockPrefix();
+        $result = $this->formatter->$method();
 
-        $this->assertSame($default, $result);
+        $this->assertSame($expected, $result);
     }
 
-    /** @test */
-    public function it_can_return_block_suffix_with_nonset_options()
+    public function provide_different_formatter_setup_from_config_for_methods()
     {
-        $default = config('share-buttons.block_suffix');
-
-        $result = $this->formatter->getBlockSuffix();
-
-        $this->assertSame($default, $result);
-    }
-
-    /** @test */
-    public function it_can_return_element_prefix_with_nonset_options()
-    {
-        $default = config('share-buttons.element_prefix');
-
-        $result = $this->formatter->getElementPrefix();
-
-        $this->assertSame($default, $result);
-    }
-
-    /** @test */
-    public function it_can_return_element_suffix_with_nonset_options()
-    {
-        $default = config('share-buttons.element_suffix');
-
-        $result = $this->formatter->getElementSuffix();
-
-        $this->assertSame($default, $result);
+        return [
+            'getBlockPrefix method' => [
+                'share-buttons.block_prefix',
+                'getBlockPrefix',
+            ],
+            'getBlockSuffix method' => [
+                'share-buttons.block_suffix',
+                'getBlockSuffix',
+            ],
+            'getElementPrefix method' => [
+                'share-buttons.element_prefix',
+                'getElementPrefix',
+            ],
+            'getElementSuffix method' => [
+                'share-buttons.element_suffix',
+                'getElementSuffix',
+            ],
+        ];
     }
 
     /** @test */
