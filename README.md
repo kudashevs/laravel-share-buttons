@@ -1,7 +1,7 @@
 # Laravel Share Buttons
 
-This Laravel Share Buttons package was originated from [Laravel Share](https://github.com/jorenvh/laravel-share) package.
-The package gives you the possibility to create share buttons code for your site in a convenient and flexible way.
+This Laravel Share Buttons package was originated from [Laravel Share](https://github.com/jorenvh/laravel-share) package.  
+The package gives you the possibility to create share buttons for your site in a flexible and convenient way.
 
 ### Available services
 
@@ -13,6 +13,7 @@ The package gives you the possibility to create share buttons code for your site
 * Twitter
 * VKontakte
 * WhatsApp
+* Copy link
 
 ## Installation
 
@@ -38,7 +39,7 @@ If you want to add a Laravel Facade just add it in the config/app.php
 ];
 ```
 
-Publish the package config & resource files. You might need to republish the config after major changes in the package.
+Publish the package config and resource files. You might need to republish the config after major changes in the package.
 
 ```bash
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
