@@ -127,12 +127,12 @@ class TranslateFormatterTest extends ExtendedTestCase
     /**
      * @test
      * @dataProvider provide_different_formatter_setup_without_options
+     * @param string $configuration
      * @param string $key
-     * @param string $config
      */
-    public function it_can_setup_default_value_without_options(string $key, string $config)
+    public function it_can_setup_default_value_without_options(string $configuration, string $key)
     {
-        $expected = config($config);
+        $expected = config($configuration);
 
         $result = $this->formatter->getOptions();
 
@@ -144,20 +144,20 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         return [
             'default block_prefix' => [
-                'block_prefix',
                 'share-buttons.block_prefix',
+                'block_prefix',
             ],
             'default block_suffix' => [
-                'block_suffix',
                 'share-buttons.block_suffix',
+                'block_suffix',
             ],
             'default element_prefix' => [
-                'element_prefix',
                 'share-buttons.element_prefix',
+                'element_prefix',
             ],
             'default element_suffix' => [
-                'element_suffix',
                 'share-buttons.element_suffix',
+                'element_suffix',
             ]
         ];
     }
