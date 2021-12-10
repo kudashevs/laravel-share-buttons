@@ -124,15 +124,42 @@ class TranslateFormatterTest extends ExtendedTestCase
         ];
     }
 
-    /** @test */
-    public function it_returns_default_block_prefix_option_with_nonset_options()
+    /**
+     * @test
+     * @dataProvider provide_different_formatter_setup_without_options
+     * @param string $key
+     * @param string $config
+     */
+    public function it_can_setup_default_value_without_options(string $key, string $config)
     {
-        $default = config('share-buttons.block_prefix');
+        $expected = config($config);
 
         $result = $this->formatter->getOptions();
 
-        $this->assertArrayHasKey('block_prefix', $result);
-        $this->assertSame($default, $result['block_prefix']);
+        $this->assertArrayHasKey($key, $result);
+        $this->assertSame($expected, $result[$key]);
+    }
+
+    public function provide_different_formatter_setup_without_options()
+    {
+        return [
+            'default block_prefix' => [
+                'block_prefix',
+                'share-buttons.block_prefix',
+            ],
+            'default block_suffix' => [
+                'block_suffix',
+                'share-buttons.block_suffix',
+            ],
+            'default element_prefix' => [
+                'element_prefix',
+                'share-buttons.element_prefix',
+            ],
+            'default element_suffix' => [
+                'element_suffix',
+                'share-buttons.element_suffix',
+            ]
+        ];
     }
 
     /** @test */
@@ -156,17 +183,6 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_block_suffix_option_with_nonset_options()
-    {
-        $default = config('share-buttons.block_suffix');
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('block_suffix', $result);
-        $this->assertSame($default, $result['block_suffix']);
-    }
-
-    /** @test */
     public function it_can_return_block_suffix_with_nonset_options()
     {
         $default = config('share-buttons.block_suffix');
@@ -187,17 +203,6 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_default_element_prefix_option_with_nonset_options()
-    {
-        $default = config('share-buttons.element_prefix');
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('element_prefix', $result);
-        $this->assertSame($default, $result['element_prefix']);
-    }
-
-    /** @test */
     public function it_can_return_element_prefix_with_nonset_options()
     {
         $default = config('share-buttons.element_prefix');
@@ -215,17 +220,6 @@ class TranslateFormatterTest extends ExtendedTestCase
         $result = $this->formatter->getElementPrefix();
 
         $this->assertSame('<p>', $result);
-    }
-
-    /** @test */
-    public function it_returns_default_element_suffix_option_with_nonset_options()
-    {
-        $default = config('share-buttons.element_suffix');
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('element_suffix', $result);
-        $this->assertSame($default, $result['element_suffix']);
     }
 
     /** @test */
