@@ -63,7 +63,7 @@ class TranslateFormatterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_formatter_setup_options
+     * @dataProvider provide_different_formatter_setup_from_options
      * @param array $options
      * @param string $key
      * @param string $expected
@@ -78,7 +78,7 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertSame($expected, $result[$key]);
     }
 
-    public function provide_different_formatter_setup_options()
+    public function provide_different_formatter_setup_from_options()
     {
         return [
             'block_prefix option is not empty' => [
