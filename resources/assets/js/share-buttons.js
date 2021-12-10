@@ -20,12 +20,12 @@ $(document).ready(function () {
             return;
         }
 
-        let verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
-            horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
+        let vPosition = Math.floor(($(window).width() - popupSize.width) / 2),
+            hPosition = Math.floor(($(window).height() - popupSize.height) / 2);
 
         let popup = window.open($(this).prop('href'), 'social',
             'width=' + popupSize.width + ',height=' + popupSize.height +
-            ',left=' + verticalPos + ',top=' + horisontalPos +
+            ',left=' + vPosition + ',top=' + hPosition +
             ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
 
         if (popup) {
