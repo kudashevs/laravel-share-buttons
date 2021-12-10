@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var popupSize = {
+    let popupSize = {
         width: 780,
         height: 550
     };
@@ -10,7 +10,7 @@ $(document).ready(function () {
             if (window.clipboardData && window.clipboardData.setData) {
                 clipboardData.setData("Text", this.href);
             } else {
-                var textArea = document.createElement("textarea");
+                let textArea = document.createElement("textarea");
                 textArea.value = this.href;
                 document.body.appendChild(textArea);
                 textArea.select();
@@ -20,10 +20,10 @@ $(document).ready(function () {
             return;
         }
 
-        var verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
+        let verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
             horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
 
-        var popup = window.open($(this).prop('href'), 'social',
+        let popup = window.open($(this).prop('href'), 'social',
             'width=' + popupSize.width + ',height=' + popupSize.height +
             ',left=' + verticalPos + ',top=' + horisontalPos +
             ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
