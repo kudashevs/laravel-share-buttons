@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let popupSize = {
+    let wSize = {
         width: 780,
         height: 550
     };
@@ -20,11 +20,11 @@ $(document).ready(function () {
             return;
         }
 
-        let vPosition = Math.floor(($(window).width() - popupSize.width) / 2),
-            hPosition = Math.floor(($(window).height() - popupSize.height) / 2);
+        let vPosition = Math.floor(($(window).width() - wSize.width) / 2),
+            hPosition = Math.floor(($(window).height() - wSize.height) / 2);
 
         let popup = window.open($(this).prop('href'), 'social',
-            'width=' + popupSize.width + ',height=' + popupSize.height +
+            'width=' + wSize.width + ',height=' + wSize.height +
             ',left=' + vPosition + ',top=' + hPosition +
             ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
 
