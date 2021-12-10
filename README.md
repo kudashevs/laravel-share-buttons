@@ -93,7 +93,6 @@ ShareButtons::createForPage('https://jorenvanhocht.be', 'Your share text here')-
 ```php
 ShareButtons::currentPage()->facebook();
 ShareButtons::page('https://jorenvanhocht.be', 'Your share text here')->twitter();
-
 ```
 
 ### Creating multiple share Links
@@ -102,22 +101,22 @@ The usual way of using the share buttons package is to create multiple links. Yo
 
 ```php
 ShareButtons::page('https://jorenvanhocht.be', 'Share title')
-	->facebook()
-	->twitter()
-	->linkedin(['summary' => 'Extra linkedin summary can be passed here'])
-	->whatsapp();
+    ->facebook()
+    ->twitter()
+    ->linkedin(['summary' => 'Extra linkedin summary can be passed here'])
+    ->whatsapp();
 ```
 
 This will generate the following HTML code
 
 ```html
 <div id="social-links">
-	<ul>
-		<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button"><span class="fa fa-facebook-square"></span></a></li>
-		<li><a href="https://twitter.com/intent/tweet?text=my share text&amp;url=https://jorenvanhocht.be" class="social-button"><span class="fa fa-twitter"></span></a></li>
-		<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="social-button"><span class="fa fa-linkedin"></span></a></li>
-		<li><a href="https://wa.me/?text=https://jorenvanhocht.be" class="social-button"><span class="fa fa-whatsapp"></span></a></li>    
-	</ul>
+    <ul>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button"><span class="fa fa-facebook-square"></span></a></li>
+        <li><a href="https://twitter.com/intent/tweet?text=my share text&amp;url=https://jorenvanhocht.be" class="social-button"><span class="fa fa-twitter"></span></a></li>
+        <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="social-button"><span class="fa fa-linkedin"></span></a></li>
+        <li><a href="https://wa.me/?text=https://jorenvanhocht.be" class="social-button"><span class="fa fa-whatsapp"></span></a></li>    
+    </ul>
 </div>
 ```
 
@@ -128,7 +127,7 @@ way of using it. If you want to be precise and clear with your code intentions u
 
 ```php
 ShareButtons::page('https://jorenvanhocht.be', 'Share title')
-	->facebook()
+    ->facebook()
     ->getShareButtons();
 ```
 
@@ -138,8 +137,8 @@ In some cases, you may only need the raw links without any HTML. In such a case 
 
 ```php
 ShareButtons::page('https://jorenvanhocht.be', 'Share title')
-	->facebook()
-	->getRawLinks();
+    ->facebook()
+    ->getRawLinks();
 ```
 
 ## Optional parameters
