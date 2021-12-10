@@ -64,11 +64,11 @@ class TranslateFormatterTest extends ExtendedTestCase
     /**
      * @test
      * @dataProvider provide_different_formatter_setup_options
-     * @param string $key
      * @param array $options
+     * @param string $key
      * @param string $expected
      */
-    public function it_can_setup_value_from_options(string $key, array $options, string $expected)
+    public function it_can_setup_value_from_options(array $options, string $key, string $expected)
     {
         $this->formatter->updateOptions($options);
 
@@ -82,43 +82,43 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         return [
             'block_prefix option is not empty' => [
-                'block_prefix',
                 ['block_prefix' => '<div>'],
+                'block_prefix',
                 '<div>',
             ],
             'block_prefix option is empty' => [
-                'block_prefix',
                 ['block_prefix' => ''],
+                'block_prefix',
                 '',
             ],
             'block_suffix option is not empty' => [
-                'block_suffix',
                 ['block_suffix' => '</div>'],
+                'block_suffix',
                 '</div>',
             ],
             'block_suffix option is empty' => [
-                'block_suffix',
                 ['block_suffix' => ''],
+                'block_suffix',
                 '',
             ],
             'element_prefix option is not empty' => [
-                'element_prefix',
                 ['element_prefix' => '<p>'],
+                'element_prefix',
                 '<p>',
             ],
             'element_prefix option is empty' => [
-                'element_prefix',
                 ['element_prefix' => ''],
+                'element_prefix',
                 '',
             ],
             'element_suffix option is not empty' => [
-                'element_suffix',
                 ['element_suffix' => '</p>'],
+                'element_suffix',
                 '</p>',
             ],
             'element_suffix option is empty' => [
-                'element_suffix',
                 ['element_suffix' => ''],
+                'element_suffix',
                 '',
             ],
         ];
