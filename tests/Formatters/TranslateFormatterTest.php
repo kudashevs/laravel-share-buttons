@@ -126,7 +126,7 @@ class TranslateFormatterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_formatter_setup_without_options
+     * @dataProvider provide_different_formatter_setup_from_config
      * @param string $configuration
      * @param string $key
      */
@@ -140,7 +140,7 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertSame($expected, $result[$key]);
     }
 
-    public function provide_different_formatter_setup_without_options()
+    public function provide_different_formatter_setup_from_config()
     {
         return [
             'default block_prefix' => [
