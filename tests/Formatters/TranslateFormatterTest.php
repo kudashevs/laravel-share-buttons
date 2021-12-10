@@ -61,15 +61,67 @@ class TranslateFormatterTest extends ExtendedTestCase
         $this->assertSame($version, $result['formatter_version']);
     }
 
-    /** @test */
-    public function it_can_setup_block_prefix_option()
+    /**
+     * @test
+     * @dataProvider provide_different_formatter_setup_options
+     * @param string $key
+     * @param array $options
+     * @param string $expected
+     */
+    public function it_can_setup_value_from_options(string $key, array $options, string $expected)
     {
-        $this->formatter->updateOptions(['block_prefix' => '<div>']);
+        $this->formatter->updateOptions($options);
 
         $result = $this->formatter->getOptions();
 
-        $this->assertArrayHasKey('block_prefix', $result);
-        $this->assertSame('<div>', $result['block_prefix']);
+        $this->assertArrayHasKey($key, $result);
+        $this->assertSame($expected, $result[$key]);
+    }
+
+    public function provide_different_formatter_setup_options()
+    {
+        return [
+            'block_prefix option is not empty' => [
+                'block_prefix',
+                ['block_prefix' => '<div>'],
+                '<div>',
+            ],
+            'block_prefix option is empty' => [
+                'block_prefix',
+                ['block_prefix' => ''],
+                '',
+            ],
+            'block_suffix option is not empty' => [
+                'block_suffix',
+                ['block_suffix' => '</div>'],
+                '</div>',
+            ],
+            'block_suffix option is empty' => [
+                'block_suffix',
+                ['block_suffix' => ''],
+                '',
+            ],
+            'element_prefix option is not empty' => [
+                'element_prefix',
+                ['element_prefix' => '<p>'],
+                '<p>',
+            ],
+            'element_prefix option is empty' => [
+                'element_prefix',
+                ['element_prefix' => ''],
+                '',
+            ],
+            'element_suffix option is not empty' => [
+                'element_suffix',
+                ['element_suffix' => '</p>'],
+                '</p>',
+            ],
+            'element_suffix option is empty' => [
+                'element_suffix',
+                ['element_suffix' => ''],
+                '',
+            ],
+        ];
     }
 
     /** @test */
@@ -81,17 +133,6 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $this->assertArrayHasKey('block_prefix', $result);
         $this->assertSame($default, $result['block_prefix']);
-    }
-
-    /** @test */
-    public function it_returns_empty_block_prefix_option_with_empty_option()
-    {
-        $this->formatter->updateOptions(['block_prefix' => '']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('block_prefix', $result);
-        $this->assertSame('', $result['block_prefix']);
     }
 
     /** @test */
@@ -115,17 +156,6 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_setup_block_suffix_option()
-    {
-        $this->formatter->updateOptions(['block_suffix' => '</div>']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('block_suffix', $result);
-        $this->assertSame('</div>', $result['block_suffix']);
-    }
-
-    /** @test */
     public function it_returns_default_block_suffix_option_with_nonset_options()
     {
         $default = config('share-buttons.block_suffix');
@@ -134,17 +164,6 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $this->assertArrayHasKey('block_suffix', $result);
         $this->assertSame($default, $result['block_suffix']);
-    }
-
-    /** @test */
-    public function it_returns_empty_block_suffix_option_with_empty_option()
-    {
-        $this->formatter->updateOptions(['block_suffix' => '']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('block_suffix', $result);
-        $this->assertSame('', $result['block_suffix']);
     }
 
     /** @test */
@@ -168,17 +187,6 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_setup_element_prefix_option()
-    {
-        $this->formatter->updateOptions(['element_prefix' => '<p>']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('element_prefix', $result);
-        $this->assertSame('<p>', $result['element_prefix']);
-    }
-
-    /** @test */
     public function it_returns_default_element_prefix_option_with_nonset_options()
     {
         $default = config('share-buttons.element_prefix');
@@ -187,17 +195,6 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $this->assertArrayHasKey('element_prefix', $result);
         $this->assertSame($default, $result['element_prefix']);
-    }
-
-    /** @test */
-    public function it_returns_empty_element_prefix_option_with_empty_option()
-    {
-        $this->formatter->updateOptions(['element_prefix' => '']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('element_prefix', $result);
-        $this->assertSame('', $result['element_prefix']);
     }
 
     /** @test */
@@ -221,17 +218,6 @@ class TranslateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_setup_element_suffix_option()
-    {
-        $this->formatter->updateOptions(['element_suffix' => '</p>']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('element_suffix', $result);
-        $this->assertSame('</p>', $result['element_suffix']);
-    }
-
-    /** @test */
     public function it_returns_default_element_suffix_option_with_nonset_options()
     {
         $default = config('share-buttons.element_suffix');
@@ -240,17 +226,6 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $this->assertArrayHasKey('element_suffix', $result);
         $this->assertSame($default, $result['element_suffix']);
-    }
-
-    /** @test */
-    public function it_returns_empty_element_suffix_option_with_empty_option()
-    {
-        $this->formatter->updateOptions(['element_suffix' => '']);
-
-        $result = $this->formatter->getOptions();
-
-        $this->assertArrayHasKey('element_suffix', $result);
-        $this->assertSame('', $result['element_suffix']);
     }
 
     /** @test */
