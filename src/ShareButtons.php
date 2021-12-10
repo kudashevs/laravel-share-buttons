@@ -242,7 +242,6 @@ class ShareButtons
 
     private function rememberProcessedCalls(string $provider, string $url, array $options): void
     {
-        // @todo check if already exists
         $this->processedCalls[$provider] = [
             'element_provider' => $provider,
             'element_link' => $url,
