@@ -37,6 +37,16 @@ Before submitting a pull request:
 - Check the codebase to ensure that your feature doesn't already exist.
 - Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
 
+## Add new providers
+
+If you want to add a new share provider (this is a class that generates a URL with all required parameters and information
+for a specific service or way of sharing a page) please add it in ShareProviders/Providers folders. The class should
+extend the ShareProvider abstraction. 
+
+After adding the class please use a TODO comments list (or search for TODO in the source folder if you don't have such
+a functionality). In the TODO comments, you will find all the places where the new share provider should be mentioned 
+or registered. Please, don't forget to update the list of providers in [README.md](README.md) too.
+
 ## Requirements
 
 If the project maintainer has any additional requirements, you will find them listed here.
