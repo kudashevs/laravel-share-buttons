@@ -13,7 +13,6 @@ abstract class ShareProvider
     abstract public function buildUrl(string $url, string $title, array $options): string;
 
     /**
-     * @param string $provider
      * @param string $title
      * @return string
      */
