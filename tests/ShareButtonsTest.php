@@ -127,7 +127,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_empty_array_with_no_links_on_get_raw_links()
+    public function it_can_return_empty_array_without_links_on_get_raw_links_method()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->getRawLinks();
@@ -137,7 +137,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_on_get_raw_links()
+    public function it_can_return_one_link_on_get_raw_links_method()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
@@ -148,7 +148,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_at_once_on_get_raw_links()
+    public function it_can_return_multiple_links_at_once_on_get_raw_links_method()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
