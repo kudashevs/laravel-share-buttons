@@ -91,7 +91,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_without_a_title_for_title_predefined_provider()
+    public function it_can_generate_one_link_without_a_title_for_provider_with_predefined_title()
     {
         $expected = config('share-buttons.providers.twitter.text');
 
@@ -101,7 +101,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_with_a_provided_title_for_title_predefined_provider()
+    public function it_can_generate_one_link_with_a_provided_title_for_provider_with_predefined_title()
     {
         $expected = 'Page title';
 
