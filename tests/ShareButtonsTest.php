@@ -185,6 +185,20 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_return_multiple_links_at_once_on_get_share_buttons_method()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->twitter()
+            ->reddit()
+            ->telegram()
+            ->getShareButtons();
+
+        $this->assertStringContainsString('twitter', $result);
+        $this->assertStringContainsString('reddit', $result);
+        $this->assertStringContainsString('telegram', $result);
+    }
+
+    /** @test */
     public function it_can_generate_multiple_share_links_at_once()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
