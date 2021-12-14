@@ -119,7 +119,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_from_create_for_current_page__method_using_request()
+    public function it_can_generate_one_link_from_create_for_current_page_method_using_request()
     {
         $result = $this->share->createForCurrentPage()->facebook();
 
