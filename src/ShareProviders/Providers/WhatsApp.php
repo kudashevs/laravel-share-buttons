@@ -13,6 +13,6 @@ class WhatsApp extends ShareProvider
     {
         $shareLink = config('share-buttons.providers.whatsapp.url');
 
-        return $shareLink . $url;
+        return $shareLink . '?text=' . $url;
     }
 }
