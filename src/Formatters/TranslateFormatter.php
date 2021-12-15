@@ -28,7 +28,7 @@ class TranslateFormatter implements Formatter
     }
 
     /**
-     * @param array $options
+     * @inheritDoc
      */
     public function updateOptions(array $options): void
     {
@@ -125,10 +125,7 @@ class TranslateFormatter implements Formatter
     }
 
     /**
-     * @param string $provider
-     * @param string $url
-     * @param array $options
-     * @return string
+     * @inheritDoc
      */
     public function formatElement(string $provider, string $url, array $options = []): string
     {
@@ -186,7 +183,7 @@ class TranslateFormatter implements Formatter
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getBlockPrefix(): string
     {
@@ -194,7 +191,7 @@ class TranslateFormatter implements Formatter
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getBlockSuffix(): string
     {
@@ -202,7 +199,7 @@ class TranslateFormatter implements Formatter
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getElementPrefix(): string
     {
@@ -210,7 +207,7 @@ class TranslateFormatter implements Formatter
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
     public function getElementSuffix(): string
     {
