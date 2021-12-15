@@ -13,6 +13,6 @@ class Facebook extends ShareProvider
     {
         $shareLink = config('share-buttons.providers.facebook.url');
 
-        return $shareLink . $url;
+        return $shareLink . '?u=' . $url;
     }
 }

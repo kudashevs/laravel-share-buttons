@@ -15,10 +15,11 @@ return [
 
     'providers' => [
         'copylink' => [
+            'url' => '#',
             'extra' => ['hash' => 'false'],
         ],
         'facebook' => [
-            'url' => 'https://www.facebook.com/sharer/sharer.php?u=',
+            'url' => 'https://www.facebook.com/sharer/sharer.php',
         ],
         'linkedin' => [
             'url' => 'https://www.linkedin.com/sharing/share-offsite',
@@ -26,7 +27,7 @@ return [
             'extra' => ['mini' => 'true'],
         ],
         'pinterest' => [
-            'url' => 'https://pinterest.com/pin/create/button/?url=',
+            'url' => 'https://pinterest.com/pin/create/button/',
         ],
         'reddit' => [
             'url' => 'https://www.reddit.com/submit',
@@ -41,11 +42,11 @@ return [
             'text' => 'Default share text',
         ],
         'vkontakte' => [
-            'url' => 'https://vk.com/share.php?url=',
+            'url' => 'https://vk.com/share.php',
             'text' => 'Default share text',
         ],
         'whatsapp' => [
-            'url' => 'https://wa.me/?text=',
+            'url' => 'https://wa.me/',
             'extra' => ['mini' => 'true'],
         ],
     ],

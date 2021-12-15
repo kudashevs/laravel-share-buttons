@@ -13,6 +13,6 @@ class Pinterest extends ShareProvider
     {
         $shareLink = config('share-buttons.providers.pinterest.url');
 
-        return $shareLink . $url;
+        return $shareLink . '?url=' . $url;
     }
 }
