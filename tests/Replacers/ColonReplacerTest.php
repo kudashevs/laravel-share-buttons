@@ -42,4 +42,18 @@ class ColonReplacerTest extends TestCase
 
         $this->assertSame($expected, $result);
     }
+
+    /** @test */
+    public function it_can_replace_a_pattern_with_replacement_multiple_times()
+    {
+        $expected = 'test that that string';
+        $input = 'test :this :this string';
+        $replacements = [
+            'this' => 'that',
+        ];
+
+        $result = $this->replacer->replace($input, $replacements);
+
+        $this->assertSame($expected, $result);
+    }
 }
