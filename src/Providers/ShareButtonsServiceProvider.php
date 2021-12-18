@@ -43,6 +43,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
 
             return new ShareButtons($formatter, $options);
         });
+        $this->app->alias(ShareButtons::class, 'share');
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');
     }
