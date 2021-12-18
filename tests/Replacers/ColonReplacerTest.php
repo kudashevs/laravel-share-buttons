@@ -7,6 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 class ColonReplacerTest extends TestCase
 {
+    private $replacer;
+
+    protected function setUp(): void
+    {
+        $this->replacer = new ColonReplacer();
+    }
+
     /** @test */
     public function it_can_replace_a_pattern_with_replacement()
     {
@@ -16,6 +23,8 @@ class ColonReplacerTest extends TestCase
             'this' => 'that',
         ];
 
-       $this->assertSame($expected, (new ColonReplacer())->replace($input, $replacements));
+        $result = $this->replacer->replace($input, $replacements);
+
+        $this->assertSame($expected, $result);
     }
 }
