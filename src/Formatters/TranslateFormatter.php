@@ -103,7 +103,7 @@ class TranslateFormatter implements Formatter
      */
     private function initElementStylingFromOptions(array $options): void
     {
-        $allowed = $this->initElementStyling($options);
+        $allowed = $this->filterElementStyling($options);
 
         $this->options = array_merge($this->options, $allowed);
     }
@@ -112,7 +112,7 @@ class TranslateFormatter implements Formatter
      * @param array $options
      * @return array
      */
-    private function initElementStyling(array $options): array
+    private function filterElementStyling(array $options): array
     {
         $elementStyling = [
             'class' => '',
@@ -129,7 +129,7 @@ class TranslateFormatter implements Formatter
      */
     public function formatElement(string $provider, string $url, array $options = []): string
     {
-        $providerArguments = $this->initElementStyling($options);
+        $providerArguments = $this->filterElementStyling($options);
 
         return $this->generateLink($provider, $url, $providerArguments);
     }
