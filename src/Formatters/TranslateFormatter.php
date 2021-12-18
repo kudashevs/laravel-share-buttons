@@ -143,17 +143,9 @@ class TranslateFormatter implements Formatter
     private function generateLink(string $provider, string $url, array $options): string
     {
         $template = $this->prepareElementTemplate($provider);
-        $styling = $this->prepareElementStyling($options);
+        $styling = $this->prepareElementStyling($url, $options);
 
-        return trans(
-            $template,
-            [
-                'url' => $url,
-                'class' => !empty($styling['class']) ? (' ' . $styling['class']) : '',
-                'id' => !empty($styling['id']) ? (' id="' . $styling['id'] . '"') : '',
-                'title' => !empty($styling['title']) ? (' title="' . $styling['title'] . '"') : '',
-                'rel' => !empty($styling['rel']) ? (' rel="' . $styling['rel'] . '"') : '',
-            ]);
+        return trans($template, $styling);
     }
 
     /**
@@ -166,12 +158,21 @@ class TranslateFormatter implements Formatter
     }
 
     /**
+     * @param string $url
      * @param array $options
      * @return array
      */
-    private function prepareElementStyling(array $options): array
+    private function prepareElementStyling(string $url, array $options): array
     {
-        return array_merge($this->options, $options);
+        $options = array_merge($this->options, $options);
+
+        return [
+            'url' => $url,
+            'class' => !empty($options['class']) ? (' ' . $options['class']) : '',
+            'id' => !empty($options['id']) ? (' id="' . $options['id'] . '"') : '',
+            'title' => !empty($options['title']) ? (' title="' . $options['title'] . '"') : '',
+            'rel' => !empty($options['rel']) ? (' rel="' . $options['rel'] . '"') : '',
+        ];
     }
 
     /**
