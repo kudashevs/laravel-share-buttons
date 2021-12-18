@@ -24,6 +24,7 @@ class ColonReplacer implements Replacer
 
         foreach ($replacements as $pattern => $replacement) {
             $prepared[':' . mb_strtolower($pattern)] = $replacement;
+            $prepared[':' . mb_strtoupper($pattern)] = $replacement;
         }
 
         return $prepared;
