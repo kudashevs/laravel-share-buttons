@@ -164,14 +164,14 @@ class TranslateFormatter implements Formatter
      */
     private function prepareElementStyling(string $url, array $options): array
     {
-        $options = array_merge($this->options, $options);
+        $styling = array_merge($this->options, $options);
 
         return [
             'url' => $url,
-            'class' => !empty($options['class']) ? (' ' . $options['class']) : '',
-            'id' => !empty($options['id']) ? (' id="' . $options['id'] . '"') : '',
-            'title' => !empty($options['title']) ? (' title="' . $options['title'] . '"') : '',
-            'rel' => !empty($options['rel']) ? (' rel="' . $options['rel'] . '"') : '',
+            'class' => !empty($styling['class']) ? (' ' . $styling['class']) : '',
+            'id' => !empty($styling['id']) ? (' id="' . $styling['id'] . '"') : '',
+            'title' => !empty($styling['title']) ? (' title="' . $styling['title'] . '"') : '',
+            'rel' => !empty($styling['rel']) ? (' rel="' . $styling['rel'] . '"') : '',
         ];
     }
 
