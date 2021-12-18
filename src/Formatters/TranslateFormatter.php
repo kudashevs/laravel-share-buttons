@@ -34,7 +34,7 @@ class TranslateFormatter implements Formatter
     {
         $this->initFontAwesomeVersion($options);
         $this->initFormatterStyling($options);
-        $this->initElementStylingFromOptions($options);
+        $this->initElementStyling($options);
     }
 
     /**
@@ -101,7 +101,7 @@ class TranslateFormatter implements Formatter
     /**
      * @param array $options
      */
-    private function initElementStylingFromOptions(array $options): void
+    private function initElementStyling(array $options): void
     {
         $allowed = $this->filterElementStyling($options);
 
