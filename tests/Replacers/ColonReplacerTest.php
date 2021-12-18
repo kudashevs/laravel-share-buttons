@@ -53,6 +53,27 @@ class ColonReplacerTest extends TestCase
                 ],
                 'test that that string',
             ],
+            'replace a pattern in lower case' => [
+                'a :test string',
+                [
+                    'test' => 'tested',
+                ],
+                'a tested string',
+            ],
+            'replace a pattern in upper case' => [
+                'a :TEST string',
+                [
+                    'test' => 'tested',
+                ],
+                'a tested string',
+            ],
+            'does not replace a pattern in mix case' => [
+                'a :TeST string',
+                [
+                    'test' => 'tested',
+                ],
+                'a :TeST string',
+            ],
         ];
     }
 }
