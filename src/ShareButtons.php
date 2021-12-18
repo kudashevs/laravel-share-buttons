@@ -240,6 +240,11 @@ class ShareButtons
         $this->rememberProcessedCalls($provider, $url, $options);
     }
 
+    /**
+     * @param string $provider
+     * @param string $url
+     * @param array $options
+     */
     private function rememberProcessedCalls(string $provider, string $url, array $options): void
     {
         $this->processedCalls[$provider] = [
