@@ -165,7 +165,7 @@ class ShareButtons
                 $normalizedArguments
             );
 
-            $this->rememberProcessed($name, $url, $normalizedArguments);
+            $this->rememberProcessedCalls($name, $url, $normalizedArguments);
 
             return $this;
         }
@@ -229,23 +229,13 @@ class ShareButtons
     }
 
     /**
-     * Build a single link.
+     * Remember processed calls.
      *
      * @param string $provider
      * @param string $url
      * @param array $options
      */
-    protected function rememberProcessed(string $provider, string $url, array $options = []): void
-    {
-        $this->rememberProcessedCalls($provider, $url, $options);
-    }
-
-    /**
-     * @param string $provider
-     * @param string $url
-     * @param array $options
-     */
-    private function rememberProcessedCalls(string $provider, string $url, array $options): void
+    protected function rememberProcessedCalls(string $provider, string $url, array $options = []): void
     {
         $this->processedCalls[$provider] = [
             'element_provider' => $provider,
