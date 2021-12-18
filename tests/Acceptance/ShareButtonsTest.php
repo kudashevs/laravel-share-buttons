@@ -21,6 +21,10 @@ class ShareButtonsTest extends ExtendedTestCase
     /**
      * @test
      * @dataProvider provide_different_share_providers_for_one_link
+     * @param string $media
+     * @param string $url
+     * @param string $title
+     * @param string $expected
      */
     public function it_can_return_one_link_on_different_share_providers(string $media, string $url, string $title, string $expected)
     {
