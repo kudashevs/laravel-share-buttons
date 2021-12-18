@@ -14,46 +14,45 @@ class ColonReplacerTest extends TestCase
         $this->replacer = new ColonReplacer();
     }
 
-    /** @test */
-    public function it_can_replace_a_pattern_with_replacement()
+    /**
+     * @test
+     * @dataProvider provide_different_patterns_and_matches_for_replacement
+     * @param string $input
+     * @param array $replacements
+     * @param string $expected
+     */
+    public function it_can_perform_a_pattern_replacement(string $input, array $replacements, string $expected)
     {
-        $expected = 'test that string';
-        $input = 'test :this string';
-        $replacements = [
-            'this' => 'that',
-        ];
-
         $result = $this->replacer->replace($input, $replacements);
 
         $this->assertSame($expected, $result);
     }
 
-    /** @test */
-    public function it_can_replace_multiple_patterns_with_multiple_replacements()
+    public function provide_different_patterns_and_matches_for_replacement()
     {
-        $expected = 'test that simple string';
-        $input = 'test :this :complex string';
-        $replacements = [
-            'this' => 'that',
-            'complex' => 'simple',
+        return [
+            'replace a pattern with the replacement' => [
+                'test :this string',
+                [
+                    'this' => 'that',
+                ],
+                'test that string',
+            ],
+            'replace multiple patterns with multiple replacements' => [
+                'test :this :complex string',
+                [
+                    'this' => 'that',
+                    'complex' => 'simple',
+                ],
+                'test that simple string',
+            ],
+            'replace a pattern with the replacement multiple times' => [
+                'test :this :this string',
+                [
+                    'this' => 'that',
+                ],
+                'test that that string',
+            ],
         ];
-
-        $result = $this->replacer->replace($input, $replacements);
-
-        $this->assertSame($expected, $result);
-    }
-
-    /** @test */
-    public function it_can_replace_a_pattern_with_replacement_multiple_times()
-    {
-        $expected = 'test that that string';
-        $input = 'test :this :this string';
-        $replacements = [
-            'this' => 'that',
-        ];
-
-        $result = $this->replacer->replace($input, $replacements);
-
-        $this->assertSame($expected, $result);
     }
 }
