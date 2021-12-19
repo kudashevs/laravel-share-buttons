@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Templater;
+namespace Kudashevs\ShareButtons\Templaters;
 
 interface Templater
 {
