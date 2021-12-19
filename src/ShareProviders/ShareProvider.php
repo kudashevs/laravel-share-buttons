@@ -13,6 +13,29 @@ abstract class ShareProvider
     abstract public function buildUrl(string $url, string $title, array $options): string;
 
     /**
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @param array $options
+     */
+    final public function __construct(array $options = [])
+    {
+        $this->name = $this->getProviderName();
+    }
+
+    /**
+     * @return string
+     */
+    private function getProviderName(): string
+    {
+        $parsed = explode('\\', get_class($this));
+
+        return mb_strtolower(end($parsed));
+    }
+
+    /**
      * @param string $title
      * @return string
      */
@@ -26,15 +49,5 @@ abstract class ShareProvider
         }
 
         return urlencode($title);
-    }
-
-    /**
-     * @return string
-     */
-    private function getProviderName(): string
-    {
-        $parsed = explode('\\', get_class($this));
-
-        return mb_strtolower(end($parsed));
     }
 }
