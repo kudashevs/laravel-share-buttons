@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\ShareProviders\Providers\Twitter;
+use Kudashevs\ShareButtons\ShareProviders\Factory;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TwitterTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class TwitterTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = new Twitter();
+        $this->provider = Factory::createInstance('twitter');
 
         parent::setUp();
     }

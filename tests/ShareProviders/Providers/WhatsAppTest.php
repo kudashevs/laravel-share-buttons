@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\ShareProviders\Providers\WhatsApp;
+use Kudashevs\ShareButtons\ShareProviders\Factory;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class WhatsAppTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class WhatsAppTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = new WhatsApp();
+        $this->provider = Factory::createInstance('whatsapp');
 
         parent::setUp();
     }
