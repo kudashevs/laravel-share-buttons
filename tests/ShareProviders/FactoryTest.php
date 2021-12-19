@@ -21,7 +21,7 @@ class FactoryTest extends TestCase
     {
         $providers = Factory::create();
 
-        $this->assertCount(count(Factory::PROVIDERS), $providers);
+        $this->assertCount(count(Factory::getProviders()), $providers);
         $this->assertArrayHasKey($this->getProvidersFirstKey(), $providers);
     }
 
@@ -37,7 +37,6 @@ class FactoryTest extends TestCase
 
     private function getProvidersFirstKey()
     {
-        return current(array_keys(Factory::PROVIDERS));
+        return current(array_keys(Factory::getProviders()));
     }
-
 }
