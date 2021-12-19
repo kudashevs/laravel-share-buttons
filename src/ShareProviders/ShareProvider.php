@@ -57,8 +57,7 @@ abstract class ShareProvider
      */
     final protected function prepareTitle(string $title): string
     {
-        $provider = $this->getProviderName();
-        $key = 'share-buttons.providers.' . $provider . '.text';
+        $key = 'share-buttons.providers.' . $this->name . '.text';
 
         if (empty($title) && config()->has($key)) {
             return urlencode(config($key));
