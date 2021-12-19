@@ -2,18 +2,29 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders;
 
+use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
 use Kudashevs\ShareButtons\ShareProviders\Factory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use PHPUnit\Framework\TestCase;
 
 class FactoryTest extends TestCase
 {
     /** @test */
-    public function it_returns_an_array()
+    public function it_can_throw_exception_on_wrong_provider_name()
     {
-        $providers = Factory::create();
+        $this->expectException(InvalidShareProviderNameException::class);
+        $this->expectExceptionMessage('wrong');
 
-        $this->assertIsArray($providers);
+        Factory::createInstance('wrong');
+    }
+
+    /** @test */
+    public function it_can_return_a_specific_instance_by_name()
+    {
+        $provider = Factory::createInstance('facebook');
+
+        $this->assertInstanceOf(Facebook::class, $provider);
     }
 
     /** @test */
