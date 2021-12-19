@@ -9,5 +9,5 @@ interface Templater
      * @param array $replacements
      * @return string
      */
-    public function replace(string $line, array $replacements): string;
+    public function process(string $line, array $replacements): string;
 }
