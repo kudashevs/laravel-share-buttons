@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\Templaters;
 
-use Kudashevs\ShareButtons\Templater\ColonTemplater;
+use Kudashevs\ShareButtons\Templaters\ColonTemplater;
 use PHPUnit\Framework\TestCase;
 
 class ColonTemplaterTest extends TestCase
