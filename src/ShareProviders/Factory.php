@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons\ShareProviders;
 
+use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Factory
@@ -50,6 +51,19 @@ final class Factory
         }
 
         return $providers;
+    }
+
+    /**
+     * @param string $name
+     * @return \Kudashevs\ShareButtons\ShareProviders\ShareProvider
+     */
+    public static function createInstance(string $name): ShareProvider
+    {
+        if (!array_key_exists($name, self::PROVIDERS)) {
+            throw new InvalidShareProviderNameException('The ' . $name . ' is not a valid name for a share provider.');
+        }
+
+        return self::instantiateProvider(self::PROVIDERS[$name], $name);
     }
 
    /**
