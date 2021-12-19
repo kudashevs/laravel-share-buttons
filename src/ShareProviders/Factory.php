@@ -9,7 +9,7 @@ final class Factory
     /**
      * @todo don't forget to update these providers
      */
-    public const PROVIDERS = [
+    protected const PROVIDERS = [
         'copylink' => Providers\CopyLink::class,
         'facebook' => Providers\Facebook::class,
         'linkedin' => Providers\LinkedIn::class,
@@ -26,6 +26,14 @@ final class Factory
      */
     private function __construct()
     {
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getProviders(): array
+    {
+        return self::PROVIDERS;
     }
 
     /**
