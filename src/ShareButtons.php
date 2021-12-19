@@ -50,6 +50,13 @@ class ShareButtons
     ];
 
     /**
+     * Contain share providers instances.
+     *
+     * @var array
+     */
+    private $providers = [];
+
+    /**
      * Contain processed calls.
      *
      * @var array
@@ -68,6 +75,12 @@ class ShareButtons
 
         $this->formatter = $formatter;
         $this->formatter->updateOptions($options);
+
+        /**
+         * We want to initialize providers here and keep them to be sure
+         * that we won't fail in runtime because of a wrong initialization.
+         */
+        $this->initProviders();
     }
 
     /**
@@ -78,6 +91,16 @@ class ShareButtons
         $allowed = array_intersect_key($options, $this->options);
 
         $this->options = array_merge($this->options, $allowed);
+    }
+
+    /**
+     * Initialize share providers.
+     *
+     * @return void
+     */
+    private function initProviders(): void
+    {
+        $this->providers = Factory::create();
     }
 
     /**
@@ -137,12 +160,10 @@ class ShareButtons
      */
     public function __call($name, $arguments)
     {
-        $providers = Factory::create();
-
-        if (array_key_exists($name, $providers)) {
+        if (array_key_exists($name, $this->providers)) {
             $normalizedArguments = $this->normalizeArguments($arguments);
 
-            $url = $providers[$name]->buildUrl(
+            $url = $this->providers[$name]->buildUrl(
                 $this->url,
                 $this->title,
                 $normalizedArguments
