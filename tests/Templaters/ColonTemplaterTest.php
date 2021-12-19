@@ -23,7 +23,7 @@ class ColonTemplaterTest extends TestCase
      */
     public function it_can_perform_a_pattern_replacement(string $input, array $replacements, string $expected)
     {
-        $result = $this->replacer->replace($input, $replacements);
+        $result = $this->replacer->process($input, $replacements);
 
         $this->assertSame($expected, $result);
     }
