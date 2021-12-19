@@ -1,17 +1,17 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\Replacers;
+namespace Kudashevs\ShareButtons\Tests\Templaters;
 
-use Kudashevs\ShareButtons\Replacers\ColonReplacer;
+use Kudashevs\ShareButtons\Templater\ColonTemplater;
 use PHPUnit\Framework\TestCase;
 
-class ColonReplacerTest extends TestCase
+class ColonTemplaterTest extends TestCase
 {
     private $replacer;
 
     protected function setUp(): void
     {
-        $this->replacer = new ColonReplacer();
+        $this->replacer = new ColonTemplater();
     }
 
     /**

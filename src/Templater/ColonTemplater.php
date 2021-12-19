@@ -1,8 +1,8 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Replacers;
+namespace Kudashevs\ShareButtons\Templater;
 
-class ColonReplacer implements Replacer
+class ColonTemplater implements Templater
 {
     /**
      * @inheritDoc
