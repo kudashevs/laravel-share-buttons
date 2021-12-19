@@ -1,8 +1,8 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Replacers;
+namespace Kudashevs\ShareButtons\Templater;
 
-interface Replacer
+interface Templater
 {
     /**
      * @param string $line
