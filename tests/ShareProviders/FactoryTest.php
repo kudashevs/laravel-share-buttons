@@ -28,7 +28,7 @@ class FactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_an_array_with_specific_providers()
+    public function it_can_return_all_the_registered_providers()
     {
         $providers = Factory::create();
 
@@ -37,7 +37,7 @@ class FactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_an_array_with_specific_instances()
+    public function it_can_return_all_the_registered_providers_in_the_instantiated_state()
     {
         $providers = Factory::create();
         $firstKey = $this->getProvidersFirstKey();
