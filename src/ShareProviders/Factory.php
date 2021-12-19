@@ -29,30 +29,22 @@ final class Factory
     }
 
     /**
-     * @return array
-     */
-    public static function create(): array
-    {
-        return self::generate();
-    }
-
-    /**
      * Populates an array of providers through interface.
      *
      * @return array
      */
-    private static function generate(): array
+    public static function create(): array
     {
         $providers = [];
 
-        foreach (self::PROVIDERS as $name => $class) {
-            $providers[$name] = self::instantiateProvider($class);
+        foreach (Factory::PROVIDERS as $name => $class) {
+            $providers[$name] = Factory::instantiateProvider($class);
         }
 
         return $providers;
     }
 
-    /**
+   /**
      * @param $provider
      * @return ShareProvider
      */
