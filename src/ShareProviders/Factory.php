@@ -45,19 +45,19 @@ final class Factory
     {
         $providers = [];
 
-        foreach (Factory::PROVIDERS as $name => $class) {
-            $providers[$name] = Factory::instantiateProvider($class);
+        foreach (self::PROVIDERS as $name => $class) {
+            $providers[$name] = self::instantiateProvider($class, $name);
         }
 
         return $providers;
     }
 
    /**
-     * @param $provider
+     * @param $class
      * @return ShareProvider
      */
-    private static function instantiateProvider(string $provider): ShareProvider
+    private static function instantiateProvider(string $class, string $name): ShareProvider
     {
-        return new $provider();
+        return new $class($name);
     }
 }
