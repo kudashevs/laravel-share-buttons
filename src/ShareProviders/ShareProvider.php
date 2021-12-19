@@ -18,21 +18,11 @@ abstract class ShareProvider
     protected $name;
 
     /**
-     * @param array $options
+     * @param string $name
      */
-    final public function __construct(array $options = [])
+    final public function __construct(string $name)
     {
-        $this->name = $this->getProviderName();
-    }
-
-    /**
-     * @return string
-     */
-    private function getProviderName(): string
-    {
-        $parsed = explode('\\', get_class($this));
-
-        return mb_strtolower(end($parsed));
+        $this->name = $name;
     }
 
     /**
