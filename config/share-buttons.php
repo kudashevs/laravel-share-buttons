@@ -30,7 +30,7 @@ return [
             ],
         ],
         'pinterest' => [
-            'url' => 'https://pinterest.com/pin/create/button/',
+            'url' => 'https://pinterest.com/pin/create/button/?url=:url',
         ],
         'reddit' => [
             'url' => 'https://www.reddit.com/submit',
