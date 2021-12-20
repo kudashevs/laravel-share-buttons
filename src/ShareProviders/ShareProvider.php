@@ -77,6 +77,14 @@ abstract class ShareProvider
     }
 
     /**
+     * @return string
+     */
+    final protected function retrieveProviderUrl(): string
+    {
+        return config('share-buttons.providers.' . $this->name . '.url');
+    }
+
+    /**
      * @param string $title
      * @return string
      */
