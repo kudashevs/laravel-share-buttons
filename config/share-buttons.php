@@ -41,7 +41,7 @@ return [
             'text' => 'Default share text',
         ],
         'twitter' => [
-            'url' => 'https://twitter.com/intent/tweet',
+            'url' => 'https://twitter.com/intent/tweet?text=:title&url=:url',
             'text' => 'Default share text',
         ],
         'vkontakte' => [
