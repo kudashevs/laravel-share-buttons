@@ -11,8 +11,9 @@ class WhatsApp extends ShareProvider
      */
     public function buildUrl(string $link, string $title, array $options = []): string
     {
-        $shareLink = config('share-buttons.providers.whatsapp.url');
+        $template = $this->retrieveProviderUrl();
+        $replacements = $this->prepareReplacements($link, $title, $options);
 
-        return $shareLink . '?text=' . $link;
+        return $this->templater->process($template, $replacements);
     }
 }

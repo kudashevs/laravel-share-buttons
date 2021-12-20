@@ -49,7 +49,7 @@ return [
             'text' => 'Default share text',
         ],
         'whatsapp' => [
-            'url' => 'https://wa.me/',
+            'url' => 'https://wa.me/?text=:url',
             'extra' => ['mini' => 'true'],
         ],
     ],
