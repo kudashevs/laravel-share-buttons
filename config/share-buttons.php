@@ -15,7 +15,8 @@ return [
 
     'providers' => [
         'copylink' => [
-            'extra' => ['hash' => 'false'],
+            'url' => ':url',
+            'extra' => ['hash' => 'true'],
         ],
         'facebook' => [
             'url' => 'https://www.facebook.com/sharer/sharer.php',
