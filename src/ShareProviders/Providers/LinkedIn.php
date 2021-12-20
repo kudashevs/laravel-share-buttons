@@ -11,11 +11,9 @@ class LinkedIn extends ShareProvider
      */
     public function buildUrl(string $link, string $title, array $options = []): string
     {
-        $shareLink = config('share-buttons.providers.linkedin.url');
-        $mini = config('share-buttons.providers.linkedin.extra.mini');
+        $template = $this->retrieveProviderUrl();
+        $replacements = $this->prepareReplacements($link, $title, $options);
 
-        $summary = empty($options['summary']) ? '' : $options['summary'];
-
-        return $shareLink . '?mini=' . $mini . '&url=' . $link . '&title=' . $this->prepareTitle($title) . '&summary=' . urlencode($summary);
+        return $this->templater->process($template, $replacements);
     }
 }

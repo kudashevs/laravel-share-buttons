@@ -22,9 +22,12 @@ return [
             'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url',
         ],
         'linkedin' => [
-            'url' => 'https://www.linkedin.com/sharing/share-offsite',
+            'url' => 'https://www.linkedin.com/sharing/share-offsite?mini=:mini&url=:url&title=:title&summary=:summary',
             'text' => 'Default share text',
-            'extra' => ['mini' => 'true'],
+            'extra' => [
+                'mini' => 'true',
+                'summary' => '',
+            ],
         ],
         'pinterest' => [
             'url' => 'https://pinterest.com/pin/create/button/',
