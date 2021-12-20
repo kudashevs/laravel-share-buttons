@@ -3,6 +3,8 @@
 namespace Kudashevs\ShareButtons\ShareProviders;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
+use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
+use Kudashevs\ShareButtons\Templaters\Templater;
 
 abstract class ShareProvider
 {
@@ -20,11 +22,18 @@ abstract class ShareProvider
     protected $name;
 
     /**
+     * @var Templater
+     */
+    protected $templater;
+
+    /**
      * @param string $name
      */
     final public function __construct(string $name)
     {
         $this->initName($name);
+
+        $this->initTemplater();
     }
 
     /**
@@ -49,6 +58,22 @@ abstract class ShareProvider
         $providers = Factory::getProviders();
 
         return array_key_exists($name, $providers) && $providers[$name] === static::class;
+    }
+
+    /**
+     * @return void
+     */
+    private function initTemplater(): void
+    {
+        $this->templater = $this->createTemplater();
+    }
+
+    /**
+     * @return Templater
+     */
+    protected function createTemplater(): Templater
+    {
+        return new LaravelTemplater();
     }
 
     /**
