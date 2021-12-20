@@ -9,11 +9,11 @@ class CopyLink extends ShareProvider
     /**
      * @inheritDoc
      */
-    public function buildUrl(string $url, string $title, array $options): string
+    public function buildUrl(string $link, string $title, array $options): string
     {
         $shareLink = (config('share-buttons.providers.copylink.extra.hash') === true)
             ? '#'
-            : $url;
+            : $link;
 
         return $shareLink;
     }

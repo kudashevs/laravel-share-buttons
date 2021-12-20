@@ -7,12 +7,12 @@ use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
 abstract class ShareProvider
 {
     /**
-     * @param string $url
+     * @param string $link
      * @param string $title
      * @param array $options
      * @return string
      */
-    abstract public function buildUrl(string $url, string $title, array $options): string;
+    abstract public function buildUrl(string $link, string $title, array $options): string;
 
     /**
      * @var string
