@@ -45,7 +45,7 @@ return [
             'text' => 'Default share text',
         ],
         'vkontakte' => [
-            'url' => 'https://vk.com/share.php',
+            'url' => 'https://vk.com/share.php?url=:url&title=:title',
             'text' => 'Default share text',
         ],
         'whatsapp' => [

@@ -11,8 +11,9 @@ class Vkontakte extends ShareProvider
      */
     public function buildUrl(string $link, string $title, array $options): string
     {
-        $shareLink = config('share-buttons.providers.vkontakte.url');
+        $template = $this->retrieveProviderUrl();
+        $replacements = $this->prepareReplacements($link, $title, $options);
 
-        return $shareLink . '?url=' . $link . '&title=' . $this->prepareTitle($title);
+        return $this->templater->process($template, $replacements);
     }
 }
