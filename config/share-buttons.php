@@ -37,7 +37,7 @@ return [
             'text' => 'Default share text',
         ],
         'telegram' => [
-            'url' => 'https://telegram.me/share/url',
+            'url' => 'https://telegram.me/share/url?url=:url&text=:title',
             'text' => 'Default share text',
         ],
         'twitter' => [
