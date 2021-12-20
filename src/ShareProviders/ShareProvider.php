@@ -85,17 +85,46 @@ abstract class ShareProvider
     }
 
     /**
+     * Gather and prepare all the settings.
+     *
+     * @param string $link
+     * @param string $title
+     * @param array $options
+     * @return array
+     */
+    final protected function prepareReplacements(string $link, string $title, array $options = []): array
+    {
+        $basicReplacements = [
+            'url' => $link,
+            'title' => $this->prepareTitle($title),
+        ];
+
+        $additionalReplacements = $this->prepareAdditionals($options);
+
+        return array_merge($additionalReplacements, $basicReplacements);
+    }
+
+    /**
      * @param string $title
      * @return string
      */
-    final protected function prepareTitle(string $title): string
+    private function prepareTitle(string $title): string
     {
-        $key = 'share-buttons.providers.' . $this->name . '.text';
+        $text = config('share-buttons.providers.' . $this->name . '.text', '');
 
-        if (empty($title) && config()->has($key)) {
-            return urlencode(config($key));
-        }
+        $result = (empty($title) && !empty($text))
+            ? $text
+            : $title;
 
-        return urlencode($title);
+        return urlencode($result);
+    }
+
+    private function prepareAdditionals(array $options): array
+    {
+        $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
+
+        return array_map(static function ($value) {
+            return urlencode($value);
+        }, array_merge($extra, $options));
     }
 }
