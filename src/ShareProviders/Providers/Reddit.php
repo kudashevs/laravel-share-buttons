@@ -11,8 +11,9 @@ class Reddit extends ShareProvider
      */
     public function buildUrl(string $link, string $title, array $options = []): string
     {
-        $shareLink = config('share-buttons.providers.reddit.url');
+        $template = $this->retrieveProviderUrl();
+        $replacements = $this->prepareReplacements($link, $title, $options);
 
-        return $shareLink . '?title=' . $this->prepareTitle($title) . '&url=' . $link;
+        return $this->templater->process($template, $replacements);
     }
 }

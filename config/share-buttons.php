@@ -33,7 +33,7 @@ return [
             'url' => 'https://pinterest.com/pin/create/button/?url=:url',
         ],
         'reddit' => [
-            'url' => 'https://www.reddit.com/submit',
+            'url' => 'https://www.reddit.com/submit?title=:title&url=:url',
             'text' => 'Default share text',
         ],
         'telegram' => [
