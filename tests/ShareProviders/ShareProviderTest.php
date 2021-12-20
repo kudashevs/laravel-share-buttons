@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class ShareProviderTest extends TestCase
 {
    /** @test */
-    public function it_cannot_instanciate_by_wrong_name()
+    public function it_cannot_instanciate_a_provider_with_the_wrong_name()
     {
         /**
          * We check it here just to be sure that the testing class is a right descendant.
