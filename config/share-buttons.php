@@ -19,7 +19,7 @@ return [
             'extra' => ['hash' => 'true'],
         ],
         'facebook' => [
-            'url' => 'https://www.facebook.com/sharer/sharer.php',
+            'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url',
         ],
         'linkedin' => [
             'url' => 'https://www.linkedin.com/sharing/share-offsite',
