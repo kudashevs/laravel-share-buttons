@@ -2,6 +2,13 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v1.1.3 - 2021-12-21](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.3...v1.1.2)
+
+- Add a pocket share provider
+- Fix ShareButtonsFacade docblock with signatures
+
+This release requires the `share-buttons.php` config file update.
+
 ## [v1.1.2 - 2021-12-21](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.1...v1.1.2)
 
 - Add a pocket share provider
