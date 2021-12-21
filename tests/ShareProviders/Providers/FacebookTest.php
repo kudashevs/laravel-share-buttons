@@ -17,7 +17,7 @@ class FacebookTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_facebook_share_link()
+    public function it_can_generate_a_share_link()
     {
         $result = $this->provider->buildUrl('https://mysite.com', '', []);
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text';
@@ -26,7 +26,7 @@ class FacebookTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_facebook_share_link_with_custom_title()
+    public function it_can_generate_a_share_link_with_custom_title()
     {
         $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title';

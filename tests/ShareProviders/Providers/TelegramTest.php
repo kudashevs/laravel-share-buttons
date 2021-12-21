@@ -17,7 +17,7 @@ class TelegramTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_telegram_share_link()
+    public function it_can_generate_a_share_link()
     {
         $result = $this->provider->buildUrl('https://mysite.com', '', []);
         $expected = 'https://telegram.me/share/url?url=https://mysite.com&text=Default+share+text';
@@ -26,7 +26,7 @@ class TelegramTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_telegram_share_link_with_custom_title()
+    public function it_can_generate_a_share_link_with_custom_title()
     {
         $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
         $expected = 'https://telegram.me/share/url?url=https://mysite.com&text=Title';

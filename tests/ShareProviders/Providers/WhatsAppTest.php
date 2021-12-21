@@ -17,7 +17,7 @@ class WhatsAppTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_linkedin_share_link()
+    public function it_can_generate_a_share_link()
     {
         $result = $this->provider->buildUrl('https://mysite.com', '', []);
         $expected = 'https://wa.me/?text=https://mysite.com';

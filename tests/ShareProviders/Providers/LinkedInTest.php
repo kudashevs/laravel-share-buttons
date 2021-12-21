@@ -17,7 +17,7 @@ class LinkedInTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_linkedin_share_link()
+    public function it_can_generate_a_share_link()
     {
         $result = $this->provider->buildUrl('https://mysite.com', '', []);
         $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Default+share+text&summary=';
@@ -26,7 +26,7 @@ class LinkedInTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_linkedin_share_link_with_custom_title()
+    public function it_can_generate_a_share_link_with_custom_title()
     {
         $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
         $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=';
@@ -35,7 +35,7 @@ class LinkedInTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_linkedin_share_link_with_summary()
+    public function it_can_generate_a_share_link_with_summary()
     {
         $result = $this->provider->buildUrl('https://mysite.com', 'Title', ['summary' => 'A summary can be passed here']);
         $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here';
@@ -44,7 +44,7 @@ class LinkedInTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_linkedin_share_link_without_summary()
+    public function it_can_generate_a_share_link_without_summary()
     {
         $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
         $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=';

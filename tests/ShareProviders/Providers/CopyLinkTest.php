@@ -17,7 +17,7 @@ class CopyLinkTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_copylink_share_link()
+    public function it_can_generate_a_share_link()
     {
         $result = $this->provider->buildUrl('https://mysite.com', '', []);
         $expected = 'https://mysite.com';
@@ -26,7 +26,7 @@ class CopyLinkTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_copylink_share_link_replaced_with_hash()
+    public function it_can_generate_a_share_link_replaced_with_hash()
     {
         config()->set('share-buttons.providers.copylink.extra.hash', true);
 
