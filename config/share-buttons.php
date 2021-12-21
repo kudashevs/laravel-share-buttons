@@ -51,6 +51,10 @@ return [
             'url' => 'https://www.reddit.com/submit?title=:title&url=:url',
             'text' => 'Default share text',
         ],
+        'skype' => [
+            'url' => 'https://web.skype.com/share?url=:url&text=:title&source=button',
+            'text' => 'Default share text',
+        ],
         'telegram' => [
             'url' => 'https://telegram.me/share/url?url=:url&text=:title',
             'text' => 'Default share text',

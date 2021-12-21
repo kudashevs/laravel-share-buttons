@@ -19,6 +19,7 @@ final class Factory
         'pinterest' => Providers\Pinterest::class,
         'pocket' => Providers\Pocket::class,
         'reddit' => Providers\Reddit::class,
+        'skype' => Providers\Skype::class,
         'telegram' => Providers\Telegram::class,
         'twitter' => Providers\Twitter::class,
         'vkontakte' => Providers\Vkontakte::class,

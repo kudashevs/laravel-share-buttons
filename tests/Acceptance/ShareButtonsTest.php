@@ -89,6 +89,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My reddit title',
                 'https://www.reddit.com/submit?title=My+reddit+title&url=https://mysite.com',
             ],
+            'skype' => [
+                'skype',
+                'https://mysite.com',
+                'My skype title',
+                'https://web.skype.com/share?url=https://mysite.com&text=My+skype+title&source=button',
+            ],
             'telegram' => [
                 'telegram',
                 'https://mysite.com',
