@@ -40,6 +40,7 @@ If you want to add a Laravel Facade just add it in the config/app.php
 ```
 
 Publish the package config and resource files. You might need to republish the config after major changes in the package.
+In the case of major changes, it is recommended to backup your config file somewhere and republish a new one from scratch.
 
 ```bash
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
