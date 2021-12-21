@@ -153,12 +153,12 @@ class ShareButtons
     }
 
     /**
-     * @param $name
-     * @param $arguments
+     * @param string $name
+     * @param array $arguments
      * @return $this
      * @throws \Error
      */
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments)
     {
         if (array_key_exists($name, $this->providers)) {
             $normalizedArguments = $this->normalizeArguments($arguments);
