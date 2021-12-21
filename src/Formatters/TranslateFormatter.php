@@ -2,8 +2,16 @@
 
 namespace Kudashevs\ShareButtons\Formatters;
 
+use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
+use Kudashevs\ShareButtons\Templaters\Templater;
+
 class TranslateFormatter implements Formatter
 {
+    /**
+     * @var Templater
+     */
+    private $templater;
+
     /**
      * Contain formatter options.
      *
@@ -24,7 +32,25 @@ class TranslateFormatter implements Formatter
      */
     public function __construct(array $options = [])
     {
+        $this->initTemplater();
+
         $this->updateOptions($options);
+    }
+
+    /**
+     * @return void
+     */
+    private function initTemplater(): void
+    {
+        $this->templater = $this->createTemplater();
+    }
+
+    /**
+     * @return Templater
+     */
+    private function createTemplater(): Templater
+    {
+        return new LaravelTemplater();
     }
 
     /**
@@ -145,7 +171,7 @@ class TranslateFormatter implements Formatter
         $template = $this->prepareElementTemplate($provider);
         $styling = $this->prepareElementStyling($url, $options);
 
-        return trans($template, $styling);
+        return $this->templater->process($template, $styling);
     }
 
     /**
