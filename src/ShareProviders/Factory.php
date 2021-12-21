@@ -66,7 +66,7 @@ final class Factory
         return self::instantiateProvider(self::PROVIDERS[$name], $name);
     }
 
-   /**
+    /**
      * @param $class
      * @return ShareProvider
      */
