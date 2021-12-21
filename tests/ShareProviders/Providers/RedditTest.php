@@ -26,7 +26,7 @@ class RedditTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_reddit_with_custom_title()
+    public function it_can_generate_a_reddit_share_link_with_custom_title()
     {
         $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
         $expected = 'https://www.reddit.com/submit?title=Title&url=https://mysite.com';
