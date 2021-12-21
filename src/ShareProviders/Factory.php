@@ -15,6 +15,7 @@ final class Factory
         'facebook' => Providers\Facebook::class,
         'linkedin' => Providers\LinkedIn::class,
         'pinterest' => Providers\Pinterest::class,
+        'pocket' => Providers\Pocket::class,
         'reddit' => Providers\Reddit::class,
         'telegram' => Providers\Telegram::class,
         'twitter' => Providers\Twitter::class,

@@ -14,6 +14,7 @@ use Kudashevs\ShareButtons\ShareButtons;
  * @method ShareButtons facebook(array $option = [])
  * @method ShareButtons linkedin(array $option = [])
  * @method ShareButtons pinterest(array $option = [])
+ * @method ShareButtons pocket(array $options = [])
  * @method ShareButtons reddit(array $option = [])
  * @method ShareButtons telegram(array $option = [])
  * @method ShareButtons twitter(array $option = [])

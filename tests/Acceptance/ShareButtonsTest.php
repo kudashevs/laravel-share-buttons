@@ -65,6 +65,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My pinterest title',
                 'https://pinterest.com/pin/create/button/?url=https://mysite.com',
             ],
+            'pocket' => [
+                'pocket',
+                'https://mysite.com',
+                'My pocket title',
+                'https://getpocket.com/edit?url=https://mysite.com&title=My+pocket+title',
+            ],
             'reddit' => [
                 'reddit',
                 'https://mysite.com',

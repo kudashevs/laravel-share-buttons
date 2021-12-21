@@ -35,6 +35,10 @@ return [
         'pinterest' => [
             'url' => 'https://pinterest.com/pin/create/button/?url=:url',
         ],
+        'pocket' => [
+            'url' => 'https://getpocket.com/edit?url=:url&title=:title',
+            'text' => 'Default share text',
+        ],
         'reddit' => [
             'url' => 'https://www.reddit.com/submit?title=:title&url=:url',
             'text' => 'Default share text',

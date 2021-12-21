@@ -5,6 +5,7 @@ return [
     'facebook' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-facebook-square"></span></a>',
     'linkedin' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-linkedin"></span></a>',
     'pinterest' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-pinterest"></span></a>',
+    'pocket' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-get-pocket"></span></a>',
     'reddit' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-reddit"></span></a>',
     'telegram' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-telegram"></span></a>',
     'twitter' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-twitter"></span></a>',
