@@ -31,9 +31,17 @@ class TemplateFormatter implements Formatter
      */
     public function __construct(array $options = [])
     {
-        $this->templater = $this->createTemplater();
+        $this->initTemplater();
 
         $this->updateOptions($options);
+    }
+
+    /**
+     * @return void
+     */
+    private function initTemplater(): void
+    {
+        $this->templater = $this->createTemplater();
     }
 
     /**
