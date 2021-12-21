@@ -51,7 +51,7 @@ class ShareButtonsTest extends ExtendedTestCase
                 'facebook',
                 'https://mysite.com',
                 'My facebook title',
-                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
+                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=My+facebook+title',
             ],
             'linkedin' => [
                 'linkedin',

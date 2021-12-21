@@ -21,7 +21,8 @@ return [
             ],
         ],
         'facebook' => [
-            'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url',
+            'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url&quote=:title',
+            'text' => 'Default share text',
         ],
         'linkedin' => [
             'url' => 'https://www.linkedin.com/sharing/share-offsite?mini=:mini&url=:url&title=:title&summary=:summary',
