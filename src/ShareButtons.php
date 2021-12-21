@@ -195,6 +195,22 @@ class ShareButtons
     }
 
     /**
+     * Remember processed calls.
+     *
+     * @param string $provider
+     * @param string $url
+     * @param array $options
+     */
+    protected function rememberProcessedCalls(string $provider, string $url, array $options = []): void
+    {
+        $this->processedCalls[$provider] = [
+            'element_provider' => $provider,
+            'element_link' => $url,
+            'element_options' => $options,
+        ];
+    }
+
+    /**
      * @param $name
      * @return $this
      */
@@ -230,22 +246,6 @@ class ShareButtons
         $parsed = explode('\\', get_class($object));
 
         return end($parsed);
-    }
-
-    /**
-     * Remember processed calls.
-     *
-     * @param string $provider
-     * @param string $url
-     * @param array $options
-     */
-    protected function rememberProcessedCalls(string $provider, string $url, array $options = []): void
-    {
-        $this->processedCalls[$provider] = [
-            'element_provider' => $provider,
-            'element_link' => $url,
-            'element_options' => $options,
-        ];
     }
 
     /**
