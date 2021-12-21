@@ -211,10 +211,10 @@ class ShareButtons
     }
 
     /**
-     * @param $name
+     * @param string $name
      * @return $this
      */
-    private function handleUnexpectedCall($name): ShareButtons
+    private function handleUnexpectedCall(string $name): ShareButtons
     {
         if ($this->options['reactOnErrors'] === true) {
             $exception = $this->prepareException();
