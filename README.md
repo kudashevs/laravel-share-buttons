@@ -48,9 +48,9 @@ php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareBut
 
 This command will create three different files:
 ```
-config/share-buttons.php - a configuration file
-resources/lang/vendor/en/share-buttons.php - a visual representation of elements
-resources/assets/js/share-buttons.js - javascript (jQuery)
+config/share-buttons.php                     # A configuration file
+resources/lang/vendor/en/share-buttons.php   # A visual representation of elements
+resources/assets/js/share-buttons.js         # A javascript (jQuery) file
 ```
 
 ### Font Awesome
@@ -154,24 +154,24 @@ At the moment, the package supports the following options:
 ### Global options
 
 ```
-'block_prefix' => 'value' - set up a block prefix, e.g. <ul>
-'block_suffix' => 'value' - set up a block prefix, e.g. </ul>
-'element_prefix' => 'value' - set up an element prefix, e.g. <li>
-'element_suffix' => 'value' - set up an element suffix, e.g. </li>
-'id' => 'value' - add an id attribute to a link
-'class' => 'value' - add a class attribute to a link
-'title' => 'value' - add a title attribute to a link
-'rel' => 'value' - add a rel attribute to a link
+'block_prefix' => 'value'       # Set up a block prefix, e.g. <ul>
+'block_suffix' => 'value'       # Set up a block prefix, e.g. </ul>
+'element_prefix' => 'value'     # Set up an element prefix, e.g. <li>
+'element_suffix' => 'value'     # Set up an element suffix, e.g. </li>
+'id' => 'value'                 # Add an id attribute to a link
+'class' => 'value'              # Add a class attribute to a link
+'title' => 'value'              # Add a title attribute to a link
+'rel' => 'value'                # Add a rel attribute to a link
 ```
 
 ### Local options
 
 ```
-'id' => 'value' - add an id attribute to a link
-'class' => 'value' - add a class attribute to a link
-'title' => 'value' - add a title attribute to a link
-'rel' => 'value' - add a rel attribute to a link
-'summary' => 'value' - only used with a linkedin provider (special case)
+'id' => 'value'                 # Add an id attribute to a link
+'class' => 'value'              # Add a class attribute to a link
+'title' => 'value'              # Add a title attribute to a link
+'rel' => 'value'                # Add a rel attribute to a link
+'summary' => 'value'            # Only used with a linkedin provider (special case)
 ```
 
 #### Usage examples
@@ -227,31 +227,31 @@ The package comes with some configuration settings. These are:
 Each share provider has specific settings that can be configured. 
 
 ```
-'url' => 'value' - a share url which is used by a provider
-'text' => 'value' - a text which is used when page title is not set 
-'extra' => [] - extra options which are required by the specific providers
+'url' => 'value'                # A share url which is used by a provider
+'text' => 'value'               # A text which is used when page title is not set
+'extra' => []                   # Extra options which are required by the specific providers
 ```
 
 ### Font Awesome setting
 
 ```
-'fontAwesomeVersion' => number - specify a Font Awesome version to use
+'fontAwesomeVersion' => number  # Specify a Font Awesome version to use
 ```
 
 ### Formatting elements section
 
 ```
-'block_prefix' => 'value' - set up a block prefix, e.g. <ul>
-'block_suffix' => 'value' - set up a block prefix, e.g. </ul>
-'element_prefix' => 'value' - set up an element prefix, e.g. <li>
-'element_suffix' => 'value' - set up an element suffix, e.g. </li>
+'block_prefix' => 'value'       # Set up a block prefix, e.g. <ul>
+'block_suffix' => 'value'       # Set up a block prefix, e.g. </ul>
+'element_prefix' => 'value'     # Set up an element prefix, e.g. <li>
+'element_suffix' => 'value'     # Set up an element suffix, e.g. </li>
 ```
 
 ### React on errors section
 
 ```
-'reactOnErrors' => bool - specify whether it throws exceptions on unexpected methods or not
-'throwException' => FQCN - specify the exception to throw (should be in the context-independent FQCN format)
+'reactOnErrors' => bool         # Specify whether it throws exceptions on unexpected methods or not
+'throwException' => FQCN        # Specify the exception to throw (should be in the context-independent FQCN format)
 ```
 
 ## Testing
