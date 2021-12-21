@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\Formatters;
 
+use Illuminate\Support\Facades\Lang;
 use Kudashevs\ShareButtons\Formatters\TranslateFormatter;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -210,7 +211,7 @@ class TranslateFormatterTest extends ExtendedTestCase
      * @param string $configuration
      * @param string $method
      */
-   public function it_can_return_formatter_styling_without_options(string $configuration, string $method)
+    public function it_can_return_formatter_styling_without_options(string $configuration, string $method)
     {
         $expected = config($configuration);
 
@@ -246,6 +247,10 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
+        Lang::shouldReceive('get') // remove mock when you want to switch back to TranslateFormatter
+            ->once()
+            ->andReturn(strip_tags($expected, '<a><span>'));
+
         $result = $this->formatter->formatElement('facebook',
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
@@ -260,6 +265,10 @@ class TranslateFormatterTest extends ExtendedTestCase
 
         $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
 
+        Lang::shouldReceive('get') // remove mock when you want to switch back to TranslateFormatter
+            ->once()
+            ->andReturn(strip_tags($expected, '<a><span>'));
+
         $result = $this->formatter->formatElement('facebook',
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
 
@@ -273,6 +282,10 @@ class TranslateFormatterTest extends ExtendedTestCase
      */
     public function it_can_format_a_link_with_custom_styling_from_call_options($url, $options, $expected)
     {
+        Lang::shouldReceive('get') // remove mock when you want to switch back to TranslateFormatter
+            ->once()
+            ->andReturn(strip_tags($expected, '<a><span>'));
+
         $result = $this->formatter->formatElement('facebook', $url, $options);
 
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -314,6 +327,10 @@ class TranslateFormatterTest extends ExtendedTestCase
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
+        Lang::shouldReceive('get') // remove mock when you want to switch back to TranslateFormatter
+            ->once()
+            ->andReturn(strip_tags($expected, '<a><span>'));
+
         $result = $this->formatter->formatElement('facebook',
             'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
             ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
@@ -332,6 +349,10 @@ class TranslateFormatterTest extends ExtendedTestCase
             'title' => 'options',
             'rel' => 'options',
         ]);
+
+        Lang::shouldReceive('get') // remove mock when you want to switch back to TranslateFormatter
+            ->once()
+            ->andReturn(strip_tags($expected, '<a><span>'));
 
         $result = $this->formatter->formatElement(
             'facebook',
