@@ -67,7 +67,8 @@ final class Factory
     }
 
     /**
-     * @param $class
+     * @param string $class
+     * @param string $name
      * @return ShareProvider
      */
     private static function instantiateProvider(string $class, string $name): ShareProvider
