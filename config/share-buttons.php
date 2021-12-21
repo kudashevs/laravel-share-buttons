@@ -104,19 +104,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Font Awesome version
-    |--------------------------------------------------------------------------
-    |
-    | This value specifies the version of Font Awesome which is going to be used.
-    | At the moment the package supports version 5 (default value).
-    |
-    |
-    */
-
-    'fontAwesomeVersion' => 5,
-
-    /*
-    |--------------------------------------------------------------------------
     | Formatting elements
     |--------------------------------------------------------------------------
     |

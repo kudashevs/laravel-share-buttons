@@ -14,12 +14,6 @@ class ShareButtonsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang/', 'share-buttons');
-
-        $this->publishes([
-            __DIR__ . '/../../resources/lang/' => resource_path('lang/vendor/share-buttons'),
-        ], 'translations');
-
         $this->publishes([
             __DIR__ . '/../../config/share-buttons.php' => config_path('share-buttons.php'),
         ], 'config');
