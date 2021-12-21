@@ -47,6 +47,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My facebook title',
                 'https://mysite.com',
             ],
+            'evernote' => [
+                'evernote',
+                'https://mysite.com',
+                'My evernote title',
+                'https://www.evernote.com/clip.action?url=https://mysite.com&t=My+evernote+title',
+            ],
             'facebook' => [
                 'facebook',
                 'https://mysite.com',

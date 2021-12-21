@@ -20,6 +20,10 @@ return [
                 'hash' => 'true',
             ],
         ],
+        'evernote' => [
+            'url' => 'https://www.evernote.com/clip.action?url=:url&t=:title',
+            'text' => 'Default share text',
+        ],
         'facebook' => [
             'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url&quote=:title',
             'text' => 'Default share text',
