@@ -59,6 +59,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My facebook title',
                 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=My+facebook+title',
             ],
+            'hackernews' => [
+                'hackernews',
+                'https://mysite.com',
+                'My hacker news title',
+                'https://news.ycombinator.com/submitlink?t=My+hacker+news+title&u=https://mysite.com',
+            ],
             'linkedin' => [
                 'linkedin',
                 'https://mysite.com',

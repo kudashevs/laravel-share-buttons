@@ -14,6 +14,7 @@ final class Factory
         'copylink' => Providers\CopyLink::class,
         'evernote' => Providers\Evernote::class,
         'facebook' => Providers\Facebook::class,
+        'hackernews' => Providers\HackerNews::class,
         'linkedin' => Providers\LinkedIn::class,
         'pinterest' => Providers\Pinterest::class,
         'pocket' => Providers\Pocket::class,

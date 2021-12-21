@@ -11,6 +11,7 @@ use Kudashevs\ShareButtons\ShareProviders\Factory;
  * @method ShareButtons copylink(array $options = [])
  * @method ShareButtons evernote(array $options = [])
  * @method ShareButtons facebook(array $options = [])
+ * @method ShareButtons hackernews(array $options = [])
  * @method ShareButtons linkedin(array $options = [])
  * @method ShareButtons pinterest(array $options = [])
  * @method ShareButtons pocket(array $options = [])
