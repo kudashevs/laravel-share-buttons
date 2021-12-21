@@ -16,7 +16,9 @@ return [
     'providers' => [
         'copylink' => [
             'url' => ':url',
-            'extra' => ['hash' => 'true'],
+            'extra' => [
+                'hash' => 'true',
+            ],
         ],
         'facebook' => [
             'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url',
@@ -50,7 +52,9 @@ return [
         ],
         'whatsapp' => [
             'url' => 'https://wa.me/?text=:url',
-            'extra' => ['mini' => 'true'],
+            'extra' => [
+                'mini' => 'true',
+            ],
         ],
     ],
 
