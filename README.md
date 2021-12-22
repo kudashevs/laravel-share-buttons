@@ -236,12 +236,6 @@ Each share provider has specific settings that can be configured.
 'extra' => []                   # Extra options which are required by the specific providers
 ```
 
-### Font Awesome setting
-
-```
-'fontAwesomeVersion' => number  # Specify a Font Awesome version to use
-```
-
 ### Formatting elements section
 
 ```
