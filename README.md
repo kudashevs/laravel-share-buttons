@@ -236,6 +236,19 @@ Each share provider has specific settings that can be configured.
 'extra' => []                   # Extra options which are required by the specific providers
 ```
 
+### Templates section
+
+Each share provider link representation can be changed. A representation contains elements that will be changed during
+processing. The format of substituted elements depends on the current package templater.
+
+```
+:url                            # Will be replaced with a ready-to-use URL to the service
+:id                             # Will be replaced with an id attribute
+:class                          # Will be replaced with a class attribute
+:title                          # Will be replaced with a title attribute
+:rel                            # Will be replaced with a rel attribute
+```
+
 ### Formatting elements section
 
 ```
