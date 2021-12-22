@@ -1,4 +1,4 @@
-# Laravel Share Buttons ![example workflow](https://github.com/kudashevs/laravel-share-buttons/actions/workflows/run-tests.yml/badge.svg)
+# Laravel Share Buttons ![test workflow](https://github.com/kudashevs/laravel-share-buttons/actions/workflows/run-tests.yml/badge.svg)
 
 This Laravel Share Buttons package was originated from [Laravel Share](https://github.com/jorenvh/laravel-share) package.  
 The package gives you the possibility to create share buttons for your site in a flexible and convenient way.
