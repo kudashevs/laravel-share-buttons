@@ -3,6 +3,7 @@
 This Laravel Share Buttons package was originated from [Laravel Share](https://github.com/jorenvh/laravel-share) package.  
 The package gives you the possibility to create share buttons for your site in a flexible and convenient way.
 
+[//]: # (@todo don't forget to update these services)
 ### Available services
 
 * Facebook
