@@ -2,18 +2,18 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
-## [v1.1.5 - 2021-12-22](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.5...v1.1.4)
+## [v1.1.5 - 2021-12-22](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.4...v1.1.5)
 
 - Update README.md file
 - Fix README.md the language filename
 
-## [v1.1.4 - 2021-12-21](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.4...v1.1.3)
+## [v1.1.4 - 2021-12-21](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.3...v1.1.4)
 
 - Add a hacker news share provider
 - Add a skype share provider
 - Some improvements
 
-## [v1.1.3 - 2021-12-21](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.3...v1.1.2)
+## [v1.1.3 - 2021-12-21](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.2...v1.1.3)
 
 - Add a pocket share provider
 - Fix ShareButtonsFacade docblock with signatures
