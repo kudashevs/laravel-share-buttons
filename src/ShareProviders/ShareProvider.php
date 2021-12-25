@@ -98,9 +98,9 @@ abstract class ShareProvider
             'title' => $this->prepareTitle($title),
         ];
 
-        $additionalReplacements = $this->prepareAdditionals($options);
+        $extraReplacements = $this->prepareExtras($options);
 
-        return array_merge($additionalReplacements, $basicReplacements);
+        return array_merge($extraReplacements, $basicReplacements);
     }
 
     /**
@@ -122,7 +122,7 @@ abstract class ShareProvider
      * @param array $options
      * @return array
      */
-    private function prepareAdditionals(array $options): array
+    private function prepareExtras(array $options): array
     {
         $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
 
