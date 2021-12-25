@@ -32,7 +32,6 @@ abstract class ShareProvider
     final public function __construct(string $name)
     {
         $this->initName($name);
-
         $this->initTemplater();
     }
 
@@ -119,6 +118,10 @@ abstract class ShareProvider
         return urlencode($result);
     }
 
+    /**
+     * @param array $options
+     * @return array
+     */
     private function prepareAdditionals(array $options): array
     {
         $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
