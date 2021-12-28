@@ -9,7 +9,7 @@ class WhatsApp extends ShareProvider
     /**
      * @inheritDoc
      */
-    public function buildUrl(string $link, string $title, array $options = []): string
+    public function buildUrl(string $link, string $title, array $options): string
     {
         $template = $this->retrieveProviderUrl();
         $replacements = $this->prepareReplacements($link, $title, $options);
