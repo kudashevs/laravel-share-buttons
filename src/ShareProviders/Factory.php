@@ -16,6 +16,7 @@ final class Factory
         'facebook' => Providers\Facebook::class,
         'hackernews' => Providers\HackerNews::class,
         'linkedin' => Providers\LinkedIn::class,
+        'mailto' => Providers\MailTo::class,
         'pinterest' => Providers\Pinterest::class,
         'pocket' => Providers\Pocket::class,
         'reddit' => Providers\Reddit::class,
