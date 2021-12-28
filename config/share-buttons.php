@@ -40,6 +40,10 @@ return [
                 'summary' => '',
             ],
         ],
+        'mailto' => [
+            'url' => 'mailto:?subject=:title&body=:url',
+            'text' => 'Default share text',
+        ],
         'pinterest' => [
             'url' => 'https://pinterest.com/pin/create/button/?url=:url',
         ],

@@ -71,6 +71,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My linkedin title',
                 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=My+linkedin+title&summary=',
             ],
+            'mailto' => [
+                'mailto',
+                'https://mysite.com',
+                'My share by mail title',
+                'mailto:?subject=My+share+by+mail+title&body=https://mysite.com',
+            ],
             'pinterest' => [
                 'pinterest',
                 'https://mysite.com',
