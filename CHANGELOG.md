@@ -2,6 +2,12 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v1.2.0 - 2021-12-29](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.5...v1.2.0)
+
+- Add a mailto share provider
+- Fix CHANGELOG.md compare links
+- Some improvements
+
 ## [v1.1.5 - 2021-12-22](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.4...v1.1.5)
 
 - Update README.md file
