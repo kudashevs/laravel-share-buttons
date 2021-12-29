@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v1.2.1 - 2021-12-29](https://github.com/kudashevs/laravel-share-buttons/compare/v1.2.0...v1.2.1)
+
+- Fix style prefix for copylink and mailto icons
+
 ## [v1.2.0 - 2021-12-29](https://github.com/kudashevs/laravel-share-buttons/compare/v1.1.5...v1.2.0)
 
 - Add a mailto share provider
