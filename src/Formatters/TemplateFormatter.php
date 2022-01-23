@@ -178,10 +178,10 @@ class TemplateFormatter implements Formatter
 
         return [
             'url' => $url,
-            'class' => !empty($styling['class']) ? (' ' . $styling['class']) : '',
-            'id' => !empty($styling['id']) ? (' id="' . $styling['id'] . '"') : '',
-            'title' => !empty($styling['title']) ? (' title="' . $styling['title'] . '"') : '',
-            'rel' => !empty($styling['rel']) ? (' rel="' . $styling['rel'] . '"') : '',
+            'class' => !empty($styling['class']) ? sprintf(' %s', $styling['class']) : '',
+            'id' => !empty($styling['id']) ? sprintf(' id="%s"', $styling['id']) : '',
+            'title' => !empty($styling['title']) ? sprintf(' title="%s"', $styling['title']) : '',
+            'rel' => !empty($styling['rel']) ? sprintf(' rel="%s"', $styling['rel']) : '',
         ];
     }
 
