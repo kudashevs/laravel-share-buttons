@@ -9,6 +9,6 @@ class LaravelTemplater implements Templater
      */
     public function process(string $line, array $replacements): string
     {
-       return trans($line, $replacements);
+        return trans($line, $replacements);
     }
 }
