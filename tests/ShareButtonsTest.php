@@ -12,7 +12,7 @@ class ShareButtonsTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        parent::setUp(); // it goes first to initialize a container
+        parent::setUp(); // it goes first to set up an application
 
         $formatter = new TemplateFormatter();
         $this->share = new ShareButtons($formatter);

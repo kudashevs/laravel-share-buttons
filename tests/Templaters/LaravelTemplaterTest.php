@@ -11,7 +11,7 @@ class LaravelTemplaterTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        parent::setUp(); // it goes first to initialize a container
+        parent::setUp(); // it goes first to set up an application
 
         $this->replacer = new LaravelTemplater();
     }
