@@ -57,14 +57,14 @@ class TemplateFormatter implements Formatter
      */
     public function updateOptions(array $options): void
     {
-        $this->initFormatterStyling($options);
+        $this->initBlockWrapping($options);
         $this->initElementStyling($options);
     }
 
     /**
      * @param array $options
      */
-    private function initFormatterStyling(array $options): void
+    private function initBlockWrapping(array $options): void
     {
         $this->options['block_prefix'] = $this->setFormatterBlockPrefix($options);
         $this->options['block_suffix'] = $this->setFormatterBlockSuffix($options);
