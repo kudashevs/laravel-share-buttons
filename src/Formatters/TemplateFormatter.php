@@ -58,6 +58,7 @@ class TemplateFormatter implements Formatter
     public function updateOptions(array $options): void
     {
         $this->initBlockWrapping($options);
+        $this->initElementWrapping($options);
         $this->initElementStyling($options);
     }
 
@@ -68,8 +69,6 @@ class TemplateFormatter implements Formatter
     {
         $this->options['block_prefix'] = $this->setFormatterBlockPrefix($options);
         $this->options['block_suffix'] = $this->setFormatterBlockSuffix($options);
-        $this->options['element_prefix'] = $this->setFormatterElementPrefix($options);
-        $this->options['element_suffix'] = $this->setFormatterElementSuffix($options);
     }
 
     /**
@@ -88,6 +87,15 @@ class TemplateFormatter implements Formatter
     private function setFormatterBlockSuffix(array $options): string
     {
         return $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
+    }
+
+    /**
+     * @param array $options
+     */
+    private function initElementWrapping(array $options): void
+    {
+        $this->options['element_prefix'] = $this->setFormatterElementPrefix($options);
+        $this->options['element_suffix'] = $this->setFormatterElementSuffix($options);
     }
 
     /**
