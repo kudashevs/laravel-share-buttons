@@ -67,26 +67,8 @@ class TemplateFormatter implements Formatter
      */
     private function initBlockWrapping(array $options): void
     {
-        $this->options['block_prefix'] = $this->setFormatterBlockPrefix($options);
-        $this->options['block_suffix'] = $this->setFormatterBlockSuffix($options);
-    }
-
-    /**
-     * @param array $options
-     * @return string
-     */
-    private function setFormatterBlockPrefix(array $options): string
-    {
-        return $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
-    }
-
-    /**
-     * @param array $options
-     * @return string
-     */
-    private function setFormatterBlockSuffix(array $options): string
-    {
-        return $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
+        $this->options['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
+        $this->options['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
     /**
@@ -94,26 +76,8 @@ class TemplateFormatter implements Formatter
      */
     private function initElementWrapping(array $options): void
     {
-        $this->options['element_prefix'] = $this->setFormatterElementPrefix($options);
-        $this->options['element_suffix'] = $this->setFormatterElementSuffix($options);
-    }
-
-    /**
-     * @param array $options
-     * @return string
-     */
-    private function setFormatterElementPrefix(array $options): string
-    {
-        return $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
-    }
-
-    /**
-     * @param array $options
-     * @return string
-     */
-    private function setFormatterElementSuffix(array $options): string
-    {
-        return $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
+        $this->options['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
+        $this->options['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
     }
 
     /**
