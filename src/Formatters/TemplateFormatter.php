@@ -7,6 +7,13 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateFormatter implements Formatter
 {
+    private const ELEMENT_TAGS = [
+        'class' => ' %s',
+        'id' => ' id="%s"',
+        'title' => ' title="%s"',
+        'rel' => ' rel="%s"',
+    ];
+
     /**
      * @var Templater
      */
@@ -96,14 +103,7 @@ class TemplateFormatter implements Formatter
      */
     private function filterElementStyling(array $options): array
     {
-        $allowedElementStyling = [
-            'class' => '',
-            'id' => '',
-            'title' => '',
-            'rel' => '',
-        ];
-
-        return array_intersect_key($options, $allowedElementStyling);
+        return array_intersect_key($options, self::ELEMENT_TAGS);
     }
 
     /**
