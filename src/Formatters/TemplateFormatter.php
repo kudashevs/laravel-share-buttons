@@ -96,14 +96,14 @@ class TemplateFormatter implements Formatter
      */
     private function filterElementStyling(array $options): array
     {
-        $elementStyling = [
+        $allowedElementStyling = [
             'class' => '',
             'id' => '',
             'title' => '',
             'rel' => '',
         ];
 
-        return array_intersect_key($options, $elementStyling);
+        return array_intersect_key($options, $allowedElementStyling);
     }
 
     /**
