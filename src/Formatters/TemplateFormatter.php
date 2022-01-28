@@ -150,11 +150,27 @@ class TemplateFormatter implements Formatter
 
         return [
             'url' => $url,
-            'class' => !empty($styling['class']) ? sprintf(' %s', $styling['class']) : '',
-            'id' => !empty($styling['id']) ? sprintf(' id="%s"', $styling['id']) : '',
-            'title' => !empty($styling['title']) ? sprintf(' title="%s"', $styling['title']) : '',
-            'rel' => !empty($styling['rel']) ? sprintf(' rel="%s"', $styling['rel']) : '',
+            'class' => isset($styling['class']) ? $this->prepareElementStylingTag($styling['class'], ' %s') : '',
+            'id' => isset($styling['id']) ? $this->prepareElementStylingTag($styling['id'], ' id="%s"') : '',
+            'title' => isset($styling['title']) ? $this->prepareElementStylingTag($styling['title'], ' title="%s"') : '',
+            'rel' => isset($styling['rel']) ? $this->prepareElementStylingTag($styling['rel'], ' rel="%s"') : '',
         ];
+    }
+
+    /**
+     * @param string $value
+     * @param string $template
+     * @return string
+     */
+    private function prepareElementStylingTag(string $value, string $template): string
+    {
+        $value = trim($value);
+
+        if (trim($value) === '') {
+            return '';
+        }
+
+        return sprintf($template, $value);
     }
 
     /**
