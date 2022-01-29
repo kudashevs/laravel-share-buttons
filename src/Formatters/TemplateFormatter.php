@@ -148,29 +148,27 @@ class TemplateFormatter implements Formatter
     {
         $styling = array_merge($this->options, $options);
 
-        return [
-            'url' => $url,
-            'class' => isset($styling['class']) ? $this->prepareElementStylingTag($styling['class'], ' %s') : '',
-            'id' => isset($styling['id']) ? $this->prepareElementStylingTag($styling['id'], ' id="%s"') : '',
-            'title' => isset($styling['title']) ? $this->prepareElementStylingTag($styling['title'], ' title="%s"') : '',
-            'rel' => isset($styling['rel']) ? $this->prepareElementStylingTag($styling['rel'], ' rel="%s"') : '',
-        ];
+        return $this->prepareElementWithTags($url, $styling);
     }
 
     /**
-     * @param string $value
-     * @param string $template
-     * @return string
+     * @param string $url
+     * @param array $options
+     * @return array
      */
-    private function prepareElementStylingTag(string $value, string $template): string
+    private function prepareElementWithTags(string $url, array $options): array
     {
-        $value = trim($value);
+        $tags = [
+            'url' => $url,
+        ];
 
-        if (trim($value) === '') {
-            return '';
+        foreach (self::ELEMENT_TAGS as $tagName => $tagTemplate) {
+            $tags[$tagName] = array_key_exists($tagName, $options)
+                ? sprintf($tagTemplate, $options[$tagName])
+                : '';
         }
 
-        return sprintf($template, $value);
+        return $tags;
     }
 
     /**
