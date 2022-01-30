@@ -85,6 +85,29 @@ createForPage($url, $title = '', $options = [])
 createForCurrentPage($title = '', $options = [])
 ```
 
+### Available service methods
+
+To create a single share button, you just need to add one of the following methods to the start point. Each of these
+methods accepts an array of options (you can find more information about options below in the Optional parameters section).
+
+[//]: # (@todo don't forget to update these methods)
+```
+* evernote($options)            # Generate an Evernote share button
+* facebook($options)            # Generate a Facebook share button
+* hackernews($options)          # Generate a Hacker News share button
+* linkedin($options)            # Generate a LinkedIn share button
+* pinterest($options)           # Generate a Pinterest share button
+* pocket($options)              # Generate a Pocket share button
+* reddit($options)              # Generate a Reddit share button
+* skype($options)               # Generate a Skype share button
+* telegram($options)            # Generate a Telegram share button
+* twitter($options)             # Generate a Twitter share button
+* vkontakte($options)           # Generate a VKontakte share button
+* whatsapp($options)            # Generate a WhatsApp share button
+* mailto($options)              # Generate a mail to somebody share button
+* copylink($options)            # Generate a copy to clipboard share button
+```
+
 ### Share a specific page
 
 ``` php
