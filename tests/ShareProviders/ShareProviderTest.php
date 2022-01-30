@@ -18,7 +18,7 @@ class ShareProviderTest extends TestCase
         $this->assertTrue(is_subclass_of(CopyLink::class, ShareProvider::class));
 
         $this->expectException(InvalidShareProviderNameException::class);
-        $this->expectExceptionMessage('wrong');
+        $this->expectExceptionMessage('wrong is not');
 
         new CopyLink('wrong');
     }
