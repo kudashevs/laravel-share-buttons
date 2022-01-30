@@ -66,7 +66,7 @@ class TemplateFormatter implements Formatter
     {
         $this->initBlockWrapping($options);
         $this->initElementWrapping($options);
-        $this->initElementStyling($options);
+        $this->initElementAttributes($options);
     }
 
     /**
@@ -90,7 +90,7 @@ class TemplateFormatter implements Formatter
     /**
      * @param array $options
      */
-    private function initElementStyling(array $options): void
+    private function initElementAttributes(array $options): void
     {
         $allowed = $this->filterElementStyling($options);
 
