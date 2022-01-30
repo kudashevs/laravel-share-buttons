@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v2.1.2 - 2022-01-31](https://github.com/kudashevs/laravel-share-buttons/compare/v2.1.1...v2.1.2)
+
+- Update TemplateFormatter massive refactoring
+- Update exception message generations with sprintf
+- Fix README.md fix missed `mail to` service
+- Update README.md
+- Some improvements
+
 ## [v2.1.1 - 2021-12-29](https://github.com/kudashevs/laravel-share-buttons/compare/v2.1.0...v2.1.1)
 
 - Fix style prefix for copylink and mailto icons
