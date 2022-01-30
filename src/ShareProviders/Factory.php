@@ -65,7 +65,9 @@ final class Factory
     public static function createInstance(string $name): ShareProvider
     {
         if (!array_key_exists($name, self::PROVIDERS)) {
-            throw new InvalidShareProviderNameException('The ' . $name . ' is not a valid name for a share provider.');
+            throw new InvalidShareProviderNameException(
+                sprintf('The %s is not a valid name for a share provider.', $name)
+            );
         }
 
         return self::instantiateProvider(self::PROVIDERS[$name], $name);
