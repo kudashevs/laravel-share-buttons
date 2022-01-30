@@ -134,7 +134,7 @@ class TemplateFormatter implements Formatter
         $this->updateElementAttributes($options);
 
         $template = $this->prepareElementTemplate($provider);
-        $replacements = $this->prepareElementReplacements($url, $options);
+        $replacements = $this->prepareElementReplacements($url);
 
         return $this->templater->process($template, $replacements);
     }
@@ -158,10 +158,9 @@ class TemplateFormatter implements Formatter
 
     /**
      * @param string $url
-     * @param array $options
      * @return array
      */
-    private function prepareElementReplacements(string $url, array $options): array
+    private function prepareElementReplacements(string $url): array
     {
         $replacements = ['url' => $url];
 
