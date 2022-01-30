@@ -32,6 +32,13 @@ class TemplateFormatter implements Formatter
     ];
 
     /**
+     * Contain attributes passed through options.
+     *
+     * @var array
+     */
+    private $attributes = [];
+
+    /**
      * TemplateFormatter constructor.
      *
      * @param array $options
