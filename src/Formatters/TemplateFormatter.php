@@ -146,29 +146,16 @@ class TemplateFormatter implements Formatter
      */
     private function prepareElementStyling(string $url, array $options): array
     {
-        $styling = array_merge($this->options, $options);
-
-        return $this->prepareElementWithTags($url, $styling);
-    }
-
-    /**
-     * @param string $url
-     * @param array $options
-     * @return array
-     */
-    private function prepareElementWithTags(string $url, array $options): array
-    {
-        $tags = [
-            'url' => $url,
-        ];
+        $options = array_merge($this->options, $options);
+        $styling = ['url' => $url];
 
         foreach (self::ELEMENT_TAGS as $tagName => $tagTemplate) {
-            $tags[$tagName] = array_key_exists($tagName, $options)
+            $styling[$tagName] = array_key_exists($tagName, $options)
                 ? sprintf($tagTemplate, $options[$tagName])
                 : '';
         }
 
-        return $tags;
+        return $styling;
     }
 
     /**
