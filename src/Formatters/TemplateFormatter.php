@@ -179,7 +179,9 @@ class TemplateFormatter implements Formatter
     private function formatElementAttribute(string $name, string $template): string
     {
         if (array_key_exists($name, $this->attributes)) {
-            return sprintf(' ' . $template, $this->attributes[$name]);
+            $template = ' ' . $template;
+
+            return sprintf($template, $this->attributes[$name]);
         }
 
         return '';
