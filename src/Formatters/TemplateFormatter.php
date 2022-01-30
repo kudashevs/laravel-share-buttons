@@ -131,20 +131,10 @@ class TemplateFormatter implements Formatter
      */
     private function generateLink(string $provider, string $url, array $options): string
     {
-        $this->updateElementAttributes($options);
-
         $template = $this->prepareElementTemplate($provider);
-        $replacements = $this->prepareElementReplacements($url);
+        $replacements = $this->prepareElementReplacements($url, $options);
 
         return $this->templater->process($template, $replacements);
-    }
-
-    /**
-     * @param array $options
-     */
-    private function updateElementAttributes(array $options): void
-    {
-        $this->attributes = array_merge($this->attributes, $options);
     }
 
     /**
@@ -158,9 +148,10 @@ class TemplateFormatter implements Formatter
 
     /**
      * @param string $url
+     * @param array $options
      * @return array
      */
-    private function prepareElementReplacements(string $url): array
+    private function prepareElementReplacements(string $url, array $options): array
     {
         $replacements = ['url' => $url];
 
