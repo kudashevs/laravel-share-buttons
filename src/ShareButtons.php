@@ -224,7 +224,9 @@ class ShareButtons
         if ($this->options['reactOnErrors'] === true) {
             $exception = $this->prepareException();
 
-            throw new $exception('Call to undefined method ' . $this->getShortClassName() . '::' . $name . '()');
+            throw new $exception(
+                sprintf('Call to undefined method %s::%s().', $this->getShortClassName(), $name)
+            );
         }
 
         return $this;
