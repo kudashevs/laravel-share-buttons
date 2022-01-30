@@ -295,8 +295,8 @@ class ShareButtons
         foreach ($this->processedCalls as [
             'element_provider' => $provider,
             'element_link' => $url,
-            'element_options' => $options,]
-        ) {
+            'element_options' => $options,
+        ]) {
             $representation .= $this->formatter->getElementPrefix();
             $representation .= $this->formatter->formatElement($provider, $url, $options);
             $representation .= $this->formatter->getElementSuffix();
