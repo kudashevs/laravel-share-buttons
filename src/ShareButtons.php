@@ -224,7 +224,7 @@ class ShareButtons
         if ($this->options['reactOnErrors'] === true) {
             $exception = $this->prepareException();
 
-            throw new $exception('Call to undefined method ' . $this->getShortClassName($this) . '::' . $name . '()');
+            throw new $exception('Call to undefined method ' . $this->getShortClassName() . '::' . $name . '()');
         }
 
         return $this;
@@ -243,12 +243,11 @@ class ShareButtons
     }
 
     /**
-     * @param object $object
      * @return string
      */
-    private function getShortClassName(object $object): string
+    private function getShortClassName(): string
     {
-        $parsed = explode('\\', get_class($object));
+        $parsed = explode('\\', get_class($this));
 
         return end($parsed);
     }
