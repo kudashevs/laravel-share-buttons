@@ -75,8 +75,8 @@ below, or to add this file into your assets compiling flow.
 
 ## Usage
 
-The package is easy to use. It provides a fluent interface to build the share buttons code. You can just use a couple
-of methods to start a method chaining. They are:
+The package is easy to use. It provides a fluent interface to build the share buttons code. To start a method chaining, 
+you just need to use one of the specific methods. These methods are:
 
 ```
 page($url, $title = '', $options = [])
