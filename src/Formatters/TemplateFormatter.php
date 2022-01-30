@@ -155,27 +155,26 @@ class TemplateFormatter implements Formatter
     {
         $replacements = ['url' => $url];
 
+        $attributes = array_merge($this->attributes, $options);
         foreach (self::ELEMENT_ATTRIBUTES as $name => $template) {
-            $replacements[$name] = $this->formatElementAttribute($name, $template);
+            $replacements[$name] = array_key_exists($name, $attributes)
+                ? $this->formatElementAttribute($attributes[$name], $template)
+                : '';
         }
 
         return $replacements;
     }
 
     /**
-     * @param string $name
+     * @param string $value
      * @param string $template
      * @return string
      */
-    private function formatElementAttribute(string $name, string $template): string
+    private function formatElementAttribute(string $value, string $template): string
     {
-        if (array_key_exists($name, $this->attributes)) {
-            $template = ' ' . $template;
+        $template = ' ' . $template;
 
-            return sprintf($template, $this->attributes[$name]);
-        }
-
-        return '';
+        return sprintf($template, $value);
     }
 
     /**
