@@ -100,9 +100,9 @@ ShareButtons::currentPage()->facebook();
 ShareButtons::page('https://jorenvanhocht.be', 'Your share text here')->twitter();
 ```
 
-### Creating multiple share Links
+### Creating multiple share buttons
 
-The usual way of using the share buttons package is to create multiple links. You just need to chain the methods for this.
+When you want to create multiple share buttons, you just need to chain different methods in sequence.
 
 ```php
 ShareButtons::page('https://jorenvanhocht.be', 'Share title')
@@ -112,7 +112,7 @@ ShareButtons::page('https://jorenvanhocht.be', 'Share title')
     ->whatsapp();
 ```
 
-This will generate the following HTML code
+This will generate the following HTML code:
 
 ```html
 <div id="social-links">
