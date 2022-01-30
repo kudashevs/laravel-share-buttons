@@ -75,7 +75,7 @@ below, or to add this file into your assets compiling flow.
 
 ## Usage
 
-The package is really easy to use and provides a fluent interface to build the share buttons code. You can use a couple
+The package is easy to use. It provides a fluent interface to build the share buttons code. You can just use a couple
 of methods to start a method chaining. They are:
 
 ```
