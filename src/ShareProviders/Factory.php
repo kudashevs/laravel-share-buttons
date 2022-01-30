@@ -3,7 +3,6 @@
 namespace Kudashevs\ShareButtons\ShareProviders;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
-use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Factory
 {
