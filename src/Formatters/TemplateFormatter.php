@@ -92,7 +92,7 @@ class TemplateFormatter implements Formatter
      */
     private function initElementAttributes(array $options): void
     {
-        $allowed = $this->filterElementStyling($options);
+        $allowed = $this->filterElementAttributes($options);
 
         $this->options = array_merge($this->options, $allowed);
     }
@@ -101,7 +101,7 @@ class TemplateFormatter implements Formatter
      * @param array $options
      * @return array
      */
-    private function filterElementStyling(array $options): array
+    private function filterElementAttributes(array $options): array
     {
         return array_intersect_key($options, self::ELEMENT_ATTRIBUTES);
     }
@@ -111,7 +111,7 @@ class TemplateFormatter implements Formatter
      */
     public function formatElement(string $provider, string $url, array $options = []): string
     {
-        $providerArguments = $this->filterElementStyling($options);
+        $providerArguments = $this->filterElementAttributes($options);
 
         return $this->generateLink($provider, $url, $providerArguments);
     }
