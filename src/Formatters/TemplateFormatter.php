@@ -8,10 +8,10 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 class TemplateFormatter implements Formatter
 {
     private const ELEMENT_ATTRIBUTES = [
-        'class' => ' %s',
-        'id' => ' id="%s"',
-        'title' => ' title="%s"',
-        'rel' => ' rel="%s"',
+        'class' => '%s',
+        'id' => 'id="%s"',
+        'title' => 'title="%s"',
+        'rel' => 'rel="%s"',
     ];
 
     /**
@@ -157,15 +157,25 @@ class TemplateFormatter implements Formatter
 
         $attributes = array_merge($this->attributes, $options);
         foreach (self::ELEMENT_ATTRIBUTES as $name => $template) {
-            if (!array_key_exists($name, $attributes)) {
-                $replacements[$name] = '';
-                continue;
-            }
-
-            $replacements[$name] = sprintf($template, $attributes[$name]);
+            $replacements[$name] = $this->formatElementAttribute($attributes, $name, $template);
         }
 
         return $replacements;
+    }
+
+    /**
+     * @param array $attributes
+     * @param string $name
+     * @param string $template
+     * @return string
+     */
+    private function formatElementAttribute(array $attributes, string $name, string $template): string
+    {
+        if (!array_key_exists($name, $attributes)) {
+            return '';
+        }
+
+        return sprintf(' ' . $template, $attributes[$name]);
     }
 
     /**
