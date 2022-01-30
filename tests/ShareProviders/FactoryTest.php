@@ -14,7 +14,7 @@ class FactoryTest extends TestCase
     public function it_can_throw_exception_on_wrong_provider_name()
     {
         $this->expectException(InvalidShareProviderNameException::class);
-        $this->expectExceptionMessage('wrong');
+        $this->expectExceptionMessage('wrong is not');
 
         Factory::createInstance('wrong');
     }
