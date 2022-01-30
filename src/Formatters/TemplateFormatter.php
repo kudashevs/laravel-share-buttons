@@ -155,11 +155,14 @@ class TemplateFormatter implements Formatter
     {
         $replacements = ['url' => $url];
 
-        $attributesFromOptions = array_merge($this->options, $options);
+        $attributes = array_merge($this->attributes, $options);
         foreach (self::ELEMENT_ATTRIBUTES as $name => $template) {
-            $replacements[$name] = array_key_exists($name, $attributesFromOptions)
-                ? sprintf($template, $attributesFromOptions[$name])
-                : '';
+            if (!array_key_exists($name, $attributes)) {
+                $replacements[$name] = '';
+                continue;
+            }
+
+            $replacements[$name] = sprintf($template, $attributes[$name]);
         }
 
         return $replacements;
