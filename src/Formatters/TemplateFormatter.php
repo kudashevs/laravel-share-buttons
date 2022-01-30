@@ -125,9 +125,9 @@ class TemplateFormatter implements Formatter
     private function generateLink(string $provider, string $url, array $options): string
     {
         $template = $this->prepareElementTemplate($provider);
-        $styling = $this->prepareElementStyling($url, $options);
+        $replacements = $this->prepareElementStyling($url, $options);
 
-        return $this->templater->process($template, $styling);
+        return $this->templater->process($template, $replacements);
     }
 
     /**
