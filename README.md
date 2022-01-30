@@ -18,6 +18,7 @@ The package gives you the possibility to create share buttons for your site in a
 * Twitter
 * VKontakte
 * WhatsApp
+* Mail to
 * Copy the link
 
 ## Installation
