@@ -42,7 +42,9 @@ abstract class ShareProvider
     private function initName(string $name): void
     {
         if (!$this->isValidName($name)) {
-            throw new InvalidShareProviderNameException('The ' . $name . ' is not a valid name for the ' . static::class . '.');
+            throw new InvalidShareProviderNameException(
+                sprintf('The %s is not a valid name for the %s.', $name, static::class)
+            );
         }
 
         $this->name = $name;
