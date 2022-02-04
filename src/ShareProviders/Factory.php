@@ -63,13 +63,24 @@ final class Factory
      */
     public static function createInstance(string $name): ShareProvider
     {
+        $class = self::resolveClass($name);
+
+        return new $class($name);
+    }
+
+    /**
+     * @param string $name
+     * @return string
+     */
+    private static function resolveClass(string $name): string
+    {
         if (!array_key_exists($name, self::PROVIDERS)) {
             throw new InvalidShareProviderNameException(
                 sprintf('The %s is not a valid name for a share provider.', $name)
             );
         }
 
-        return self::instantiateProvider(self::PROVIDERS[$name], $name);
+        return self::PROVIDERS[$name];
     }
 
     /**
