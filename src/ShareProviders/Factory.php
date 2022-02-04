@@ -82,14 +82,4 @@ final class Factory
 
         return self::PROVIDERS[$name];
     }
-
-    /**
-     * @param string $class
-     * @param string $name
-     * @return ShareProvider
-     */
-    private static function instantiateProvider(string $class, string $name): ShareProvider
-    {
-        return new $class($name);
-    }
 }
