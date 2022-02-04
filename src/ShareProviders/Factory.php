@@ -59,7 +59,7 @@ final class Factory
 
     /**
      * @param string $name
-     * @return \Kudashevs\ShareButtons\ShareProviders\ShareProvider
+     * @return ShareProvider
      */
     public static function createInstance(string $name): ShareProvider
     {
