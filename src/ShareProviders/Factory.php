@@ -50,8 +50,8 @@ final class Factory
     {
         $providers = [];
 
-        foreach (self::PROVIDERS as $name => $class) {
-            $providers[$name] = self::instantiateProvider($class, $name);
+        foreach (array_keys(self::PROVIDERS) as $name) {
+            $providers[$name] = self::createInstance($name);
         }
 
         return $providers;
