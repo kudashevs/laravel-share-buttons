@@ -101,7 +101,7 @@ class TemplateFormatter implements Formatter
      */
     private function initElementAttributes(array $options): void
     {
-        $this->attributes = $this->filterElementAttributes($options);
+        $this->attributes = $options;
     }
 
     /**
