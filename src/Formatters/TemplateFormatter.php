@@ -133,7 +133,7 @@ class TemplateFormatter implements Formatter
     {
         $replacements = ['url' => $url];
 
-        $attributes = array_merge($this->attributes, $options);
+        $attributes = $this->prepareElementAttributes($options);
         foreach (self::ELEMENT_ATTRIBUTES as $name => $template) {
             $replacements[$name] = array_key_exists($name, $attributes)
                 ? $this->formatElementAttribute($attributes[$name], $template)
@@ -141,6 +141,17 @@ class TemplateFormatter implements Formatter
         }
 
         return $replacements;
+    }
+
+    /**
+     * @param array $options
+     * @return array
+     */
+    private function prepareElementAttributes(array $options): array
+    {
+        $combinedAttributes = array_merge($this->attributes, $options);
+
+        return $this->filterElementAttributes($combinedAttributes);
     }
 
     /**
