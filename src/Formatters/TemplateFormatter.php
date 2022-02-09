@@ -118,19 +118,6 @@ class TemplateFormatter implements Formatter
      */
     public function formatElement(string $provider, string $url, array $options = []): string
     {
-        $attributes = $this->filterElementAttributes($options);
-
-        return $this->generateLink($provider, $url, $attributes);
-    }
-
-    /**
-     * @param string $provider
-     * @param string $url
-     * @param array $options
-     * @return string
-     */
-    private function generateLink(string $provider, string $url, array $options): string
-    {
         $template = $this->prepareElementTemplate($provider);
         $replacements = $this->prepareElementReplacements($url, $options);
 
