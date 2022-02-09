@@ -118,9 +118,9 @@ class TemplateFormatter implements Formatter
      */
     public function formatElement(string $provider, string $url, array $options = []): string
     {
-        $providerArguments = $this->filterElementAttributes($options);
+        $attributes = $this->filterElementAttributes($options);
 
-        return $this->generateLink($provider, $url, $providerArguments);
+        return $this->generateLink($provider, $url, $attributes);
     }
 
     /**
