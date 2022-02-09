@@ -105,15 +105,6 @@ class TemplateFormatter implements Formatter
     }
 
     /**
-     * @param array $options
-     * @return array
-     */
-    private function filterElementAttributes(array $options): array
-    {
-        return array_intersect_key($options, self::ELEMENT_ATTRIBUTES);
-    }
-
-    /**
      * @inheritDoc
      */
     public function formatElement(string $provider, string $url, array $options = []): string
@@ -150,6 +141,15 @@ class TemplateFormatter implements Formatter
         }
 
         return $replacements;
+    }
+
+    /**
+     * @param array $options
+     * @return array
+     */
+    private function filterElementAttributes(array $options): array
+    {
+        return array_intersect_key($options, self::ELEMENT_ATTRIBUTES);
     }
 
     /**
