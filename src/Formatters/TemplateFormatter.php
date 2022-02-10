@@ -7,7 +7,7 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateFormatter implements Formatter
 {
-    private const ELEMENT_ATTRIBUTES = [
+    private const ELEMENT_ATTRIBUTES_FORMATS = [
         'class' => '%s',
         'id' => 'id="%s"',
         'title' => 'title="%s"',
@@ -134,7 +134,7 @@ class TemplateFormatter implements Formatter
         $replacements = ['url' => $url];
 
         $attributes = $this->prepareElementAttributes($options);
-        foreach (self::ELEMENT_ATTRIBUTES as $name => $template) {
+        foreach (self::ELEMENT_ATTRIBUTES_FORMATS as $name => $template) {
             $replacements[$name] = array_key_exists($name, $attributes)
                 ? $this->formatElementAttribute($attributes[$name], $template)
                 : '';
@@ -160,7 +160,7 @@ class TemplateFormatter implements Formatter
      */
     private function filterElementAttributes(array $options): array
     {
-        return array_intersect_key($options, self::ELEMENT_ATTRIBUTES);
+        return array_intersect_key($options, self::ELEMENT_ATTRIBUTES_FORMATS);
     }
 
     /**
