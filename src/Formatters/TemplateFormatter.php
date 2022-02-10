@@ -160,7 +160,9 @@ class TemplateFormatter implements Formatter
      */
     private function amendElementAttributes(array $options): array
     {
-        return array_intersect_key($options, self::ELEMENT_ATTRIBUTES_FORMATS);
+        $allExistingAttributes = array_fill_keys(array_keys(self::ELEMENT_ATTRIBUTES_FORMATS), '');
+
+        return array_intersect_key($options, $allExistingAttributes) + $allExistingAttributes;
     }
 
     /**
