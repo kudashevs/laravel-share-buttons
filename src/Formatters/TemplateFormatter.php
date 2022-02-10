@@ -132,12 +132,8 @@ class TemplateFormatter implements Formatter
     private function prepareElementReplacements(string $url, array $options): array
     {
         $replacements = ['url' => $url];
-
-        $attributes = $this->prepareElementAttributes($options);
-        foreach (self::ELEMENT_ATTRIBUTES_FORMATS as $name => $template) {
-            $replacements[$name] = array_key_exists($name, $attributes)
-                ? $this->formatElementAttribute($attributes[$name], $template)
-                : '';
+        foreach ($this->prepareElementAttributes($options) as $name => $format) {
+            $replacements[$name] = $this->formatElementAttribute($name, $format);
         }
 
         return $replacements;
@@ -166,15 +162,19 @@ class TemplateFormatter implements Formatter
     }
 
     /**
+     * @param string $name
      * @param string $value
-     * @param string $template
      * @return string
      */
-    private function formatElementAttribute(string $value, string $template): string
+    private function formatElementAttribute(string $name, string $value): string
     {
-        $template = ' ' . $template;
+        if ($value === '') {
+            return '';
+        }
 
-        return sprintf($template, $value);
+        $format = ' ' . self::ELEMENT_ATTRIBUTES_FORMATS[$name];
+
+        return sprintf($format, $value);
     }
 
     /**
