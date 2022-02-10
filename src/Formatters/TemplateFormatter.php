@@ -151,14 +151,14 @@ class TemplateFormatter implements Formatter
     {
         $combinedAttributes = array_merge($this->attributes, $options);
 
-        return $this->filterElementAttributes($combinedAttributes);
+        return $this->amendElementAttributes($combinedAttributes);
     }
 
     /**
      * @param array $options
      * @return array
      */
-    private function filterElementAttributes(array $options): array
+    private function amendElementAttributes(array $options): array
     {
         return array_intersect_key($options, self::ELEMENT_ATTRIBUTES_FORMATS);
     }
