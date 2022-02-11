@@ -29,7 +29,7 @@ You can install the package via composer:
 composer require kudashevs/laravel-share-buttons
 ```
 
-If you don't use auto-discovery just add a ServiceProvider to the config/app.php
+If you don't use auto-discovery just add a ServiceProvider to the `config/app.php`
 
 ```php
 'providers' => [
@@ -37,7 +37,7 @@ If you don't use auto-discovery just add a ServiceProvider to the config/app.php
 ];
 ```
 
-If you want to add a Laravel Facade just add it in the config/app.php
+If you want to add a Laravel Facade just add it to the `aliases` array in the `config/app.php`
 
 ```php
 'aliases' => [
