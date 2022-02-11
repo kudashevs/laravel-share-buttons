@@ -41,7 +41,7 @@ If you want to add a Laravel Facade just add it to the `aliases` array in the `c
 
 ```php
 'aliases' => [
-    'Share' => Kudashevs\ShareButtons\Facades\ShareButtonsFacade::class,
+    'ShareButtons' => Kudashevs\ShareButtons\Facades\ShareButtonsFacade::class,
 ];
 ```
 by default, it binds a ShareButtons class instance to the `share` alias.
