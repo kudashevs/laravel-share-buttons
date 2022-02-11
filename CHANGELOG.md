@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v2.1.3 - 2022-02-11](https://github.com/kudashevs/laravel-share-buttons/compare/v2.1.2...v2.1.3)
+
+- Add Laravel 9 support
+- Change ShareProvider classes to final 
+- Update ShareButtonsFacade with direct alias
+- Update README.md
+- Some improvements
+
 ## [v2.1.2 - 2022-01-31](https://github.com/kudashevs/laravel-share-buttons/compare/v2.1.1...v2.1.2)
 
 - Update TemplateFormatter massive refactoring
