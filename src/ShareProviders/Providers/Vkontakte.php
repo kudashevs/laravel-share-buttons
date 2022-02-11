@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Vkontakte extends ShareProvider
+final class Vkontakte extends ShareProvider
 {
     /**
      * @inheritDoc

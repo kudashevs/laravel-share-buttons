@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Pocket extends ShareProvider
+final class Pocket extends ShareProvider
 {
     /**
      * @inheritDoc

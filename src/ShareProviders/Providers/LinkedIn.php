@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class LinkedIn extends ShareProvider
+final class LinkedIn extends ShareProvider
 {
     /**
      * @inheritDoc

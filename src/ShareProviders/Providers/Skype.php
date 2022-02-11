@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Skype extends ShareProvider
+final class Skype extends ShareProvider
 {
     /**
      * @inheritDoc

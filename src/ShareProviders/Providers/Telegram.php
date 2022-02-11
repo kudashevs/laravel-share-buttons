@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Telegram extends ShareProvider
+final class Telegram extends ShareProvider
 {
     /**
      * @inheritDoc

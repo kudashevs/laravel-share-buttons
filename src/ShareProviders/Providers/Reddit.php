@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Reddit extends ShareProvider
+final class Reddit extends ShareProvider
 {
     /**
      * @inheritDoc

@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Evernote extends ShareProvider
+final class Evernote extends ShareProvider
 {
     /**
      * @inheritDoc

@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class Facebook extends ShareProvider
+final class Facebook extends ShareProvider
 {
     /**
      * @inheritDoc

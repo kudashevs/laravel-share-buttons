@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class HackerNews extends ShareProvider
+final class HackerNews extends ShareProvider
 {
     /**
      * @inheritDoc

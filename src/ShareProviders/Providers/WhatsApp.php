@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class WhatsApp extends ShareProvider
+final class WhatsApp extends ShareProvider
 {
     /**
      * @inheritDoc

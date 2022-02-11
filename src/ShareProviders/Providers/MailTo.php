@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class MailTo extends ShareProvider
+final class MailTo extends ShareProvider
 {
     /**
      * @inheritDoc

@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders\Providers;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-class CopyLink extends ShareProvider
+final class CopyLink extends ShareProvider
 {
     /**
      * @inheritDoc
