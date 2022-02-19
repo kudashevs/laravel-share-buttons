@@ -7,8 +7,8 @@ class LaravelTemplater implements Templater
     /**
      * @inheritDoc
      */
-    public function process(string $line, array $replacements): string
+    public function process(string $template, array $replacements): string
     {
-        return trans($line, $replacements);
+        return trans($template, $replacements);
     }
 }
