@@ -5,9 +5,9 @@ namespace Kudashevs\ShareButtons\Templaters;
 interface Templater
 {
     /**
-     * @param string $line
+     * @param string $template
      * @param array $replacements
      * @return string
      */
-    public function process(string $line, array $replacements): string;
+    public function process(string $template, array $replacements): string;
 }
