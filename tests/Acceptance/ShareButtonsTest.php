@@ -26,7 +26,7 @@ class ShareButtonsTest extends ExtendedTestCase
      * @param string $title
      * @param string $expected
      */
-    public function it_can_return_one_link_on_different_share_providers(string $media, string $url, string $title, string $expected)
+    public function it_can_return_one_link_with_different_share_providers(string $media, string $url, string $title, string $expected)
     {
         $result = $this->share->page($url, $title)
             ->$media()
