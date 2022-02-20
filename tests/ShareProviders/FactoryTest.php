@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class FactoryTest extends TestCase
 {
     /** @test */
-    public function it_can_throw_exception_on_wrong_provider_name()
+    public function it_can_throw_exception_when_wrong_provider_name()
     {
         $this->expectException(InvalidShareProviderNameException::class);
         $this->expectExceptionMessage('wrong is not');
