@@ -166,7 +166,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_on_string_casting()
+    public function it_can_return_one_link_with_string_casting()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->facebook();
