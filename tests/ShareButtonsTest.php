@@ -19,7 +19,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_default_exception_on_wrong_provider_name()
+    public function it_can_throw_default_exception_when_wrong_provider_name()
     {
         config()->set('share-buttons.reactOnErrors', true);
 
@@ -30,7 +30,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_provided_exception_on_wrong_provider_name()
+    public function it_can_throw_provided_exception_when_wrong_provider_name()
     {
         config()->set('share-buttons.reactOnErrors', true);
         config()->set('share-buttons.throwException', \BadMethodCallException::class);
@@ -42,7 +42,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_default_exception_on_wrong_provided_exception_class()
+    public function it_can_throw_default_exception_when_wrong_provided_exception_class()
     {
         config()->set('share-buttons.reactOnErrors', true);
         config()->set('share-buttons.throwException', Wrong::class);
@@ -54,7 +54,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_skip_throwing_exception_on_wrong_provider_name()
+    public function it_can_skip_throwing_exception_when_wrong_provider_name()
     {
         config()->set('share-buttons.throwException', false);
 
