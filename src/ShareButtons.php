@@ -258,8 +258,8 @@ class ShareButtons
      */
     public function getRawLinks(): array
     {
-        return array_map(static function ($calls) {
-            return $calls->getUrl();
+        return array_map(static function ($call) {
+            return $call->getUrl();
         }, $this->processedCalls);
     }
 
