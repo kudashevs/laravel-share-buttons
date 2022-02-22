@@ -259,7 +259,7 @@ class ShareButtons
     public function getRawLinks(): array
     {
         return array_map(static function ($calls) {
-            return $calls['element_link'];
+            return $calls->getUrl();
         }, $this->processedCalls);
     }
 
