@@ -4,6 +4,7 @@ namespace Kudashevs\ShareButtons;
 
 use Kudashevs\ShareButtons\Formatters\Formatter;
 use Kudashevs\ShareButtons\ShareProviders\Factory;
+use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
  * @todo don't forget to update these method signatures
@@ -208,11 +209,7 @@ class ShareButtons
      */
     protected function rememberProcessedCalls(string $provider, string $url, array $options = []): void
     {
-        $this->processedCalls[$provider] = [
-            'element_provider' => $provider,
-            'element_link' => $url,
-            'element_options' => $options,
-        ];
+        $this->processedCalls[$provider] = new ProcessedCall($provider, $url, $options);
     }
 
     /**
@@ -293,13 +290,14 @@ class ShareButtons
     {
         $representation = $this->formatter->getBlockPrefix();
 
-        foreach ($this->processedCalls as [
-            'element_provider' => $provider,
-            'element_link' => $url,
-            'element_options' => $options,
-        ]) {
+        /** @var ProcessedCall $call */
+        foreach ($this->processedCalls as $call) {
             $representation .= $this->formatter->getElementPrefix();
-            $representation .= $this->formatter->formatElement($provider, $url, $options);
+            $representation .= $this->formatter->formatElement(
+                $call->getProvider(),
+                $call->getUrl(),
+                $call->getOptions()
+            );
             $representation .= $this->formatter->getElementSuffix();
         }
 
