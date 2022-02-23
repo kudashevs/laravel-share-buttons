@@ -67,7 +67,7 @@ class ShareButtons
      *
      * @var array
      */
-    protected $processedCalls = [];
+    protected $calls = [];
 
     /**
      * Share constructor.
@@ -132,7 +132,7 @@ class ShareButtons
      */
     private function clearState(): void
     {
-        $this->processedCalls = [];
+        $this->calls = [];
     }
 
     /**
@@ -209,7 +209,7 @@ class ShareButtons
      */
     protected function rememberProcessedCalls(string $provider, string $url, array $options = []): void
     {
-        $this->processedCalls[$provider] = new ProcessedCall($provider, $url, $options);
+        $this->calls[$provider] = new ProcessedCall($provider, $url, $options);
     }
 
     /**
@@ -260,7 +260,7 @@ class ShareButtons
     {
         return array_map(static function ($call) {
             return $call->getUrl();
-        }, $this->processedCalls);
+        }, $this->calls);
     }
 
     /**
@@ -291,7 +291,7 @@ class ShareButtons
         $representation = $this->formatter->getBlockPrefix();
 
         /** @var ProcessedCall $call */
-        foreach ($this->processedCalls as $call) {
+        foreach ($this->calls as $call) {
             $representation .= $this->formatter->getElementPrefix();
             $representation .= $this->formatter->formatElement(
                 $call->getProvider(),
