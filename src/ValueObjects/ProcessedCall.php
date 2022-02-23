@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\ValueObjects;
 
-class ProcessedCall
+final class ProcessedCall
 {
     /**
      * @var string
