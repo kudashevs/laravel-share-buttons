@@ -31,6 +31,8 @@ final class ProcessedCall
         $this->options = $this->initOptions($options);
     }
 
+    private function __clone() {}
+
     /**
      * @param string $provider
      * @return string
