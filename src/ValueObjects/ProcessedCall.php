@@ -61,7 +61,7 @@ final class ProcessedCall
 
     /**
      * @param array<string, string> $options
-     * @return array
+     * @return array<string, string>
      */
     private function initOptions(array $options): array
     {
@@ -85,7 +85,7 @@ final class ProcessedCall
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function getOptions(): array
     {
