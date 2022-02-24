@@ -34,7 +34,7 @@ final class Factory
     }
 
     /**
-     * @return string[]
+     * @return array<string, string>
      */
     public static function getProviders(): array
     {
@@ -44,7 +44,7 @@ final class Factory
     /**
      * Populates an array of providers through interface.
      *
-     * @return array
+     * @return array<string, object>
      */
     public static function create(): array
     {
