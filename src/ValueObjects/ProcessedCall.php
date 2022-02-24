@@ -22,7 +22,7 @@ final class ProcessedCall
     /**
      * @param string $provider
      * @param string $url
-     * @param array $options
+     * @param array<string, string> $options
      */
     public function __construct(string $provider, string $url, array $options)
     {
@@ -60,7 +60,7 @@ final class ProcessedCall
     }
 
     /**
-     * @param array $options
+     * @param array<string, string> $options
      * @return array
      */
     private function initOptions(array $options): array
