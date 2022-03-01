@@ -54,6 +54,7 @@ php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareBut
 ```
 
 This command will create three different files:
+
 ```
 config/share-buttons.php                     # A configuration file
 resources/assets/js/share-buttons.js         # A javascript (jQuery) file
