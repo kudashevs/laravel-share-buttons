@@ -113,17 +113,17 @@ methods accepts an array of options (you can find more information about options
 ### Share a specific page
 
 ``` php
-ShareButtons::page('https://jorenvanhocht.be')->facebook();
-ShareButtons::page('https://jorenvanhocht.be', 'Your share text here')->twitter();
-ShareButtons::createForPage('https://jorenvanhocht.be')->facebook();
-ShareButtons::createForPage('https://jorenvanhocht.be', 'Your share text here')->twitter();
+ShareButtons::page('https://site.com')->facebook();
+ShareButtons::page('https://site.com', 'Your share text here')->twitter();
+ShareButtons::createForPage('https://site.com')->facebook();
+ShareButtons::createForPage('https://site.com', 'Your share text here')->twitter();
 ```
 
 ### Share a current page
 
 ```php
 ShareButtons::currentPage()->facebook();
-ShareButtons::page('https://jorenvanhocht.be', 'Your share text here')->twitter();
+ShareButtons::page('https://site.com', 'Your share text here')->twitter();
 ```
 
 ### Creating multiple share buttons
@@ -131,7 +131,7 @@ ShareButtons::page('https://jorenvanhocht.be', 'Your share text here')->twitter(
 When you want to create multiple share buttons, you just need to chain different methods in sequence.
 
 ```php
-ShareButtons::page('https://jorenvanhocht.be', 'Share title')
+ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
     ->twitter()
     ->linkedin(['summary' => 'Extra linkedin summary can be passed here'])
@@ -157,7 +157,7 @@ You can just use the object as a string or cast it to string to get the share bu
 way of using it. If you want to be precise and clear with your code intentions use the ```getShareButtons``` method.
 
 ```php
-ShareButtons::page('https://jorenvanhocht.be', 'Share title')
+ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
     ->getShareButtons();
 ```
@@ -167,7 +167,7 @@ ShareButtons::page('https://jorenvanhocht.be', 'Share title')
 In some cases, you may only need the raw links without any HTML. In such a case use the `getRawLinks` method.
 
 ```php
-ShareButtons::page('https://jorenvanhocht.be', 'Share title')
+ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
     ->getRawLinks();
 ```
@@ -207,7 +207,7 @@ At the moment, the package supports the following options:
 #### Usage examples
 
 ```php
-ShareButtons::page('https://jorenvanhocht.be', '', [
+ShareButtons::page('https://site.com', '', [
         'block_prefix' => '<ul>',
         'block_suffix' => '</ul>',
         'class' => 'my-class',
@@ -222,12 +222,12 @@ will result into the following HTML code
 
 ```html
 <ul>
-    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
 </ul>
 ```
 
 ```php
-ShareButtons::page('https://jorenvanhocht.be', '', [
+ShareButtons::page('https://site.com', '', [
         'block_prefix' => '<ul>',
         'block_suffix' => '</ul>',
         'class' => 'my-class',
@@ -243,8 +243,8 @@ will result into the following HTML code
 
 ```html
 <ul>
-    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
-    <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://jorenvanhocht.be&title=Default+share+text&summary=cool+summary" class="social-button hover" id="linked" title="my-title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+    <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://site.com&title=Default+share+text&summary=cool+summary" class="social-button hover" id="linked" title="my-title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
 </ul>
 ```
 
