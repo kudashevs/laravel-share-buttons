@@ -143,10 +143,10 @@ This will generate the following HTML code:
 ```html
 <div id="social-links">
     <ul>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://jorenvanhocht.be" class="social-button"><span class="fa fa-facebook-square"></span></a></li>
-        <li><a href="https://twitter.com/intent/tweet?text=my share text&amp;url=https://jorenvanhocht.be" class="social-button"><span class="fa fa-twitter"></span></a></li>
-        <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://jorenvanhocht.be&amp;title=my share text&amp;summary=dit is de linkedin summary" class="social-button"><span class="fa fa-linkedin"></span></a></li>
-        <li><a href="https://wa.me/?text=https://jorenvanhocht.be" class="social-button"><span class="fa fa-whatsapp"></span></a></li>    
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com&quote=Share+title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>
+        <li><a href="https://twitter.com/intent/tweet?text=Share+title&url=https://site.com" class="social-button"><span class="fab fa-twitter"></span></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://site.com&title=Share+title&summary=Extra+linkedin+summary+can+be+passed+here" class="social-button"><span class="fab fa-linkedin"></span></a></li>
+        <li><a href="https://wa.me/?text=https://site.com" class="social-button" target="_blank"><span class="fab fa-whatsapp"></span></a></li>
     </ul>
 </div>
 ```
