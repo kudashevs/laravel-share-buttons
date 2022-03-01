@@ -66,9 +66,9 @@ For further information on how to use Font Awesome please read the [introduction
 
 ### Javascript
 
-To have javascript you need to load the jQuery library and integrate resources/assets/js/share-buttons.js into your
-template eco-system. One of the ways of doing it is to copy this file to public/js folder and use it like in the example
-below, or to add this file into your assets compiling flow.
+To have javascript working you need to load the jQuery library and integrate `resources/assets/js/share-buttons.js` into
+your template eco-system. One of the ways is to copy this file to `public/js` folder and use it like in the example below.
+Or you can add this file into your assets compiling flow.
 
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
