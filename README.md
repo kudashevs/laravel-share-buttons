@@ -153,8 +153,9 @@ This will generate the following HTML code:
 
 ### Getting the result
 
-You can just use the object as a string or cast it to string to get the share buttons code. However, it is not a perfect
-way of using it. If you want to be precise and clear with your code intentions use the ```getShareButtons``` method.
+You can use a ShareButtons object as a string or cast it to a string to get the share buttons HTML code. However,
+this is not the preferred way how to use it. If you want to be precise and clear with your code intentions just use
+the ```getShareButtons``` method to get the result.
 
 ```php
 ShareButtons::page('https://site.com', 'Share title')
