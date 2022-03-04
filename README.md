@@ -128,7 +128,9 @@ ShareButtons::createForPage('https://site.com', 'Your share text here')->twitter
 
 ```php
 ShareButtons::currentPage()->facebook();
-ShareButtons::page('https://site.com', 'Your share text here')->twitter();
+ShareButtons::currentPage('Your share text here')->twitter();
+ShareButtons::createForCurrentPage()->facebook();
+ShareButtons::createForCurrentPage('Your share text here')->twitter();
 ```
 
 ### Creating multiple share buttons
