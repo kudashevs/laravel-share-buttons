@@ -119,17 +119,17 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_one_link_from_create_for_page_method()
     {
-        $result = $this->share->createForPage('https://mysite.com')->facebook();
+        $result = $this->share->createForPage('https://mysite.com')->twitter();
 
-        $this->assertStringContainsString('facebook', (string)$result);
+        $this->assertStringContainsString('twitter', (string)$result);
     }
 
     /** @test */
     public function it_can_generate_one_link_from_create_for_current_page_method_using_request()
     {
-        $result = $this->share->createForCurrentPage()->facebook();
+        $result = $this->share->createForCurrentPage()->twitter();
 
-        $this->assertStringContainsString('facebook', (string)$result);
+        $this->assertStringContainsString('twitter', (string)$result);
     }
 
     /** @test */
