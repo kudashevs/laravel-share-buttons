@@ -165,9 +165,7 @@ class ShareButtons
      */
     public function createForCurrentPage(string $title = '', array $options = []): self
     {
-        $url = request()->getUri();
-
-        return $this->page($url, $title, $options);
+        return $this->currentPage($title, $options);
     }
 
     /**
