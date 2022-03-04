@@ -19,7 +19,7 @@ The package gives you the possibility to create share buttons for your site in a
 * VKontakte
 * WhatsApp
 * Copy the link
-* Mail to
+* Mail the link
 
 ## Installation
 
