@@ -115,6 +115,21 @@ class ShareButtonsTest extends ExtendedTestCase
 
         $this->assertStringContainsString(urlencode($expected), (string)$result);
     }
+    /** @test */
+    public function it_can_generate_one_link_with_page_method()
+    {
+        $result = $this->share->page('https://mysite.com')->facebook();
+
+        $this->assertStringContainsString('facebook', (string)$result);
+    }
+
+    /** @test */
+    public function it_can_generate_one_link_with_current_page_method()
+    {
+        $result = $this->share->currentPage()->facebook();
+
+        $this->assertStringContainsString('facebook', (string)$result);
+    }
 
     /** @test */
     public function it_can_generate_one_link_with_create_for_page_method()
