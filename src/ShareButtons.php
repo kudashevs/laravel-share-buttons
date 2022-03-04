@@ -136,6 +136,18 @@ class ShareButtons
     }
 
     /**
+     * @param string $title
+     * @param array $options
+     * @return $this
+     */
+    public function currentPage(string $title = '', array $options = []): self
+    {
+        $url = request()->getUri();
+
+        return $this->page($url, $title, $options);
+    }
+
+    /**
      * @param string $url
      * @param string $title
      * @param array $options
