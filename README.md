@@ -108,7 +108,7 @@ methods accepts an array of options (you can find more information about options
 * vkontakte($options)           # Generate a VKontakte share button
 * whatsapp($options)            # Generate a WhatsApp share button
 * copylink($options)            # Generate a copy to the clipboard share button
-* mailto($options)              # Generate a mail to somebody share button
+* mailto($options)              # Generate a send by mail share button
 ```
 
 ### Share a specific page
