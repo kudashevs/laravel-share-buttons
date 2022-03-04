@@ -79,10 +79,11 @@ Or you can add this file into your assets compiling flow.
 ## Usage
 
 The package is easy to use. It provides a fluent interface to build the share buttons code. To start a method chaining, 
-you just need to use one of the specific methods. These methods are:
+you just need to use one of the specific methods (start chaining methods). These methods are:
 
 ```
 page($url, $title = '', $options = [])
+currentPage($title = '', $options = [])
 createForPage($url, $title = '', $options = [])
 createForCurrentPage($title = '', $options = [])
 ```
