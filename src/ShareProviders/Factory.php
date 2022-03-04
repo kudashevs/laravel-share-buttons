@@ -24,6 +24,7 @@ final class Factory
         'twitter' => Providers\Twitter::class,
         'vkontakte' => Providers\Vkontakte::class,
         'whatsapp' => Providers\WhatsApp::class,
+        'xing' => Providers\Xing::class,
     ];
 
     /**

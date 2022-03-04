@@ -18,6 +18,7 @@ The package gives you the possibility to create share buttons for your site in a
 * Twitter
 * VKontakte
 * WhatsApp
+* Xing
 * Copy the link
 * Mail the link
 
@@ -111,6 +112,7 @@ methods accepts an array of options (you can find more information about options
 * twitter($options)             # Generate a Twitter share button
 * vkontakte($options)           # Generate a VKontakte share button
 * whatsapp($options)            # Generate a WhatsApp share button
+* xing($options)                # Generate a Xing share button
 * copylink($options)            # Generate a copy to the clipboard share button
 * mailto($options)              # Generate a send by mail share button
 ```

@@ -125,6 +125,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My whatsapp title',
                 'https://wa.me/?text=https://mysite.com',
             ],
+            'xing' => [
+                'xing',
+                'https://mysite.com',
+                'My xing title',
+                'https://www.xing.com/spi/shares/new?url=https://mysite.com',
+            ]
         ];
     }
 }
