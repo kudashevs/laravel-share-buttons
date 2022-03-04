@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v2.2.0 - 2022-03-04](https://github.com/kudashevs/laravel-share-buttons/compare/v2.1.3...v2.2.0)
+
+- Add a Xing share provider
+- Add a Value object for calls
+- Fix missed `currentPage` method
+- Update README.md
+- Some improvements and refactoring
+
 ## [v2.1.3 - 2022-02-11](https://github.com/kudashevs/laravel-share-buttons/compare/v2.1.2...v2.1.3)
 
 - Add Laravel 9 support
