@@ -39,7 +39,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit --no-coverage"
+        "test": "vendor/bin/phpunit --no-coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage-html build/coverage"
     },
     "config": {
         "sort-packages": true
