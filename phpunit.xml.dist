@@ -14,7 +14,7 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <coverage>
+    <coverage ignoreDeprecatedCodeUnits="true">
         <include>
             <directory suffix=".php">src</directory>
         </include>
