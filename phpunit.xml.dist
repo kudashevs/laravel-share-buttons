@@ -8,8 +8,7 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         verbose="true"
->
+         verbose="true">
     <testsuites>
         <testsuite name="ShareButtons Test Suite">
             <directory>tests</directory>
