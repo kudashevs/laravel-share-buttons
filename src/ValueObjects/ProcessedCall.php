@@ -26,46 +26,48 @@ final class ProcessedCall
      */
     public function __construct(string $provider, string $url, array $options)
     {
-        $this->provider = $this->initProvider($provider);
-        $this->url = $this->initUrl($url);
-        $this->options = $this->initOptions($options);
+        $this->initProvider($provider);
+        $this->initUrl($url);
+        $this->initOptions($options);
     }
 
-    private function __clone() {}
+    private function __clone()
+    {
+    }
 
     /**
      * @param string $provider
      * @return string
      */
-    private function initProvider(string $provider): string
+    private function initProvider(string $provider): void
     {
         if (trim($provider) === '') {
             throw new \InvalidArgumentException('A share provider argument cannot be empty.');
         }
 
-        return $provider;
+        $this->provider = $provider;
     }
 
     /**
      * @param string $url
      * @return string
      */
-    private function initUrl(string $url): string
+    private function initUrl(string $url): void
     {
         if (trim($url) === '') {
             throw new \InvalidArgumentException('A url argument cannot be empty.');
         }
 
-        return $url;
+        $this->url = $url;
     }
 
     /**
      * @param array<string, string> $options
      * @return array<string, string>
      */
-    private function initOptions(array $options): array
+    private function initOptions(array $options): void
     {
-        return $options;
+        $this->options = $options;
     }
 
     /**
