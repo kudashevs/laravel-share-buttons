@@ -304,7 +304,7 @@ processing. The format of substituted elements depends on the current package te
 ## Testing
 
 ```bash
-$ composer test
+composer test
 ```
 
 ## Contributing
