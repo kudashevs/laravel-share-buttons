@@ -117,7 +117,7 @@ class ShareButtonsTest extends ExtendedTestCase
                 'vkontakte',
                 'https://mysite.com',
                 'My twitter title',
-                'https://vk.com/share.php?url=https://mysite.com&title=My+twitter+title'
+                'https://vk.com/share.php?url=https://mysite.com&title=My+twitter+title',
             ],
             'whatsapp' => [
                 'whatsapp',
@@ -130,7 +130,7 @@ class ShareButtonsTest extends ExtendedTestCase
                 'https://mysite.com',
                 'My xing title',
                 'https://www.xing.com/spi/shares/new?url=https://mysite.com',
-            ]
+            ],
         ];
     }
 }
