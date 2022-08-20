@@ -26,7 +26,7 @@ The package gives you the possibility to create share buttons for your site in a
 
 You can install the package via composer:
 
-``` bash
+```bash
 composer require kudashevs/laravel-share-buttons
 ```
 
@@ -119,7 +119,7 @@ methods accepts an array of options (you can find more information about options
 
 ### Share a specific page
 
-``` php
+```php
 ShareButtons::page('https://site.com')->facebook();
 ShareButtons::page('https://site.com', 'Your share text here')->twitter();
 ShareButtons::createForPage('https://site.com')->facebook();
@@ -303,7 +303,7 @@ processing. The format of substituted elements depends on the current package te
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
