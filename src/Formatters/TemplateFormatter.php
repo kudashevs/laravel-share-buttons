@@ -30,10 +30,8 @@ class TemplateFormatter implements Formatter
      * Contain global element attributes. These are attributes passed to the ShareButtons main method.
      * They will be applied to all the elements, however, if necessary, they could be overridden by
      * the attributes provided to any specific share service methods.
-     *
-     * @var array
-     */
-    private $attributes = [];
+    */
+    private array $attributes = [];
 
     /**
      * TemplateFormatter constructor.
