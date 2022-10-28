@@ -14,10 +14,7 @@ class TemplateFormatter implements Formatter
         'rel' => 'rel="%s"',
     ];
 
-    /**
-     * @var Templater
-     */
-    private $templater;
+    private Templater $templater;
 
     /**
      * Contain formatter options.
