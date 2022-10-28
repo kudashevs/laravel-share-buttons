@@ -16,7 +16,7 @@ class ColonTemplaterTest extends TestCase
 
     /**
      * @test
-     * @dataProvider provide_different_patterns_and_matches_for_replacement
+     * @dataProvider provideDifferentSearchReplaceValues
      */
     public function it_can_perform_a_pattern_replacement(string $input, array $replacements, string $expected)
     {
@@ -25,7 +25,7 @@ class ColonTemplaterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provide_different_patterns_and_matches_for_replacement()
+    public function provideDifferentSearchReplaceValues()
     {
         return [
             'replace a pattern with the replacement' => [
