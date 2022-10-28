@@ -29,10 +29,8 @@ class ShareButtons
 {
     /**
      * The url of a page to share.
-     *
-     * @var string
      */
-    protected $url;
+    protected string $url;
 
     /**
      * Optional text for Twitter and Linkedin title.
