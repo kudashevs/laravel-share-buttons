@@ -34,10 +34,8 @@ class ShareButtons
 
     /**
      * Optional text for Twitter and Linkedin title.
-     *
-     * @var string
      */
-    protected $title;
+    protected string $title;
 
     /**
      * @var Formatter
