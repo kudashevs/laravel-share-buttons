@@ -3,7 +3,7 @@
 namespace Kudashevs\ShareButtons;
 
 use Kudashevs\ShareButtons\Formatters\Formatter;
-use Kudashevs\ShareButtons\ShareProviders\Factory;
+use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
@@ -94,7 +94,7 @@ class ShareButtons
      */
     protected function initProviders(): void
     {
-        $this->providers = Factory::create();
+        $this->providers = ShareProviderFactory::create();
     }
 
     /**

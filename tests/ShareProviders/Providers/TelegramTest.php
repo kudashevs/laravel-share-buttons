@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\ShareProviders\Factory;
+use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TelegramTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class TelegramTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider =Factory::createInstance('telegram');
+        $this->provider = ShareProviderFactory::createInstance('telegram');
 
         parent::setUp();
     }

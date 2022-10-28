@@ -56,9 +56,9 @@ abstract class ShareProvider
      */
     private function isValidName(string $name): bool
     {
-        $providers = Factory::getProviders();
+        $providers = ShareProviderFactory::getProviders();
 
-        return array_key_exists($name, $providers) && $providers[$name] === static::class;
+        return array_key_exists($name, $providers) && $providers[$name] === static::class; // ??
     }
 
     /**

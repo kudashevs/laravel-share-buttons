@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\ShareProviders;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
 
-final class Factory
+final class ShareProviderFactory
 {
     /**
      * @todo don't forget to update these providers

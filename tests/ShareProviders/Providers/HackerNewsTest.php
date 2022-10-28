@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\ShareProviders\Factory;
+use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class HackerNewsTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class HackerNewsTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = Factory::createInstance('hackernews');
+        $this->provider = ShareProviderFactory::createInstance('hackernews');
 
         parent::setUp();
     }

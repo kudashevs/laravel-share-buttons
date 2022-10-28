@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\ShareProviders\Factory;
+use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class CopyLinkTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class CopyLinkTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = Factory::createInstance('copylink');
+        $this->provider = ShareProviderFactory::createInstance('copylink');
 
         parent::setUp();
     }

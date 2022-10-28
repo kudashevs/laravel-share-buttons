@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\ShareProviders\Factory;
+use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class EvernoteTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class EvernoteTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = Factory::createInstance('evernote');
+        $this->provider = ShareProviderFactory::createInstance('evernote');
 
         parent::setUp();
     }
