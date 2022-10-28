@@ -27,9 +27,6 @@ final class Factory
         'xing' => Providers\Xing::class,
     ];
 
-    /**
-     * Factory constructor.
-     */
     private function __construct()
     {
     }
@@ -69,10 +66,6 @@ final class Factory
         return new $class($name);
     }
 
-    /**
-     * @param string $name
-     * @return string
-     */
     private static function resolveClass(string $name): string
     {
         if (!array_key_exists($name, self::PROVIDERS)) {
