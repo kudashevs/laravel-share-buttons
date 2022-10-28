@@ -18,10 +18,8 @@ class TemplateFormatter implements Formatter
 
     /**
      * Contain formatter options.
-     *
-     * @var array
      */
-    private $options = [
+    private array $options = [
         'block_prefix' => null,
         'block_suffix' => null,
         'element_prefix' => null,
