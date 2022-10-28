@@ -37,10 +37,7 @@ class ShareButtons
      */
     protected string $title;
 
-    /**
-     * @var Formatter
-     */
-    protected $formatter;
+    protected Formatter $formatter;
 
     /**
      * Extra options for the share links.
