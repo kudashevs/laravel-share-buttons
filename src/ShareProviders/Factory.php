@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\ShareProviders;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
+use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
 
 final class Factory
 {
@@ -76,7 +76,7 @@ final class Factory
     private static function resolveClass(string $name): string
     {
         if (!array_key_exists($name, self::PROVIDERS)) {
-            throw new InvalidShareProviderNameException(
+            throw new InvalidFactoryArgumentException(
                 sprintf('The %s is not a valid name for a share provider.', $name)
             );
         }

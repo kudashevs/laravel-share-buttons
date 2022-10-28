@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\ShareProviders;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
+use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
 use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
@@ -42,7 +42,7 @@ abstract class ShareProvider
     private function initName(string $name): void
     {
         if (!$this->isValidName($name)) {
-            throw new InvalidShareProviderNameException(
+            throw new InvalidFactoryArgumentException(
                 sprintf('The %s is not a valid name for the %s.', $name, static::class)
             );
         }
