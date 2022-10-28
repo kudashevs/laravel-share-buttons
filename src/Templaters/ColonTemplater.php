@@ -14,10 +14,6 @@ class ColonTemplater implements Templater
         return strtr($template, $prepared);
     }
 
-    /**
-     * @param array $replacements
-     * @return array
-     */
     protected function prepareReplacements(array $replacements): array
     {
         $prepared = [];
