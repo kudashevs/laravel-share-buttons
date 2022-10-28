@@ -22,9 +22,9 @@ class ColonTemplater implements Templater
     {
         $prepared = [];
 
-        foreach ($replacements as $pattern => $replacement) {
-            $prepared[':' . mb_strtolower($pattern)] = $replacement;
-            $prepared[':' . mb_strtoupper($pattern)] = $replacement;
+        foreach ($replacements as $search => $replacement) {
+            $prepared[':' . mb_strtolower($search)] = $replacement;
+            $prepared[':' . mb_strtoupper($search)] = $replacement;
         }
 
         return $prepared;
