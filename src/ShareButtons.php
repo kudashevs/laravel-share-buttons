@@ -54,10 +54,8 @@ class ShareButtons
 
     /**
      * Contain processed calls.
-     *
-     * @var array
      */
-    protected $calls = [];
+    protected array $calls = [];
 
     /**
      * Share constructor.
