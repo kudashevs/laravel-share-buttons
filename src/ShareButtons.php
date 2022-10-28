@@ -44,7 +44,7 @@ class ShareButtons
     /**
      * @var Formatter
      */
-    private $formatter;
+    protected $formatter;
 
     /**
      * Extra options for the share links.
@@ -61,7 +61,7 @@ class ShareButtons
      *
      * @var array
      */
-    private $providers = [];
+    protected $providers = [];
 
     /**
      * Contain processed calls.
