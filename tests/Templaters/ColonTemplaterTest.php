@@ -7,23 +7,20 @@ use PHPUnit\Framework\TestCase;
 
 class ColonTemplaterTest extends TestCase
 {
-    private $replacer;
+    private $templater;
 
     protected function setUp(): void
     {
-        $this->replacer = new ColonTemplater();
+        $this->templater = new ColonTemplater();
     }
 
     /**
      * @test
      * @dataProvider provide_different_patterns_and_matches_for_replacement
-     * @param string $input
-     * @param array $replacements
-     * @param string $expected
      */
     public function it_can_perform_a_pattern_replacement(string $input, array $replacements, string $expected)
     {
-        $result = $this->replacer->process($input, $replacements);
+        $result = $this->templater->process($input, $replacements);
 
         $this->assertSame($expected, $result);
     }
