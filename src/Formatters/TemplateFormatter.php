@@ -7,7 +7,7 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateFormatter implements Formatter
 {
-    private const ELEMENT_ATTRIBUTES_FORMATS = [
+    private const DIFFERENT_ATTRIBUTE_FORMATS = [
         'class' => '%s',
         'id' => 'id="%s"',
         'title' => 'title="%s"',
@@ -156,7 +156,7 @@ class TemplateFormatter implements Formatter
      */
     private function amendElementAttributes(array $options): array
     {
-        $allExistingAttributes = array_fill_keys(array_keys(self::ELEMENT_ATTRIBUTES_FORMATS), '');
+        $allExistingAttributes = array_fill_keys(array_keys(self::DIFFERENT_ATTRIBUTE_FORMATS), '');
 
         return array_intersect_key($options, $allExistingAttributes) + $allExistingAttributes;
     }
@@ -172,7 +172,7 @@ class TemplateFormatter implements Formatter
             return '';
         }
 
-        $format = ' ' . self::ELEMENT_ATTRIBUTES_FORMATS[$name];
+        $format = ' ' . self::DIFFERENT_ATTRIBUTE_FORMATS[$name];
 
         return sprintf($format, $value);
     }
