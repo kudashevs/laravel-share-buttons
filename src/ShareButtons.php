@@ -93,7 +93,7 @@ class ShareButtons
     /**
      * @param array $options
      */
-    private function initOptions(array $options = []): void
+    protected function initOptions(array $options = []): void
     {
         $allowed = array_intersect_key($options, $this->options);
 
@@ -105,7 +105,7 @@ class ShareButtons
      *
      * @return void
      */
-    private function initProviders(): void
+    protected function initProviders(): void
     {
         $this->providers = Factory::create();
     }
@@ -131,7 +131,7 @@ class ShareButtons
     /**
      * Clear the state of a previous call.
      */
-    private function clearState(): void
+    protected function clearState(): void
     {
         $this->calls = [];
     }
@@ -198,7 +198,7 @@ class ShareButtons
      * @param array $arguments
      * @return array
      */
-    private function normalizeArguments(array $arguments): array
+    protected function normalizeArguments(array $arguments): array
     {
         if (empty($arguments) || !isset($arguments[0])) {
             return [];
@@ -227,7 +227,7 @@ class ShareButtons
      * @param string $name
      * @return $this
      */
-    private function handleUnexpectedCall(string $name): ShareButtons
+    protected function handleUnexpectedCall(string $name): ShareButtons
     {
         if ($this->options['reactOnErrors'] === true) {
             $exception = $this->prepareException();
@@ -243,7 +243,7 @@ class ShareButtons
     /**
      * @return string
      */
-    private function prepareException(): string
+    protected function prepareException(): string
     {
         if (($exception = $this->options['throwException']) && class_exists($exception)) {
             return $exception;
@@ -255,7 +255,7 @@ class ShareButtons
     /**
      * @return string
      */
-    private function getShortClassName(): string
+    protected function getShortClassName(): string
     {
         $parsed = explode('\\', get_class($this));
 
@@ -297,7 +297,7 @@ class ShareButtons
     /**
      * @return string
      */
-    private function generateShareButtons(): string
+    protected function generateShareButtons(): string
     {
         $representation = $this->formatter->getBlockPrefix();
 
