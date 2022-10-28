@@ -18,7 +18,7 @@ class ColonTemplater implements Templater
      * @param array $replacements
      * @return array
      */
-    private function prepareReplacements(array $replacements): array
+    protected function prepareReplacements(array $replacements): array
     {
         $prepared = [];
 
