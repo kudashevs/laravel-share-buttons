@@ -49,10 +49,8 @@ class ShareButtons
 
     /**
      * Contain share providers instances.
-     *
-     * @var array
      */
-    protected $providers = [];
+    protected array $providers = [];
 
     /**
      * Contain processed calls.
