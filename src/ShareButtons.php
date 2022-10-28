@@ -41,10 +41,8 @@ class ShareButtons
 
     /**
      * Extra options for the share links.
-     *
-     * @var array
      */
-    protected $options = [
+    protected array $options = [
         'reactOnErrors' => null,
         'throwException' => null,
     ];
