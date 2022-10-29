@@ -187,11 +187,7 @@ class ShareButtons
      */
     protected function normalizeArguments(array $arguments): array
     {
-        if (empty($arguments) || !isset($arguments[0])) {
-            return [];
-        }
-
-        if (is_array($arguments[0])) {
+        if (isset($arguments[0]) && is_array($arguments[0])) {
             return $arguments[0];
         }
 
