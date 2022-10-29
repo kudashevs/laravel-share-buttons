@@ -45,17 +45,11 @@ class TemplateFormatter implements Formatter
         $this->updateOptions($options);
     }
 
-    /**
-     * @return void
-     */
     private function initTemplater(): void
     {
         $this->templater = $this->createTemplater();
     }
 
-    /**
-     * @return Templater
-     */
     private function createTemplater(): Templater
     {
         return new ColonTemplater();
@@ -71,27 +65,18 @@ class TemplateFormatter implements Formatter
         $this->initElementAttributes($options);
     }
 
-    /**
-     * @param array $options
-     */
     private function initBlockWrapping(array $options): void
     {
         $this->options['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
         $this->options['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
-    /**
-     * @param array $options
-     */
     private function initElementWrapping(array $options): void
     {
         $this->options['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
         $this->options['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
     }
 
-    /**
-     * @param array $options
-     */
     private function initElementAttributes(array $options): void
     {
         $this->attributes = $options;
@@ -108,18 +93,12 @@ class TemplateFormatter implements Formatter
         return $this->templater->process($template, $replacements);
     }
 
-    /**
-     * @param string $provider
-     * @return string
-     */
     private function prepareElementTemplate(string $provider): string
     {
         return config('share-buttons.templates.' . $provider);
     }
 
     /**
-     * @param string $url
-     * @param array $options
      * @return array
      */
     private function prepareElementReplacements(string $url, array $options): array
@@ -133,7 +112,6 @@ class TemplateFormatter implements Formatter
     }
 
     /**
-     * @param array $options
      * @return array
      */
     private function prepareElementAttributes(array $options): array
@@ -144,7 +122,6 @@ class TemplateFormatter implements Formatter
     }
 
     /**
-     * @param array $options
      * @return array
      */
     private function amendElementAttributes(array $options): array
@@ -154,11 +131,6 @@ class TemplateFormatter implements Formatter
         return array_intersect_key($options, $allExistingAttributes) + $allExistingAttributes;
     }
 
-    /**
-     * @param string $name
-     * @param string $value
-     * @return string
-     */
     private function formatElementAttribute(string $name, string $value): string
     {
         if ($value === '') {
