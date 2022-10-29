@@ -32,18 +32,16 @@ class ShareProviderFactoryTest extends TestCase
     {
         $providers = ShareProviderFactory::create();
 
-        $this->assertCount(count(ShareProviderFactory::getProviders()), $providers);
-        $this->assertArrayHasKey($this->getProvidersFirstKey(), $providers);
+        $this->assertCount(count(ShareProviderFactory::PROVIDERS), $providers);
     }
 
     /** @test */
     public function it_can_create_all_the_registered_providers_in_the_instantiated_state()
     {
         $providers = ShareProviderFactory::create();
-        $firstKey = $this->getProvidersFirstKey();
 
-        $this->assertIsObject($providers[$firstKey]);
-        $this->assertInstanceOf(ShareProvider::class, $providers[$firstKey]);
+        $this->assertIsObject(current($providers));
+        $this->assertInstanceOf(ShareProvider::class, current($providers));
     }
 
     private function getProvidersFirstKey()
