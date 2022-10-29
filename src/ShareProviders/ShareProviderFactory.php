@@ -9,7 +9,7 @@ final class ShareProviderFactory
     /**
      * @todo don't forget to update these providers
      */
-    private const PROVIDERS = [
+    public const PROVIDERS = [
         'copylink' => Providers\CopyLink::class,
         'evernote' => Providers\Evernote::class,
         'facebook' => Providers\Facebook::class,
