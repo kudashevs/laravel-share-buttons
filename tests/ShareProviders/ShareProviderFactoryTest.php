@@ -3,6 +3,7 @@
 namespace Kudashevs\ShareButtons\Tests\ShareProviders;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
+use Kudashevs\ShareButtons\ShareProviders\Providers\CopyLink;
 use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
@@ -26,6 +27,12 @@ class ShareProviderFactoryTest extends TestCase
         $this->assertFalse(ShareProviderFactory::isValidProviderName('wrong'));
     }
 
+    /** @test */
+    public function it_can_validate_the_existence_of_a_provider_by_class()
+    {
+        $this->assertTrue(ShareProviderFactory::isValidProviderClass(CopyLink::class));
+        $this->assertFalse(ShareProviderFactory::isValidProviderClass(\stdClass::class));
+    }
     /** @test */
     public function it_can_create_a_specific_instance_from_a_known_name()
     {
