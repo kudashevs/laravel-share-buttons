@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class ShareProviderFactoryTest extends TestCase
 {
     /** @test */
-    public function it_can_throw_exception_when_wrong_provider_name()
+    public function it_can_throw_exception_when_an_unknown_name_is_provided()
     {
         $this->expectException(InvalidFactoryArgumentException::class);
         $this->expectExceptionMessage('wrong is not');
@@ -20,7 +20,7 @@ class ShareProviderFactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_can_return_a_specific_instance_by_name()
+    public function it_can_create_a_specific_instance_from_a_known_name()
     {
         $provider = ShareProviderFactory::createInstance('facebook');
 
@@ -28,7 +28,7 @@ class ShareProviderFactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_can_return_all_the_registered_providers()
+    public function it_can_create_all_the_registered_providers()
     {
         $providers = ShareProviderFactory::create();
 
@@ -37,7 +37,7 @@ class ShareProviderFactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_can_return_all_the_registered_providers_in_the_instantiated_state()
+    public function it_can_create_all_the_registered_providers_in_the_instantiated_state()
     {
         $providers = ShareProviderFactory::create();
         $firstKey = $this->getProvidersFirstKey();
