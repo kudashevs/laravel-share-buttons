@@ -187,11 +187,16 @@ class ShareButtons
      */
     protected function normalizeArguments(array $arguments): array
     {
-        if (isset($arguments[0]) && is_array($arguments[0])) {
+        if ($this->isAnyArgumentsProvided($arguments)) {
             return $arguments[0];
         }
 
         return [];
+    }
+
+    protected function isAnyArgumentsProvided(array $arguments): bool
+    {
+        return isset($arguments[0]) && is_array($arguments[0]);
     }
 
     /**
