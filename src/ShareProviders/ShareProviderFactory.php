@@ -39,6 +39,11 @@ final class ShareProviderFactory
         return self::PROVIDERS;
     }
 
+    public static function isValidProviderName(string $name): bool
+    {
+        return array_key_exists($name, self::PROVIDERS);
+    }
+
     /**
      * Populates an array of providers through interface.
      *
