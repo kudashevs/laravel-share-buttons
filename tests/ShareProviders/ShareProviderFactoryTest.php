@@ -14,7 +14,7 @@ class ShareProviderFactoryTest extends TestCase
     public function it_can_throw_exception_when_an_unknown_name_is_provided()
     {
         $this->expectException(InvalidFactoryArgumentException::class);
-        $this->expectExceptionMessage('wrong is not');
+        $this->expectExceptionMessage('wrong');
 
         ShareProviderFactory::createInstance('wrong');
     }
