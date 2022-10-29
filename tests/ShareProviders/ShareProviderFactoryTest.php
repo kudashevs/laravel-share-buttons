@@ -43,9 +43,4 @@ class ShareProviderFactoryTest extends TestCase
         $this->assertIsObject(current($providers));
         $this->assertInstanceOf(ShareProvider::class, current($providers));
     }
-
-    private function getProvidersFirstKey()
-    {
-        return current(array_keys(ShareProviderFactory::getProviders()));
-    }
 }
