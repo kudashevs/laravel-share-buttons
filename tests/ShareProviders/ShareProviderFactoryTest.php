@@ -28,11 +28,12 @@ class ShareProviderFactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_can_validate_the_existence_of_a_provider_by_class()
+    public function it_can_validate_a_share_provider_by_name_and_class()
     {
-        $this->assertTrue(ShareProviderFactory::isValidProviderClass(CopyLink::class));
-        $this->assertFalse(ShareProviderFactory::isValidProviderClass(\stdClass::class));
+        $this->assertTrue(ShareProviderFactory::isValidProvider('copylink', CopyLink::class));
+        $this->assertFalse(ShareProviderFactory::isValidProvider('copylink', Facebook::class));
     }
+
     /** @test */
     public function it_can_create_a_specific_instance_from_a_known_name()
     {
