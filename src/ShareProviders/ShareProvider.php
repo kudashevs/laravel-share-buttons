@@ -39,7 +39,7 @@ abstract class ShareProvider
 
     private function checkValidProvider(string $name): void
     {
-        if (!$this->isValidName($this->name)) {
+        if (!ShareProviderFactory::isValidProvider($this->name, static::class)) {
             throw new InvalidProviderException(
                 sprintf('The %s is not a valid name for the %s.', $name, static::class)
             );
