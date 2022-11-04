@@ -47,25 +47,16 @@ abstract class ShareProvider
         }
     }
 
-    /**
-     * @return void
-     */
     protected function initTemplater(): void
     {
         $this->templater = $this->createTemplater();
     }
 
-    /**
-     * @return Templater
-     */
     protected function createTemplater(): Templater
     {
         return new LaravelTemplater();
     }
 
-    /**
-     * @return string
-     */
     final protected function retrieveProviderUrl(): string
     {
         return config('share-buttons.providers.' . $this->name . '.url', '');
@@ -91,10 +82,6 @@ abstract class ShareProvider
         return array_merge($extraReplacements, $basicReplacements);
     }
 
-    /**
-     * @param string $title
-     * @return string
-     */
     protected function prepareTitle(string $title): string
     {
         $text = config('share-buttons.providers.' . $this->name . '.text', '');
@@ -106,10 +93,6 @@ abstract class ShareProvider
         return urlencode($result);
     }
 
-    /**
-     * @param array $options
-     * @return array
-     */
     protected function prepareExtras(array $options): array
     {
         $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
