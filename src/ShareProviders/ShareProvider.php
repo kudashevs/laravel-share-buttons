@@ -25,7 +25,7 @@ abstract class ShareProvider
      */
     final public function __construct(string $name)
     {
-        $this->initName($name);
+        $this->initProvider($name);
         $this->initTemplater();
     }
 
@@ -35,7 +35,7 @@ abstract class ShareProvider
      *
      * @throws InvalidProviderException
      */
-    private function initName(string $name): void
+    private function initProvider(string $name): void
     {
         if (!$this->isValidName($name)) {
             throw new InvalidProviderException(
