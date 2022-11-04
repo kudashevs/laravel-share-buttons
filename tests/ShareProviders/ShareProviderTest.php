@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderNameException;
+use Kudashevs\ShareButtons\Exceptions\InvalidProviderException;
 use Kudashevs\ShareButtons\ShareProviders\Providers\CopyLink;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use PHPUnit\Framework\TestCase;
@@ -17,7 +17,7 @@ class ShareProviderTest extends TestCase
          */
         $this->assertTrue(is_subclass_of(CopyLink::class, ShareProvider::class));
 
-        $this->expectException(InvalidShareProviderNameException::class);
+        $this->expectException(InvalidProviderException::class);
         $this->expectExceptionMessage('wrong is not');
 
         new CopyLink('wrong');
