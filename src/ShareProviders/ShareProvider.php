@@ -18,10 +18,7 @@ abstract class ShareProvider
 
     protected string $name;
 
-    /**
-     * @var Templater
-     */
-    protected $templater;
+    protected Templater $templater;
 
     /**
      * @param string $name
