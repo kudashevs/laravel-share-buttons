@@ -16,10 +16,7 @@ abstract class ShareProvider
      */
     abstract public function buildUrl(string $link, string $title, array $options): string;
 
-    /**
-     * @var string
-     */
-    protected $name;
+    protected string $name;
 
     /**
      * @var Templater
