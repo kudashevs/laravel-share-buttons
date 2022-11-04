@@ -21,7 +21,7 @@ class ShareProviderFactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_can_validate_the_existence_of_a_provider_by_name()
+    public function it_can_validate_a_share_provider_by_name()
     {
         $this->assertTrue(ShareProviderFactory::isValidProviderName('facebook'));
         $this->assertFalse(ShareProviderFactory::isValidProviderName('wrong'));
