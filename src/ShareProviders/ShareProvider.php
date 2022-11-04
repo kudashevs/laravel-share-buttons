@@ -34,13 +34,16 @@ abstract class ShareProvider
      */
     private function initProvider(): void
     {
-        if (!$this->isValidName($name)) {
+        $this->checkValidProvider($this->name);
+    }
+
+    private function checkValidProvider(string $name): void
+    {
+        if (!$this->isValidName($this->name)) {
             throw new InvalidProviderException(
                 sprintf('The %s is not a valid name for the %s.', $name, static::class)
             );
         }
-
-        $this->name = $name;
     }
 
     /**
