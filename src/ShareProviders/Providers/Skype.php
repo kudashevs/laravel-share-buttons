@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Skype extends ShareProvider
 {
+    protected string $name = 'skype';
+
     /**
      * @inheritDoc
      */

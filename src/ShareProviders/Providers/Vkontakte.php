@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Vkontakte extends ShareProvider
 {
+    protected string $name = 'vkontakte';
+
     /**
      * @inheritDoc
      */

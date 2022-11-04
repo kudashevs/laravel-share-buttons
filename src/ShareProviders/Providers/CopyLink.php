@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class CopyLink extends ShareProvider
 {
+    protected string $name = 'copylink';
+
     /**
      * @inheritDoc
      */

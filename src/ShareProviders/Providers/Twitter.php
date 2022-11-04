@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Twitter extends ShareProvider
 {
+    protected string $name = 'twitter';
+
     /**
      * @inheritDoc
      */

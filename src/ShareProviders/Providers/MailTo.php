@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class MailTo extends ShareProvider
 {
+    protected string $name = 'mailto';
+
     /**
      * @inheritDoc
      */

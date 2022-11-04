@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class LinkedIn extends ShareProvider
 {
+    protected string $name = 'linkedin';
+
     /**
      * @inheritDoc
      */

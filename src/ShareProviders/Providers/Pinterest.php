@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Pinterest extends ShareProvider
 {
+    protected string $name = 'pinterest';
+
     /**
      * @inheritDoc
      */

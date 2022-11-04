@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Reddit extends ShareProvider
 {
+    protected string $name = 'reddit';
+
     /**
      * @inheritDoc
      */

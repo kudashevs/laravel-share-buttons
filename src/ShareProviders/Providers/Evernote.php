@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Evernote extends ShareProvider
 {
+    protected string $name = 'evernote';
+
     /**
      * @inheritDoc
      */

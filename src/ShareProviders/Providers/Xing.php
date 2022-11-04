@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Xing extends ShareProvider
 {
+    protected string $name = 'xing';
+
     /**
      * @inheritDoc
      */

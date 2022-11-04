@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class Pocket extends ShareProvider
 {
+    protected string $name = 'pocket';
+
     /**
      * @inheritDoc
      */

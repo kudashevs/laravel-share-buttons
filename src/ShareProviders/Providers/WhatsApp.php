@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 final class WhatsApp extends ShareProvider
 {
+    protected string $name = 'whatsapp';
+
     /**
      * @inheritDoc
      */
