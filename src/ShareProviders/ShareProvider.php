@@ -26,18 +26,19 @@ abstract class ShareProvider
     final public function __construct()
     {
         $this->initProvider();
+
         $this->initTemplater();
     }
 
     /**
      * @throws InvalidProviderException
      */
-    private function initProvider(): void
+    protected function initProvider(): void
     {
         $this->checkValidProvider($this->name);
     }
 
-    private function checkValidProvider(string $name): void
+    protected function checkValidProvider(string $name): void
     {
         if (!ShareProviderFactory::isValidProvider($this->name, static::class)) {
             throw new InvalidProviderException(
@@ -49,7 +50,7 @@ abstract class ShareProvider
     /**
      * @return void
      */
-    private function initTemplater(): void
+    protected function initTemplater(): void
     {
         $this->templater = $this->createTemplater();
     }
@@ -94,7 +95,7 @@ abstract class ShareProvider
      * @param string $title
      * @return string
      */
-    private function prepareTitle(string $title): string
+    protected function prepareTitle(string $title): string
     {
         $text = config('share-buttons.providers.' . $this->name . '.text', '');
 
@@ -109,7 +110,7 @@ abstract class ShareProvider
      * @param array $options
      * @return array
      */
-    private function prepareExtras(array $options): array
+    protected function prepareExtras(array $options): array
     {
         $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
 
