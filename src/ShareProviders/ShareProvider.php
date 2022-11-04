@@ -23,19 +23,16 @@ abstract class ShareProvider
     /**
      * @param string $name
      */
-    final public function __construct(string $name)
+    final public function __construct()
     {
-        $this->initProvider($name);
+        $this->initProvider();
         $this->initTemplater();
     }
 
     /**
-     * @param string $name
-     * @return void
-     *
      * @throws InvalidProviderException
      */
-    private function initProvider(string $name): void
+    private function initProvider(): void
     {
         if (!$this->isValidName($name)) {
             throw new InvalidProviderException(
