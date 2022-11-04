@@ -47,17 +47,6 @@ abstract class ShareProvider
     }
 
     /**
-     * @param string $name
-     * @return bool
-     */
-    private function isValidName(string $name): bool
-    {
-        $providers = ShareProviderFactory::getProviders();
-
-        return array_key_exists($name, $providers) && $providers[$name] === static::class; // ??
-    }
-
-    /**
      * @return void
      */
     private function initTemplater(): void
