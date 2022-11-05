@@ -11,7 +11,7 @@ class FacebookTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('facebook');
+        $this->provider = ShareProviderFactory::createFromName('facebook');
 
         parent::setUp();
     }

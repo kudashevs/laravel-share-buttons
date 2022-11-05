@@ -11,7 +11,7 @@ class TwitterTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('twitter');
+        $this->provider = ShareProviderFactory::createFromName('twitter');
 
         parent::setUp();
     }

@@ -11,7 +11,7 @@ class WhatsAppTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('whatsapp');
+        $this->provider = ShareProviderFactory::createFromName('whatsapp');
 
         parent::setUp();
     }

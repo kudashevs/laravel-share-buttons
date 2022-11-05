@@ -51,7 +51,7 @@ final class ShareProviderFactory
         $providers = [];
 
         foreach (array_keys(self::PROVIDERS) as $name) {
-            $providers[$name] = self::createInstance($name);
+            $providers[$name] = self::createFromName($name);
         }
 
         return $providers;
@@ -61,7 +61,7 @@ final class ShareProviderFactory
      * @param string $name
      * @return ShareProvider
      */
-    public static function createInstance(string $name): ShareProvider
+    public static function createFromName(string $name): ShareProvider
     {
         $class = self::resolveClass($name);
 

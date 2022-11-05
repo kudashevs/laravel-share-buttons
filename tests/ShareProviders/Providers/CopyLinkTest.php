@@ -11,7 +11,7 @@ class CopyLinkTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('copylink');
+        $this->provider = ShareProviderFactory::createFromName('copylink');
 
         parent::setUp();
     }

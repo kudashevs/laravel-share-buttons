@@ -17,7 +17,7 @@ class ShareProviderFactoryTest extends TestCase
         $this->expectException(InvalidFactoryArgumentException::class);
         $this->expectExceptionMessage('wrong');
 
-        ShareProviderFactory::createInstance('wrong');
+        ShareProviderFactory::createFromName('wrong');
     }
 
     /** @test */
@@ -37,7 +37,7 @@ class ShareProviderFactoryTest extends TestCase
     /** @test */
     public function it_can_create_a_specific_instance_from_a_known_name()
     {
-        $provider = ShareProviderFactory::createInstance('facebook');
+        $provider = ShareProviderFactory::createFromName('facebook');
 
         $this->assertInstanceOf(Facebook::class, $provider);
     }

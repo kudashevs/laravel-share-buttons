@@ -11,7 +11,7 @@ class VkontakteTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('vkontakte');
+        $this->provider = ShareProviderFactory::createFromName('vkontakte');
 
         parent::setUp();
     }

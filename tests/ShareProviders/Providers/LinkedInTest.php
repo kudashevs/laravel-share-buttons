@@ -11,7 +11,7 @@ class LinkedInTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('linkedin');
+        $this->provider = ShareProviderFactory::createFromName('linkedin');
 
         parent::setUp();
     }
@@ -37,7 +37,8 @@ class LinkedInTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link_with_summary()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', 'Title', ['summary' => 'A summary can be passed here']);
+        $result = $this->provider->buildUrl('https://mysite.com', 'Title',
+            ['summary' => 'A summary can be passed here']);
         $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here';
 
         $this->assertEquals($expected, $result);

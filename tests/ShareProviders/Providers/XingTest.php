@@ -11,7 +11,7 @@ class XingTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('xing');
+        $this->provider = ShareProviderFactory::createFromName('xing');
 
         parent::setUp();
     }

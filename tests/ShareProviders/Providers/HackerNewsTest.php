@@ -11,7 +11,7 @@ class HackerNewsTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('hackernews');
+        $this->provider = ShareProviderFactory::createFromName('hackernews');
 
         parent::setUp();
     }

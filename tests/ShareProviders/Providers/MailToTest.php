@@ -11,7 +11,7 @@ class MailToTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('mailto');
+        $this->provider = ShareProviderFactory::createFromName('mailto');
 
         parent::setUp();
     }

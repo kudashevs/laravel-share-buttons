@@ -11,7 +11,7 @@ class PocketTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('pocket');
+        $this->provider = ShareProviderFactory::createFromName('pocket');
 
         parent::setUp();
     }

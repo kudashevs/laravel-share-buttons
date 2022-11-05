@@ -11,7 +11,7 @@ class EvernoteTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('evernote');
+        $this->provider = ShareProviderFactory::createFromName('evernote');
 
         parent::setUp();
     }

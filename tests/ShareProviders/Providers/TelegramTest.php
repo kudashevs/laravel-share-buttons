@@ -11,7 +11,7 @@ class TelegramTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('telegram');
+        $this->provider = ShareProviderFactory::createFromName('telegram');
 
         parent::setUp();
     }

@@ -11,7 +11,7 @@ class RedditTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('reddit');
+        $this->provider = ShareProviderFactory::createFromName('reddit');
 
         parent::setUp();
     }

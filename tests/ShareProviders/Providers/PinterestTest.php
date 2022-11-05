@@ -11,7 +11,7 @@ class PinterestTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('pinterest');
+        $this->provider = ShareProviderFactory::createFromName('pinterest');
 
         parent::setUp();
     }

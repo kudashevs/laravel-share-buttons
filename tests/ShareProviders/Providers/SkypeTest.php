@@ -11,7 +11,7 @@ class SkypeTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createInstance('skype');
+        $this->provider = ShareProviderFactory::createFromName('skype');
 
         parent::setUp();
     }
