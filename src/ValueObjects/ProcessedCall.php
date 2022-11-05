@@ -63,7 +63,6 @@ final class ProcessedCall
 
     /**
      * @param array<string, string> $options
-     * @return array<string, string>
      */
     private function initOptions(array $options): void
     {
