@@ -45,7 +45,7 @@ class ShareProviderFactoryTest extends TestCase
     /** @test */
     public function it_can_create_all_the_registered_providers()
     {
-        $providers = ShareProviderFactory::all();
+        $providers = ShareProviderFactory::createAll();
 
         $this->assertCount(count(ShareProviderFactory::PROVIDERS), $providers);
     }
@@ -53,7 +53,7 @@ class ShareProviderFactoryTest extends TestCase
     /** @test */
     public function it_can_create_all_the_registered_providers_in_the_instantiated_state()
     {
-        $providers = ShareProviderFactory::all();
+        $providers = ShareProviderFactory::createAll();
 
         $this->assertIsObject(current($providers));
         $this->assertInstanceOf(ShareProvider::class, current($providers));

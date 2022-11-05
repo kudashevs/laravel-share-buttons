@@ -46,7 +46,7 @@ final class ShareProviderFactory
      *
      * @return array<string, ShareProvider>
      */
-    public static function all(): array
+    public static function createAll(): array
     {
         $names = array_keys(self::PROVIDERS);
 
