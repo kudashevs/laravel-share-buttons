@@ -94,7 +94,7 @@ class ShareButtons
      */
     protected function initProviders(): void
     {
-        $this->providers = ShareProviderFactory::create();
+        $this->providers = ShareProviderFactory::all();
     }
 
     /**

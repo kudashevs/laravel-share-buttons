@@ -46,7 +46,7 @@ final class ShareProviderFactory
      *
      * @return array<string, object>
      */
-    public static function create(): array
+    public static function all(): array
     {
         $providers = [];
 
