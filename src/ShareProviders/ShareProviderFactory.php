@@ -42,9 +42,9 @@ final class ShareProviderFactory
     }
 
     /**
-     * Populates an array of providers through interface.
+     * Populate and return an array of providers.
      *
-     * @return array<string, object>
+     * @return array<string, ShareProvider>
      */
     public static function all(): array
     {
