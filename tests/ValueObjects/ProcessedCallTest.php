@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ValueObjects;
 
+use Kudashevs\ShareButtons\Exceptions\InvalidProcessedCallArgumentException;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 use PHPUnit\Framework\TestCase;
 
@@ -10,7 +11,7 @@ class ProcessedCallTest extends TestCase
     /** @test */
     public function it_can_throw_exception_when_empty_provider()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidProcessedCallArgumentException::class);
         $this->expectExceptionMessage('share provider');
 
         new ProcessedCall('', 'https://mysite.com', []);
@@ -19,7 +20,7 @@ class ProcessedCallTest extends TestCase
     /** @test */
     public function it_can_throw_exception_when_empty_url()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidProcessedCallArgumentException::class);
         $this->expectExceptionMessage('url');
 
         new ProcessedCall('facebook', '', []);

@@ -2,6 +2,8 @@
 
 namespace Kudashevs\ShareButtons\ValueObjects;
 
+use Kudashevs\ShareButtons\Exceptions\InvalidProcessedCallArgumentException;
+
 final class ProcessedCall
 {
     /**
@@ -23,6 +25,8 @@ final class ProcessedCall
      * @param string $provider
      * @param string $url
      * @param array<string, string> $options
+     *
+     * @throws InvalidProcessedCallArgumentException
      */
     public function __construct(string $provider, string $url, array $options)
     {
@@ -38,7 +42,7 @@ final class ProcessedCall
     private function initProvider(string $provider): void
     {
         if (trim($provider) === '') {
-            throw new \InvalidArgumentException('A share provider argument cannot be empty.');
+            throw new InvalidProcessedCallArgumentException('A share provider argument cannot be empty.');
         }
 
         $this->provider = $provider;
@@ -47,7 +51,7 @@ final class ProcessedCall
     private function initUrl(string $url): void
     {
         if (trim($url) === '') {
-            throw new \InvalidArgumentException('A url argument cannot be empty.');
+            throw new InvalidProcessedCallArgumentException('A url argument cannot be empty.');
         }
 
         $this->url = $url;
