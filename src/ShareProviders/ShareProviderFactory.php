@@ -31,14 +31,6 @@ final class ShareProviderFactory
     {
     }
 
-    /**
-     * @return array<string, string>
-     */
-    public static function getProviders(): array
-    {
-        return self::PROVIDERS;
-    }
-
     public static function isValidProviderName(string $name): bool
     {
         return array_key_exists($name, self::PROVIDERS);
