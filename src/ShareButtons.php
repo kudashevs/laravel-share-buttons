@@ -164,7 +164,7 @@ class ShareButtons
      */
     public function __call(string $name, array $arguments)
     {
-        if (array_key_exists($name, $this->providers)) {
+        if ($this->isRegisteredProvider($name)) {
             $normalizedArguments = $this->normalizeArguments($arguments);
 
             $url = $this->providers[$name]->buildUrl(
@@ -179,6 +179,11 @@ class ShareButtons
         }
 
         return $this->handleUnexpectedCall($name);
+    }
+
+    protected function isRegisteredProvider(string $name): bool
+    {
+        return array_key_exists($name, $this->providers);
     }
 
     /**
