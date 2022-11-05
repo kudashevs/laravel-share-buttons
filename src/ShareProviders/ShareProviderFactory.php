@@ -70,7 +70,7 @@ final class ShareProviderFactory
 
     private static function resolveClass(string $name): string
     {
-        if (!array_key_exists($name, self::PROVIDERS)) {
+        if (!self::isValidProviderName($name)) {
             throw new InvalidFactoryArgumentException(
                 sprintf('The %s is not a valid name for a share provider.', $name)
             );
