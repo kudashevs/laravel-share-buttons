@@ -48,9 +48,10 @@ final class ShareProviderFactory
      */
     public static function all(): array
     {
-        $providers = [];
+        $names = array_keys(self::PROVIDERS);
 
-        foreach (array_keys(self::PROVIDERS) as $name) {
+        $providers = [];
+        foreach ($names as $name) {
             $providers[$name] = self::createFromName($name);
         }
 
