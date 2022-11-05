@@ -10,10 +10,7 @@ final class ProcessedCall
 
     private string $url;
 
-    /**
-     * @var array
-     */
-    private $options;
+    private array $options;
 
     /**
      * @param string $provider
