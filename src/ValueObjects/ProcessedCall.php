@@ -35,10 +35,6 @@ final class ProcessedCall
     {
     }
 
-    /**
-     * @param string $provider
-     * @return string
-     */
     private function initProvider(string $provider): void
     {
         if (trim($provider) === '') {
@@ -48,10 +44,6 @@ final class ProcessedCall
         $this->provider = $provider;
     }
 
-    /**
-     * @param string $url
-     * @return string
-     */
     private function initUrl(string $url): void
     {
         if (trim($url) === '') {
