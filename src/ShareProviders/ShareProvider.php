@@ -35,14 +35,9 @@ abstract class ShareProvider
      */
     protected function checkInternals(): void
     {
-        $this->checkValidProvider($this->name);
-    }
-
-    protected function checkValidProvider(string $name): void
-    {
-        if (!ShareProviderFactory::isValidProvider($this->name, static::class)) {
+        if (!$this->isValidProvider($this->name)) {
             throw new InvalidProviderException(
-                sprintf('The %s is not a valid name for the %s.', $name, static::class)
+                sprintf('The %s is not a valid name for the %s.', $this->name, static::class)
             );
         }
     }
