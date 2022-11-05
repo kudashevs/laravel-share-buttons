@@ -8,10 +8,7 @@ final class ProcessedCall
 {
     private string $provider;
 
-    /**
-     * @var string
-     */
-    private $url;
+    private string $url;
 
     /**
      * @var array
