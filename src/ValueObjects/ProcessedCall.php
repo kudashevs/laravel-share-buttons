@@ -6,10 +6,7 @@ use Kudashevs\ShareButtons\Exceptions\InvalidProcessedCallArgumentException;
 
 final class ProcessedCall
 {
-    /**
-     * @var string
-     */
-    private $provider;
+    private string $provider;
 
     /**
      * @var string
