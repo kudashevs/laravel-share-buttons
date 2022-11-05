@@ -50,12 +50,11 @@ final class ShareProviderFactory
     {
         $names = array_keys(self::PROVIDERS);
 
-        $providers = [];
-        foreach ($names as $name) {
-            $providers[$name] = self::createFromName($name);
-        }
+        return array_reduce($names, static function ($instances, $name) {
+            $instances[$name] = self::createFromName($name);
 
-        return $providers;
+            return $instances;
+        });
     }
 
     /**
