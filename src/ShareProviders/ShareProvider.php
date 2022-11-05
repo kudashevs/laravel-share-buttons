@@ -47,6 +47,11 @@ abstract class ShareProvider
         }
     }
 
+    protected function isValidProvider(string $name): bool
+    {
+        return ShareProviderFactory::isValidProvider($name, static::class);
+    }
+
     protected function initTemplater(): void
     {
         $this->templater = $this->createTemplater();
