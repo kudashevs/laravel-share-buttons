@@ -177,15 +177,15 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isRegisteredProvider($name)) {
-            $normalizedArguments = $this->prepareArguments($arguments);
+            $preparedArguments = $this->prepareArguments($arguments);
 
             $url = $this->providers[$name]->buildUrl(
                 $this->page,
                 $this->title,
-                $normalizedArguments
+                $preparedArguments
             );
 
-            $this->rememberProcessedCalls($name, $url, $normalizedArguments);
+            $this->rememberProcessedCalls($name, $url, $preparedArguments);
 
             return $this;
         }
