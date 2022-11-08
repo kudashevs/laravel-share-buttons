@@ -216,10 +216,6 @@ class ShareButtons
         $this->calls[$provider] = new ProcessedCall($provider, $url, $options);
     }
 
-    /**
-     * @param string $name
-     * @return $this
-     */
     protected function handleUnexpectedCall(string $name): ShareButtons
     {
         if ($this->options['reactOnErrors'] === true) {
@@ -233,9 +229,6 @@ class ShareButtons
         return $this;
     }
 
-    /**
-     * @return string
-     */
     protected function prepareException(): string
     {
         if (($exception = $this->options['throwException']) && class_exists($exception)) {
@@ -287,9 +280,6 @@ class ShareButtons
         return $this->generateShareButtons();
     }
 
-    /**
-     * @return string
-     */
     protected function generateShareButtons(): string
     {
         $representation = $this->formatter->getBlockPrefix();
