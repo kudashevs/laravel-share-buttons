@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons;
 
+use BadMethodCallException;
 use Kudashevs\ShareButtons\Formatters\Formatter;
 use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
@@ -40,11 +41,11 @@ class ShareButtons
     protected Formatter $formatter;
 
     /**
-     * Extra options for the share links.
+     * Extra runtime options.
      */
     protected array $options = [
-        'reactOnErrors' => null,
-        'throwException' => null,
+        'reactOnErrors' => false,
+        'throwException' => BadMethodCallException::class,
     ];
 
     /**
