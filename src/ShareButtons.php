@@ -177,7 +177,7 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isRegisteredProvider($name)) {
-            $normalizedArguments = $this->normalizeArguments($arguments);
+            $normalizedArguments = $this->prepareArguments($arguments);
 
             $url = $this->providers[$name]->buildUrl(
                 $this->page,
@@ -202,7 +202,7 @@ class ShareButtons
      * @param array $arguments
      * @return array
      */
-    protected function normalizeArguments(array $arguments): array
+    protected function prepareArguments(array $arguments): array
     {
         if ($this->isAnyArgumentsProvided($arguments)) {
             return $arguments[0];
