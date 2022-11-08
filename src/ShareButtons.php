@@ -83,9 +83,9 @@ class ShareButtons
      */
     protected function initOptions(array $options = []): void
     {
-        $allowed = $this->retrieveApplicableOptions($options);
+        $applicable = $this->retrieveApplicableOptions($options);
 
-        $this->options = array_merge($this->options, $allowed);
+        $this->options = array_merge($this->options, $applicable);
     }
 
     /**
