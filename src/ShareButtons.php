@@ -30,7 +30,7 @@ class ShareButtons
     /**
      * The url of a page to share.
      */
-    protected string $url;
+    protected string $page;
 
     /**
      * Optional text for Twitter and Linkedin title.
@@ -107,7 +107,7 @@ class ShareButtons
     {
         $this->clearState();
 
-        $this->url = $url;
+        $this->page = $url;
         $this->title = $title;
 
         $this->formatter->updateOptions($options);
@@ -168,7 +168,7 @@ class ShareButtons
             $normalizedArguments = $this->normalizeArguments($arguments);
 
             $url = $this->providers[$name]->buildUrl(
-                $this->url,
+                $this->page,
                 $this->title,
                 $normalizedArguments
             );
