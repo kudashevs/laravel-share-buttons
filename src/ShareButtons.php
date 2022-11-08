@@ -83,9 +83,20 @@ class ShareButtons
      */
     protected function initOptions(array $options = []): void
     {
-        $allowed = array_intersect_key($options, $this->options);
+        $allowed = $this->retrieveApplicableOptions($options);
 
         $this->options = array_merge($this->options, $allowed);
+    }
+
+    /**
+     * @return array<string, bool|string>
+     */
+    protected function retrieveApplicableOptions(array $options): array
+    {
+        return array_filter($options, function ($option, $name) {
+            return isset($this->options[$name]) &&
+                gettype($this->options[$name]) === gettype($option);
+        }, ARRAY_FILTER_USE_BOTH);
     }
 
     /**
