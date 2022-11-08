@@ -243,11 +243,9 @@ class ShareButtons
 
     protected function retrieveUnexpectedCallException(): string
     {
-        if (($exception = $this->options['throwException']) && class_exists($exception)) {
-            return $exception;
-        }
-
-        return \Error::class;
+        return class_exists($this->options['throwException'])
+            ? $this->options['throwException']
+            : BadMethodCallException::class;
     }
 
     /**
