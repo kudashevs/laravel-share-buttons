@@ -199,13 +199,12 @@ class ShareButtons
     }
 
     /**
-     * @param array $arguments
-     * @return array
+     * @return array<string, string>
      */
     protected function prepareArguments(array $arguments): array
     {
         if ($this->isAnyArgumentsProvided($arguments)) {
-            return $arguments[0];
+            return array_filter($arguments[0], 'is_string');
         }
 
         return [];
