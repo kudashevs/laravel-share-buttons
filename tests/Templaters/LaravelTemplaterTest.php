@@ -7,13 +7,13 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class LaravelTemplaterTest extends ExtendedTestCase
 {
-    private $replacer;
+    private $templater;
 
     protected function setUp(): void
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->replacer = new LaravelTemplater();
+        $this->templater = new LaravelTemplater();
     }
 
     /**
@@ -22,7 +22,7 @@ class LaravelTemplaterTest extends ExtendedTestCase
      */
     public function it_can_perform_a_pattern_replacement(string $input, array $replacements, string $expected)
     {
-        $result = $this->replacer->process($input, $replacements);
+        $result = $this->templater->process($input, $replacements);
 
         $this->assertSame($expected, $result);
     }
