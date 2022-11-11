@@ -13,11 +13,6 @@ interface Formatter
     public function formatElement(string $provider, string $url, array $options): string;
 
     /**
-     * @return array
-     */
-    public function getOptions(): array;
-
-    /**
      * @param array $options
      * @return void|bool
      */
