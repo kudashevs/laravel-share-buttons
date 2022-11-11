@@ -170,7 +170,7 @@ class TemplateFormatterTest extends ExtendedTestCase
      * @param string $configuration
      * @param string $method
      */
-   public function it_can_return_formatter_styling_without_options(string $configuration, string $method)
+    public function it_can_return_formatter_styling_without_options(string $configuration, string $method)
     {
         $expected = config($configuration);
 
