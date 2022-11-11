@@ -87,13 +87,13 @@ class TemplateFormatter implements Formatter
      */
     public function formatElement(string $provider, string $url, array $options = []): string
     {
-        $template = $this->prepareElementTemplate($provider);
+        $template = $this->retrieveElementTemplate($provider);
         $replacements = $this->prepareElementReplacements($url, $options);
 
         return $this->templater->process($template, $replacements);
     }
 
-    private function prepareElementTemplate(string $provider): string
+    private function retrieveElementTemplate(string $provider): string
     {
         return config('share-buttons.templates.' . $provider);
     }
