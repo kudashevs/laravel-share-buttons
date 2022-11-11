@@ -114,13 +114,21 @@ class TemplateFormatter implements Formatter
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     private function prepareElementAttributes(array $options): array
     {
-        $combinedAttributes = array_merge($this->attributes, $options);
+        $existingAttributes = $this->retrieveExistingAttributes();
 
-        return $this->amendElementAttributes($combinedAttributes);
+        return $this->amendElementAttributes($existingAttributes);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function retrieveExistingAttributes(): array
+    {
+        return array_fill_keys(array_keys(self::DIFFERENT_ATTRIBUTE_FORMATS), '');
     }
 
     /**
