@@ -143,14 +143,6 @@ class TemplateFormatter implements Formatter
     }
 
     /**
-     * @return array
-     */
-    public function getOptions(): array
-    {
-        return $this->options;
-    }
-
-    /**
      * @inheritDoc
      */
     public function getBlockPrefix(): string

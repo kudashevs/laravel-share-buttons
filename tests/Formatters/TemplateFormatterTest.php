@@ -19,29 +19,20 @@ class TemplateFormatterTest extends ExtendedTestCase
         $this->formatter = new TemplateFormatter();
     }
 
-    /** @test */
-    public function it_can_return_options()
-    {
-        $result = $this->formatter->getOptions();
-
-        $this->assertNotEmpty($result);
-    }
-
     /**
      * @test
      * @dataProvider provide_different_formatter_setup_from_options
      * @param array $options
-     * @param string $key
+     * @param string $method
      * @param string $expected
      */
-    public function it_can_setup_value_from_options(array $options, string $key, string $expected)
+    public function it_can_setup_values_from_options(array $options, string $method, string $expected)
     {
         $this->formatter->updateOptions($options);
 
-        $result = $this->formatter->getOptions();
+        $result = $this->formatter->$method();
 
-        $this->assertArrayHasKey($key, $result);
-        $this->assertSame($expected, $result[$key]);
+        $this->assertSame($expected, $result);
     }
 
     public function provide_different_formatter_setup_from_options()
@@ -49,42 +40,42 @@ class TemplateFormatterTest extends ExtendedTestCase
         return [
             'block_prefix option is not empty' => [
                 ['block_prefix' => '<div>'],
-                'block_prefix',
+                'getBlockPrefix',
                 '<div>',
             ],
             'block_prefix option is empty' => [
                 ['block_prefix' => ''],
-                'block_prefix',
+                'getBlockPrefix',
                 '',
             ],
             'block_suffix option is not empty' => [
                 ['block_suffix' => '</div>'],
-                'block_suffix',
+                'getBlockSuffix',
                 '</div>',
             ],
             'block_suffix option is empty' => [
                 ['block_suffix' => ''],
-                'block_suffix',
+                'getBlockSuffix',
                 '',
             ],
             'element_prefix option is not empty' => [
                 ['element_prefix' => '<p>'],
-                'element_prefix',
+                'getElementPrefix',
                 '<p>',
             ],
             'element_prefix option is empty' => [
                 ['element_prefix' => ''],
-                'element_prefix',
+                'getElementPrefix',
                 '',
             ],
             'element_suffix option is not empty' => [
                 ['element_suffix' => '</p>'],
-                'element_suffix',
+                'getElementSuffix',
                 '</p>',
             ],
             'element_suffix option is empty' => [
                 ['element_suffix' => ''],
-                'element_suffix',
+                'getElementSuffix',
                 '',
             ],
         ];
@@ -94,16 +85,15 @@ class TemplateFormatterTest extends ExtendedTestCase
      * @test
      * @dataProvider provide_different_formatter_setup_from_config
      * @param string $configuration
-     * @param string $key
+     * @param string $method
      */
-    public function it_can_setup_default_value_without_options(string $configuration, string $key)
+    public function it_can_setup_default_values_without_options(string $configuration, string $method)
     {
         $expected = config($configuration);
 
-        $result = $this->formatter->getOptions();
+        $result = $this->formatter->$method();
 
-        $this->assertArrayHasKey($key, $result);
-        $this->assertSame($expected, $result[$key]);
+        $this->assertSame($expected, $result);
     }
 
     public function provide_different_formatter_setup_from_config()
@@ -111,18 +101,22 @@ class TemplateFormatterTest extends ExtendedTestCase
         return [
             'default block_prefix' => [
                 'share-buttons.block_prefix',
+                'getBlockPrefix',
                 'block_prefix',
             ],
             'default block_suffix' => [
                 'share-buttons.block_suffix',
+                'getBlockSuffix',
                 'block_suffix',
             ],
             'default element_prefix' => [
                 'share-buttons.element_prefix',
+                'getElementPrefix',
                 'element_prefix',
             ],
             'default element_suffix' => [
                 'share-buttons.element_suffix',
+                'getElementSuffix',
                 'element_suffix',
             ],
         ];
