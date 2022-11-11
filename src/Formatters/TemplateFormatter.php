@@ -88,7 +88,7 @@ class TemplateFormatter implements Formatter
     public function formatElement(string $provider, string $url, array $options = []): string
     {
         $template = $this->retrieveElementTemplate($provider);
-        $replacements = $this->prepareElementReplacements($url, $options);
+        $replacements = $this->retrieveElementReplacements($url, $options);
 
         return $this->templater->process($template, $replacements);
     }
@@ -101,7 +101,7 @@ class TemplateFormatter implements Formatter
     /**
      * @return array
      */
-    private function prepareElementReplacements(string $url, array $options): array
+    private function retrieveElementReplacements(string $url, array $options): array
     {
         $replacements = ['url' => $url];
         foreach ($this->prepareElementAttributes($options) as $name => $format) {
