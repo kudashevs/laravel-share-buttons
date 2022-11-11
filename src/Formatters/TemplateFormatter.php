@@ -20,10 +20,10 @@ class TemplateFormatter implements Formatter
      * Contain formatter options.
      */
     private array $options = [
-        'block_prefix' => null,
-        'block_suffix' => null,
-        'element_prefix' => null,
-        'element_suffix' => null,
+        'block_prefix' => '',
+        'block_suffix' => '',
+        'element_prefix' => '',
+        'element_suffix' => '',
     ];
 
     /**
