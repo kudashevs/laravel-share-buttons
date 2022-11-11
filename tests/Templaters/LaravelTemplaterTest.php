@@ -30,14 +30,14 @@ class LaravelTemplaterTest extends ExtendedTestCase
     public function provideDifferentSearchReplaceValues()
     {
         return [
-            'replace a pattern with the replacement' => [
+            'replace a search with the replacement' => [
                 'test :this string',
                 [
                     'this' => 'that',
                 ],
                 'test that string',
             ],
-            'replace multiple patterns with multiple replacements' => [
+            'replace multiple searches with multiple replacements' => [
                 'test :this :complex string',
                 [
                     'this' => 'that',
@@ -45,28 +45,28 @@ class LaravelTemplaterTest extends ExtendedTestCase
                 ],
                 'test that simple string',
             ],
-            'replace a pattern with the replacement multiple times' => [
+            'replace a search with the replacement multiple times' => [
                 'test :this :this string',
                 [
                     'this' => 'that',
                 ],
                 'test that that string',
             ],
-            'replace a pattern in lower case' => [
+            'replace a search in lowercase letters letters with the replacement' => [
                 'a :test string',
                 [
                     'test' => 'tested',
                 ],
                 'a tested string',
             ],
-            'replace a pattern in upper case' => [
+            'replace a search in uppercase letters with the replacement' => [
                 'a :TEST string',
                 [
                     'test' => 'tested',
                 ],
                 'a TESTED string',
             ],
-            'does not replace a pattern in mix case' => [
+            'does not replace a search in mixed letters' => [
                 'a :TeST string',
                 [
                     'test' => 'tested',
