@@ -120,7 +120,7 @@ class TemplateFormatter implements Formatter
     {
         $existingAttributes = $this->retrieveExistingAttributes();
 
-        return $this->amendElementAttributes($existingAttributes);
+        return array_intersect_key($options, $existingAttributes) + $existingAttributes;
     }
 
     /**
@@ -129,16 +129,6 @@ class TemplateFormatter implements Formatter
     private function retrieveExistingAttributes(): array
     {
         return array_fill_keys(array_keys(self::DIFFERENT_ATTRIBUTE_FORMATS), '');
-    }
-
-    /**
-     * @return array
-     */
-    private function amendElementAttributes(array $options): array
-    {
-        $allExistingAttributes = array_fill_keys(array_keys(self::DIFFERENT_ATTRIBUTE_FORMATS), '');
-
-        return array_intersect_key($options, $allExistingAttributes) + $allExistingAttributes;
     }
 
     private function formatElementAttribute(string $name, string $value): string
