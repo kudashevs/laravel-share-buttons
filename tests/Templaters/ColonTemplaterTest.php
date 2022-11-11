@@ -64,7 +64,7 @@ class ColonTemplaterTest extends TestCase
                 [
                     'test' => 'tested',
                 ],
-                'a tested string',
+                'a TESTED string',
             ],
             'does not replace a search in mixed letters' => [
                 'a :TeST string',

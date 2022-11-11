@@ -20,7 +20,7 @@ class ColonTemplater implements Templater
 
         foreach ($replacements as $search => $replace) {
             $prepared[':' . mb_strtolower($search)] = $replace;
-            $prepared[':' . mb_strtoupper($search)] = $replace;
+            $prepared[':' . mb_strtoupper($search)] = mb_strtoupper($replace);
         }
 
         return $prepared;
