@@ -95,7 +95,7 @@ class TemplateFormatter implements Formatter
 
     private function retrieveElementTemplate(string $provider): string
     {
-        return config('share-buttons.templates.' . $provider);
+        return config('share-buttons.templates.' . $provider, '');
     }
 
     /**
