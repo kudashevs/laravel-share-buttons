@@ -51,11 +51,6 @@ class ShareButtons
     ];
 
     /**
-     * Contain share providers instances.
-     */
-    protected array $providers = [];
-
-    /**
      * Contain processed calls.
      */
     protected array $calls = [];
@@ -72,12 +67,6 @@ class ShareButtons
 
         $this->formatter = $formatter;
         $this->formatter->updateOptions($options);
-
-        /**
-         * We want to initialize providers here and keep them to be sure
-         * that we won't fail in runtime because of a wrong initialization.
-         */
-        $this->initProviders();
     }
 
     /**
@@ -99,16 +88,6 @@ class ShareButtons
             return isset($this->options[$name]) &&
                 gettype($this->options[$name]) === gettype($option);
         }, ARRAY_FILTER_USE_BOTH);
-    }
-
-    /**
-     * Initialize share providers.
-     *
-     * @return void
-     */
-    protected function initProviders(): void
-    {
-        $this->providers = ShareProviderFactory::createAll();
     }
 
     /**
