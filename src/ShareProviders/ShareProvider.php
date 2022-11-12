@@ -52,6 +52,16 @@ abstract class ShareProvider
     }
 
     /**
+     * Return a share provider name.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
      * @param string $link
      * @param string $title
      * @param array $options
