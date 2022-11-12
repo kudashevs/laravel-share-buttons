@@ -8,10 +8,10 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 class TemplateFormatter implements Formatter
 {
     private const DIFFERENT_ATTRIBUTE_FORMATS = [
-        'class' => '%s',
-        'id' => 'id="%s"',
-        'title' => 'title="%s"',
-        'rel' => 'rel="%s"',
+        'class' => ' %s',
+        'id' => ' id="%s"',
+        'title' => ' title="%s"',
+        'rel' => ' rel="%s"',
     ];
 
     private Templater $templater;
