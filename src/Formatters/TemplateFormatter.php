@@ -43,8 +43,7 @@ class TemplateFormatter implements Formatter
     public function __construct(array $options = [])
     {
         $this->initTemplater();
-
-        $this->updateOptions($options);
+        $this->initOptions($options);
     }
 
     private function initTemplater(): void
@@ -55,6 +54,11 @@ class TemplateFormatter implements Formatter
     private function createTemplater(): Templater
     {
         return new ColonTemplater();
+    }
+
+    private function initOptions(array $options): void
+    {
+        $this->updateOptions($options);
     }
 
     /**
