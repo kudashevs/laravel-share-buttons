@@ -40,6 +40,11 @@ abstract class ShareProvider
 
     protected function isValidProvider(): bool
     {
+        /**
+         * Even though this check may seem too thorough or even exceeding, there is a reason for this.
+         * Because a lot of configurations and styles depend on the internal name of a share provider,
+         * we want to be sure that the internal name corresponds to the exact share provider class.
+         */
         return ShareProviderFactory::isValidProvider($this->name, static::class);
     }
 
