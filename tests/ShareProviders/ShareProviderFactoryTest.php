@@ -4,9 +4,8 @@ namespace Kudashevs\ShareButtons\Tests\ShareProviders;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
 use Kudashevs\ShareButtons\ShareProviders\Providers\CopyLink;
-use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
-use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
+use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use PHPUnit\Framework\TestCase;
 
 class ShareProviderFactoryTest extends TestCase
@@ -40,22 +39,5 @@ class ShareProviderFactoryTest extends TestCase
         $provider = ShareProviderFactory::createFromName('facebook');
 
         $this->assertInstanceOf(Facebook::class, $provider);
-    }
-
-    /** @test */
-    public function it_can_create_all_the_registered_providers()
-    {
-        $providers = ShareProviderFactory::createAll();
-
-        $this->assertCount(count(ShareProviderFactory::PROVIDERS), $providers);
-    }
-
-    /** @test */
-    public function it_can_create_all_the_registered_providers_in_the_instantiated_state()
-    {
-        $providers = ShareProviderFactory::createAll();
-
-        $this->assertIsObject(current($providers));
-        $this->assertInstanceOf(ShareProvider::class, current($providers));
     }
 }

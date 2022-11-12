@@ -44,22 +44,6 @@ final class ShareProviderFactory
     }
 
     /**
-     * Populate and return an array of providers.
-     *
-     * @return array<string, ShareProvider>
-     */
-    public static function createAll(): array
-    {
-        $names = array_keys(self::PROVIDERS);
-
-        return array_reduce($names, static function ($instances, $name) {
-            $instances[$name] = self::createFromName($name);
-
-            return $instances;
-        });
-    }
-
-    /**
      * @param string $name
      * @return ShareProvider
      */
