@@ -15,7 +15,7 @@ abstract class ShareProvider
 
     protected string $name;
 
-    protected Templater $templater;
+    protected string $url = '#';
 
     final public function __construct()
     {
@@ -59,6 +59,16 @@ abstract class ShareProvider
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * Return a share provider URL.
+     *
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
     }
 
     /**

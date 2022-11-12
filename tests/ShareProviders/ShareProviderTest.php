@@ -13,5 +13,6 @@ class ShareProviderTest extends TestCase
         $instance = new Facebook();
 
         $this->assertNotEmpty($instance->getName());
+        $this->assertNotEmpty($instance->getUrl());
     }
 }
