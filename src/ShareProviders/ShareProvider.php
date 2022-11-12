@@ -74,14 +74,14 @@ abstract class ShareProvider
      */
     final protected function prepareReplacements(string $link, string $title, array $options = []): array
     {
-        $basicReplacements = [
+        $initialReplacements = [
             'url' => $link,
             'title' => $this->prepareTitle($title),
         ];
 
         $extraReplacements = $this->prepareExtras($options);
 
-        return array_merge($extraReplacements, $basicReplacements);
+        return array_merge($extraReplacements, $initialReplacements);
     }
 
     protected function prepareTitle(string $title): string
