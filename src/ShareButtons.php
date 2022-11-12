@@ -197,7 +197,7 @@ class ShareButtons
 
     protected function isRegisteredProvider(string $name): bool
     {
-        return array_key_exists($name, $this->providers);
+        return ShareProviderFactory::isValidProviderName($name);
     }
 
     /**
