@@ -121,6 +121,20 @@ class TemplateFormatter implements Formatter
         return array_merge($this->attributes, $options);
     }
 
+    public function formatAttributes(array $attributes): array
+    {
+        $formattedAttributes = [];
+        foreach (self::DIFFERENT_ATTRIBUTE_FORMATS as $name => $format) {
+            if (isset($attributes[$name])) {
+                $formattedAttributes[$name] = sprintf($format, $attributes[$name]);
+            } else {
+                $formattedAttributes[$name] = '';
+            }
+        }
+
+        return $formattedAttributes;
+    }
+
     /**
      * @return array<string, string>
      */
