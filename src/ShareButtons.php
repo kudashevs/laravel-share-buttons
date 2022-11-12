@@ -179,7 +179,7 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isRegisteredProvider($name)) {
-            $preparedArguments = $this->prepareArguments($arguments);
+            $preparedArguments = $this->retrieveArguments($arguments);
 
             $url = $this->providers[$name]->buildUrl(
                 $this->page,
@@ -203,7 +203,7 @@ class ShareButtons
     /**
      * @return array<string, string>
      */
-    protected function prepareArguments(array $arguments): array
+    protected function retrieveArguments(array $arguments): array
     {
         if ($this->isAnyArgumentsProvided($arguments)) {
             return array_filter($arguments[0], 'is_string');
