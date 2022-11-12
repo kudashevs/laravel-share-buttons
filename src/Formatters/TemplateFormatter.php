@@ -122,7 +122,7 @@ class TemplateFormatter implements Formatter
         return $this->formatAttributes($attributes);
     }
 
-    public function formatAttributes(array $attributes): array
+    private function formatAttributes(array $attributes): array
     {
         $formattedAttributes = [];
         foreach (self::DIFFERENT_ATTRIBUTE_FORMATS as $name => $format) {
