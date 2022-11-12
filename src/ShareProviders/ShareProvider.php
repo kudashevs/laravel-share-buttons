@@ -11,13 +11,7 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 
 abstract class ShareProvider
 {
-    /**
-     * @param string $link
-     * @param string $title
-     * @param array $options
-     * @return string
-     */
-    abstract public function buildUrl(string $link, string $title, array $options): string;
+    protected Templater $templater;
 
     protected string $name;
 
@@ -56,6 +50,14 @@ abstract class ShareProvider
     {
         return new LaravelTemplater();
     }
+
+    /**
+     * @param string $link
+     * @param string $title
+     * @param array $options
+     * @return string
+     */
+    abstract public function buildUrl(string $link, string $title, array $options): string;
 
     final protected function retrieveProviderUrl(): string
     {
