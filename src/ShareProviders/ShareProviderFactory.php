@@ -46,6 +46,8 @@ final class ShareProviderFactory
     /**
      * @param string $name
      * @return ShareProvider
+     *
+     * @throws InvalidFactoryArgumentException
      */
     public static function createFromName(string $name): ShareProvider
     {
