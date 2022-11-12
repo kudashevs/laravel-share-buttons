@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kudashevs\ShareButtons\Templaters;
 
 class ColonTemplater implements Templater
