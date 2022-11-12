@@ -103,7 +103,7 @@ class TemplateFormatter implements Formatter
      */
     private function retrieveElementReplacements(string $url, array $options): array
     {
-        $attributes = $this->prepareElementAttributes($options);
+        $attributes = $this->retrieveAttributes($options);
 
         $replacements = ['url' => $url];
         foreach ($attributes as $name => $format) {
@@ -111,6 +111,14 @@ class TemplateFormatter implements Formatter
         }
 
         return $replacements;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function retrieveAttributes(array $options): array
+    {
+        return array_merge($this->attributes, $options);
     }
 
     /**
