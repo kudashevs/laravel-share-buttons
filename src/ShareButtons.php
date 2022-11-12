@@ -181,7 +181,9 @@ class ShareButtons
         if ($this->isRegisteredProvider($name)) {
             $preparedArguments = $this->retrieveArguments($arguments);
 
-            $url = $this->providers[$name]->buildUrl(
+            $provider = ShareProviderFactory::createFromName($name);
+
+            $url = $provider->buildUrl(
                 $this->page,
                 $this->title,
                 $preparedArguments
