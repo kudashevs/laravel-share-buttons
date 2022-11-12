@@ -17,6 +17,8 @@ abstract class ShareProvider
 
     protected string $url = '#';
 
+    protected array $options = [];
+
     final public function __construct()
     {
         $this->checkInternals();
@@ -69,6 +71,16 @@ abstract class ShareProvider
     public function getUrl(): string
     {
         return $this->url;
+    }
+
+    /**
+     * Return provided options.
+     *
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 
     /**

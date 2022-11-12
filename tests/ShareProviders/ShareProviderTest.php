@@ -14,5 +14,6 @@ class ShareProviderTest extends TestCase
 
         $this->assertNotEmpty($instance->getName());
         $this->assertNotEmpty($instance->getUrl());
+        $this->assertIsArray($instance->getOptions());
     }
 }
