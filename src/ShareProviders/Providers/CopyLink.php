@@ -18,7 +18,7 @@ final class CopyLink extends ShareProvider
         $link = $this->prepareLink($link);
 
         $template = $this->retrieveProviderUrl();
-        $replacements = $this->prepareReplacements($link, $title, $options);
+        $replacements = $this->retrieveReplacements($link, $title, $options);
 
         return $this->templater->process($template, $replacements);
     }

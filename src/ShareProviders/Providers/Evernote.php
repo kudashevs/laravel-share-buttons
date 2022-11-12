@@ -16,7 +16,7 @@ final class Evernote extends ShareProvider
     public function buildUrl(string $link, string $title, array $options): string
     {
         $template = $this->retrieveProviderUrl();
-        $replacements = $this->prepareReplacements($link, $title, $options);
+        $replacements = $this->retrieveReplacements($link, $title, $options);
 
         return $this->templater->process($template, $replacements);
     }

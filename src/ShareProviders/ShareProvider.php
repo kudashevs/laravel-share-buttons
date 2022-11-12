@@ -65,14 +65,14 @@ abstract class ShareProvider
     }
 
     /**
-     * Gather and prepare all the settings.
+     * Gather and prepare all of the settings.
      *
      * @param string $link
      * @param string $title
      * @param array $options
      * @return array
      */
-    final protected function prepareReplacements(string $link, string $title, array $options = []): array
+    final protected function retrieveReplacements(string $link, string $title, array $options = []): array
     {
         $initialReplacements = [
             'url' => $link,
