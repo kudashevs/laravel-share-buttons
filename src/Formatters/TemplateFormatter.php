@@ -137,35 +137,6 @@ class TemplateFormatter implements Formatter
     }
 
     /**
-     * @return array<string, string>
-     */
-    private function prepareElementAttributes(array $options): array
-    {
-        $existingAttributes = $this->retrieveExistingAttributes();
-
-        return array_intersect_key($options, $existingAttributes) + $existingAttributes;
-    }
-
-    /**
-     * @return array<string, string>
-     */
-    private function retrieveExistingAttributes(): array
-    {
-        return array_fill_keys(array_keys(self::DIFFERENT_ATTRIBUTE_FORMATS), '');
-    }
-
-    private function formatElementAttribute(string $name, string $value): string
-    {
-        if ($value === '') {
-            return '';
-        }
-
-        $format = ' ' . self::DIFFERENT_ATTRIBUTE_FORMATS[$name];
-
-        return sprintf($format, $value);
-    }
-
-    /**
      * @inheritDoc
      */
     public function getBlockPrefix(): string
