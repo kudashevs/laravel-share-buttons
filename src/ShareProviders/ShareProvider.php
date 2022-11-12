@@ -99,7 +99,7 @@ abstract class ShareProvider
     {
         $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
 
-        return array_map(static function ($value) {
+        return array_map(static function (string $value) {
             return urlencode($value);
         }, array_merge($extra, $options));
     }
