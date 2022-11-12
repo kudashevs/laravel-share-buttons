@@ -126,11 +126,9 @@ class TemplateFormatter implements Formatter
     {
         $formattedAttributes = [];
         foreach (self::DIFFERENT_ATTRIBUTE_FORMATS as $name => $format) {
-            if (isset($attributes[$name])) {
-                $formattedAttributes[$name] = sprintf($format, $attributes[$name]);
-            } else {
-                $formattedAttributes[$name] = '';
-            }
+            $formattedAttributes[$name] = isset($attributes[$name])
+                ? sprintf($format, $attributes[$name])
+                : '';
         }
 
         return $formattedAttributes;
