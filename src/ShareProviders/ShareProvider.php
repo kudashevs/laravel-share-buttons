@@ -88,11 +88,16 @@ abstract class ShareProvider
     {
         $text = config('share-buttons.providers.' . $this->name . '.text', '');
 
-        $result = (empty($title) && !empty($text))
+        $result = ($this->isEmptyTitle($title))
             ? $text
             : $title;
 
         return urlencode($result);
+    }
+
+    protected function isEmptyTitle(string $title): bool
+    {
+        return trim($title) === '';
     }
 
     protected function prepareExtras(array $options): array
