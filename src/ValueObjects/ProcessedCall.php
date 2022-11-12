@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kudashevs\ShareButtons\ValueObjects;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidProcessedCallArgumentException;
