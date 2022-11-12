@@ -99,18 +99,17 @@ class TemplateFormatter implements Formatter
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     private function retrieveElementReplacements(string $url, array $options): array
     {
+        $replacements = ['url' => $url];
         $attributes = $this->retrieveAttributes($options);
 
-        $replacements = ['url' => $url];
-        foreach ($attributes as $name => $format) {
-            $replacements[$name] = $this->formatElementAttribute($name, $format);
-        }
-
-        return $replacements;
+        return array_merge(
+            $replacements,
+            $attributes,
+        );
     }
 
     /**
@@ -118,7 +117,9 @@ class TemplateFormatter implements Formatter
      */
     private function retrieveAttributes(array $options): array
     {
-        return array_merge($this->attributes, $options);
+        $attributes = array_merge($this->attributes, $options);
+
+        return $this->formatAttributes($attributes);
     }
 
     public function formatAttributes(array $attributes): array
