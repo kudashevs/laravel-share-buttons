@@ -22,9 +22,6 @@ abstract class ShareProvider
 
     protected Templater $templater;
 
-    /**
-     * @param string $name
-     */
     final public function __construct()
     {
         $this->checkInternals();
