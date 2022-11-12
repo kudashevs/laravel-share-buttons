@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons;
 
 use BadMethodCallException;
+use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Formatters\Formatter;
-use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**

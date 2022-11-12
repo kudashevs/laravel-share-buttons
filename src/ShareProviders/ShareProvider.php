@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons\ShareProviders;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidProviderException;
+use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 

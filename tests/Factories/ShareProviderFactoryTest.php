@@ -1,11 +1,11 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\ShareProviders;
+namespace Kudashevs\ShareButtons\Tests\Factories;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
+use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\ShareProviders\Providers\CopyLink;
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
-use Kudashevs\ShareButtons\ShareProviders\ShareProviderFactory;
 use PHPUnit\Framework\TestCase;
 
 class ShareProviderFactoryTest extends TestCase
