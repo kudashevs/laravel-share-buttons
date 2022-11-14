@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Skype;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class SkypeTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class SkypeTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('skype');
+        $this->provider = Skype::create();
 
         parent::setUp();
     }

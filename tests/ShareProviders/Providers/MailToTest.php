@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\MailTo;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class MailToTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class MailToTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('mailto');
+        $this->provider = MailTo::create();
 
         parent::setUp();
     }

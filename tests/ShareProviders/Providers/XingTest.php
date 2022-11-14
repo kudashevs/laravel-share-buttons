@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Xing;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class XingTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class XingTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('xing');
+        $this->provider = Xing::create();
 
         parent::setUp();
     }

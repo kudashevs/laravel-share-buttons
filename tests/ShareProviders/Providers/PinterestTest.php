@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Pinterest;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class PinterestTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class PinterestTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('pinterest');
+        $this->provider = Pinterest::create();
 
         parent::setUp();
     }

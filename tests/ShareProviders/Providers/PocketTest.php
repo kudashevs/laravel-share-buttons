@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Pocket;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class PocketTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class PocketTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('pocket');
+        $this->provider = Pocket::create();
 
         parent::setUp();
     }

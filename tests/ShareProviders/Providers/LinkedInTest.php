@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\LinkedIn;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class LinkedInTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class LinkedInTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('linkedin');
+        $this->provider = LinkedIn::create();
 
         parent::setUp();
     }

@@ -51,13 +51,6 @@ final class ShareProviderFactory
      *
      * @throws InvalidFactoryArgumentException
      */
-    public static function createFromName(string $name): ShareProvider
-    {
-        $class = self::resolveClass($name);
-
-        return $class::create();
-    }
-
     public static function createFromMethodCall(
         string $name,
         string $page,

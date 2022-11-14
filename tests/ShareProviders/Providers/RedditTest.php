@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Reddit;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class RedditTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class RedditTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('reddit');
+        $this->provider = Reddit::create();
 
         parent::setUp();
     }

@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class FacebookTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class FacebookTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('facebook');
+        $this->provider = Facebook::create();
 
         parent::setUp();
     }

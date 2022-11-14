@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders\Providers;
 
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Vkontakte;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class VkontakteTest extends ExtendedTestCase
@@ -11,7 +11,7 @@ class VkontakteTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        $this->provider = ShareProviderFactory::createFromName('vkontakte');
+        $this->provider = Vkontakte::create();
 
         parent::setUp();
     }
