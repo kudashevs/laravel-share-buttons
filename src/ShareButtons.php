@@ -30,6 +30,8 @@ use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
  */
 class ShareButtons
 {
+    protected Formatter $formatter;
+
     /**
      * The url of a page to share.
      */
@@ -39,8 +41,6 @@ class ShareButtons
      * Optional text for Twitter and Linkedin title.
      */
     protected string $title;
-
-    protected Formatter $formatter;
 
     /**
      * Extra runtime options.
