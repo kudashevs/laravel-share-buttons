@@ -55,7 +55,7 @@ final class ShareProviderFactory
     {
         $class = self::resolveClass($name);
 
-        return new $class($name);
+        return new $class();
     }
 
     private static function resolveClass(string $name): string
