@@ -27,6 +27,14 @@ abstract class ShareProvider
     }
 
     /**
+     * @return ShareProvider
+     */
+    public static function create(): ShareProvider
+    {
+        return new static();
+    }
+
+    /**
      * @throws InvalidProviderException
      */
     protected function checkInternals(): void
