@@ -119,6 +119,7 @@ class ShareButtons
      */
     protected function clearState(): void
     {
+        $this->providers = [];
         $this->calls = [];
     }
 
@@ -176,6 +177,15 @@ class ShareButtons
             );
 
             $this->rememberProcessedCalls($name, $url, $preparedArguments);
+
+            $provider = ShareProviderFactory::createFromMethodCall(
+                $name,
+                $this->page,
+                $this->title,
+                $preparedArguments,
+            );
+
+            $this->rememberProcessedProvider($provider);
 
             return $this;
         }
@@ -266,9 +276,9 @@ class ShareButtons
      */
     public function getRawLinks(): array
     {
-        return array_map(static function ($call) {
-            return $call->getUrl();
-        }, $this->calls);
+        return array_map(static function ($provider) {
+            return $provider->getUrl();
+        }, $this->providers);
     }
 
     /**
@@ -295,13 +305,13 @@ class ShareButtons
     {
         $representation = $this->formatter->getBlockPrefix();
 
-        /** @var ProcessedCall $call */
-        foreach ($this->calls as $call) {
+        /** @var ShareProvider $provider */
+        foreach ($this->providers as $provider) {
             $representation .= $this->formatter->getElementPrefix();
-            $representation .= $this->formatter->formatElement(
-                $call->getProvider(),
-                $call->getUrl(),
-                $call->getOptions()
+            $representation .= $this->formatter->getElementBody(
+                $provider->getName(),
+                $provider->getUrl(),
+                $provider->getOptions(),
             );
             $representation .= $this->formatter->getElementSuffix();
         }
