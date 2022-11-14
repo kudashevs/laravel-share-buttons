@@ -35,6 +35,20 @@ abstract class ShareProvider
     }
 
     /**
+     * @param string $page
+     * @param string $title
+     * @param array $arguments
+     * @return ShareProvider
+     */
+    public static function createFromMethodCall(string $page, string $title, array $arguments): ShareProvider
+    {
+        $instance = new static();
+        $instance->buildUrl($page, $title, $arguments);
+
+        return $instance;
+    }
+
+    /**
      * @throws InvalidProviderException
      */
     protected function checkInternals(): void
