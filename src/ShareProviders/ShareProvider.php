@@ -19,7 +19,7 @@ abstract class ShareProvider
 
     protected array $options = [];
 
-    final public function __construct()
+    protected function __construct()
     {
         $this->checkInternals();
 
