@@ -65,10 +65,8 @@ final class ShareProviderFactory
         array $arguments
     ): ShareProvider {
         $class = self::resolveClass($name);
-        $instance = new $class();
-        $instance->buildUrl($page, $title, $arguments);
 
-        return $instance;
+        return $class::createFromMethodCall($page, $title, $arguments);
     }
 
     private static function resolveClass(string $name): string
