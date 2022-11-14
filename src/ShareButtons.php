@@ -8,7 +8,6 @@ use BadMethodCallException;
 use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Formatters\Formatter;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
-use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
  * @todo don't forget to update these method signatures
@@ -55,11 +54,6 @@ class ShareButtons
      * Contain processed share providers.
      */
     protected array $providers = [];
-
-    /**
-     * Contain processed calls.
-     */
-    protected array $calls = [];
 
     /**
      * Share constructor.
@@ -120,7 +114,6 @@ class ShareButtons
     protected function clearState(): void
     {
         $this->providers = [];
-        $this->calls = [];
     }
 
     /**
@@ -167,16 +160,6 @@ class ShareButtons
     {
         if ($this->isRegisteredProvider($name)) {
             $preparedArguments = $this->retrieveArguments($arguments);
-
-            $provider = ShareProviderFactory::createFromName($name);
-
-            $url = $provider->buildUrl(
-                $this->page,
-                $this->title,
-                $preparedArguments
-            );
-
-            $this->rememberProcessedCalls($name, $url, $preparedArguments);
 
             $provider = ShareProviderFactory::createFromMethodCall(
                 $name,
@@ -228,15 +211,6 @@ class ShareButtons
          * make sure that the information about a previous provider's call might be overwritten.
          */
         $this->providers[$provider->getName()] = $provider;
-    }
-
-    protected function rememberProcessedCalls(string $provider, string $url, array $options = []): void
-    {
-        /**
-         * Since a share provider button can be displayed only once, there is no need to keep track and
-         * make sure that the information about a previous provider's call might be overwritten.
-         */
-        $this->calls[$provider] = new ProcessedCall($provider, $url, $options);
     }
 
     protected function handleUnexpectedCall(string $name): ShareButtons
