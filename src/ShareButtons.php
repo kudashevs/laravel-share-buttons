@@ -7,6 +7,7 @@ namespace Kudashevs\ShareButtons;
 use BadMethodCallException;
 use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Formatters\Formatter;
+use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
@@ -49,6 +50,11 @@ class ShareButtons
         'reactOnErrors' => false,
         'throwException' => BadMethodCallException::class,
     ];
+
+    /**
+     * Contain processed share providers.
+     */
+    protected array $providers = [];
 
     /**
      * Contain processed calls.
@@ -200,12 +206,20 @@ class ShareButtons
     }
 
     /**
-     * Remember processed calls.
+     * Remember a processed share provider.
      *
-     * @param string $provider
-     * @param string $url
-     * @param array $options
+     * @param ShareProvider $provider
+     * @return void
      */
+    protected function rememberProcessedProvider(ShareProvider $provider): void
+    {
+        /**
+         * Since a share provider button can be displayed only once, there is no need to keep track and
+         * make sure that the information about a previous provider's call might be overwritten.
+         */
+        $this->providers[$provider->getName()] = $provider;
+    }
+
     protected function rememberProcessedCalls(string $provider, string $url, array $options = []): void
     {
         /**
