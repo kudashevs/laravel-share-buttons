@@ -142,6 +142,6 @@ return [
     */
 
     'reactOnErrors' => true,
-    'throwException' => \Error::class,
+    'throwException' => \BadMethodCallException::class,
 
 ];

@@ -153,7 +153,8 @@ class ShareButtons
      * @param string $name
      * @param array $arguments
      * @return $this
-     * @throws \Error
+     *
+     * @throws BadMethodCallException
      */
     public function __call(string $name, array $arguments)
     {
