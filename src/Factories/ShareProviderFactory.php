@@ -55,7 +55,7 @@ final class ShareProviderFactory
     {
         $class = self::resolveClass($name);
 
-        return new $class();
+        return $class::create();
     }
 
     public static function createFromMethodCall(
