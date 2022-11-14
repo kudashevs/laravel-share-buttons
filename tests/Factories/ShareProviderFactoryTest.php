@@ -6,10 +6,15 @@ use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
 use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\ShareProviders\Providers\CopyLink;
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
-use PHPUnit\Framework\TestCase;
+use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class ShareProviderFactoryTest extends TestCase
+class ShareProviderFactoryTest extends ExtendedTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp(); // it goes first to set up an application
+    }
+
     /** @test */
     public function it_can_throw_exception_when_an_unknown_name_is_provided()
     {
@@ -37,6 +42,14 @@ class ShareProviderFactoryTest extends TestCase
     public function it_can_create_a_specific_instance_from_a_known_name()
     {
         $provider = ShareProviderFactory::createFromName('facebook');
+
+        $this->assertInstanceOf(Facebook::class, $provider);
+    }
+
+    /** @test */
+    public function it_can_create_a_specific_instance_from_a_method_call()
+    {
+        $provider = ShareProviderFactory::createFromMethodCall('facebook', 'https://mysite.com', 'title', []);
 
         $this->assertInstanceOf(Facebook::class, $provider);
     }
