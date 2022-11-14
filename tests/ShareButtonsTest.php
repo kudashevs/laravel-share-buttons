@@ -115,6 +115,7 @@ class ShareButtonsTest extends ExtendedTestCase
 
         $this->assertStringContainsString(urlencode($expected), (string)$result);
     }
+
     /** @test */
     public function it_can_generate_one_link_with_page_method()
     {
