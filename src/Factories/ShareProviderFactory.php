@@ -35,11 +35,6 @@ final class ShareProviderFactory
     {
     }
 
-    public static function isValidProvider(string $name, string $class): bool
-    {
-        return self::isValidProviderName($name) && self::PROVIDERS[$name] === $class;
-    }
-
     public static function isValidProviderName(string $name): bool
     {
         return array_key_exists($name, self::PROVIDERS);
