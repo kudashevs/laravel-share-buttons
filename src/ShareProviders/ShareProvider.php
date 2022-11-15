@@ -141,7 +141,7 @@ abstract class ShareProvider
      * @param array $options
      * @return array
      */
-    final protected function retrieveReplacements(string $link, string $title, array $options = []): array
+    protected function retrieveReplacements(string $link, string $title, array $options = []): array
     {
         $initialReplacements = [
             'url' => $link,
