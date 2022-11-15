@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Formatters;
 
+use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use Kudashevs\ShareButtons\Templaters\ColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
@@ -91,10 +92,10 @@ class TemplateFormatter implements Formatter
     /**
      * @inheritDoc
      */
-    public function formatElement(string $provider, string $url, array $options = []): string
+    public function getElementBody(ShareProvider $provider): string
     {
-        $template = $this->retrieveElementTemplate($provider);
-        $replacements = $this->retrieveElementReplacements($url, $options);
+        $template = $this->retrieveElementTemplate($provider->getName());
+        $replacements = $this->retrieveElementReplacements($provider->getUrl(), $provider->getOptions());
 
         return $this->templater->process($template, $replacements);
     }

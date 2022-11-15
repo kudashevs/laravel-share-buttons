@@ -282,11 +282,7 @@ class ShareButtons
         /** @var ShareProvider $provider */
         foreach ($this->providers as $provider) {
             $representation .= $this->formatter->getElementPrefix();
-            $representation .= $this->formatter->getElementBody(
-                $provider->getName(),
-                $provider->getUrl(),
-                $provider->getOptions(),
-            );
+            $representation .= $this->formatter->getElementBody($provider);
             $representation .= $this->formatter->getElementSuffix();
         }
 

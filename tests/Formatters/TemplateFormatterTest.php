@@ -3,6 +3,7 @@
 namespace Kudashevs\ShareButtons\Tests\Formatters;
 
 use Kudashevs\ShareButtons\Formatters\TemplateFormatter;
+use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateFormatterTest extends ExtendedTestCase
@@ -204,10 +205,10 @@ class TemplateFormatterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_default_styling()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $provider = Facebook::createFromMethodCall('https://mysite.com', 'test', []);
 
-        $result = $this->formatter->formatElement('facebook',
-            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
+        $result = $this->formatter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -216,12 +217,11 @@ class TemplateFormatterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_custom_styling_from_formatter_options()
     {
+        $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
+        $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
         $this->formatter->updateOptions(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
-        $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
-
-        $result = $this->formatter->formatElement('facebook',
-            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com', []);
+        $result = $this->formatter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -231,9 +231,14 @@ class TemplateFormatterTest extends ExtendedTestCase
      * @test
      * @dataProvider provide_different_styling_for_a_link
      */
-    public function it_can_format_a_link_with_custom_styling_from_call_options($url, $options, $expected)
-    {
-        $result = $this->formatter->formatElement('facebook', $url, $options);
+    public function it_can_format_a_link_with_custom_styling_from_call_options(
+        $page,
+        $options,
+        $expected
+    ) {
+        $provider = Facebook::createFromMethodCall($page, 'Title', $options);
+
+        $result = $this->formatter->getElementBody($provider);
 
         $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
@@ -242,29 +247,42 @@ class TemplateFormatterTest extends ExtendedTestCase
     {
         return [
             'check class option' => [
-                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
-                ['class' => 'tested'],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>',
+                'https://mysite.com',
+                [
+                    'class' => 'tested',
+                ],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check id option' => [
-                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
-                ['id' => 'tested'],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                'https://mysite.com',
+                [
+                    'id' => 'tested',
+                ],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check title option' => [
-                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
-                ['title' => 'tested'],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                'https://mysite.com',
+                [
+                    'title' => 'tested',
+                ],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check rel option' => [
-                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
-                ['rel' => 'nofollow'],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                'https://mysite.com',
+                [
+                    'rel' => 'nofollow',
+                ],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check mass options' => [
-                'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
-                ['rel' => 'nofollow', 'title' => 'Title', 'id' => 'click', 'class' => 'hover active'],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                'https://mysite.com',
+                [
+                    'rel' => 'nofollow',
+                    'title' => 'Title',
+                    'id' => 'click',
+                    'class' => 'hover active',
+                ],
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
             ],
         ];
     }
@@ -272,11 +290,17 @@ class TemplateFormatterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_format_an_element_with_custom_styling_from_call_options()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $provider = Facebook::createFromMethodCall(
+            'https://mysite.com',
+            'Title',
+            [
+                'element_prefix' => '<p>',
+                'element_suffix' => '</p>',
+            ]
+        );
 
-        $result = $this->formatter->formatElement('facebook',
-            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
-            ['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+        $result = $this->formatter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -285,7 +309,17 @@ class TemplateFormatterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_override_arguments_by_options()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
+        $provider = Facebook::createFromMethodCall(
+            'https://mysite.com',
+            'Title',
+            [
+                'class' => 'arguments',
+                'id' => 'arguments',
+                'title' => 'arguments',
+                'rel' => 'arguments',
+            ]
+        );
         $this->formatter->updateOptions([
             'class' => 'options',
             'id' => 'options',
@@ -293,15 +327,7 @@ class TemplateFormatterTest extends ExtendedTestCase
             'rel' => 'options',
         ]);
 
-        $result = $this->formatter->formatElement(
-            'facebook',
-            'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com',
-            [
-                'class' => 'arguments',
-                'id' => 'arguments',
-                'title' => 'arguments',
-                'rel' => 'arguments',
-            ]);
+        $result = $this->formatter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
