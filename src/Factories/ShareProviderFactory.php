@@ -47,6 +47,9 @@ final class ShareProviderFactory
 
     /**
      * @param string $name
+     * @param string $page
+     * @param string $title
+     * @param array $arguments
      * @return ShareProvider
      *
      * @throws InvalidFactoryArgumentException
