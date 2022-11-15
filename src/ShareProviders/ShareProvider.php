@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\ShareProviders;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidProviderException;
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
@@ -21,8 +19,6 @@ abstract class ShareProvider
 
     protected function __construct()
     {
-        $this->checkInternals();
-
         $this->initTemplater();
     }
 
@@ -46,28 +42,6 @@ abstract class ShareProvider
         $instance->buildUrl($page, $title, $arguments);
 
         return $instance;
-    }
-
-    /**
-     * @throws InvalidProviderException
-     */
-    protected function checkInternals(): void
-    {
-        if (!$this->isValidProvider()) {
-            throw new InvalidProviderException(
-                sprintf('The %s is not a valid name for the %s.', $this->name, static::class)
-            );
-        }
-    }
-
-    protected function isValidProvider(): bool
-    {
-        /**
-         * Even though this check may seem too thorough or even exceeding, there is a reason for this.
-         * Because a lot of configurations and styles depend on the internal name of a share provider,
-         * we want to be sure that the internal name corresponds to the exact share provider class.
-         */
-        return ShareProviderFactory::isValidProvider($this->name, static::class);
     }
 
     protected function initTemplater(): void
