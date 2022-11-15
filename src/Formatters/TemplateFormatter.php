@@ -68,7 +68,7 @@ class TemplateFormatter implements Formatter
     public function updateOptions(array $options): void
     {
         $this->initBlockWrappers($options);
-        $this->initElementWrapping($options);
+        $this->initElementWrappers($options);
         $this->initElementAttributes($options);
     }
 
@@ -78,7 +78,7 @@ class TemplateFormatter implements Formatter
         $this->options['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
-    private function initElementWrapping(array $options): void
+    private function initElementWrappers(array $options): void
     {
         $this->options['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
         $this->options['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
