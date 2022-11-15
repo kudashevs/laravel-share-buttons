@@ -20,4 +20,11 @@ final class CopyLink extends ShareProvider
             ? '#'
             : $link;
     }
+
+    protected function retrieveProviderUrl(): string
+    {
+        return (config('share-buttons.providers.' . $this->name . '.extra.hash') === true) // @todo refactor to method
+            ? '#'
+            : config('share-buttons.providers.' . $this->name . '.url', '');
+    }
 }
