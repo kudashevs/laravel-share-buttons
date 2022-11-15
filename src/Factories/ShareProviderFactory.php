@@ -57,12 +57,12 @@ final class ShareProviderFactory
         string $title,
         array $arguments
     ): ShareProvider {
-        $class = self::resolveClass($name);
+        $class = self::resolveShareProviderClass($name);
 
         return $class::createFromMethodCall($page, $title, $arguments);
     }
 
-    private static function resolveClass(string $name): string
+    private static function resolveShareProviderClass(string $name): string
     {
         if (!self::isValidProviderName($name)) {
             throw new InvalidFactoryArgumentException(
