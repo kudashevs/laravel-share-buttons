@@ -128,7 +128,7 @@ abstract class ShareProvider
         return $this->url;
     }
 
-    final protected function retrieveProviderUrl(): string
+    protected function retrieveProviderUrl(): string
     {
         return config('share-buttons.providers.' . $this->name . '.url', '');
     }
