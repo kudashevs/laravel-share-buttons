@@ -19,10 +19,10 @@ class CopyLinkTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = CopyLink::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://mysite.com';
 
-        $this->assertEquals($expected, $result);
+        $this->assertSame($expected, $result->getUrl());
     }
 
     /** @test */
@@ -30,9 +30,9 @@ class CopyLinkTest extends ExtendedTestCase
     {
         config()->set('share-buttons.providers.copylink.extra.hash', true);
 
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = CopyLink::createFromMethodCall('https://mysite.com', '', []);
         $expected = '#';
 
-        $this->assertEquals($expected, $result);
+        $this->assertSame($expected, $result->getUrl());
     }
 }

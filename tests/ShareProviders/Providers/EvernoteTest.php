@@ -19,18 +19,18 @@ class EvernoteTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = Evernote::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://www.evernote.com/clip.action?url=https://mysite.com&t=Default+share+text';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 
     /** @test */
     public function it_can_generate_a_share_link_with_custom_title()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
+        $result = Evernote::createFromMethodCall('https://mysite.com', 'Title', []);
         $expected = 'https://www.evernote.com/clip.action?url=https://mysite.com&t=Title';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 }

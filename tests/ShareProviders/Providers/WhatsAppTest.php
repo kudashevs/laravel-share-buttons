@@ -19,9 +19,9 @@ class WhatsAppTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = WhatsApp::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://wa.me/?text=https://mysite.com';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 }

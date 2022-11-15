@@ -19,18 +19,18 @@ class FacebookTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = Facebook::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 
     /** @test */
     public function it_can_generate_a_share_link_with_custom_title()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
+        $result = Facebook::createFromMethodCall('https://mysite.com', 'Title', []);
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 }

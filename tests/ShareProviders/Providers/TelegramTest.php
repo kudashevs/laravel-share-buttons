@@ -19,18 +19,18 @@ class TelegramTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = Telegram::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://telegram.me/share/url?url=https://mysite.com&text=Default+share+text';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 
     /** @test */
     public function it_can_generate_a_share_link_with_custom_title()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
+        $result = Telegram::createFromMethodCall('https://mysite.com', 'Title', []);
         $expected = 'https://telegram.me/share/url?url=https://mysite.com&text=Title';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 }

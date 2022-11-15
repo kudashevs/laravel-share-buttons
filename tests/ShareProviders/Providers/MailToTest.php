@@ -19,18 +19,18 @@ class MailToTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = MailTo::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'mailto:?subject=Default+share+text&body=https://mysite.com';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 
     /** @test */
     public function it_can_generate_a_share_link_with_custom_title()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', 'Title', []);
+        $result = MailTo::createFromMethodCall('https://mysite.com', 'Title', []);
         $expected = 'mailto:?subject=Title&body=https://mysite.com';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 }

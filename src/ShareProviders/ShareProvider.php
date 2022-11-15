@@ -110,13 +110,7 @@ abstract class ShareProvider
         return $this->options;
     }
 
-    /**
-     * @param string $link
-     * @param string $title
-     * @param array $options
-     * @return string
-     */
-    public function buildUrl(string $link, string $title, array $options): string
+    protected function buildUrl(string $link, string $title, array $options): string
     {
         $this->options = $options;
 

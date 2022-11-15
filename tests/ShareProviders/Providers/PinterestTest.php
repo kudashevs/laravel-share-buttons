@@ -19,9 +19,9 @@ class PinterestTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = $this->provider->buildUrl('https://mysite.com', '', []);
+        $result = Pinterest::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://pinterest.com/pin/create/button/?url=https://mysite.com';
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $result->getUrl());
     }
 }
