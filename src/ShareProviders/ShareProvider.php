@@ -116,7 +116,17 @@ abstract class ShareProvider
      * @param array $options
      * @return string
      */
-    abstract public function buildUrl(string $link, string $title, array $options): string;
+    public function buildUrl(string $link, string $title, array $options): string
+    {
+        $this->options = $options;
+
+        $template = $this->retrieveProviderUrl();
+        $replacements = $this->retrieveReplacements($link, $title, $options);
+
+        $this->url = $this->templater->process($template, $replacements);
+
+        return $this->url;
+    }
 
     final protected function retrieveProviderUrl(): string
     {
