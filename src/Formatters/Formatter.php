@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Formatters;
 
+use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
+
 interface Formatter
 {
     /**
@@ -13,12 +15,10 @@ interface Formatter
     public function updateOptions(array $options);
 
     /**
-     * @param string $provider
-     * @param string $url
-     * @param array $options
+     * @param ShareProvider $provider
      * @return string
      */
-    public function getElementBody(string $provider, string $url, array $options): string;
+    public function getElementBody(ShareProvider $provider): string;
 
     /**
      * @return string
