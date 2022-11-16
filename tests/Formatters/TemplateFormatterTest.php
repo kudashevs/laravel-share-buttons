@@ -27,7 +27,7 @@ class TemplateFormatterTest extends ExtendedTestCase
      * @param string $method
      * @param string $expected
      */
-    public function it_can_setup_values_from_options(array $options, string $method, string $expected)
+    public function it_can_set_values_from_options(array $options, string $method, string $expected)
     {
         $this->formatter->updateOptions($options);
 
