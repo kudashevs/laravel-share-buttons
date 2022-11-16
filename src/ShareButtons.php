@@ -159,7 +159,7 @@ class ShareButtons
     /**
      * @param string $name
      * @param array $arguments
-     * @return $this
+     * @return ShareButtons
      *
      * @throws BadMethodCallException
      */
