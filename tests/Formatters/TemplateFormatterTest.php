@@ -307,7 +307,7 @@ class TemplateFormatterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_cannot_override_arguments_by_options()
+    public function it_cannot_override_arguments_with_options()
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
         $provider = Facebook::createFromMethodCall(
