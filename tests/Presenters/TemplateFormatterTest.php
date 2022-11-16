@@ -1,8 +1,8 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\Formatters;
+namespace Kudashevs\ShareButtons\Tests\Presenters;
 
-use Kudashevs\ShareButtons\Formatters\TemplateFormatter;
+use Kudashevs\ShareButtons\Presenters\TemplateFormatter;
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 

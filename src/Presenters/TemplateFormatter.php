@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kudashevs\ShareButtons\Formatters;
+namespace Kudashevs\ShareButtons\Presenters;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use Kudashevs\ShareButtons\Templaters\ColonTemplater;
