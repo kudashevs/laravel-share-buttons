@@ -10,9 +10,9 @@ interface ShareButtonsPresenter
 {
     /**
      * @param array $options
-     * @return void|bool
+     * @return void
      */
-    public function updateOptions(array $options);
+    public function refreshStyling(array $options);
 
     /**
      * @param ShareProvider $provider

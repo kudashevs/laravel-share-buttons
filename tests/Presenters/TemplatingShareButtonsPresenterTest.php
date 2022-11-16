@@ -26,7 +26,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
      */
     public function it_can_set_values_from_options(array $options, string $method, string $expected)
     {
-        $this->formatter->updateOptions($options);
+        $this->formatter->refreshStyling($options);
 
         $result = $this->formatter->$method();
 
@@ -159,7 +159,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     {
         $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
         $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
-        $this->formatter->updateOptions(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+        $this->formatter->refreshStyling(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
         $result = $this->formatter->getElementBody($provider);
 
@@ -260,7 +260,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
                 'rel' => 'arguments',
             ]
         );
-        $this->formatter->updateOptions([
+        $this->formatter->refreshStyling([
             'class' => 'options',
             'id' => 'options',
             'title' => 'options',

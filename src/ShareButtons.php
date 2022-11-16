@@ -110,7 +110,7 @@ class ShareButtons
         $this->page = $url;
         $this->title = $title;
 
-        $this->presenter->updateOptions($options);
+        $this->presenter->refreshStyling($options);
 
         return $this;
     }

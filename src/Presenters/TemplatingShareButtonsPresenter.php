@@ -59,13 +59,13 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
 
     private function initOptions(array $options): void
     {
-        $this->updateOptions($options);
+        $this->refreshStyling($options);
     }
 
     /**
      * @inheritDoc
      */
-    public function updateOptions(array $options): void
+    public function refreshStyling(array $options): void
     {
         $this->initBlockWrappers($options);
         $this->initElementWrappers($options);
