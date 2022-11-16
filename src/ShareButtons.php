@@ -39,7 +39,7 @@ class ShareButtons
     protected string $page;
 
     /**
-     * Optional text for Twitter and Linkedin title.
+     * Optional text for some share providers.
      */
     protected string $title;
 
