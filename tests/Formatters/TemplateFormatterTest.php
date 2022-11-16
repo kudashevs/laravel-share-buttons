@@ -36,42 +36,72 @@ class TemplateFormatterTest extends ExtendedTestCase
     public function provideDifferentStylingOptions()
     {
         return [
-            'block_prefix option is not empty' => [
+            'block_prefix option with open div results in open div' => [
                 ['block_prefix' => '<div>'],
                 'getBlockPrefix',
                 '<div>',
             ],
-            'block_prefix option is empty' => [
-                ['block_prefix' => ''],
-                'getBlockPrefix',
-                '',
-            ],
-            'block_suffix option is not empty' => [
+            'block_suffix option with close div results in close div' => [
                 ['block_suffix' => '</div>'],
                 'getBlockSuffix',
                 '</div>',
             ],
-            'block_suffix option is empty' => [
+            'block_prefix option with open p results in open p' => [
+                ['block_prefix' => '<p>'],
+                'getBlockPrefix',
+                '<p>',
+            ],
+            'block_prefix option with close p results in close p' => [
+                ['block_suffix' => '</p>'],
+                'getBlockSuffix',
+                '</p>',
+            ],
+            'block_prefix option with open article results in open article' => [
+                ['element_prefix' => '<article>'],
+                'getElementPrefix',
+                '<article>',
+            ],
+            'block_prefix option with close article results in close article' => [
+                ['element_suffix' => '</article>'],
+                'getElementSuffix',
+                '</article>',
+            ],
+            'block_prefix option with empty string results in empty string' => [
+                ['block_prefix' => ''],
+                'getBlockPrefix',
+                '',
+            ],
+            'block_suffix option with empty string results in empty string' => [
                 ['block_suffix' => ''],
                 'getBlockSuffix',
                 '',
             ],
-            'element_prefix option is not empty' => [
+            'element_prefix option with open p results in open p' => [
                 ['element_prefix' => '<p>'],
                 'getElementPrefix',
                 '<p>',
             ],
-            'element_prefix option is empty' => [
-                ['element_prefix' => ''],
-                'getElementPrefix',
-                '',
-            ],
-            'element_suffix option is not empty' => [
+            'element_suffix option with close p results in close p' => [
                 ['element_suffix' => '</p>'],
                 'getElementSuffix',
                 '</p>',
             ],
-            'element_suffix option is empty' => [
+            'element_prefix option with open span results in open span' => [
+                ['element_prefix' => '<span>'],
+                'getElementPrefix',
+                '<span>',
+            ],
+            'element_suffix option with close span results in close span' => [
+                ['element_suffix' => '</span>'],
+                'getElementSuffix',
+                '</span>',
+            ],
+            'element_prefix option with empty string results in empty string' => [
+                ['element_prefix' => ''],
+                'getElementPrefix',
+                '',
+            ],
+            'element_suffix option with empty string results in empty string' => [
                 ['element_suffix' => ''],
                 'getElementSuffix',
                 '',
