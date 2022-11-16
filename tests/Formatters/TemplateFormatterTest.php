@@ -142,48 +142,6 @@ class TemplateFormatterTest extends ExtendedTestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider provide_different_formatter_setup_from_options_for_styling
-     * @param array $options
-     * @param string $method
-     * @param string $expected
-     */
-    public function it_can_return_formatter_styling_from_options(array $options, string $method, string $expected)
-    {
-        $this->formatter->updateOptions($options);
-
-        $result = $this->formatter->$method();
-
-        $this->assertSame($expected, $result);
-    }
-
-    public function provide_different_formatter_setup_from_options_for_styling()
-    {
-        return [
-            'getBlockPrefix method' => [
-                ['block_prefix' => '<p>'],
-                'getBlockPrefix',
-                '<p>',
-            ],
-            'getBlockSuffix method' => [
-                ['block_suffix' => '</p>'],
-                'getBlockSuffix',
-                '</p>',
-            ],
-            'getElementPrefix method' => [
-                ['element_prefix' => '<article>'],
-                'getElementPrefix',
-                '<article>',
-            ],
-            'getElementSuffix method' => [
-                ['element_suffix' => '</article>'],
-                'getElementSuffix',
-                '</article>',
-            ],
-        ];
-    }
-
     /** @test */
     public function it_can_format_an_element_with_default_styling()
     {
