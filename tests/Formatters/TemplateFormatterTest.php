@@ -115,8 +115,6 @@ class TemplateFormatterTest extends ExtendedTestCase
      */
     public function it_can_set_default_values_without_options(string $method, string $expected)
     {
-        $expected = config($configuration);
-
         $result = $this->formatter->$method();
 
         $this->assertSame($expected, $result);
@@ -125,25 +123,21 @@ class TemplateFormatterTest extends ExtendedTestCase
     public function provideDifferentGetStylingMethods()
     {
         return [
-            'default block_prefix' => [
-                'share-buttons.block_prefix',
+            'block_prefix results in the default' => [
                 'getBlockPrefix',
-                'block_prefix',
+                '<div id="social-links"><ul>',
             ],
-            'default block_suffix' => [
-                'share-buttons.block_suffix',
+            'block_suffix results in the default' => [
                 'getBlockSuffix',
-                'block_suffix',
+                '</ul></div>',
             ],
-            'default element_prefix' => [
-                'share-buttons.element_prefix',
+            'element_prefix results in the default' => [
                 'getElementPrefix',
-                'element_prefix',
+                '<li>',
             ],
-            'default element_suffix' => [
-                'share-buttons.element_suffix',
+            'element_suffix results in the default' => [
                 'getElementSuffix',
-                'element_suffix',
+                '</li>',
             ],
         ];
     }
