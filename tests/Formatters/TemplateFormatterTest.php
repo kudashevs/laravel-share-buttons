@@ -165,43 +165,6 @@ class TemplateFormatterTest extends ExtendedTestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider provide_different_formatter_setup_from_config_for_styling
-     * @param string $configuration
-     * @param string $method
-     */
-    public function it_can_return_formatter_styling_without_options(string $configuration, string $method)
-    {
-        $expected = config($configuration);
-
-        $result = $this->formatter->$method();
-
-        $this->assertSame($expected, $result);
-    }
-
-    public function provide_different_formatter_setup_from_config_for_styling()
-    {
-        return [
-            'getBlockPrefix method' => [
-                'share-buttons.block_prefix',
-                'getBlockPrefix',
-            ],
-            'getBlockSuffix method' => [
-                'share-buttons.block_suffix',
-                'getBlockSuffix',
-            ],
-            'getElementPrefix method' => [
-                'share-buttons.element_prefix',
-                'getElementPrefix',
-            ],
-            'getElementSuffix method' => [
-                'share-buttons.element_suffix',
-                'getElementSuffix',
-            ],
-        ];
-    }
-
     /** @test */
     public function it_can_format_an_element_with_default_styling()
     {
