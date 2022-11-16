@@ -172,9 +172,9 @@ class TemplateFormatterTest extends ExtendedTestCase
      * @dataProvider provideShareProviderDifferentStylingOptions
      */
     public function it_can_format_a_link_with_custom_styling_from_call_options(
-        $page,
-        $options,
-        $expected
+        string $page,
+        array $options,
+        string $expected
     ) {
         $provider = Facebook::createFromMethodCall($page, 'Title', $options);
 
