@@ -116,7 +116,7 @@ class ShareButtons
     }
 
     /**
-     * Clear the state of a previous call.
+     * Clear state (delete all previously remembered processed providers).
      */
     protected function clearState(): void
     {
