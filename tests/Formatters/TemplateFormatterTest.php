@@ -88,7 +88,7 @@ class TemplateFormatterTest extends ExtendedTestCase
      * @param string $configuration
      * @param string $method
      */
-    public function it_can_setup_default_values_without_options(string $configuration, string $method)
+    public function it_can_set_default_values_without_options(string $method, string $expected)
     {
         $expected = config($configuration);
 
