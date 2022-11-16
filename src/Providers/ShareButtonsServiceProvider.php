@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Kudashevs\ShareButtons\Presenters\ShareProviderPresenter;
-use Kudashevs\ShareButtons\Presenters\TemplateFormatter;
+use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
+use Kudashevs\ShareButtons\Presenters\TemplatingShareProviderPresenter;
 use Kudashevs\ShareButtons\ShareButtons;
 
 class ShareButtonsServiceProvider extends ServiceProvider
@@ -45,9 +45,9 @@ class ShareButtonsServiceProvider extends ServiceProvider
     }
 
     /**
-     * @return ShareProviderPresenter
+     * @return ShareButtonsPresenter
      */
-    protected function getDefaultFormatter(): ShareProviderPresenter
+    protected function getDefaultFormatter(): ShareButtonsPresenter
     {
         return new TemplateFormatter();
     }

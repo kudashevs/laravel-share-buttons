@@ -8,7 +8,7 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use Kudashevs\ShareButtons\Templaters\ColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
-class TemplatingShareProviderPresenter implements ShareProviderPresenter
+class TemplatingShareProviderPresenter implements ShareButtonsPresenter
 {
     private const DIFFERENT_ATTRIBUTE_FORMATS = [
         'class' => ' %s',
