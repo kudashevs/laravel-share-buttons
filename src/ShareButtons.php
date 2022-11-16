@@ -30,7 +30,7 @@ use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
  */
 class ShareButtons
 {
-    protected ShareProviderPresenter $formatter;
+    protected ShareProviderPresenter $presenter;
 
     /**
      * The url of a page to share.
@@ -63,8 +63,8 @@ class ShareButtons
     {
         $this->initOptions($options);
 
-        $this->formatter = $formatter;
-        $this->formatter->updateOptions($options);
+        $this->presenter = $formatter;
+        $this->presenter->updateOptions($options);
     }
 
     /**
@@ -101,7 +101,7 @@ class ShareButtons
         $this->page = $url;
         $this->title = $title;
 
-        $this->formatter->updateOptions($options);
+        $this->presenter->updateOptions($options);
 
         return $this;
     }
@@ -275,16 +275,16 @@ class ShareButtons
 
     protected function generateShareButtons(): string
     {
-        $representation = $this->formatter->getBlockPrefix();
+        $representation = $this->presenter->getBlockPrefix();
 
         /** @var ShareProvider $provider */
         foreach ($this->providers as $provider) {
-            $representation .= $this->formatter->getElementPrefix();
-            $representation .= $this->formatter->getElementBody($provider);
-            $representation .= $this->formatter->getElementSuffix();
+            $representation .= $this->presenter->getElementPrefix();
+            $representation .= $this->presenter->getElementBody($provider);
+            $representation .= $this->presenter->getElementSuffix();
         }
 
-        $representation .= $this->formatter->getBlockSuffix();
+        $representation .= $this->presenter->getBlockSuffix();
 
         return $representation;
     }
