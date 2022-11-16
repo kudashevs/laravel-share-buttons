@@ -2,14 +2,14 @@
 
 namespace Kudashevs\ShareButtons\Tests\Presenters;
 
-use Kudashevs\ShareButtons\Presenters\TemplateFormatter;
+use Kudashevs\ShareButtons\Presenters\TemplatingShareProviderPresenter;
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class TemplateFormatterTest extends ExtendedTestCase
+class TemplatingShareProviderPresenterTest extends ExtendedTestCase
 {
     /**
-     * @var TemplateFormatter
+     * @var TemplatingShareProviderPresenter
      */
     private $formatter;
 
@@ -17,7 +17,7 @@ class TemplateFormatterTest extends ExtendedTestCase
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->formatter = new TemplateFormatter();
+        $this->formatter = new TemplatingShareProviderPresenter();
     }
 
     /**
