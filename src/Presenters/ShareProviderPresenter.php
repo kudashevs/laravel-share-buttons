@@ -6,7 +6,7 @@ namespace Kudashevs\ShareButtons\Presenters;
 
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
-interface Formatter
+interface ShareProviderPresenter
 {
     /**
      * @param array $options
