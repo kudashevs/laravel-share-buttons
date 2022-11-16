@@ -33,7 +33,7 @@ class TemplatingShareProviderPresenter implements ShareProviderPresenter
      * Contain global element attributes. These are attributes passed to the ShareButtons main method.
      * They will be applied to all the elements, however, if necessary, they could be overridden by
      * the attributes provided to any specific share service methods.
-    */
+     */
     private array $attributes = [];
 
     /**
