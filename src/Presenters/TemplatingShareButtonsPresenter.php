@@ -65,6 +65,38 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @inheritDoc
      */
+    public function getBlockPrefix(): string
+    {
+        return $this->options['block_prefix'];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getBlockSuffix(): string
+    {
+        return $this->options['block_suffix'];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getElementPrefix(): string
+    {
+        return $this->options['element_prefix'];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getElementSuffix(): string
+    {
+        return $this->options['element_suffix'];
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function refreshStyling(array $options): void
     {
         $this->initBlockWrappers($options);
@@ -139,37 +171,5 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         }
 
         return $formattedAttributes;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getBlockPrefix(): string
-    {
-        return $this->options['block_prefix'];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getBlockSuffix(): string
-    {
-        return $this->options['block_suffix'];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getElementPrefix(): string
-    {
-        return $this->options['element_prefix'];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getElementSuffix(): string
-    {
-        return $this->options['element_suffix'];
     }
 }
