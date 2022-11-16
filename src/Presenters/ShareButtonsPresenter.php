@@ -15,12 +15,6 @@ interface ShareButtonsPresenter
     public function refreshStyling(array $options);
 
     /**
-     * @param ShareProvider $provider
-     * @return string
-     */
-    public function getElementBody(ShareProvider $provider): string;
-
-    /**
      * @return string
      */
     public function getBlockPrefix(): string;
@@ -39,4 +33,10 @@ interface ShareButtonsPresenter
      * @return string
      */
     public function getElementSuffix(): string;
+
+    /**
+     * @param ShareProvider $provider
+     * @return string
+     */
+    public function getElementBody(ShareProvider $provider): string;
 }
