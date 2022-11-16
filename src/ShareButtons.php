@@ -7,6 +7,7 @@ namespace Kudashevs\ShareButtons;
 use BadMethodCallException;
 use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Presenters\ShareProviderPresenter;
+use Kudashevs\ShareButtons\Presenters\TemplatingShareProviderPresenter;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
 /**
@@ -61,10 +62,18 @@ class ShareButtons
      */
     public function __construct(ShareProviderPresenter $formatter, array $options = [])
     {
+        $this->initPresenter($options);
         $this->initOptions($options);
+    }
 
-        $this->presenter = $formatter;
-        $this->presenter->updateOptions($options);
+    protected function initPresenter(array $options): void
+    {
+        $this->presenter = $this->createPresenter($options);
+    }
+
+    protected function createPresenter(array $options): ShareProviderPresenter
+    {
+        return new TemplatingShareProviderPresenter($options);
     }
 
     /**
