@@ -22,10 +22,7 @@ class TemplateFormatterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_formatter_setup_from_options
-     * @param array $options
-     * @param string $method
-     * @param string $expected
+     * @dataProvider provideDifferentStylingOptions
      */
     public function it_can_set_values_from_options(array $options, string $method, string $expected)
     {
@@ -36,7 +33,7 @@ class TemplateFormatterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provide_different_formatter_setup_from_options()
+    public function provideDifferentStylingOptions()
     {
         return [
             'block_prefix option is not empty' => [
@@ -84,9 +81,7 @@ class TemplateFormatterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_formatter_setup_from_config
-     * @param string $configuration
-     * @param string $method
+     * @dataProvider provideDifferentGetStylingMethods
      */
     public function it_can_set_default_values_without_options(string $method, string $expected)
     {
@@ -97,7 +92,7 @@ class TemplateFormatterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provide_different_formatter_setup_from_config()
+    public function provideDifferentGetStylingMethods()
     {
         return [
             'default block_prefix' => [
@@ -192,7 +187,7 @@ class TemplateFormatterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_styling_for_a_link
+     * @dataProvider provideShareProviderDifferentStylingOptions
      */
     public function it_can_format_a_link_with_custom_styling_from_call_options(
         $page,
@@ -206,7 +201,7 @@ class TemplateFormatterTest extends ExtendedTestCase
         $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
-    public function provide_different_styling_for_a_link()
+    public function provideShareProviderDifferentStylingOptions()
     {
         return [
             'check class option' => [
