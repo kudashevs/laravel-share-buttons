@@ -166,7 +166,7 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isRegisteredProvider($name)) {
-            $preparedArguments = $this->retrieveArguments($arguments);
+            $preparedArguments = $this->retrieveProviderArguments($arguments);
 
             $provider = ShareProviderFactory::createFromMethodCall(
                 $name,
@@ -191,7 +191,7 @@ class ShareButtons
     /**
      * @return array<string, string>
      */
-    protected function retrieveArguments(array $arguments): array
+    protected function retrieveProviderArguments(array $arguments): array
     {
         if ($this->isAnyArgumentsProvided($arguments)) {
             return array_filter($arguments[0], 'is_string');

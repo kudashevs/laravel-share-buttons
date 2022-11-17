@@ -115,13 +115,18 @@ abstract class ShareProvider
     protected function retrieveReplacements(string $link, string $title, array $arguments = []): array
     {
         $initialReplacements = [
-            'url' => $link,
+            'url' => $this->prepareLink($link),
             'title' => $this->prepareTitle($title),
         ];
 
         $extraReplacements = $this->prepareExtras($arguments);
 
         return array_merge($extraReplacements, $initialReplacements);
+    }
+
+    protected function prepareLink(string $link): string
+    {
+        return $this->isEmptyTitle($link) ? '#' : $link;
     }
 
     protected function prepareTitle(string $title): string
