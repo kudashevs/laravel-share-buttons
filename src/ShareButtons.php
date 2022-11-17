@@ -166,13 +166,13 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isRegisteredProvider($name)) {
-            $preparedArguments = $this->retrieveProviderArguments($arguments);
+            $providerArguments = $this->retrieveProviderArguments($arguments);
 
             $provider = ShareProviderFactory::createFromMethodCall(
                 $name,
                 $this->page,
                 $this->title,
-                $preparedArguments,
+                $providerArguments,
             );
 
             $this->rememberProcessedProvider($provider);
