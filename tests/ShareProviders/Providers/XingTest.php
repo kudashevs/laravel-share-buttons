@@ -19,9 +19,9 @@ class XingTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = Xing::createFromMethodCall('https://mysite.com', '', []);
+        $provider = Xing::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://www.xing.com/spi/shares/new?url=https://mysite.com';
 
-        $this->assertEquals($expected, $result->getUrl());
+        $this->assertEquals($expected, $provider->getUrl());
     }
 }

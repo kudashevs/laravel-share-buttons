@@ -19,18 +19,18 @@ class RedditTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = Reddit::createFromMethodCall('https://mysite.com', '', []);
+        $provider = Reddit::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://www.reddit.com/submit?title=Default+share+text&url=https://mysite.com';
 
-        $this->assertEquals($expected, $result->getUrl());
+        $this->assertEquals($expected, $provider->getUrl());
     }
 
     /** @test */
     public function it_can_generate_a_share_link_with_custom_title()
     {
-        $result = Reddit::createFromMethodCall('https://mysite.com', 'Title', []);
+        $provider = Reddit::createFromMethodCall('https://mysite.com', 'Title', []);
         $expected = 'https://www.reddit.com/submit?title=Title&url=https://mysite.com';
 
-        $this->assertEquals($expected, $result->getUrl());
+        $this->assertEquals($expected, $provider->getUrl());
     }
 }

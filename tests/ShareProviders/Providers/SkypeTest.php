@@ -19,18 +19,18 @@ class SkypeTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = Skype::createFromMethodCall('https://mysite.com', '', []);
+        $provider = Skype::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://web.skype.com/share?url=https://mysite.com&text=Default+share+text&source=button';
 
-        $this->assertEquals($expected, $result->getUrl());
+        $this->assertEquals($expected, $provider->getUrl());
     }
 
     /** @test */
     public function it_can_generate_a_share_link_with_custom_title()
     {
-        $result = Skype::createFromMethodCall('https://mysite.com', 'Title', []);
+        $provider = Skype::createFromMethodCall('https://mysite.com', 'Title', []);
         $expected = 'https://web.skype.com/share?url=https://mysite.com&text=Title&source=button';
 
-        $this->assertEquals($expected, $result->getUrl());
+        $this->assertEquals($expected, $provider->getUrl());
     }
 }

@@ -19,18 +19,18 @@ class HackerNewsTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link()
     {
-        $result = HackerNews::createFromMethodCall('https://mysite.com', '', []);
+        $provider = HackerNews::createFromMethodCall('https://mysite.com', '', []);
         $expected = 'https://news.ycombinator.com/submitlink?t=Default+share+text&u=https://mysite.com';
 
-        $this->assertEquals($expected, $result->getUrl());
+        $this->assertEquals($expected, $provider->getUrl());
     }
 
     /** @test */
     public function it_can_generate_a_share_link_with_custom_title()
     {
-        $result = HackerNews::createFromMethodCall('https://mysite.com', 'Title', []);
+        $provider = HackerNews::createFromMethodCall('https://mysite.com', 'Title', []);
         $expected = 'https://news.ycombinator.com/submitlink?t=Title&u=https://mysite.com';
 
-        $this->assertEquals($expected, $result->getUrl());
+        $this->assertEquals($expected, $provider->getUrl());
     }
 }
