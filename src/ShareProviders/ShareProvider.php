@@ -15,7 +15,7 @@ abstract class ShareProvider
 
     protected string $url = '#';
 
-    protected array $options = [];
+    protected array $arguments = [];
 
     protected function __construct()
     {
@@ -81,12 +81,12 @@ abstract class ShareProvider
      */
     public function getOptions(): array
     {
-        return $this->options;
+        return $this->arguments;
     }
 
     protected function buildUrl(string $link, string $title, array $options): string
     {
-        $this->options = $options;
+        $this->arguments = $options;
 
         $template = $this->retrieveProviderUrl();
         $replacements = $this->retrieveReplacements($link, $title, $options);
