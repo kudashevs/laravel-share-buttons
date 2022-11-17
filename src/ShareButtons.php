@@ -257,8 +257,8 @@ class ShareButtons
      */
     public function getRawLinks(): array
     {
-        return array_map(static function ($provider) {
-            return $provider->getUrl();
+        return array_map(function ($provider) {
+            return $this->presenter->getElementUrl($provider);
         }, $this->providers);
     }
 
