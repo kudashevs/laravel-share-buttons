@@ -91,7 +91,7 @@ abstract class ShareProvider
         $template = $this->retrieveProviderUrl();
         $replacements = $this->retrieveReplacements($link, $title, $options);
 
-        $this->url = $this->templater->process($template, $replacements);
+        $this->url = $this->templater->render($template, $replacements);
 
         return $this->url;
     }

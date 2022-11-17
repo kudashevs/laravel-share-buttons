@@ -22,7 +22,7 @@ class LaravelTemplaterTest extends ExtendedTestCase
      */
     public function it_can_perform_a_pattern_replacement(string $input, array $replacements, string $expected)
     {
-        $result = $this->templater->process($input, $replacements);
+        $result = $this->templater->render($input, $replacements);
 
         $this->assertSame($expected, $result);
     }
