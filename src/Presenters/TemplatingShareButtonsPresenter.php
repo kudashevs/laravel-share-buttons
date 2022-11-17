@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Presenters;
 
+use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
-use Kudashevs\ShareButtons\Templaters\ColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
@@ -43,13 +43,13 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function __construct(array $options = [])
     {
-        $this->initTemplater();
+        $this->initTemplater($options);
         $this->initOptions($options);
     }
 
-    private function initTemplater(): void
+    private function initTemplater(array $options): void
     {
-        $this->templater = $this->createTemplater();
+        $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
     private function createTemplater(): Templater
