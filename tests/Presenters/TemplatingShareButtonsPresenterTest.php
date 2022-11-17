@@ -301,10 +301,6 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    /**
-     * @param string $element
-     * @return string
-     */
     private function wrapElementInStyling(string $element): string
     {
         return $this->presenter->getElementPrefix() . $element . $this->presenter->getElementSuffix();
