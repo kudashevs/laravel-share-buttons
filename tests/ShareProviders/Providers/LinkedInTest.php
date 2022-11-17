@@ -37,9 +37,8 @@ class LinkedInTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_share_link_with_summary()
     {
-        $provider = LinkedIn::createFromMethodCall('https://mysite.com', 'Title',
-            ['summary' => 'A summary can be passed here']);
-        $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary+can+be+passed+here';
+        $provider = LinkedIn::createFromMethodCall('https://mysite.com', 'Title', ['summary' => 'A summary']);
+        $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://mysite.com&title=Title&summary=A+summary';
 
         $this->assertEquals($expected, $provider->getUrl());
     }
