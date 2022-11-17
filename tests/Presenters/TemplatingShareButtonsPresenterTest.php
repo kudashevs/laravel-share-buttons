@@ -150,7 +150,6 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
 
         $result = $this->presenter->getElementBody($provider);
 
-        $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
@@ -163,7 +162,6 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
 
         $result = $this->presenter->getElementBody($provider);
 
-        $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
@@ -242,7 +240,6 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
 
         $result = $this->presenter->getElementBody($provider);
 
-        $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
 
