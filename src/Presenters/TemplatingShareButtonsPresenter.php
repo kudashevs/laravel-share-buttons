@@ -59,7 +59,20 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
 
     private function initOptions(array $options): void
     {
-        $this->refreshStyling($options);
+        $this->refreshStyling(
+            $this->retrieveApplicableOptions($options)
+        );
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function retrieveApplicableOptions(array $options): array
+    {
+        return array_filter($options, function ($option, $name) {
+            return isset($this->options[$name]) &&
+                gettype($this->options[$name]) === gettype($option);
+        }, ARRAY_FILTER_USE_BOTH);
     }
 
     /**
