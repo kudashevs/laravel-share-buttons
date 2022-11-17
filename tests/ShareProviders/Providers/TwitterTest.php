@@ -7,15 +7,6 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TwitterTest extends ExtendedTestCase
 {
-    private $provider;
-
-    protected function setUp(): void
-    {
-        $this->provider = Twitter::create();
-
-        parent::setUp();
-    }
-
     /** @test */
     public function it_can_generate_a_share_link()
     {

@@ -7,15 +7,6 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TelegramTest extends ExtendedTestCase
 {
-    private $provider;
-
-    protected function setUp(): void
-    {
-        $this->provider = Telegram::create();
-
-        parent::setUp();
-    }
-
     /** @test */
     public function it_can_generate_a_share_link()
     {

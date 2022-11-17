@@ -7,15 +7,6 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class VkontakteTest extends ExtendedTestCase
 {
-    private $provider;
-
-    protected function setUp(): void
-    {
-        $this->provider = Vkontakte::create();
-
-        parent::setUp();
-    }
-
     /** @test */
     public function it_can_generate_a_share_link()
     {
