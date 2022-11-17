@@ -19,7 +19,7 @@ class ShareProviderTest extends ExtendedTestCase
 
         $this->assertNotEmpty($instance->getName());
         $this->assertNotEmpty($instance->getUrl());
-        $this->assertIsArray($instance->getOptions());
+        $this->assertIsArray($instance->getArguments());
     }
 
     /** @test */
@@ -35,6 +35,6 @@ class ShareProviderTest extends ExtendedTestCase
 
         $this->assertNotEmpty($instance->getName());
         $this->assertNotEmpty($instance->getUrl());
-        $this->assertIsArray($instance->getOptions());
+        $this->assertIsArray($instance->getArguments());
     }
 }

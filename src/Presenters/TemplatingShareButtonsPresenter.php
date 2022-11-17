@@ -135,7 +135,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     public function getElementBody(ShareProvider $provider): string
     {
         $template = $this->retrieveElementTemplate($provider->getName());
-        $replacements = $this->retrieveElementReplacements($provider->getUrl(), $provider->getOptions());
+        $replacements = $this->retrieveElementReplacements($provider->getUrl(), $provider->getArguments());
 
         return $this->templater->render($template, $replacements);
     }

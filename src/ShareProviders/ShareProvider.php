@@ -75,11 +75,11 @@ abstract class ShareProvider
     }
 
     /**
-     * Return provided options.
+     * Return provided arguments.
      *
-     * @return array
+     * @return array<string, string>
      */
-    public function getOptions(): array
+    public function getArguments(): array
     {
         return $this->arguments;
     }
