@@ -17,6 +17,8 @@ abstract class ShareProvider
 
     protected array $arguments = [];
 
+    protected array $replacements = [];
+
     protected function __construct()
     {
         $this->initTemplater();
@@ -84,14 +86,17 @@ abstract class ShareProvider
         return $this->arguments;
     }
 
-    protected function buildUrl(string $link, string $title, array $arguments): void
+    public function getReplacements(): array
+    {
+        return $this->replacements;
+    }
+
+    protected function buildUrl(string $link, string $title, array $arguments): void // @todo rename to generateUrl
     {
         $this->rememberProvidedArguments($arguments);
 
-        $template = $this->retrieveProviderUrl();
-        $replacements = $this->retrieveReplacements($link, $title, $arguments);
-
-        $this->url = $this->templater->render($template, $replacements);
+        $this->url = $this->retrieveProviderUrl();
+        $this->replacements = $this->retrieveReplacements($link, $title, $arguments);
     }
 
     protected function rememberProvidedArguments(array $arguments): void
