@@ -302,11 +302,11 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /**
-     * @param string $result
+     * @param string $element
      * @return string
      */
-    private function wrapElementInStyling(string $result): string
+    private function wrapElementInStyling(string $element): string
     {
-        return $this->presenter->getElementPrefix() . $result . $this->presenter->getElementSuffix();
+        return $this->presenter->getElementPrefix() . $element . $this->presenter->getElementSuffix();
     }
 }
