@@ -269,8 +269,29 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
 
         $result = $this->presenter->getElementBody($provider);
 
-        $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
+    }
+
+    /** @test */
+    public function it_can_format_an_element_url_with_infromation_from_default()
+    {
+        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text';
+        $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
+
+        $result = $this->presenter->getElementUrl($provider);
+
+        $this->assertSame($expected, $result);
+    }
+
+    /** @test */
+    public function it_can_format_an_element_url_with_information_from_call_options()
+    {
+        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title';
+        $provider = Facebook::createFromMethodCall('https://mysite.com', 'Title', []);
+
+        $result = $this->presenter->getElementUrl($provider);
+
+        $this->assertSame($expected, $result);
     }
 
     /**
