@@ -148,9 +148,11 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
         $provider = Facebook::createFromMethodCall('https://mysite.com', 'test', []);
 
-        $result = $this->presenter->getElementBody($provider);
+        $result = $this->wrapElementInStyling(
+            $this->presenter->getElementBody($provider)
+        );
 
-        $this->assertEquals($expected, $this->applyElementWrapping($result));
+        $this->assertEquals($expected, $result);
     }
 
     /** @test */
@@ -160,9 +162,11 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
         $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
         $this->presenter->refreshStyling(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
-        $result = $this->presenter->getElementBody($provider);
+        $result = $this->wrapElementInStyling(
+            $this->presenter->getElementBody($provider)
+        );
 
-        $this->assertEquals($expected, $this->applyElementWrapping($result));
+        $this->assertEquals($expected, $result);
     }
 
     /**
@@ -176,9 +180,11 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     ) {
         $provider = Facebook::createFromMethodCall($page, 'Title', $options);
 
-        $result = $this->presenter->getElementBody($provider);
+        $result = $this->wrapElementInStyling(
+            $this->presenter->getElementBody($provider)
+        );
 
-        $this->assertEquals($expected, $this->applyElementWrapping($result));
+        $this->assertEquals($expected, $result);
     }
 
     public function provideShareProviderDifferentStylingOptions()
@@ -238,9 +244,11 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
             ]
         );
 
-        $result = $this->presenter->getElementBody($provider);
+        $result = $this->wrapElementInStyling(
+            $this->presenter->getElementBody($provider)
+        );
 
-        $this->assertEquals($expected, $this->applyElementWrapping($result));
+        $this->assertEquals($expected, $result);
     }
 
     /** @test */
@@ -264,9 +272,11 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
             'rel' => 'options',
         ]);
 
-        $result = $this->presenter->getElementBody($provider);
+        $result = $this->wrapElementInStyling(
+            $this->presenter->getElementBody($provider)
+        );
 
-        $this->assertEquals($expected, $this->applyElementWrapping($result));
+        $this->assertEquals($expected, $result);
     }
 
     /** @test */
@@ -295,7 +305,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
      * @param string $result
      * @return string
      */
-    private function applyElementWrapping(string $result): string
+    private function wrapElementInStyling(string $result): string
     {
         return $this->presenter->getElementPrefix() . $result . $this->presenter->getElementSuffix();
     }
