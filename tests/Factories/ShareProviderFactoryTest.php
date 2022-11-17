@@ -2,7 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\Factories;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
+use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderFactoryArgument;
 use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
@@ -17,7 +17,7 @@ class ShareProviderFactoryTest extends ExtendedTestCase
     /** @test */
     public function it_can_throw_exception_when_an_unknown_name_is_provided()
     {
-        $this->expectException(InvalidFactoryArgumentException::class);
+        $this->expectException(InvalidShareProviderFactoryArgument::class);
         $this->expectExceptionMessage('wrong');
 
         ShareProviderFactory::createFromMethodCall('wrong', 'https://mysite.com', '', []);

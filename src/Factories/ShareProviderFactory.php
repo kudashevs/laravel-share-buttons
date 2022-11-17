@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Factories;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidFactoryArgumentException;
+use Kudashevs\ShareButtons\Exceptions\InvalidShareProviderFactoryArgument;
 use Kudashevs\ShareButtons\ShareProviders\Providers;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 
@@ -47,7 +47,7 @@ final class ShareProviderFactory
      * @param array $arguments
      * @return ShareProvider
      *
-     * @throws InvalidFactoryArgumentException
+     * @throws InvalidShareProviderFactoryArgument
      */
     public static function createFromMethodCall(
         string $name,
@@ -66,7 +66,7 @@ final class ShareProviderFactory
     private static function resolveShareProviderClass(string $name): string
     {
         if (!self::isValidProviderName($name)) {
-            throw new InvalidFactoryArgumentException(
+            throw new InvalidShareProviderFactoryArgument(
                 sprintf('The %s is not a valid name for a share provider.', $name)
             );
         }
