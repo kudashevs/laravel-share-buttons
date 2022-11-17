@@ -142,12 +142,12 @@ abstract class ShareProvider
         return trim($title) === '';
     }
 
-    protected function prepareExtras(array $options): array
+    protected function prepareExtras(array $arguments): array
     {
         $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
 
         return array_map(static function (string $value) {
             return urlencode($value);
-        }, array_merge($extra, $options));
+        }, array_merge($extra, $arguments));
     }
 }
