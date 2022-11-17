@@ -52,11 +52,6 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
-    private function createTemplater(): Templater
-    {
-        return new ColonTemplater();
-    }
-
     private function initOptions(array $options): void
     {
         $this->refreshStyling(
