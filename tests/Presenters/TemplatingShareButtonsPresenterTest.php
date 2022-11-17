@@ -11,13 +11,13 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     /**
      * @var TemplatingShareButtonsPresenter
      */
-    private $formatter;
+    private $presenter;
 
     protected function setUp(): void
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->formatter = new TemplatingShareButtonsPresenter();
+        $this->presenter = new TemplatingShareButtonsPresenter();
     }
 
     /**
@@ -26,9 +26,9 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
      */
     public function it_can_set_values_from_options(array $options, string $method, string $expected)
     {
-        $this->formatter->refreshStyling($options);
+        $this->presenter->refreshStyling($options);
 
-        $result = $this->formatter->$method();
+        $result = $this->presenter->$method();
 
         $this->assertSame($expected, $result);
     }
@@ -115,7 +115,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
      */
     public function it_can_set_default_values_without_options(string $method, string $expected)
     {
-        $result = $this->formatter->$method();
+        $result = $this->presenter->$method();
 
         $this->assertSame($expected, $result);
     }
@@ -148,7 +148,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
         $provider = Facebook::createFromMethodCall('https://mysite.com', 'test', []);
 
-        $result = $this->formatter->getElementBody($provider);
+        $result = $this->presenter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -159,9 +159,9 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     {
         $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
         $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
-        $this->formatter->refreshStyling(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+        $this->presenter->refreshStyling(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
-        $result = $this->formatter->getElementBody($provider);
+        $result = $this->presenter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -178,7 +178,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     ) {
         $provider = Facebook::createFromMethodCall($page, 'Title', $options);
 
-        $result = $this->formatter->getElementBody($provider);
+        $result = $this->presenter->getElementBody($provider);
 
         $this->assertEquals($expected, $this->applyElementWrapping($result));
     }
@@ -240,7 +240,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
             ]
         );
 
-        $result = $this->formatter->getElementBody($provider);
+        $result = $this->presenter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -260,14 +260,14 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
                 'rel' => 'arguments',
             ]
         );
-        $this->formatter->refreshStyling([
+        $this->presenter->refreshStyling([
             'class' => 'options',
             'id' => 'options',
             'title' => 'options',
             'rel' => 'options',
         ]);
 
-        $result = $this->formatter->getElementBody($provider);
+        $result = $this->presenter->getElementBody($provider);
 
         $this->assertNotEmpty($result);
         $this->assertEquals($expected, $this->applyElementWrapping($result));
@@ -279,6 +279,6 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
      */
     private function applyElementWrapping(string $result): string
     {
-        return $this->formatter->getElementPrefix() . $result . $this->formatter->getElementSuffix();
+        return $this->presenter->getElementPrefix() . $result . $this->presenter->getElementSuffix();
     }
 }
