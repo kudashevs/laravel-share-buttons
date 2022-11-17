@@ -57,10 +57,9 @@ class ShareButtons
     protected array $providers = [];
 
     /**
-     * @param ShareButtonsPresenter $formatter
      * @param array $options
      */
-    public function __construct(ShareButtonsPresenter $formatter, array $options = [])
+    public function __construct(array $options = [])
     {
         $this->initPresenter($options);
         $this->initOptions($options);

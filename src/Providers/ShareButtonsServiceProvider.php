@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
-use Kudashevs\ShareButtons\Presenters\TemplatingShareButtonsPresenter;
 use Kudashevs\ShareButtons\ShareButtons;
 
 class ShareButtonsServiceProvider extends ServiceProvider
@@ -31,24 +29,15 @@ class ShareButtonsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ShareButtons::class, function () {
-            $formatter = $this->getDefaultFormatter();
             $options = [
                 'reactOnErrors' => config('share-buttons.reactOnErrors'),
                 'throwException' => config('share-buttons.throwException'),
             ];
 
-            return new ShareButtons($formatter, $options);
+            return new ShareButtons($options);
         });
         $this->app->alias(ShareButtons::class, 'share');
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');
-    }
-
-    /**
-     * @return ShareButtonsPresenter
-     */
-    protected function getDefaultFormatter(): ShareButtonsPresenter
-    {
-        return new TemplatingShareButtonsPresenter();
     }
 }

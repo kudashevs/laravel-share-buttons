@@ -2,7 +2,6 @@
 
 namespace Kudashevs\ShareButtons\Tests\Acceptance;
 
-use Kudashevs\ShareButtons\Formatters\TemplateFormatter;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -14,8 +13,7 @@ class ShareButtonsTest extends ExtendedTestCase
     {
         parent::setUp(); // it goes first to set up an application
 
-        $formatter = new TemplateFormatter();
-        $this->share = new ShareButtons($formatter);
+        $this->share = new ShareButtons();
     }
 
     /**
