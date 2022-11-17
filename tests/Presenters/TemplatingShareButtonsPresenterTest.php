@@ -155,7 +155,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_custom_styling_from_formatter_options()
+    public function it_can_format_an_element_with_custom_styling_from_class_options()
     {
         $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
         $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
@@ -171,7 +171,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideShareProviderDifferentStylingOptions
      */
-    public function it_can_format_a_link_with_custom_styling_from_call_options(
+    public function it_can_format_an_element_with_custom_styling_from_call_options(
         string $page,
         array $options,
         string $expected
