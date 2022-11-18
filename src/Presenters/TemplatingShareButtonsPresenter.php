@@ -126,7 +126,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
 
     private function initElementAttributes(array $options): void
     {
-        $this->attributes = $options;
+        $this->attributes = array_diff_key($options, $this->options);
     }
 
     /**
