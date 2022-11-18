@@ -130,9 +130,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function refreshStyling(array $options): void
     {
-        $this->initBlockWrappers($options);
-        $this->initElementWrappers($options);
-        $this->initElementAttributes($options);
+        $this->initOptions($options);
     }
 
     /**
