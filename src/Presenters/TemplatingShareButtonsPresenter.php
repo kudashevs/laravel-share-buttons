@@ -65,6 +65,23 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         $this->initElementAttributes($applicable);
     }
 
+    private function initBlockWrappers(array $options): void
+    {
+        $this->options['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
+        $this->options['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
+    }
+
+    private function initElementWrappers(array $options): void
+    {
+        $this->options['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
+        $this->options['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
+    }
+
+    private function initElementAttributes(array $options): void
+    {
+        $this->attributes = array_diff_key($options, $this->options);
+    }
+
     /**
      * @return array<string, string>
      */
@@ -116,23 +133,6 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         $this->initBlockWrappers($options);
         $this->initElementWrappers($options);
         $this->initElementAttributes($options);
-    }
-
-    private function initBlockWrappers(array $options): void
-    {
-        $this->options['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
-        $this->options['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
-    }
-
-    private function initElementWrappers(array $options): void
-    {
-        $this->options['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
-        $this->options['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
-    }
-
-    private function initElementAttributes(array $options): void
-    {
-        $this->attributes = array_diff_key($options, $this->options);
     }
 
     /**
