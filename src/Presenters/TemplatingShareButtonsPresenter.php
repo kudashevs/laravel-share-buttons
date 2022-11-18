@@ -23,7 +23,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * Contain formatter options.
      */
-    private array $options = [
+    private array $styling = [
         'block_prefix' => '',
         'block_suffix' => '',
         'element_prefix' => '',
@@ -67,19 +67,19 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
 
     private function initBlockWrappers(array $options): void
     {
-        $this->options['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
-        $this->options['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
+        $this->styling['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
+        $this->styling['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
     private function initElementWrappers(array $options): void
     {
-        $this->options['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
-        $this->options['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
+        $this->styling['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
+        $this->styling['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
     }
 
     private function initElementAttributes(array $options): void
     {
-        $this->attributes = array_diff_key($options, $this->options);
+        $this->attributes = array_diff_key($options, $this->styling);
     }
 
     /**
@@ -95,7 +95,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getBlockPrefix(): string
     {
-        return $this->options['block_prefix'];
+        return $this->styling['block_prefix'];
     }
 
     /**
@@ -103,7 +103,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getBlockSuffix(): string
     {
-        return $this->options['block_suffix'];
+        return $this->styling['block_suffix'];
     }
 
     /**
@@ -111,7 +111,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getElementPrefix(): string
     {
-        return $this->options['element_prefix'];
+        return $this->styling['element_prefix'];
     }
 
     /**
@@ -119,7 +119,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getElementSuffix(): string
     {
-        return $this->options['element_suffix'];
+        return $this->styling['element_suffix'];
     }
 
     /**
