@@ -45,7 +45,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     public function __construct(array $options = [])
     {
         $this->initTemplater($options);
-        $this->initOptions($options);
+        $this->initStyling($options);
     }
 
     /**
@@ -56,7 +56,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
-    private function initOptions(array $options): void
+    private function initStyling(array $options): void
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
@@ -127,7 +127,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function refreshStyling(array $options): void
     {
-        $this->initOptions($options);
+        $this->initStyling($options);
     }
 
     /**
