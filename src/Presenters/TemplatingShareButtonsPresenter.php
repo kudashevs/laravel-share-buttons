@@ -87,10 +87,7 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
      */
     protected function retrieveApplicableOptions(array $options): array
     {
-        return array_filter($options, function ($option, $name) {
-            return isset($this->options[$name]) &&
-                gettype($this->options[$name]) === gettype($option);
-        }, ARRAY_FILTER_USE_BOTH);
+        return array_filter($options, 'is_string');
     }
 
     /**
