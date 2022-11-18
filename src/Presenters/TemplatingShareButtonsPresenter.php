@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Presenters;
 
+use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use Kudashevs\ShareButtons\Templaters\Templater;
@@ -37,9 +38,9 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     private array $attributes = [];
 
     /**
-     * TemplateFormatter constructor.
-     *
      * @param array $options
+     *
+     * @throws InvalidTemplaterFactoryArgument
      */
     public function __construct(array $options = [])
     {
@@ -47,6 +48,9 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         $this->initOptions($options);
     }
 
+    /**
+     * @throws InvalidTemplaterFactoryArgument
+     */
     private function initTemplater(array $options): void
     {
         $this->templater = TemplaterFactory::createFromOptions($options);
