@@ -65,6 +65,14 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         $this->initElementAttributes($applicable);
     }
 
+    /**
+     * @return array<string, string>
+     */
+    protected function retrieveApplicableOptions(array $options): array
+    {
+        return array_filter($options, 'is_string');
+    }
+
     private function initBlockWrappers(array $options): void
     {
         $this->styling['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
@@ -80,14 +88,6 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     private function initElementAttributes(array $options): void
     {
         $this->attributes = array_diff_key($options, $this->styling);
-    }
-
-    /**
-     * @return array<string, string>
-     */
-    protected function retrieveApplicableOptions(array $options): array
-    {
-        return array_filter($options, 'is_string');
     }
 
     /**
