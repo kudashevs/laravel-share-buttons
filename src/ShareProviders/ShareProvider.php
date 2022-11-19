@@ -12,6 +12,8 @@ abstract class ShareProvider
 
     protected string $url;
 
+    protected string $text;
+
     protected function __construct()
     {
         $this->initProvider();
@@ -21,11 +23,17 @@ abstract class ShareProvider
     {
         $this->template = $this->retrieveTemplate();
         $this->url = $this->retrieveUrl();
+        $this->text = $this->retrieveText();
     }
 
     protected function retrieveTemplate(): string
     {
         return config('share-buttons.templates.' . $this->name, '');
+    }
+
+    protected function retrieveText(): string
+    {
+        return config('share-buttons.providers.' . $this->name . '.text', '');
     }
 
     /**
@@ -78,6 +86,16 @@ abstract class ShareProvider
     public function getUrl(): string
     {
         return $this->url;
+    }
+
+    /**
+     * Return a share provider URL text.
+     *
+     * @return string
+     */
+    public function getText(): string
+    {
+        return $this->text;
     }
 
     protected function buildUrl(string $link, string $title, array $arguments): void // @todo rename to generateUrl
