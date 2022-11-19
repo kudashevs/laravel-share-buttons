@@ -79,7 +79,7 @@ abstract class ShareProvider
     {
         $this->rememberProvidedArguments($arguments);
 
-        $this->url = $this->retrieveProviderUrl();
+        $this->url = $this->retrieveUrl();
         $this->replacements = $this->retrieveReplacements($link, $title, $arguments);
     }
 
@@ -88,7 +88,7 @@ abstract class ShareProvider
         $this->arguments = $arguments;
     }
 
-    protected function retrieveProviderUrl(): string
+    protected function retrieveUrl(): string
     {
         return config('share-buttons.providers.' . $this->name . '.url', '');
     }

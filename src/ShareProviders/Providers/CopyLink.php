@@ -10,7 +10,7 @@ final class CopyLink extends ShareProvider
 {
     protected string $name = 'copylink';
 
-    protected function retrieveProviderUrl(): string
+    protected function retrieveUrl(): string
     {
         return (config('share-buttons.providers.' . $this->name . '.extra.hash') === true) // @todo refactor to method
             ? '#'
