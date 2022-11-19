@@ -14,6 +14,8 @@ abstract class ShareProvider
 
     protected string $text;
 
+    protected array $extras;
+
     protected function __construct()
     {
         $this->initProvider();
@@ -24,6 +26,7 @@ abstract class ShareProvider
         $this->template = $this->retrieveTemplate();
         $this->url = $this->retrieveUrl();
         $this->text = $this->retrieveText();
+        $this->extras = $this->retrieveExtras();
     }
 
     protected function retrieveTemplate(): string
@@ -34,6 +37,11 @@ abstract class ShareProvider
     protected function retrieveText(): string
     {
         return config('share-buttons.providers.' . $this->name . '.text', '');
+    }
+
+    protected function retrieveExtras(): array
+    {
+        return config('share-buttons.providers.' . $this->name . '.extra', []);
     }
 
     /**
@@ -96,6 +104,16 @@ abstract class ShareProvider
     public function getText(): string
     {
         return $this->text;
+    }
+
+    /**
+     * Return provided extras.
+     *
+     * @return array
+     */
+    public function getExtras(): array
+    {
+        return $this->extras;
     }
 
     protected function buildUrl(string $link, string $title, array $arguments): void // @todo rename to generateUrl

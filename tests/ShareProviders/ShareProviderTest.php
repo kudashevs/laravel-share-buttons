@@ -3,6 +3,7 @@
 namespace Kudashevs\ShareButtons\Tests\ShareProviders;
 
 use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
+use Kudashevs\ShareButtons\ShareProviders\Providers\LinkedIn;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class ShareProviderTest extends ExtendedTestCase
@@ -42,6 +43,14 @@ class ShareProviderTest extends ExtendedTestCase
         $instance = Facebook::create();
 
         $this->assertNotEmpty($instance->getText());
+    }
+
+    /** @test */
+    public function it_can_retrieve_extras()
+    {
+        $instance = LinkedIn::create();
+
+        $this->assertNotEmpty($instance->getExtras());
     }
 
     /** @test */
