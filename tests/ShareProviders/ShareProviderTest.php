@@ -17,8 +17,7 @@ class ShareProviderTest extends ExtendedTestCase
     {
         $instance = Facebook::create();
 
-        $this->assertNotEmpty($instance->getName());
-        $this->assertNotEmpty($instance->getUrl());
+        $this->assertSame('facebook', $instance->getName());
     }
 
     /** @test */
