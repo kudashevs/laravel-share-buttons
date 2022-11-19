@@ -9,6 +9,7 @@ use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
 use Kudashevs\ShareButtons\Presenters\TemplatingShareButtonsPresenter;
 use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
+use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
  * @todo don't forget to update these method signatures
@@ -57,11 +58,17 @@ class ShareButtons
     protected array $providers = [];
 
     /**
+     * Contain processed calls.
+     */
+    protected array $calls = [];
+
+    /**
      * @param array $options
      */
     public function __construct(array $options = [])
     {
         $this->initPresenter($options);
+
         $this->initOptions($options);
     }
 
@@ -120,6 +127,7 @@ class ShareButtons
     protected function clearState(): void
     {
         $this->providers = [];
+        $this->calls = [];
     }
 
     /**
@@ -176,6 +184,8 @@ class ShareButtons
 
             $this->rememberProcessedProvider($provider);
 
+            $this->rememberProcessedCalls($name, $providerArguments);
+
             return $this;
         }
 
@@ -217,6 +227,15 @@ class ShareButtons
          * make sure that the information about a previous provider's call might be overwritten.
          */
         $this->providers[$provider->getName()] = $provider;
+    }
+
+    protected function rememberProcessedCalls(string $provider, array $arguments = []): void
+    {
+        /**
+         * Since a share provider button can be displayed only once, there is no need to keep track and
+         * make sure that the information about a previous provider's call might be overwritten.
+         */
+        $this->calls[$provider] = new ProcessedCall($provider, $arguments);
     }
 
     protected function handleUnexpectedCall(string $name): ShareButtons
