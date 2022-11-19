@@ -42,6 +42,19 @@ final class ShareProviderFactory
 
     /**
      * @param string $name
+     * @return ShareProvider
+     *
+     * @throws InvalidShareProviderFactoryArgument
+     */
+    public static function createFromName(string $name): ShareProvider
+    {
+        $class = self::resolveShareProviderClass($name);
+
+        return $class::create();
+    }
+
+    /**
+     * @param string $name
      * @param string $page
      * @param string $title
      * @param array $arguments

@@ -173,7 +173,8 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isRegisteredProvider($name)) {
-            $providerArguments = $this->retrieveProviderArguments($arguments);
+            $providerInstance = ShareProviderFactory::createFromName($name);
+            $providerArguments = $this->prepareProviderArguments($arguments);
 
             $provider = ShareProviderFactory::createFromMethodCall(
                 $name,
@@ -184,7 +185,7 @@ class ShareButtons
 
             $this->rememberProcessedProvider($provider);
 
-            $this->rememberProcessedCall($name, $providerArguments);
+            $this->rememberProcessedCall($name, $providerInstance, $providerArguments);
 
             return $this;
         }
@@ -245,13 +246,13 @@ class ShareButtons
         $this->providers[$provider->getName()] = $provider;
     }
 
-    protected function rememberProcessedCall(string $provider, array $arguments = []): void
+    protected function rememberProcessedCall(string $name, ShareProvider $provider, array $arguments = []): void
     {
         /**
          * Since a share provider button can be displayed only once, there is no need to keep track and
          * make sure that the information about a previous provider's call might be overwritten.
          */
-        $this->calls[$provider] = new ProcessedCall($provider, $arguments);
+        $this->calls[$name] = new ProcessedCall($name, $provider, $arguments);
     }
 
     protected function handleUnexpectedCall(string $name): ShareButtons
