@@ -10,8 +10,6 @@ abstract class ShareProvider
 
     protected string $url = '#';
 
-    protected array $arguments = [];
-
     protected array $replacements = [];
 
     protected function __construct()
@@ -60,16 +58,6 @@ abstract class ShareProvider
         return $this->url;
     }
 
-    /**
-     * Return provided arguments.
-     *
-     * @return array<string, string>
-     */
-    public function getArguments(): array
-    {
-        return $this->arguments;
-    }
-
     public function getReplacements(): array
     {
         return $this->replacements;
@@ -77,15 +65,8 @@ abstract class ShareProvider
 
     protected function buildUrl(string $link, string $title, array $arguments): void // @todo rename to generateUrl
     {
-        $this->rememberProvidedArguments($arguments);
-
         $this->url = $this->retrieveUrl();
         $this->replacements = $this->retrieveReplacements($link, $title, $arguments);
-    }
-
-    protected function rememberProvidedArguments(array $arguments): void
-    {
-        $this->arguments = $arguments;
     }
 
     protected function retrieveUrl(): string
