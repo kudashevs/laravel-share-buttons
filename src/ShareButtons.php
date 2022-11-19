@@ -184,7 +184,7 @@ class ShareButtons
 
             $this->rememberProcessedProvider($provider);
 
-            $this->rememberProcessedCalls($name, $providerArguments);
+            $this->rememberProcessedCall($name, $providerArguments);
 
             return $this;
         }
@@ -229,7 +229,7 @@ class ShareButtons
         $this->providers[$provider->getName()] = $provider;
     }
 
-    protected function rememberProcessedCalls(string $provider, array $arguments = []): void
+    protected function rememberProcessedCall(string $provider, array $arguments = []): void
     {
         /**
          * Since a share provider button can be displayed only once, there is no need to keep track and
