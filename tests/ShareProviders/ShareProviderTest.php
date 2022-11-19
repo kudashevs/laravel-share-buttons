@@ -2,7 +2,6 @@
 
 namespace Kudashevs\ShareButtons\Tests\ShareProviders;
 
-use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\ShareProviders\Providers\LinkedIn;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -16,15 +15,15 @@ class ShareProviderTest extends ExtendedTestCase
     /** @test */
     public function it_can_create_an_instance()
     {
-        $instance = Facebook::create();
+        $instance = LinkedIn::create();
 
-        $this->assertSame('facebook', $instance->getName());
+        $this->assertSame('linkedin', $instance->getName());
     }
 
     /** @test */
     public function it_can_retrieve_a_template()
     {
-        $instance = Facebook::create();
+        $instance = LinkedIn::create();
 
         $this->assertNotEmpty($instance->getTemplate());
     }
@@ -32,7 +31,7 @@ class ShareProviderTest extends ExtendedTestCase
     /** @test */
     public function it_can_retrieve_a_url()
     {
-        $instance = Facebook::create();
+        $instance = LinkedIn::create();
 
         $this->assertNotEmpty($instance->getUrl());
     }
@@ -40,7 +39,7 @@ class ShareProviderTest extends ExtendedTestCase
     /** @test */
     public function it_can_retrieve_a_text()
     {
-        $instance = Facebook::create();
+        $instance = LinkedIn::create();
 
         $this->assertNotEmpty($instance->getText());
     }
@@ -62,7 +61,7 @@ class ShareProviderTest extends ExtendedTestCase
             'rel' => 'nofollow',
         ];
 
-        $instance = Facebook::createFromMethodCall($page, $title, $arguments);
+        $instance = LinkedIn::createFromMethodCall($page, $title, $arguments);
 
         $this->assertNotEmpty($instance->getName());
         $this->assertNotEmpty($instance->getUrl());
