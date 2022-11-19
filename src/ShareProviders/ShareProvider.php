@@ -10,8 +10,6 @@ abstract class ShareProvider
 
     protected string $url = '#';
 
-    protected array $replacements = [];
-
     protected function __construct()
     {
     }
@@ -58,15 +56,9 @@ abstract class ShareProvider
         return $this->url;
     }
 
-    public function getReplacements(): array
-    {
-        return $this->replacements;
-    }
-
     protected function buildUrl(string $link, string $title, array $arguments): void // @todo rename to generateUrl
     {
         $this->url = $this->retrieveUrl();
-        $this->replacements = $this->retrieveReplacements($link, $title, $arguments);
     }
 
     protected function retrieveUrl(): string
