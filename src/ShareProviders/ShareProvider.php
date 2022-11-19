@@ -107,6 +107,18 @@ abstract class ShareProvider
     }
 
     /**
+     * Return URL template related replacements.
+     *
+     * @return array<string, string>
+     */
+    public function getUrlReplacements(): array
+    {
+        return array_merge([
+            'text' => $this->text,
+        ], $this->extras);
+    }
+
+    /**
      * Return provided extras.
      *
      * @return array

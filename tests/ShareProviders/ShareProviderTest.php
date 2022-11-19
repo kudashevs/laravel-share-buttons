@@ -32,6 +32,15 @@ class ShareProviderTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_retrieve_url_replacements()
+    {
+        $instance = LinkedIn::create();
+
+        $this->assertNotEmpty($instance->getUrlReplacements());
+        $this->assertArrayHasKey('text', $instance->getUrlReplacements());
+    }
+
+    /** @test */
     public function it_can_create_from_a_method_call()
     {
         $page = 'https://mysite.com';
