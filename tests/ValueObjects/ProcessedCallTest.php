@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class ProcessedCallTest extends TestCase
 {
     /** @test */
-    public function it_can_throw_exception_when_empty_provider()
+    public function it_can_throw_exception_when_empty_name()
     {
         $this->expectException(InvalidProcessedCallArgument::class);
         $this->expectExceptionMessage('empty');
