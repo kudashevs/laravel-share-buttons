@@ -29,6 +29,14 @@ class ShareProviderTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_retrieve_a_url()
+    {
+        $instance = Facebook::create();
+
+        $this->assertNotEmpty($instance->getUrl());
+    }
+
+    /** @test */
     public function it_can_create_from_a_method_call()
     {
         $page = 'https://mysite.com';

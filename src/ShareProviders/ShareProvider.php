@@ -10,7 +10,7 @@ abstract class ShareProvider
 
     protected string $template;
 
-    protected string $url = '#';
+    protected string $url;
 
     protected function __construct()
     {
@@ -20,6 +20,7 @@ abstract class ShareProvider
     protected function initProvider(): void
     {
         $this->template = $this->retrieveTemplate();
+        $this->url = $this->retrieveUrl();
     }
 
     protected function retrieveTemplate(): string
