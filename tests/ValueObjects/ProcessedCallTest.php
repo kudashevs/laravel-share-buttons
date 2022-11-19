@@ -3,11 +3,16 @@
 namespace Kudashevs\ShareButtons\Tests\ValueObjects;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidProcessedCallArgument;
+use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
-use PHPUnit\Framework\TestCase;
 
-class ProcessedCallTest extends TestCase
+class ProcessedCallTest extends ExtendedTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp(); // it goes first to set up an application
+    }
+
     /** @test */
     public function it_can_throw_exception_when_empty_name()
     {
