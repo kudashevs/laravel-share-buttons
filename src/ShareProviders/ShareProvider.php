@@ -4,13 +4,8 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\ShareProviders;
 
-use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
-use Kudashevs\ShareButtons\Templaters\Templater;
-
 abstract class ShareProvider
 {
-    protected Templater $templater;
-
     protected string $name;
 
     protected string $url = '#';
@@ -21,7 +16,6 @@ abstract class ShareProvider
 
     protected function __construct()
     {
-        $this->initTemplater();
     }
 
     /**
@@ -44,16 +38,6 @@ abstract class ShareProvider
         $instance->buildUrl($page, $title, $arguments);
 
         return $instance;
-    }
-
-    protected function initTemplater(): void
-    {
-        $this->templater = $this->createTemplater();
-    }
-
-    protected function createTemplater(): Templater
-    {
-        return new LaravelTemplater();
     }
 
     /**
