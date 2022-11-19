@@ -8,10 +8,23 @@ abstract class ShareProvider
 {
     protected string $name;
 
+    protected string $template;
+
     protected string $url = '#';
 
     protected function __construct()
     {
+        $this->initProvider();
+    }
+
+    protected function initProvider(): void
+    {
+        $this->template = $this->retrieveTemplate();
+    }
+
+    protected function retrieveTemplate(): string
+    {
+        return config('share-buttons.templates.' . $this->name, '');
     }
 
     /**
@@ -47,7 +60,17 @@ abstract class ShareProvider
     }
 
     /**
-     * Return a share provider URL.
+     * Return a share provider element template.
+     *
+     * @return string
+     */
+    public function getTemplate(): string
+    {
+        return $this->template;
+    }
+
+    /**
+     * Return a share provider URL template.
      *
      * @return string
      */

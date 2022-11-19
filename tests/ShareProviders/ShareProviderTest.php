@@ -21,6 +21,14 @@ class ShareProviderTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_retrieve_a_template()
+    {
+        $instance = Facebook::create();
+
+        $this->assertNotEmpty($instance->getTemplate());
+    }
+
+    /** @test */
     public function it_can_create_from_a_method_call()
     {
         $page = 'https://mysite.com';
