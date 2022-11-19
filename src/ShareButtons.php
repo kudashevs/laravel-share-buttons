@@ -198,6 +198,22 @@ class ShareButtons
     }
 
     /**
+     * @param array<string, mixed> $arguments
+     * @return array<string, string>
+     */
+    protected function prepareProviderArguments(array $arguments): array
+    {
+        $initial = [
+            'url' => $this->page,
+            'text' => $this->title,
+        ];
+
+        $applicable = $this->retrieveProviderArguments($arguments);
+
+        return array_merge($applicable, $initial);
+    }
+
+    /**
      * @return array<string, string>
      */
     protected function retrieveProviderArguments(array $arguments): array
