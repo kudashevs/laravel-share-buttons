@@ -150,6 +150,9 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     {
         $template = $provider->getUrl();
         $replacements = array_merge($provider->getUrlReplacements(), array_filter($arguments, 'strlen'));
+        $replacements = array_map(function ($value) {
+            return urlencode($value);
+        }, $replacements);
 
         return $this->templater->render($template, $replacements);
     }
