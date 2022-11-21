@@ -291,9 +291,12 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     public function it_can_format_an_element_url_with_infromation_from_default()
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text';
-        $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
+        $provider = Facebook::create();
 
-        $result = $this->presenter->getElementUrl($provider);
+        $result = $this->presenter->getElementUrl($provider, [
+            'url' => 'https://mysite.com',
+            'text' => '',
+        ]);
 
         $this->assertSame($expected, $result);
     }
@@ -302,9 +305,12 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     public function it_can_format_an_element_url_with_information_from_call_options()
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title';
-        $provider = Facebook::createFromMethodCall('https://mysite.com', 'Title', []);
+        $provider = Facebook::create();
 
-        $result = $this->presenter->getElementUrl($provider);
+        $result = $this->presenter->getElementUrl($provider, [
+            'url' => 'https://mysite.com',
+            'text' => 'Title',
+        ]);
 
         $this->assertSame($expected, $result);
     }
