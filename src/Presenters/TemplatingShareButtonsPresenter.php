@@ -149,12 +149,18 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     public function getElementUrl(ShareProvider $provider, array $arguments): string
     {
         $template = $provider->getUrl();
-        $replacements = array_merge($provider->getUrlReplacements(), array_filter($arguments, 'strlen'));
-        $replacements = array_map(function ($value) {
-            return urlencode($value);
-        }, $replacements);
+        $replacements = $this->prepareUrlReplacements(
+            array_merge($provider->getUrlReplacements(), array_filter($arguments, 'strlen'))
+        );
 
         return $this->templater->render($template, $replacements);
+    }
+
+    protected function prepareUrlReplacements(array $arguments): array
+    {
+        return array_map(function ($value) {
+            return urlencode($value);
+        }, $arguments);
     }
 
     private function retrieveElementTemplate(string $provider): string
