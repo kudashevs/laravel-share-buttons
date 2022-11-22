@@ -163,11 +163,6 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
         }, $arguments);
     }
 
-    private function retrieveElementTemplate(string $provider): string
-    {
-        return config('share-buttons.templates.' . $provider, '');
-    }
-
     /**
      * @return array<string, string>
      */
