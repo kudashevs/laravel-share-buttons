@@ -106,12 +106,11 @@ class ShareButtons
      */
     public function page(string $url, string $title = '', array $options = []): self
     {
+        $this->presenter->refreshStyling($options);
         $this->clearState();
 
         $this->page = $url;
         $this->title = $title;
-
-        $this->presenter->refreshStyling($options);
 
         return $this;
     }
