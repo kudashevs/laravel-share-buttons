@@ -292,9 +292,12 @@ class ShareButtons
      */
     public function getRawLinks(): array
     {
-        return array_map(function ($provider) {
-            return $this->presenter->getElementUrl($provider);
-        }, $this->providers);
+        return array_map(function ($call) {
+            return $this->presenter->getElementUrl(
+                $call->getProvider(),
+                $call->getArguments(),
+            );
+        }, $this->calls);
     }
 
     /**
