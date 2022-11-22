@@ -53,11 +53,6 @@ class ShareButtons
     ];
 
     /**
-     * Contain processed share providers.
-     */
-    protected array $providers = [];
-
-    /**
      * Contain processed calls.
      */
     protected array $calls = [];
@@ -126,7 +121,6 @@ class ShareButtons
      */
     protected function clearState(): void
     {
-        $this->providers = [];
         $this->calls = [];
     }
 
@@ -220,21 +214,6 @@ class ShareButtons
     protected function isAnyArgumentsProvided(array $arguments): bool
     {
         return isset($arguments[0]) && is_array($arguments[0]);
-    }
-
-    /**
-     * Remember a processed share provider.
-     *
-     * @param ShareProvider $provider
-     * @return void
-     */
-    protected function rememberProcessedProvider(ShareProvider $provider): void
-    {
-        /**
-         * Since a share provider button can be displayed only once, there is no need to keep track and
-         * make sure that the information about a previous provider's call might be overwritten.
-         */
-        $this->providers[$provider->getName()] = $provider;
     }
 
     protected function rememberProcessedCall(string $name, ShareProvider $provider, array $arguments = []): void
