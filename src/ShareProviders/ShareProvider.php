@@ -16,6 +16,14 @@ abstract class ShareProvider
 
     protected array $extras;
 
+    /**
+     * @return ShareProvider
+     */
+    public static function create(): ShareProvider
+    {
+        return new static();
+    }
+
     protected function __construct()
     {
         $this->initProvider();
@@ -34,6 +42,11 @@ abstract class ShareProvider
         return config('share-buttons.templates.' . $this->name, '');
     }
 
+    protected function retrieveUrl(): string
+    {
+        return config('share-buttons.providers.' . $this->name . '.url', '');
+    }
+
     protected function retrieveText(): string
     {
         return config('share-buttons.providers.' . $this->name . '.text', '');
@@ -42,14 +55,6 @@ abstract class ShareProvider
     protected function retrieveExtras(): array
     {
         return config('share-buttons.providers.' . $this->name . '.extra', []);
-    }
-
-    /**
-     * @return ShareProvider
-     */
-    public static function create(): ShareProvider
-    {
-        return new static();
     }
 
     /**
@@ -93,18 +98,6 @@ abstract class ShareProvider
     }
 
     /**
-     * Return URL template related replacements.
-     *
-     * @return array<string, string>
-     */
-    public function getUrlReplacements(): array
-    {
-        return array_merge([
-            'text' => $this->text,
-        ], $this->extras);
-    }
-
-    /**
      * Return provided extras.
      *
      * @return array
@@ -114,8 +107,15 @@ abstract class ShareProvider
         return $this->extras;
     }
 
-    protected function retrieveUrl(): string
+    /**
+     * Return URL template related replacements.
+     *
+     * @return array<string, string>
+     */
+    public function getUrlReplacements(): array
     {
-        return config('share-buttons.providers.' . $this->name . '.url', '');
+        return array_merge([
+            'text' => $this->text,
+        ], $this->extras);
     }
 }
