@@ -20,7 +20,7 @@ class ShareProviderFactoryTest extends ExtendedTestCase
         $this->expectException(InvalidShareProviderFactoryArgument::class);
         $this->expectExceptionMessage('wrong');
 
-        ShareProviderFactory::createFromMethodCall('wrong', 'https://mysite.com', '', []);
+        ShareProviderFactory::createFromName('wrong');
     }
 
     /** @test */
@@ -31,9 +31,9 @@ class ShareProviderFactoryTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_create_a_specific_instance_from_a_method_call()
+    public function it_can_create_a_specific_instance_from_a_known_name()
     {
-        $provider = ShareProviderFactory::createFromMethodCall('facebook', 'https://mysite.com', 'title', []);
+        $provider = ShareProviderFactory::createFromName('facebook');
 
         $this->assertInstanceOf(Facebook::class, $provider);
     }
