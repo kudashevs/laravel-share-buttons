@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class TelegramTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Telegram::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://telegram.me/share/url?url=https://mysite.com&text=Default+share+text';
+        $provider = Telegram::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('telegram', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = Telegram::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://telegram.me/share/url?url=https://mysite.com&text=Title';
+        $provider = Telegram::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

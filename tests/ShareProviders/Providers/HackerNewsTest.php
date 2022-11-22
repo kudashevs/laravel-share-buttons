@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class HackerNewsTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = HackerNews::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://news.ycombinator.com/submitlink?t=Default+share+text&u=https://mysite.com';
+        $provider = HackerNews::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('hackernews', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = HackerNews::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://news.ycombinator.com/submitlink?t=Title&u=https://mysite.com';
+        $provider = HackerNews::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

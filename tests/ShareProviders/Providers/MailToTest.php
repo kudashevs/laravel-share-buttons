@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class MailToTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = MailTo::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'mailto:?subject=Default+share+text&body=https://mysite.com';
+        $provider = MailTo::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('mailto', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = MailTo::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'mailto:?subject=Title&body=https://mysite.com';
+        $provider = MailTo::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

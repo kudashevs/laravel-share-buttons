@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class EvernoteTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Evernote::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://www.evernote.com/clip.action?url=https://mysite.com&t=Default+share+text';
+        $provider = Evernote::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('evernote', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = Evernote::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://www.evernote.com/clip.action?url=https://mysite.com&t=Title';
+        $provider = Evernote::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class FacebookTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Facebook::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Default+share+text';
+        $provider = Facebook::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('facebook', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = Facebook::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https://mysite.com&quote=Title';
+        $provider = Facebook::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

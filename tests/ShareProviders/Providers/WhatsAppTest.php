@@ -8,11 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class WhatsAppTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = WhatsApp::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://wa.me/?text=https://mysite.com';
+        $provider = WhatsApp::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('whatsapp', $provider->getName());
+    }
+
+    /** @test */
+    public function it_can_retrieve_extras()
+    {
+        $provider = WhatsApp::create();
+
+        $this->assertArrayHasKey('mini', $provider->getExtras());
     }
 }

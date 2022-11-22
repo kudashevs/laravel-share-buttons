@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class SkypeTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Skype::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://web.skype.com/share?url=https://mysite.com&text=Default+share+text&source=button';
+        $provider = Skype::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('skype', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = Skype::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://web.skype.com/share?url=https://mysite.com&text=Title&source=button';
+        $provider = Skype::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

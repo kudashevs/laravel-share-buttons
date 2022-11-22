@@ -39,19 +39,4 @@ class ShareProviderTest extends ExtendedTestCase
         $this->assertNotEmpty($instance->getUrlReplacements());
         $this->assertArrayHasKey('text', $instance->getUrlReplacements());
     }
-
-    /** @test */
-    public function it_can_create_from_a_method_call()
-    {
-        $page = 'https://mysite.com';
-        $title = 'Page share title';
-        $arguments = [
-            'rel' => 'nofollow',
-        ];
-
-        $instance = LinkedIn::createFromMethodCall($page, $title, $arguments);
-
-        $this->assertNotEmpty($instance->getName());
-        $this->assertNotEmpty($instance->getUrl());
-    }
 }

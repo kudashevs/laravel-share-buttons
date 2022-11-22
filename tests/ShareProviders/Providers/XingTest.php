@@ -8,11 +8,10 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class XingTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Xing::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://www.xing.com/spi/shares/new?url=https://mysite.com';
+        $provider = Xing::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('xing', $provider->getName());
     }
 }

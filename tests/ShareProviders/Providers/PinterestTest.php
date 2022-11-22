@@ -8,11 +8,10 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class PinterestTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Pinterest::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://pinterest.com/pin/create/button/?url=https://mysite.com';
+        $provider = Pinterest::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('pinterest', $provider->getName());
     }
 }

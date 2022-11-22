@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class PocketTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Pocket::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://getpocket.com/edit?url=https://mysite.com&title=Default+share+text';
+        $provider = Pocket::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('pocket', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = Pocket::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://getpocket.com/edit?url=https://mysite.com&title=Title';
+        $provider = Pocket::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

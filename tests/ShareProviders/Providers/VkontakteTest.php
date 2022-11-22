@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class VkontakteTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Vkontakte::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://vk.com/share.php?url=https://mysite.com&title=Default+share+text';
+        $provider = Vkontakte::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('vkontakte', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = Vkontakte::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://vk.com/share.php?url=https://mysite.com&title=Title';
+        $provider = Vkontakte::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());
     }
 }

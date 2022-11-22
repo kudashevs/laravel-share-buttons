@@ -53,20 +53,6 @@ abstract class ShareProvider
     }
 
     /**
-     * @param string $page
-     * @param string $title
-     * @param array $arguments
-     * @return ShareProvider
-     */
-    public static function createFromMethodCall(string $page, string $title, array $arguments): ShareProvider
-    {
-        $instance = new static();
-        $instance->buildUrl($page, $title, $arguments);
-
-        return $instance;
-    }
-
-    /**
      * Return a share provider name.
      *
      * @return string

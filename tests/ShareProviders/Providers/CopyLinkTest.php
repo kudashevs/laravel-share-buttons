@@ -8,20 +8,19 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class CopyLinkTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = CopyLink::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://mysite.com';
+        $provider = CopyLink::create();
 
-        $this->assertSame($expected, $provider->getUrl());
+        $this->assertSame('copylink', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_replaced_with_hash()
+    public function it_can_generate_a_link_replaced_with_hash()
     {
         config()->set('share-buttons.providers.copylink.extra.hash', true);
 
-        $provider = CopyLink::createFromMethodCall('https://mysite.com', '', []);
+        $provider = CopyLink::create();
         $expected = '#';
 
         $this->assertSame($expected, $provider->getUrl());

@@ -8,20 +8,18 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 class TwitterTest extends ExtendedTestCase
 {
     /** @test */
-    public function it_can_generate_a_share_link()
+    public function it_can_be_created()
     {
-        $provider = Twitter::createFromMethodCall('https://mysite.com', '', []);
-        $expected = 'https://twitter.com/intent/tweet?text=Default+share+text&url=https://mysite.com';
+        $provider = Twitter::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('twitter', $provider->getName());
     }
 
     /** @test */
-    public function it_can_generate_a_share_link_with_custom_title()
+    public function it_can_retrieve_a_default_text()
     {
-        $provider = Twitter::createFromMethodCall('https://mysite.com', 'Title', []);
-        $expected = 'https://twitter.com/intent/tweet?text=Title&url=https://mysite.com';
+        $provider = Twitter::create();
 
-        $this->assertEquals($expected, $provider->getUrl());
+        $this->assertEquals('Default share text', $provider->getText());;
     }
 }
