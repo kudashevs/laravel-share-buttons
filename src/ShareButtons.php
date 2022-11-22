@@ -321,10 +321,13 @@ class ShareButtons
     {
         $representation = $this->presenter->getBlockPrefix();
 
-        /** @var ShareProvider $provider */
-        foreach ($this->providers as $provider) {
+        /** @var ProcessedCall $call */
+        foreach ($this->calls as $call) {
             $representation .= $this->presenter->getElementPrefix();
-            $representation .= $this->presenter->getElementBody($provider);
+            $representation .= $this->presenter->getElementBody(
+                $call->getProvider(),
+                $call->getArguments(),
+            );
             $representation .= $this->presenter->getElementSuffix();
         }
 
