@@ -114,66 +114,8 @@ abstract class ShareProvider
         return $this->extras;
     }
 
-    protected function buildUrl(string $link, string $title, array $arguments): void // @todo rename to generateUrl
-    {
-        $this->url = $this->retrieveUrl();
-    }
-
     protected function retrieveUrl(): string
     {
         return config('share-buttons.providers.' . $this->name . '.url', '');
-    }
-
-    /**
-     * Gather and prepare all possible replacements.
-     *
-     * @param string $link
-     * @param string $title
-     * @param array $arguments
-     * @return array<string, string>
-     */
-    protected function retrieveReplacements(string $link, string $title, array $arguments = []): array
-    {
-        $initialReplacements = [
-            'url' => $this->prepareLink($link),
-            'title' => $this->prepareTitle($title),
-        ];
-
-        $extraReplacements = $this->prepareExtras($arguments);
-
-        return array_merge($extraReplacements, $initialReplacements);
-    }
-
-    protected function prepareLink(string $link): string
-    {
-        return $this->isEmptyTitle($link) ? '#' : $link;
-    }
-
-    protected function prepareTitle(string $title): string
-    {
-        $text = config('share-buttons.providers.' . $this->name . '.text', '');
-
-        $result = ($this->isEmptyTitle($title))
-            ? $text
-            : $title;
-
-        return urlencode($result);
-    }
-
-    protected function isEmptyTitle(string $title): bool
-    {
-        return trim($title) === '';
-    }
-
-    protected function prepareExtras(array $arguments): array
-    {
-        $extra = config('share-buttons.providers.' . $this->name . '.extra', []);
-
-        /**
-         * Because provided arguments may overlap extra information we merge them.
-         */
-        return array_map(static function (string $value) {
-            return urlencode($value);
-        }, array_merge($extra, $arguments));
     }
 }
