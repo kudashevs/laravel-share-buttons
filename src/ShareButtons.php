@@ -176,15 +176,6 @@ class ShareButtons
             $providerInstance = ShareProviderFactory::createFromName($name);
             $providerArguments = $this->prepareProviderArguments($arguments);
 
-            $provider = ShareProviderFactory::createFromMethodCall(
-                $name,
-                $this->page,
-                $this->title,
-                $providerArguments,
-            );
-
-            $this->rememberProcessedProvider($provider);
-
             $this->rememberProcessedCall($name, $providerInstance, $providerArguments);
 
             return $this;
