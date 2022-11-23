@@ -25,7 +25,6 @@ class ShareProviderTest extends ExtendedTestCase
     {
         $instance = LinkedIn::create();
 
-        $this->assertNotEmpty($instance->getTemplate());
         $this->assertNotEmpty($instance->getUrl());
         $this->assertNotEmpty($instance->getText());
         $this->assertNotEmpty($instance->getExtras());
