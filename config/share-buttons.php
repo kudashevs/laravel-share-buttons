@@ -21,53 +21,53 @@ return [
             ],
         ],
         'evernote' => [
-            'url' => 'https://www.evernote.com/clip.action?url=:url&t=:title',
+            'url' => 'https://www.evernote.com/clip.action?url=:url&t=:text',
             'text' => 'Default share text',
         ],
         'facebook' => [
-            'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url&quote=:title',
+            'url' => 'https://www.facebook.com/sharer/sharer.php?u=:url&quote=:text',
             'text' => 'Default share text',
         ],
         'hackernews' => [
-            'url' => 'https://news.ycombinator.com/submitlink?t=:title&u=:url',
+            'url' => 'https://news.ycombinator.com/submitlink?t=:text&u=:url',
             'text' => 'Default share text',
         ],
         'linkedin' => [
-            'url' => 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=:url&title=:title&summary=:summary',
+            'url' => 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=:url&title=:text&summary=:summary',
             'text' => 'Default share text',
             'extra' => [
                 'summary' => '',
             ],
         ],
         'mailto' => [
-            'url' => 'mailto:?subject=:title&body=:url',
+            'url' => 'mailto:?subject=:text&body=:url',
             'text' => 'Default share text',
         ],
         'pinterest' => [
             'url' => 'https://pinterest.com/pin/create/button/?url=:url',
         ],
         'pocket' => [
-            'url' => 'https://getpocket.com/edit?url=:url&title=:title',
+            'url' => 'https://getpocket.com/edit?url=:url&title=:text',
             'text' => 'Default share text',
         ],
         'reddit' => [
-            'url' => 'https://www.reddit.com/submit?title=:title&url=:url',
+            'url' => 'https://www.reddit.com/submit?title=:text&url=:url',
             'text' => 'Default share text',
         ],
         'skype' => [
-            'url' => 'https://web.skype.com/share?url=:url&text=:title&source=button',
+            'url' => 'https://web.skype.com/share?url=:url&text=:text&source=button',
             'text' => 'Default share text',
         ],
         'telegram' => [
-            'url' => 'https://telegram.me/share/url?url=:url&text=:title',
+            'url' => 'https://telegram.me/share/url?url=:url&text=:text',
             'text' => 'Default share text',
         ],
         'twitter' => [
-            'url' => 'https://twitter.com/intent/tweet?text=:title&url=:url',
+            'url' => 'https://twitter.com/intent/tweet?text=:text&url=:url',
             'text' => 'Default share text',
         ],
         'vkontakte' => [
-            'url' => 'https://vk.com/share.php?url=:url&title=:title',
+            'url' => 'https://vk.com/share.php?url=:url&title=:text',
             'text' => 'Default share text',
         ],
         'whatsapp' => [
