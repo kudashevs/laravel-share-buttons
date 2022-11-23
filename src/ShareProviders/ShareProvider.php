@@ -8,8 +8,6 @@ abstract class ShareProvider
 {
     protected string $name;
 
-    protected string $text;
-
     protected array $extras;
 
     /**
@@ -27,7 +25,6 @@ abstract class ShareProvider
 
     protected function initProvider(): void
     {
-        $this->text = $this->retrieveText();
         $this->extras = $this->retrieveExtras();
     }
 
@@ -57,16 +54,6 @@ abstract class ShareProvider
     }
 
     /**
-     * Return a share provider URL text.
-     *
-     * @return string
-     */
-    public function getText(): string
-    {
-        return $this->text;
-    }
-
-    /**
      * Return provided extras.
      *
      * @return array
@@ -83,8 +70,6 @@ abstract class ShareProvider
      */
     public function getUrlReplacements(): array
     {
-        return array_merge([
-            'text' => $this->text,
-        ], $this->extras);
+        return $this->extras;
     }
 }

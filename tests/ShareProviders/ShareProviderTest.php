@@ -25,7 +25,6 @@ class ShareProviderTest extends ExtendedTestCase
     {
         $instance = LinkedIn::create();
 
-        $this->assertNotEmpty($instance->getText());
         $this->assertNotEmpty($instance->getExtras());
     }
 
@@ -35,6 +34,5 @@ class ShareProviderTest extends ExtendedTestCase
         $instance = LinkedIn::create();
 
         $this->assertNotEmpty($instance->getUrlReplacements());
-        $this->assertArrayHasKey('text', $instance->getUrlReplacements());
     }
 }
