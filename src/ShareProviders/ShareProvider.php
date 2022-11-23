@@ -22,7 +22,7 @@ abstract class ShareProvider
         return new static();
     }
 
-    protected function __construct()
+    public function __construct()
     {
         $this->initProvider();
     }
