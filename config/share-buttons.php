@@ -71,10 +71,8 @@ return [
             'text' => 'Default share text',
         ],
         'whatsapp' => [
-            'url' => 'https://wa.me/?text=:url',
-            'extra' => [
-                'mini' => 'true',
-            ],
+            'url' => 'https://wa.me/?text=:url%20:text',
+            'text' => 'Default share text',
         ],
         'xing' => [
             'url' => 'https://www.xing.com/spi/shares/new?url=:url',

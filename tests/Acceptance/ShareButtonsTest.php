@@ -121,7 +121,7 @@ class ShareButtonsTest extends ExtendedTestCase
                 'whatsapp',
                 'https://mysite.com',
                 'My whatsapp title',
-                'https://wa.me/?text=https%3A%2F%2Fmysite.com',
+                'https://wa.me/?text=https%3A%2F%2Fmysite.com%20My+whatsapp+title',
             ],
             'xing' => [
                 'xing',
