@@ -8,8 +8,6 @@ abstract class ShareProvider
 {
     protected string $name;
 
-    protected array $extras;
-
     /**
      * @return ShareProvider
      */
@@ -25,7 +23,6 @@ abstract class ShareProvider
 
     protected function initProvider(): void
     {
-        $this->extras = $this->retrieveExtras();
     }
 
     protected function retrieveUrl(): string
@@ -51,25 +48,5 @@ abstract class ShareProvider
     public function getName(): string
     {
         return $this->name;
-    }
-
-    /**
-     * Return provided extras.
-     *
-     * @return array
-     */
-    public function getExtras(): array
-    {
-        return $this->extras;
-    }
-
-    /**
-     * Return URL template related replacements.
-     *
-     * @return array<string, string>
-     */
-    public function getUrlReplacements(): array
-    {
-        return $this->extras;
     }
 }

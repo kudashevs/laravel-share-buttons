@@ -21,18 +21,18 @@ class ShareProviderTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_create_an_instance()
+    {
+        $instance = LinkedIn::create();
+
+        $this->assertSame('linkedin', $instance->getName());
+    }
+
+    /** @test */
     public function it_can_retrieve_initial_values()
     {
         $instance = LinkedIn::create();
 
-        $this->assertNotEmpty($instance->getExtras());
-    }
-
-    /** @test */
-    public function it_can_retrieve_url_replacements()
-    {
-        $instance = LinkedIn::create();
-
-        $this->assertNotEmpty($instance->getUrlReplacements());
+        $this->assertNotEmpty($instance->getName());
     }
 }
