@@ -33,10 +33,9 @@ return [
             'text' => 'Default share text',
         ],
         'linkedin' => [
-            'url' => 'https://www.linkedin.com/sharing/share-offsite?mini=:mini&url=:url&title=:title&summary=:summary',
+            'url' => 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=:url&title=:title&summary=:summary',
             'text' => 'Default share text',
             'extra' => [
-                'mini' => 'true',
                 'summary' => '',
             ],
         ],
