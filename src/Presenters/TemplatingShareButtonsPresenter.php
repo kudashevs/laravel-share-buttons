@@ -133,11 +133,9 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @inheritDoc
      */
-    public function getElementBody(ShareProvider $provider, array $arguments): string
+    public function getElementBody(string $name, string $url, array $arguments): string
     {
-        $url = $this->getElementUrl($provider, $arguments);
-
-        $template = $this->retrieveTemplate($provider->getName());
+        $template = $this->retrieveTemplate($name);
         $replacements = $this->retrieveElementReplacements($url, $arguments);
 
         return $this->templater->render($template, $replacements);

@@ -145,14 +145,16 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_default_styling()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
-        $provider = Facebook::create();
+        $expected = '<li><a href="any" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
         $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody($provider, [
-                'url' => 'https://mysite.com',
-                'text' => 'test',
-            ])
+            $this->presenter->getElementBody(
+                'facebook',
+                'any',
+                [
+                    'url' => 'https://mysite.com',
+                    'text' => 'test',
+                ])
         );
 
         $this->assertEquals($expected, $result);
@@ -161,15 +163,17 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_custom_styling_from_class_options()
     {
-        $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
-        $provider = Facebook::create();
+        $expected = '<p><a href="any" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
         $this->presenter->refreshStyling(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
         $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody($provider, [
-                'url' => 'https://mysite.com',
-                'text' => '',
-            ])
+            $this->presenter->getElementBody(
+                'facebook',
+                'any',
+                [
+                    'url' => 'https://mysite.com',
+                    'text' => '',
+                ])
         );
 
         $this->assertEquals($expected, $result);
@@ -184,11 +188,10 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
         array $options,
         string $expected
     ) {
-        $provider = Facebook::create();
-
         $result = $this->wrapElementInStyling(
             $this->presenter->getElementBody(
-                $provider,
+                'facebook',
+                'any',
                 array_merge([
                     'url' => $page,
                     'text' => 'Title',
@@ -207,28 +210,28 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
                 [
                     'class' => 'tested',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="any" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check id option' => [
                 'https://mysite.com',
                 [
                     'id' => 'tested',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="any" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check title option' => [
                 'https://mysite.com',
                 [
                     'title' => 'tested',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="any" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check rel option' => [
                 'https://mysite.com',
                 [
                     'rel' => 'nofollow',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="any" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check mass options' => [
                 'https://mysite.com',
@@ -238,7 +241,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
                     'id' => 'click',
                     'class' => 'hover active',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="any" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
             ],
         ];
     }
@@ -246,16 +249,18 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_format_an_element_with_custom_styling_from_call_options()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
-        $provider = Facebook::create();
+        $expected = '<li><a href="any" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
         $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody($provider, [
-                'url' => 'https://mysite.com',
-                'text' => 'Title',
-                'element_prefix' => '<p>',
-                'element_suffix' => '</p>',
-            ])
+            $this->presenter->getElementBody(
+                'facebook',
+                'any',
+                [
+                    'url' => 'https://mysite.com',
+                    'text' => 'Title',
+                    'element_prefix' => '<p>',
+                    'element_suffix' => '</p>',
+                ])
         );
 
         $this->assertEquals($expected, $result);
@@ -264,8 +269,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_override_arguments_with_options()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
-        $provider = Facebook::create();
+        $expected = '<li><a href="any" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
         $this->presenter->refreshStyling([
             'class' => 'options',
             'id' => 'options',
@@ -274,14 +278,17 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
         ]);
 
         $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody($provider, [ // @todo temporary
-                'url' => 'https://mysite.com',
-                'text' => 'Title',
-                'class' => 'arguments',
-                'id' => 'arguments',
-                'title' => 'arguments',
-                'rel' => 'arguments',
-            ])
+            $this->presenter->getElementBody(
+                'facebook',
+                'any',
+                [ // @note temporary
+                    'url' => 'https://mysite.com',
+                    'text' => 'Title',
+                    'class' => 'arguments',
+                    'id' => 'arguments',
+                    'title' => 'arguments',
+                    'rel' => 'arguments',
+                ])
         );
 
         $this->assertEquals($expected, $result);
