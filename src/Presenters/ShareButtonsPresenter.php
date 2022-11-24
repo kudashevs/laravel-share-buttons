@@ -41,11 +41,4 @@ interface ShareButtonsPresenter
      * @return string
      */
     public function getElementBody(string $name, string $url, array $arguments): string;
-
-    /**
-     * @param ShareProvider $provider
-     * @param array $arguments
-     * @return string
-     */
-    public function getElementUrl(ShareProvider $provider, array $arguments): string;
 }

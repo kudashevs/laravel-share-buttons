@@ -6,7 +6,6 @@ namespace Kudashevs\ShareButtons\Presenters;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
-use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
@@ -144,26 +143,6 @@ class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
     protected function retrieveTemplate(string $name): string
     {
         return config('share-buttons.templates.' . $name, '');
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getElementUrl(ShareProvider $provider, array $arguments): string
-    {
-        $template = $provider->getUrl();
-        $replacements = $this->prepareUrlReplacements(
-            array_merge($provider->getUrlReplacements(), array_filter($arguments, 'strlen'))
-        );
-
-        return $this->templater->render($template, $replacements);
-    }
-
-    protected function prepareUrlReplacements(array $arguments): array
-    {
-        return array_map(function ($value) {
-            return urlencode($value);
-        }, $arguments);
     }
 
     /**

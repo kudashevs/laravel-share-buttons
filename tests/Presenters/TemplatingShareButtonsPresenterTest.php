@@ -3,7 +3,6 @@
 namespace Kudashevs\ShareButtons\Tests\Presenters;
 
 use Kudashevs\ShareButtons\Presenters\TemplatingShareButtonsPresenter;
-use Kudashevs\ShareButtons\ShareProviders\Providers\Facebook;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
@@ -281,7 +280,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
             $this->presenter->getElementBody(
                 'facebook',
                 'any',
-                [ // @note temporary
+                [
                     'url' => 'https://mysite.com',
                     'text' => 'Title',
                     'class' => 'arguments',
@@ -292,34 +291,6 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
         );
 
         $this->assertEquals($expected, $result);
-    }
-
-    /** @test */
-    public function it_can_format_an_element_url_with_infromation_from_default()
-    {
-        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
-        $provider = Facebook::create();
-
-        $result = $this->presenter->getElementUrl($provider, [
-            'url' => 'https://mysite.com',
-            'text' => '',
-        ]);
-
-        $this->assertSame($expected, $result);
-    }
-
-    /** @test */
-    public function it_can_format_an_element_url_with_information_from_call_options()
-    {
-        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title';
-        $provider = Facebook::create();
-
-        $result = $this->presenter->getElementUrl($provider, [
-            'url' => 'https://mysite.com',
-            'text' => 'Title',
-        ]);
-
-        $this->assertSame($expected, $result);
     }
 
     private function wrapElementInStyling(string $element): string
