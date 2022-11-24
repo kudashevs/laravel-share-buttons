@@ -35,11 +35,12 @@ interface ShareButtonsPresenter
     public function getElementSuffix(): string;
 
     /**
-     * @param ShareProvider $provider
+     * @param string $name
+     * @param string $url
      * @param array $arguments
      * @return string
      */
-    public function getElementBody(ShareProvider $provider, array $arguments): string;
+    public function getElementBody(string $name, string $url, array $arguments): string;
 
     /**
      * @param ShareProvider $provider
