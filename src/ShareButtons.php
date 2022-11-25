@@ -261,12 +261,28 @@ class ShareButtons
      */
     public function getRawLinks(): array
     {
-        return array_map(function ($call) {
-            return $this->presenter->getElementUrl(
-                $call->getProvider(),
+        $links = array_map(function ($call) {
+            return $this->retrieveUrlFromProcessedCall(
+                $call->getName(),
                 $call->getArguments(),
             );
         }, $this->calls);
+
+        return array_filter($links, 'strlen');
+    }
+
+    protected function retrieveUrlFromProcessedCall(string $name, array $arguments): string
+    {
+        $url = $this->provider->generateUrl(
+            $name,
+            $arguments
+        );
+
+        if (trim($url) === '') {
+            $this->handleUnexpectedCall($name);
+        }
+
+        return $url;
     }
 
     /**
