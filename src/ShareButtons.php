@@ -201,7 +201,7 @@ class ShareButtons
             'text' => $this->title,
         ];
 
-        $applicable = $this->retrieveProviderArguments($arguments);
+        $applicable = $this->retrieveApplicableArguments($arguments);
 
         return array_merge($applicable, $initial);
     }
@@ -209,7 +209,7 @@ class ShareButtons
     /**
      * @return array<string, string>
      */
-    protected function retrieveProviderArguments(array $arguments): array
+    protected function retrieveApplicableArguments(array $arguments): array
     {
         if ($this->isAnyArgumentsProvided($arguments)) {
             return array_filter($arguments[0], 'is_string');
