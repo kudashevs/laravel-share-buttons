@@ -179,7 +179,7 @@ class ShareButtons
      */
     public function __call(string $name, array $arguments)
     {
-        $providerArguments = $this->prepareProviderArguments($arguments);
+        $providerArguments = $this->prepareApplicableArguments($arguments);
         $this->rememberProcessedCall($name, $providerArguments);
 
         return $this;
@@ -194,7 +194,7 @@ class ShareButtons
      * @param array<string, mixed> $arguments
      * @return array<string, string>
      */
-    protected function prepareProviderArguments(array $arguments): array
+    protected function prepareApplicableArguments(array $arguments): array
     {
         $initial = [
             'url' => $this->page,
