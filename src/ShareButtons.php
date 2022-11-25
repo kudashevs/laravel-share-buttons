@@ -311,9 +311,12 @@ class ShareButtons
 
         /** @var ProcessedCall $call */
         foreach ($this->calls as $call) {
+            $url = $this->retrieveUrlFromProcessedCall($call->getName(), $call->getArguments());
+
             $representation .= $this->presenter->getElementPrefix();
             $representation .= $this->presenter->getElementBody(
-                $call->getProvider(),
+                $call->getName(),
+                $url,
                 $call->getArguments(),
             );
             $representation .= $this->presenter->getElementSuffix();
