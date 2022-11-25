@@ -8,7 +8,8 @@ use BadMethodCallException;
 use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
 use Kudashevs\ShareButtons\Presenters\TemplatingShareButtonsPresenter;
-use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
+use Kudashevs\ShareButtons\UrlProviders\TemplateUrlProvider;
+use Kudashevs\ShareButtons\UrlProviders\UrlProvider;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
@@ -33,6 +34,8 @@ use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 class ShareButtons
 {
     protected ShareButtonsPresenter $presenter;
+
+    protected UrlProvider $provider;
 
     /**
      * The url of a page to share.
@@ -63,6 +66,7 @@ class ShareButtons
     public function __construct(array $options = [])
     {
         $this->initPresenter($options);
+        $this->initUrlProvider($options);
 
         $this->initOptions($options);
     }
@@ -75,6 +79,16 @@ class ShareButtons
     protected function createPresenter(array $options): ShareButtonsPresenter
     {
         return new TemplatingShareButtonsPresenter($options);
+    }
+
+    protected function initUrlProvider(array $options): void
+    {
+        $this->provider = $this->createUrlProvider($options);
+    }
+
+    protected function createUrlProvider(array $options): UrlProvider
+    {
+        return new TemplateUrlProvider($options);
     }
 
     /**
