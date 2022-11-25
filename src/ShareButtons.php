@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons;
 
 use BadMethodCallException;
-use Kudashevs\ShareButtons\Factories\ShareProviderFactory;
 use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
 use Kudashevs\ShareButtons\Presenters\TemplatingShareButtonsPresenter;
 use Kudashevs\ShareButtons\UrlProviders\TemplateUrlProvider;
@@ -183,11 +182,6 @@ class ShareButtons
         $this->rememberProcessedCall($name, $applicableArguments);
 
         return $this;
-    }
-
-    protected function isRegisteredProvider(string $name): bool
-    {
-        return ShareProviderFactory::isValidProviderName($name);
     }
 
     /**
