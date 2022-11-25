@@ -179,8 +179,8 @@ class ShareButtons
      */
     public function __call(string $name, array $arguments)
     {
-        $providerArguments = $this->prepareApplicableArguments($arguments);
-        $this->rememberProcessedCall($name, $providerArguments);
+        $applicableArguments = $this->prepareApplicableArguments($arguments);
+        $this->rememberProcessedCall($name, $applicableArguments);
 
         return $this;
     }
