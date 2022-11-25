@@ -179,16 +179,10 @@ class ShareButtons
      */
     public function __call(string $name, array $arguments)
     {
-        if ($this->isRegisteredProvider($name)) {
-            $providerInstance = ShareProviderFactory::createFromName($name);
-            $providerArguments = $this->prepareProviderArguments($arguments);
+        $providerArguments = $this->prepareProviderArguments($arguments);
+        $this->rememberProcessedCall($name, $providerArguments);
 
-            $this->rememberProcessedCall($name, $providerArguments);
-
-            return $this;
-        }
-
-        return $this->handleUnexpectedCall($name);
+        return $this;
     }
 
     protected function isRegisteredProvider(string $name): bool
