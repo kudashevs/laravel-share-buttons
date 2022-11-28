@@ -11,5 +11,5 @@ interface Templater
      * @param array $replacements
      * @return string
      */
-    public function render(string $template, array $replacements): string;
+    public function process(string $template, array $replacements): string;
 }
