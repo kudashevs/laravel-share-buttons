@@ -14,14 +14,6 @@ class TemplateUrlProvider implements UrlProvider
 
     protected string $name;
 
-    /**
-     * @return TemplateUrlProvider
-     */
-    public static function create(): TemplateUrlProvider
-    {
-        return new static();
-    }
-
     public function __construct(array $options = [])
     {
         $this->initProvider();
