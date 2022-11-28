@@ -32,7 +32,7 @@ class TemplateUrlProvider implements UrlProvider
      */
     public function generateUrl(string $name, array $arguments): string
     {
-        $this->initName($name);
+        $this->initProviderName($name);
 
         $template = $this->retrieveUrlTemplate();
         $replacements = $this->retrieveUrlReplacements($arguments);
@@ -42,7 +42,7 @@ class TemplateUrlProvider implements UrlProvider
         return $this->templater->render($template, $encoded);
     }
 
-    protected function initName(string $name): void
+    protected function initProviderName(string $name): void
     {
         $this->name = $name;
     }
