@@ -9,7 +9,7 @@ class ColonTemplater implements Templater
     /**
      * @inheritDoc
      */
-    public function render(string $template, array $replacements): string
+    public function process(string $template, array $replacements): string
     {
         $prepared = $this->prepareReplacements($replacements);
 
