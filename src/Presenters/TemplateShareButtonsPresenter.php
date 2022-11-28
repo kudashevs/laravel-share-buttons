@@ -8,7 +8,7 @@ use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
-class TemplatingShareButtonsPresenter implements ShareButtonsPresenter
+class TemplateShareButtonsPresenter implements ShareButtonsPresenter
 {
     private const DIFFERENT_ATTRIBUTE_FORMATS = [
         'class' => ' %s',

@@ -2,13 +2,13 @@
 
 namespace Kudashevs\ShareButtons\Tests\Presenters;
 
-use Kudashevs\ShareButtons\Presenters\TemplatingShareButtonsPresenter;
+use Kudashevs\ShareButtons\Presenters\TemplateShareButtonsPresenter;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
-class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
+class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 {
     /**
-     * @var TemplatingShareButtonsPresenter
+     * @var TemplateShareButtonsPresenter
      */
     private $presenter;
 
@@ -16,7 +16,7 @@ class TemplatingShareButtonsPresenterTest extends ExtendedTestCase
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->presenter = new TemplatingShareButtonsPresenter();
+        $this->presenter = new TemplateShareButtonsPresenter();
     }
 
     /**
