@@ -68,8 +68,9 @@ class TemplateUrlProvider implements UrlProvider
     protected function retrieveUrlReplacements(array $arguments): array
     {
         $urlReplacements = $this->getUrlReplacements();
+        $applicableArguments = array_filter($arguments, 'strlen');
 
-        return array_merge($urlReplacements, array_filter($arguments, 'strlen'));
+        return array_merge($urlReplacements, $applicableArguments);
     }
 
     protected function getUrlReplacements(): array
