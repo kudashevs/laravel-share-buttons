@@ -232,7 +232,7 @@ class ShareButtons
             $exception = $this->retrieveUnexpectedCallException();
 
             throw new $exception(
-                sprintf('Call to undefined method %s::%s().', $this->getShortClassName(), $name)
+                sprintf('Call to undefined method %s::%s().', __CLASS__, $name)
             );
         }
     }
@@ -242,16 +242,6 @@ class ShareButtons
         return class_exists($this->options['throwException'])
             ? $this->options['throwException']
             : BadMethodCallException::class;
-    }
-
-    /**
-     * @return string
-     */
-    protected function getShortClassName(): string
-    {
-        $parsed = explode('\\', get_class($this));
-
-        return end($parsed);
     }
 
     /**

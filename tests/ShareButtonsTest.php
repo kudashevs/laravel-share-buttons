@@ -22,7 +22,7 @@ class ShareButtonsTest extends ExtendedTestCase
         config()->set('share-buttons.reactOnErrors', true);
 
         $this->expectException(\BadMethodCallException::class);
-        $this->expectExceptionMessage('method ShareButtons::wrong()');
+        $this->expectExceptionMessage('ShareButtons::wrong()');
 
         ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
     }
@@ -34,7 +34,7 @@ class ShareButtonsTest extends ExtendedTestCase
         config()->set('share-buttons.throwException', \RuntimeException::class);
 
         $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage('method ShareButtons::wrong()');
+        $this->expectExceptionMessage('ShareButtons::wrong()');
 
         ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
     }
@@ -46,7 +46,7 @@ class ShareButtonsTest extends ExtendedTestCase
         config()->set('share-buttons.throwException', Wrong::class);
 
         $this->expectException(\BadMethodCallException::class);
-        $this->expectExceptionMessage('method ShareButtons::wrong()');
+        $this->expectExceptionMessage('ShareButtons::wrong()');
 
         ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
     }
