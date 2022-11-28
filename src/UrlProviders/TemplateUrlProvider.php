@@ -39,7 +39,7 @@ class TemplateUrlProvider implements UrlProvider
 
         $encoded = $this->encodeReplacements($replacements);
 
-        return $this->templater->render($template, $encoded);
+        return $this->templater->process($template, $encoded);
     }
 
     protected function initProviderName(string $name): void

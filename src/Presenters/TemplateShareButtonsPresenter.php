@@ -137,7 +137,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         $template = $this->retrieveTemplate($name);
         $replacements = $this->retrieveElementReplacements($url, $arguments);
 
-        return $this->templater->render($template, $replacements);
+        return $this->templater->process($template, $replacements);
     }
 
     protected function retrieveTemplate(string $name): string

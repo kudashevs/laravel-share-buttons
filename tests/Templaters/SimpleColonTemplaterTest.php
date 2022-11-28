@@ -2,10 +2,10 @@
 
 namespace Kudashevs\ShareButtons\Tests\Templaters;
 
-use Kudashevs\ShareButtons\Templaters\ColonTemplater;
+use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use PHPUnit\Framework\TestCase;
 
-class ColonTemplaterTest extends TestCase
+class SimpleColonTemplaterTest extends TestCase
 {
     private $templater;
 
@@ -13,7 +13,7 @@ class ColonTemplaterTest extends TestCase
     {
         parent::setUp();
 
-        $this->templater = new ColonTemplater();
+        $this->templater = new SimpleColonTemplater();
     }
 
     /**

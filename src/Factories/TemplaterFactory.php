@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons\Factories;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
-use Kudashevs\ShareButtons\Templaters\ColonTemplater;
+use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 final class TemplaterFactory
@@ -37,6 +37,6 @@ final class TemplaterFactory
      */
     private static function getDefaultClass(): string
     {
-        return ColonTemplater::class;
+        return SimpleColonTemplater::class;
     }
 }
