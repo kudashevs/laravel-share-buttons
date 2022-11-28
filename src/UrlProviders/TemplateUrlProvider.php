@@ -16,12 +16,7 @@ class TemplateUrlProvider implements UrlProvider
 
     public function __construct(array $options = [])
     {
-        $this->initProvider();
         $this->initTemplater($options);
-    }
-
-    protected function initProvider(): void
-    {
     }
 
     /**
