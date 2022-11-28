@@ -65,16 +65,6 @@ class TemplateUrlProvider implements UrlProvider
         return config('share-buttons.providers.' . $this->name . '.extra', []);
     }
 
-    /**
-     * Return a share provider name.
-     *
-     * @return string
-     */
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
     public function generateUrl(string $name, array $arguments): string
     {
         $this->initName($name);
