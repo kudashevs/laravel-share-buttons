@@ -27,31 +27,6 @@ class TemplateUrlProvider implements UrlProvider
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
-    protected function retrieveUrlTemplate(): string
-    {
-        $url = config('share-buttons.providers.' . $this->name . '.url', '');
-
-        return $this->isHashedUrl()
-            ? '#'
-            : $url;
-    }
-
-    protected function isHashedUrl(): bool
-    {
-        return config()->has('share-buttons.providers.' . $this->name . '.extra.hash') &&
-            config('share-buttons.providers.' . $this->name . '.extra.hash') === true;
-    }
-
-    protected function retrieveText(): string
-    {
-        return config('share-buttons.providers.' . $this->name . '.text', '');
-    }
-
-    protected function retrieveExtras(): array
-    {
-        return config('share-buttons.providers.' . $this->name . '.extra', []);
-    }
-
     /**
      * @inheritDoc
      */
@@ -72,6 +47,21 @@ class TemplateUrlProvider implements UrlProvider
         $this->name = $name;
     }
 
+    protected function retrieveUrlTemplate(): string
+    {
+        $url = config('share-buttons.providers.' . $this->name . '.url', '');
+
+        return $this->isHashedUrl()
+            ? '#'
+            : $url;
+    }
+
+    protected function isHashedUrl(): bool
+    {
+        return config()->has('share-buttons.providers.' . $this->name . '.extra.hash') &&
+            config('share-buttons.providers.' . $this->name . '.extra.hash') === true;
+    }
+
     /**
      * @return array<string, string>
      */
@@ -85,6 +75,16 @@ class TemplateUrlProvider implements UrlProvider
         return array_merge([
             'text' => $this->retrieveText(),
         ], $this->retrieveExtras());
+    }
+
+    protected function retrieveText(): string
+    {
+        return config('share-buttons.providers.' . $this->name . '.text', '');
+    }
+
+    protected function retrieveExtras(): array
+    {
+        return config('share-buttons.providers.' . $this->name . '.extra', []);
     }
 
     protected function encodeReplacements(array $replacements): array
