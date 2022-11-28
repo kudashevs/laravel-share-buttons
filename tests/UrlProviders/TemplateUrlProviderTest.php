@@ -2,8 +2,8 @@
 
 namespace Kudashevs\ShareButtons\Tests\UrlProviders;
 
-use Kudashevs\ShareButtons\UrlProviders\TemplateUrlProvider;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
+use Kudashevs\ShareButtons\UrlProviders\TemplateUrlProvider;
 
 class TemplateUrlProviderTest extends ExtendedTestCase
 {
@@ -265,7 +265,7 @@ class TemplateUrlProviderTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_url_with_summary()
+    public function it_can_generate_a_url_with_summary_for_linkedin()
     {
         $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
 
@@ -279,7 +279,7 @@ class TemplateUrlProviderTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_url_with_infromation_from_default()
+    public function it_can_generate_a_url_with_infromation_from_defaults()
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
 
@@ -292,7 +292,7 @@ class TemplateUrlProviderTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_url_with_information_from_call_options()
+    public function it_can_generate_a_url_with_information_from_call_options()
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title';
 
