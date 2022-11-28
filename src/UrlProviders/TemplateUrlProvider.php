@@ -67,13 +67,13 @@ class TemplateUrlProvider implements UrlProvider
      */
     protected function retrieveUrlReplacements(array $arguments): array
     {
-        $urlReplacements = $this->getUrlReplacements();
+        $urlReplacements = $this->retrieveProviderReplacements();
         $applicableArguments = array_filter($arguments, 'strlen');
 
         return array_merge($urlReplacements, $applicableArguments);
     }
 
-    protected function getUrlReplacements(): array
+    protected function retrieveProviderReplacements(): array
     {
         return array_merge([
             'text' => $this->retrieveText(),
