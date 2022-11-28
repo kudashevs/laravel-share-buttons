@@ -254,31 +254,6 @@ class TemplateUrlProviderTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_hashed_url_for_copylink()
-    {
-        config()->set('share-buttons.providers.copylink.extra.hash', true);
-
-        $instance = new TemplateUrlProvider();
-        $result = $instance->generateUrl('copylink', []);
-
-        $this->assertSame('#', $result);
-    }
-
-    /** @test */
-    public function it_can_generate_a_url_with_summary_for_linkedin()
-    {
-        $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
-
-        $result = $this->provider->generateUrl('linkedin', [
-            'url' => 'https://mysite.com',
-            'text' => '',
-            'summary' => 'Share text',
-        ]);
-
-        $this->assertSame($expected, $result);;
-    }
-
-    /** @test */
     public function it_can_generate_a_url_with_infromation_from_defaults()
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
@@ -302,5 +277,30 @@ class TemplateUrlProviderTest extends ExtendedTestCase
         ]);
 
         $this->assertSame($expected, $result);
+    }
+
+    /** @test */
+    public function it_can_generate_a_hashed_url_for_copylink()
+    {
+        config()->set('share-buttons.providers.copylink.extra.hash', true);
+
+        $instance = new TemplateUrlProvider();
+        $result = $instance->generateUrl('copylink', []);
+
+        $this->assertSame('#', $result);
+    }
+
+    /** @test */
+    public function it_can_generate_a_url_with_summary_for_linkedin()
+    {
+        $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
+
+        $result = $this->provider->generateUrl('linkedin', [
+            'url' => 'https://mysite.com',
+            'text' => '',
+            'summary' => 'Share text',
+        ]);
+
+        $this->assertSame($expected, $result);;
     }
 }
