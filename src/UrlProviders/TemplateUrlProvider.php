@@ -27,7 +27,7 @@ class TemplateUrlProvider implements UrlProvider
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
-    protected function retrieveUrl(): string
+    protected function retrieveUrlTemplate(): string
     {
         $url = config('share-buttons.providers.' . $this->name . '.url', '');
 
@@ -59,7 +59,7 @@ class TemplateUrlProvider implements UrlProvider
     {
         $this->initName($name);
 
-        $template = $this->retrieveUrl();
+        $template = $this->retrieveUrlTemplate();
         $replacements = $this->retrieveUrlReplacements($arguments);
 
         $encoded = $this->encodeReplacements($replacements);
