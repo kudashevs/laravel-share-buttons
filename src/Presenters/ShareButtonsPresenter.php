@@ -12,7 +12,7 @@ interface ShareButtonsPresenter
      * @param array $options
      * @return void
      */
-    public function refreshStyling(array $options): void;
+    public function refreshRepresentation(array $options): void;
 
     /**
      * @return string
