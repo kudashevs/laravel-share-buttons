@@ -138,13 +138,13 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getElementBody(string $name, string $url, array $arguments): string
     {
-        $template = $this->retrieveTemplate($name);
+        $template = $this->retrieveElementTemplate($name);
         $replacements = $this->retrieveElementReplacements($url, $arguments);
 
         return $this->templater->process($template, $replacements);
     }
 
-    protected function retrieveTemplate(string $name): string
+    protected function retrieveElementTemplate(string $name): string
     {
         return config('share-buttons.templates.' . $name, '');
     }
