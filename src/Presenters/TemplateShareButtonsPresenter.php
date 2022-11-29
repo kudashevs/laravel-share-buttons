@@ -6,18 +6,15 @@ namespace Kudashevs\ShareButtons\Presenters;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
+use Kudashevs\ShareButtons\Presenters\Formatters\AttributesFormatter;
+use Kudashevs\ShareButtons\Presenters\Formatters\SimpleAttributesFormatter;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateShareButtonsPresenter implements ShareButtonsPresenter
 {
-    private const DIFFERENT_ATTRIBUTE_FORMATS = [
-        'class' => ' %s',
-        'id' => ' id="%s"',
-        'title' => ' title="%s"',
-        'rel' => ' rel="%s"',
-    ];
-
     private Templater $templater;
+
+    private AttributesFormatter $formatter;
 
     /**
      * Contain formatter options.
@@ -44,6 +41,8 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     public function __construct(array $options = [])
     {
         $this->initTemplater($options);
+        $this->initAttributesFormatter();
+
         $this->initRepresentation($options);
     }
 
@@ -53,6 +52,11 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     private function initTemplater(array $options): void
     {
         $this->templater = TemplaterFactory::createFromOptions($options);
+    }
+
+    private function initAttributesFormatter(): void
+    {
+        $this->formatter = new SimpleAttributesFormatter();
     }
 
     private function initRepresentation(array $options): void
@@ -166,18 +170,6 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     {
         $attributes = array_merge($this->attributes, $options);
 
-        return $this->formatAttributes($attributes);
-    }
-
-    private function formatAttributes(array $attributes): array
-    {
-        $formattedAttributes = [];
-        foreach (self::DIFFERENT_ATTRIBUTE_FORMATS as $name => $format) {
-            $formattedAttributes[$name] = isset($attributes[$name])
-                ? sprintf($format, $attributes[$name])
-                : '';
-        }
-
-        return $formattedAttributes;
+        return $this->formatter->format($attributes);
     }
 }
