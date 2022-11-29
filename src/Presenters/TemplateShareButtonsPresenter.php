@@ -96,7 +96,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @inheritDoc
      */
-    public function refreshStyling(array $options): void
+    public function refreshRepresentation(array $options): void
     {
         $this->initRepresentation($options);
     }
