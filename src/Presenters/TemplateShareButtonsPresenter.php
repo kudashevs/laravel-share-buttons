@@ -96,6 +96,14 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @inheritDoc
      */
+    public function refreshStyling(array $options): void
+    {
+        $this->initRepresentation($options);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getBlockPrefix(): string
     {
         return $this->styling['block_prefix'];
@@ -123,14 +131,6 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     public function getElementSuffix(): string
     {
         return $this->styling['element_suffix'];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function refreshStyling(array $options): void
-    {
-        $this->initRepresentation($options);
     }
 
     /**
