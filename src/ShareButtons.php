@@ -7,8 +7,6 @@ namespace Kudashevs\ShareButtons;
 use BadMethodCallException;
 use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
 use Kudashevs\ShareButtons\Presenters\TemplateShareButtonsPresenter;
-use Kudashevs\ShareButtons\Providers\ShareButtonsProvider;
-use Kudashevs\ShareButtons\Providers\TemplateShareButtonsProvider;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
@@ -33,8 +31,6 @@ use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 class ShareButtons
 {
     protected ShareButtonsPresenter $presenter;
-
-    protected UrlProvider $provider;
 
     /**
      * The url of a page to share.
@@ -64,7 +60,6 @@ class ShareButtons
     public function __construct(array $options = [])
     {
         $this->initPresenter($options);
-        $this->initUrlProvider($options);
 
         $this->initOptions($options);
     }
@@ -77,16 +72,6 @@ class ShareButtons
     protected function createPresenter(array $options): ShareButtonsPresenter
     {
         return new TemplateShareButtonsPresenter($options);
-    }
-
-    protected function initUrlProvider(array $options): void
-    {
-        $this->provider = $this->createUrlProvider($options);
-    }
-
-    protected function createUrlProvider(array $options): UrlProvider
-    {
-        return new TemplateUrlProvider($options);
     }
 
     /**
@@ -252,7 +237,7 @@ class ShareButtons
     public function getRawLinks(): array
     {
         return array_map(function ($call) {
-            return $this->provider->generateUrl(
+            return $this->presenter->getElementUrl(
                 $call->getName(),
                 $call->getArguments(),
             );
@@ -285,12 +270,9 @@ class ShareButtons
 
         /** @var ProcessedCall $call */
         foreach ($this->calls as $call) {
-            $url = $this->provider->generateUrl($call->getName(), $call->getArguments());
-
             $representation .= $this->presenter->getElementPrefix();
             $representation .= $this->presenter->getElementBody(
                 $call->getName(),
-                $url,
                 $call->getArguments(),
             );
             $representation .= $this->presenter->getElementSuffix();
