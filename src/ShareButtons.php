@@ -51,7 +51,6 @@ class ShareButtons
      */
     protected array $options = [
         'reactOnErrors' => false,
-        'throwException' => BadMethodCallException::class,
     ];
 
     /**
@@ -229,19 +228,10 @@ class ShareButtons
     protected function handleUnexpectedCall(string $name): void
     {
         if ($this->options['reactOnErrors'] === true) {
-            $exception = $this->retrieveUnexpectedCallException();
-
-            throw new $exception(
+            throw new BadMethodCallException(
                 sprintf('Call to undefined method %s::%s().', __CLASS__, $name)
             );
         }
-    }
-
-    protected function retrieveUnexpectedCallException(): string
-    {
-        return class_exists($this->options['throwException'])
-            ? $this->options['throwException']
-            : BadMethodCallException::class;
     }
 
     /**

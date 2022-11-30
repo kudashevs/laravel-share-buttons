@@ -28,30 +28,6 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_provided_exception_when_wrong_provider_name()
-    {
-        config()->set('share-buttons.reactOnErrors', true);
-        config()->set('share-buttons.throwException', \RuntimeException::class);
-
-        $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage('ShareButtons::wrong()');
-
-        ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
-    }
-
-    /** @test */
-    public function it_can_throw_default_exception_when_wrong_provided_exception_class()
-    {
-        config()->set('share-buttons.reactOnErrors', true);
-        config()->set('share-buttons.throwException', Wrong::class);
-
-        $this->expectException(\BadMethodCallException::class);
-        $this->expectExceptionMessage('ShareButtons::wrong()');
-
-        ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
-    }
-
-    /** @test */
     public function it_can_skip_throwing_exception_when_wrong_provider_name()
     {
         config()->set('share-buttons.throwException', false);
