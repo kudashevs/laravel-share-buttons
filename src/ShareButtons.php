@@ -40,7 +40,7 @@ class ShareButtons
     /**
      * Optional text for some share providers.
      */
-    protected string $title;
+    protected string $pageTitle;
 
     /**
      * Extra runtime options.
@@ -107,7 +107,7 @@ class ShareButtons
         $this->clearState();
 
         $this->pageUrl = $url;
-        $this->title = $title;
+        $this->pageTitle = $title;
 
         return $this;
     }
@@ -186,7 +186,7 @@ class ShareButtons
     {
         $initial = [
             'url' => $this->pageUrl,
-            'text' => $this->title,
+            'text' => $this->pageTitle,
         ];
 
         $applicable = $this->retrieveApplicableArguments($arguments);
