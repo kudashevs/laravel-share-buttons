@@ -177,10 +177,20 @@ class ShareButtons
      */
     public function __call(string $name, array $arguments)
     {
-        $applicableArguments = $this->prepareApplicableArguments($arguments);
-        $this->rememberProcessedCall($name, $applicableArguments);
+        if ($this->isExpectedCall($name)) {
+            $applicableArguments = $this->prepareApplicableArguments($arguments);
+            $this->rememberProcessedCall($name, $applicableArguments);
+        }
+
+        $this->handleUnexpectedCall($name);
 
         return $this;
+    }
+
+    protected function isExpectedCall(string $name): bool
+    {
+        return config()->has('share-buttons.providers.' . $name) &&
+            config()->has('share-buttons.templates.' . $name);
     }
 
     /**
