@@ -35,7 +35,7 @@ class ShareButtons
     /**
      * The url of a page to share.
      */
-    protected string $page;
+    protected string $pageUrl;
 
     /**
      * Optional text for some share providers.
@@ -106,7 +106,7 @@ class ShareButtons
         $this->presenter->refreshRepresentation($options);
         $this->clearState();
 
-        $this->page = $url;
+        $this->pageUrl = $url;
         $this->title = $title;
 
         return $this;
@@ -185,7 +185,7 @@ class ShareButtons
     protected function prepareApplicableArguments(array $arguments): array
     {
         $initial = [
-            'url' => $this->page,
+            'url' => $this->pageUrl,
             'text' => $this->title,
         ];
 
