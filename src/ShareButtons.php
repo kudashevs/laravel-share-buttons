@@ -252,27 +252,13 @@ class ShareButtons
     public function getRawLinks(): array
     {
         $links = array_map(function ($call) {
-            return $this->retrieveUrlFromProcessedCall(
+            return $this->provider->generateUrl(
                 $call->getName(),
                 $call->getArguments(),
             );
         }, $this->calls);
 
         return array_filter($links, 'strlen');
-    }
-
-    protected function retrieveUrlFromProcessedCall(string $name, array $arguments): string
-    {
-        $url = $this->provider->generateUrl(
-            $name,
-            $arguments
-        );
-
-        if (trim($url) === '') {
-            $this->handleUnexpectedCall($name);
-        }
-
-        return $url;
     }
 
     /**
@@ -301,7 +287,7 @@ class ShareButtons
 
         /** @var ProcessedCall $call */
         foreach ($this->calls as $call) {
-            $url = $this->retrieveUrlFromProcessedCall($call->getName(), $call->getArguments());
+            $url = $this->provider->generateUrl($call->getName(), $call->getArguments());
 
             $representation .= $this->presenter->getElementPrefix();
             $representation .= $this->presenter->getElementBody(
