@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Kudashevs\ShareButtons\Providers;
+namespace Kudashevs\ShareButtons\Presenters;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
-class TemplateShareButtonsProvider implements ShareButtonsProvider
+class TemplateUrlPresenter
 {
     protected Templater $templater;
 
@@ -28,7 +28,11 @@ class TemplateShareButtonsProvider implements ShareButtonsProvider
     }
 
     /**
-     * @inheritDoc
+     * Return a share provider's ready-to-use URL.
+     *
+     * @param string $name
+     * @param array $arguments
+     * @return string
      */
     public function generateUrl(string $name, array $arguments): string
     {
