@@ -31,7 +31,6 @@ class ShareButtonsServiceProvider extends ServiceProvider
         $this->app->bind(ShareButtons::class, function () {
             $options = [
                 'reactOnErrors' => config('share-buttons.reactOnErrors'),
-                'throwException' => config('share-buttons.throwException'),
             ];
 
             return new ShareButtons($options);
