@@ -1,9 +1,9 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\UrlProviders;
+namespace Kudashevs\ShareButtons\Tests\Providers;
 
+use Kudashevs\ShareButtons\Providers\TemplateShareButtonsProvider;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
-use Kudashevs\ShareButtons\UrlProviders\TemplateShareButtonsProvider;
 
 class TemplateShareButtonsProviderTest extends ExtendedTestCase
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kudashevs\ShareButtons\UrlProviders;
+namespace Kudashevs\ShareButtons\Providers;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;

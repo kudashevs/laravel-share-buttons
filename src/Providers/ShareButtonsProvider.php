@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Kudashevs\ShareButtons\UrlProviders;
+namespace Kudashevs\ShareButtons\Providers;
 
 /**
  * ShareProvider represents an abstraction that generates a ready-to-use share button URL.

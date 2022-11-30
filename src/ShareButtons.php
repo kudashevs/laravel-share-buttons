@@ -7,8 +7,8 @@ namespace Kudashevs\ShareButtons;
 use BadMethodCallException;
 use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
 use Kudashevs\ShareButtons\Presenters\TemplateShareButtonsPresenter;
-use Kudashevs\ShareButtons\UrlProviders\TemplateUrlProvider;
-use Kudashevs\ShareButtons\UrlProviders\UrlProvider;
+use Kudashevs\ShareButtons\Providers\ShareButtonsProvider;
+use Kudashevs\ShareButtons\Providers\TemplateShareButtonsProvider;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
