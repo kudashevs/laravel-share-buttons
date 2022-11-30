@@ -251,14 +251,12 @@ class ShareButtons
      */
     public function getRawLinks(): array
     {
-        $links = array_map(function ($call) {
+        return array_map(function ($call) {
             return $this->provider->generateUrl(
                 $call->getName(),
                 $call->getArguments(),
             );
         }, $this->calls);
-
-        return array_filter($links, 'strlen');
     }
 
     /**
