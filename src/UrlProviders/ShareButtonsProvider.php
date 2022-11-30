@@ -7,7 +7,7 @@ namespace Kudashevs\ShareButtons\UrlProviders;
 /**
  * ShareProvider represents an abstraction that generates a ready-to-use share button URL.
  */
-interface UrlProvider
+interface ShareButtonsProvider
 {
     /**
      * Return a share provider's ready-to-use URL.
