@@ -3,9 +3,9 @@
 namespace Kudashevs\ShareButtons\Tests\UrlProviders;
 
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
-use Kudashevs\ShareButtons\UrlProviders\TemplateUrlProvider;
+use Kudashevs\ShareButtons\UrlProviders\TemplateShareButtonsProvider;
 
-class TemplateUrlProviderTest extends ExtendedTestCase
+class TemplateShareButtonsProviderTest extends ExtendedTestCase
 {
     private $provider;
 
@@ -13,7 +13,7 @@ class TemplateUrlProviderTest extends ExtendedTestCase
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->provider = new TemplateUrlProvider();
+        $this->provider = new TemplateShareButtonsProvider();
     }
 
     /** @test */
@@ -284,7 +284,7 @@ class TemplateUrlProviderTest extends ExtendedTestCase
     {
         config()->set('share-buttons.providers.copylink.extra.hash', true);
 
-        $instance = new TemplateUrlProvider();
+        $instance = new TemplateShareButtonsProvider();
         $result = $instance->generateUrl('copylink', []);
 
         $this->assertSame('#', $result);
