@@ -144,12 +144,11 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_default_styling()
     {
-        $expected = '<li><a href="any" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
         $result = $this->wrapElementInStyling(
             $this->presenter->getElementBody(
                 'facebook',
-                'any',
                 [
                     'url' => 'https://mysite.com',
                     'text' => 'test',
@@ -162,13 +161,12 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_custom_styling_from_class_options()
     {
-        $expected = '<p><a href="any" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
-        $this->presenter->refreshStyling(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+        $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
+        $this->presenter->refresh(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
 
         $result = $this->wrapElementInStyling(
             $this->presenter->getElementBody(
                 'facebook',
-                'any',
                 [
                     'url' => 'https://mysite.com',
                     'text' => '',
@@ -190,7 +188,6 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $result = $this->wrapElementInStyling(
             $this->presenter->getElementBody(
                 'facebook',
-                'any',
                 array_merge([
                     'url' => $page,
                     'text' => 'Title',
@@ -209,28 +206,28 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
                 [
                     'class' => 'tested',
                 ],
-                '<li><a href="any" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check id option' => [
                 'https://mysite.com',
                 [
                     'id' => 'tested',
                 ],
-                '<li><a href="any" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check title option' => [
                 'https://mysite.com',
                 [
                     'title' => 'tested',
                 ],
-                '<li><a href="any" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check rel option' => [
                 'https://mysite.com',
                 [
                     'rel' => 'nofollow',
                 ],
-                '<li><a href="any" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
             ],
             'check mass options' => [
                 'https://mysite.com',
@@ -240,7 +237,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
                     'id' => 'click',
                     'class' => 'hover active',
                 ],
-                '<li><a href="any" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
             ],
         ];
     }
@@ -248,12 +245,11 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_format_an_element_with_custom_styling_from_call_options()
     {
-        $expected = '<li><a href="any" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
         $result = $this->wrapElementInStyling(
             $this->presenter->getElementBody(
                 'facebook',
-                'any',
                 [
                     'url' => 'https://mysite.com',
                     'text' => 'Title',
@@ -268,8 +264,8 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_override_arguments_with_options()
     {
-        $expected = '<li><a href="any" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
-        $this->presenter->refreshStyling([
+        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
+        $this->presenter->refresh([
             'class' => 'options',
             'id' => 'options',
             'title' => 'options',
@@ -279,7 +275,6 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $result = $this->wrapElementInStyling(
             $this->presenter->getElementBody(
                 'facebook',
-                'any',
                 [
                     'url' => 'https://mysite.com',
                     'text' => 'Title',
