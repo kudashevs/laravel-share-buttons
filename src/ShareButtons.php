@@ -220,6 +220,9 @@ class ShareButtons
         $this->calls[$name] = new ProcessedCall($name, $arguments);
     }
 
+    /**
+     * @throws BadMethodCallException
+     */
     protected function handleUnexpectedCall(string $name): void
     {
         if ($this->options['handleUnexpectedCalls'] === true) {
