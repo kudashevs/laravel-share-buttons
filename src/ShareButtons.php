@@ -46,7 +46,7 @@ class ShareButtons
      * Extra runtime options.
      */
     protected array $options = [
-        'reactOnErrors' => false,
+        'handleUnexpectedCalls' => false,
     ];
 
     /**
@@ -222,7 +222,7 @@ class ShareButtons
 
     protected function handleUnexpectedCall(string $name): void
     {
-        if ($this->options['reactOnErrors'] === true) {
+        if ($this->options['handleUnexpectedCalls'] === true) {
             throw new BadMethodCallException(
                 sprintf('Call to undefined method %s::%s().', __CLASS__, $name)
             );

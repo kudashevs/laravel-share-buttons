@@ -138,6 +138,6 @@ return [
     |
     */
 
-    'reactOnErrors' => true,
+    'handleUnexpectedCalls' => true,
 
 ];
