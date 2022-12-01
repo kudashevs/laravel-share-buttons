@@ -6,18 +6,18 @@ The package gives you the possibility to create share buttons for your site in a
 [//]: # (@todo don't forget to update these services)
 ### Available services
 
-* Evernote
 * Facebook
-* Hacker News
+* Twitter
 * LinkedIn
+* WhatsApp
+* Reddit
+* Telegram
+* VKontakte
 * Pinterest
 * Pocket
-* Reddit
+* Evernote
+* Hacker News
 * Skype
-* Telegram
-* Twitter
-* VKontakte
-* WhatsApp
 * Xing
 * Copy the link
 * Mail the link
