@@ -7,7 +7,7 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class ShareButtonsTest extends ExtendedTestCase
 {
-    private $share;
+    private ShareButtons $share;
 
     protected function setUp(): void
     {
