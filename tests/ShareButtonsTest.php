@@ -17,7 +17,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_default_exception_when_wrong_provider_name()
+    public function it_can_throw_exception_when_a_wrong_url_provider_name()
     {
         config()->set('share-buttons.handleUnexpectedCalls', true);
 
@@ -28,7 +28,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_skip_throwing_exception_when_wrong_provider_name()
+    public function it_can_skip_throwing_exception_when_a_wrong_url_provider_name()
     {
         config()->set('share-buttons.handleUnexpectedCalls', false);
 
