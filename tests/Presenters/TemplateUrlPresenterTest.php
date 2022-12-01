@@ -7,7 +7,7 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateUrlPresenterTest extends ExtendedTestCase
 {
-    private $presenter;
+    private TemplateUrlPresenter $presenter;
 
     protected function setUp(): void
     {
