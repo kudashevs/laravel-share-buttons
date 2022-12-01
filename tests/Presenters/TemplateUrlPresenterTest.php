@@ -7,19 +7,19 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateUrlPresenterTest extends ExtendedTestCase
 {
-    private $provider;
+    private $presenter;
 
     protected function setUp(): void
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->provider = new TemplateUrlPresenter();
+        $this->presenter = new TemplateUrlPresenter();
     }
 
     /** @test */
     public function it_can_generate_an_empty_url_when_wrong_name()
     {
-        $result = $this->provider->generateUrl('wrong', []);
+        $result = $this->presenter->generateUrl('wrong', []);
 
         $this->assertSame('', $result);
     }
@@ -30,7 +30,7 @@ class TemplateUrlPresenterTest extends ExtendedTestCase
      */
     public function it_can_generate_a_url(string $name, array $arguments, string $expected)
     {
-        $result = $this->provider->generateUrl($name, $arguments);
+        $result = $this->presenter->generateUrl($name, $arguments);
 
         $this->assertSame($expected, $result);
     }
@@ -258,7 +258,7 @@ class TemplateUrlPresenterTest extends ExtendedTestCase
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
 
-        $result = $this->provider->generateUrl('facebook', [
+        $result = $this->presenter->generateUrl('facebook', [
             'url' => 'https://mysite.com',
             'text' => '',
         ]);
@@ -271,7 +271,7 @@ class TemplateUrlPresenterTest extends ExtendedTestCase
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title';
 
-        $result = $this->provider->generateUrl('facebook', [
+        $result = $this->presenter->generateUrl('facebook', [
             'url' => 'https://mysite.com',
             'text' => 'Title',
         ]);
@@ -284,7 +284,7 @@ class TemplateUrlPresenterTest extends ExtendedTestCase
     {
         config()->set('share-buttons.providers.copylink.extra.hash', true);
 
-        $result = $this->provider->generateUrl('copylink', []);
+        $result = $this->presenter->generateUrl('copylink', []);
 
         $this->assertSame('#', $result);
     }
@@ -294,7 +294,7 @@ class TemplateUrlPresenterTest extends ExtendedTestCase
     {
         $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
 
-        $result = $this->provider->generateUrl('linkedin', [
+        $result = $this->presenter->generateUrl('linkedin', [
             'url' => 'https://mysite.com',
             'text' => '',
             'summary' => 'Share text',
