@@ -7,7 +7,7 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class LaravelTemplaterTest extends ExtendedTestCase
 {
-    private $templater;
+    private LaravelTemplater $templater;
 
     protected function setUp(): void
     {
