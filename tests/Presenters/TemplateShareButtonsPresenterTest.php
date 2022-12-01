@@ -7,10 +7,7 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 {
-    /**
-     * @var TemplateShareButtonsPresenter
-     */
-    private $presenter;
+    private TemplateShareButtonsPresenter $presenter;
 
     protected function setUp(): void
     {
