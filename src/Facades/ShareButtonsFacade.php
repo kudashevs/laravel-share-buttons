@@ -37,6 +37,6 @@ class ShareButtonsFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'share';
+        return 'sharebuttons';
     }
 }

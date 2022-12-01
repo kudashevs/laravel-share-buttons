@@ -45,7 +45,7 @@ If you want to add a Laravel Facade just add it to the `aliases` array in the `c
     'ShareButtons' => Kudashevs\ShareButtons\Facades\ShareButtonsFacade::class,
 ];
 ```
-by default, it binds a ShareButtons class instance to the `share` alias.
+by default, it binds a ShareButtons class instance to the `sharebuttons` alias.
 
 Publish the package config and resource files. You might need to republish the config after major changes in the package.
 In the case of major changes, it is recommended to backup your config file somewhere and republish a new one from scratch.
