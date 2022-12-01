@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class SimpleColonTemplaterTest extends TestCase
 {
-    private $templater;
+    private SimpleColonTemplater $templater;
 
     protected function setUp(): void
     {
