@@ -6,7 +6,7 @@ namespace Kudashevs\ShareButtons\Presenters\Formatters;
 
 class SimpleAttributesFormatter implements AttributesFormatter
 {
-    private const DIFFERENT_ATTRIBUTE_FORMATS = [
+    protected const DIFFERENT_ATTRIBUTE_FORMATS = [
         'class' => ' %s',
         'id' => ' id="%s"',
         'title' => ' title="%s"',
