@@ -174,7 +174,7 @@ class ShareButtons
 
     protected function isExpectedCall(string $name): bool
     {
-        return config()->has('share-buttons.providers.' . $name) &&
+        return config()->has('share-buttons.buttons.' . $name) &&
             config()->has('share-buttons.templates.' . $name);
     }
 

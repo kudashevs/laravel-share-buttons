@@ -53,7 +53,7 @@ class TemplateUrlPresenter
 
     protected function retrieveUrlTemplate(): string
     {
-        $url = config('share-buttons.providers.' . $this->name . '.url', '');
+        $url = config('share-buttons.buttons.' . $this->name . '.url', '');
 
         return $this->isHashedUrl()
             ? '#'
@@ -62,8 +62,8 @@ class TemplateUrlPresenter
 
     protected function isHashedUrl(): bool
     {
-        return config()->has('share-buttons.providers.' . $this->name . '.extra.hash') &&
-            config('share-buttons.providers.' . $this->name . '.extra.hash') === true;
+        return config()->has('share-buttons.buttons.' . $this->name . '.extra.hash') &&
+            config('share-buttons.buttons.' . $this->name . '.extra.hash') === true;
     }
 
     /**
@@ -86,12 +86,12 @@ class TemplateUrlPresenter
 
     protected function retrieveText(): string
     {
-        return config('share-buttons.providers.' . $this->name . '.text', '');
+        return config('share-buttons.buttons.' . $this->name . '.text', '');
     }
 
     protected function retrieveExtras(): array
     {
-        return config('share-buttons.providers.' . $this->name . '.extra', []);
+        return config('share-buttons.buttons.' . $this->name . '.extra', []);
     }
 
     protected function encodeReplacements(array $replacements): array

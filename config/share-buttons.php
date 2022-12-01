@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Providers
+    | Share buttons
     |--------------------------------------------------------------------------
     |
     | This value specifies basic settings for share providers.
@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'providers' => [
+    'buttons' => [
         'copylink' => [
             'url' => ':url',
             'extra' => [

@@ -73,7 +73,7 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_one_link_without_a_title_for_provider_with_predefined_title()
     {
-        $expected = config('share-buttons.providers.twitter.text');
+        $expected = config('share-buttons.buttons.twitter.text');
 
         $result = $this->share->page('https://mysite.com')->twitter();
 

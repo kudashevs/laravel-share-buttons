@@ -282,7 +282,7 @@ class TemplateUrlPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_a_hashed_url_for_copylink()
     {
-        config()->set('share-buttons.providers.copylink.extra.hash', true);
+        config()->set('share-buttons.buttons.copylink.extra.hash', true);
 
         $result = $this->presenter->generateUrl('copylink', []);
 
