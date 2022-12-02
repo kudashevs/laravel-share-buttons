@@ -19,7 +19,9 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     protected AttributesFormatter $formatter;
 
     /**
-     * Contain formatter options.
+     * Contain options related to the representation of share buttons.
+     *
+     * @var array{'block_prefix': string, 'block_suffix': string, 'element_prefix': string, 'element_suffix': string}
      */
     protected array $styling = [
         'block_prefix' => '',
