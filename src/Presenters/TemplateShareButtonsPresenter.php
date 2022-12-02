@@ -12,16 +12,16 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateShareButtonsPresenter implements ShareButtonsPresenter
 {
-    private Templater $templater;
+    protected Templater $templater;
 
-    private TemplateUrlPresenter $presenter;
+    protected TemplateUrlPresenter $presenter;
 
-    private AttributesFormatter $formatter;
+    protected AttributesFormatter $formatter;
 
     /**
      * Contain formatter options.
      */
-    private array $styling = [
+    protected array $styling = [
         'block_prefix' => '',
         'block_suffix' => '',
         'element_prefix' => '',
@@ -33,7 +33,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
      * They will be applied to all the elements, however, if necessary, they could be overridden by
      * the attributes provided to any specific share service methods.
      */
-    private array $attributes = [];
+    protected array $attributes = [];
 
     /**
      * @param array $options
