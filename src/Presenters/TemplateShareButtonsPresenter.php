@@ -37,7 +37,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     protected array $attributes = [];
 
     /**
-     * @param array $options
+     * @param array<string, string> $options
      *
      * @throws InvalidTemplaterFactoryArgument
      */
@@ -50,17 +50,17 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         $this->initRepresentation($options);
     }
 
-    protected function initPresenter(array $options): void
-    {
-        $this->presenter = new TemplateUrlPresenter($options);
-    }
-
     /**
      * @throws InvalidTemplaterFactoryArgument
      */
     protected function initTemplater(array $options): void
     {
         $this->templater = TemplaterFactory::createFromOptions($options);
+    }
+
+    protected function initPresenter(array $options): void
+    {
+        $this->presenter = new TemplateUrlPresenter($options);
     }
 
     protected function initAttributesFormatter(): void
