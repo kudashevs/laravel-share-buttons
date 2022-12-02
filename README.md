@@ -65,16 +65,15 @@ resources/assets/js/share-buttons.js         # A javascript (jQuery) file
 
 This package relies on Font Awesome, so you have to use it in your app. However, you can easily integrate any fonts, CSS, or JS.
 For further information on how to use Font Awesome please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
-
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 ```
 
 ### Javascript
 
-To have javascript working you need to load the jQuery library and integrate `resources/assets/js/share-buttons.js` into
-your template eco-system. One of the ways is to copy this file to `public/js` folder and use it like in the example below.
-Or you can add this file into your assets compiling flow.
+This package uses the jQuery library. So you need to install it and integrate `resources/assets/js/share-buttons.js` into
+your template eco-system. There are different ways to do it. The simplest one, is to copy this `share-buttons.js` file
+to your `public/js` folder and use the code from the example below, or you can add this file into your assets compiling flow.
 
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
