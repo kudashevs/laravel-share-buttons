@@ -64,7 +64,7 @@ resources/assets/js/share-buttons.js         # A javascript (jQuery) file
 ### Font Awesome
 
 This package relies on Font Awesome, so you have to use it in your app. However, you can easily integrate any fonts, CSS, or JS.
-For further information on how to use Font Awesome please read the [introduction](https://fontawesome.io/get-started/).
+For further information on how to use Font Awesome please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
 
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
