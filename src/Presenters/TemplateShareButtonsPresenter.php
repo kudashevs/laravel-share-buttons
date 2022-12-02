@@ -44,7 +44,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     public function __construct(array $options = [])
     {
         $this->initTemplater($options);
-        $this->initPresenter($options);
+        $this->initUrlPresenter($options);
         $this->initAttributesFormatter();
 
         $this->initRepresentation($options);
@@ -58,7 +58,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
-    protected function initPresenter(array $options): void
+    protected function initUrlPresenter(array $options): void
     {
         $this->urlPresenter = new TemplateShareButtonsUrlPresenter($options);
     }
