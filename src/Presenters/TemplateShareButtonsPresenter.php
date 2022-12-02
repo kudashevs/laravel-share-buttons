@@ -49,7 +49,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         $this->initRepresentation($options);
     }
 
-    private function initPresenter(array $options): void
+    protected function initPresenter(array $options): void
     {
         $this->presenter = new TemplateUrlPresenter($options);
     }
@@ -57,17 +57,17 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @throws InvalidTemplaterFactoryArgument
      */
-    private function initTemplater(array $options): void
+    protected function initTemplater(array $options): void
     {
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
-    private function initAttributesFormatter(): void
+    protected function initAttributesFormatter(): void
     {
         $this->formatter = new SimpleAttributesFormatter();
     }
 
-    private function initRepresentation(array $options): void
+    protected function initRepresentation(array $options): void
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
@@ -84,19 +84,19 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         return array_filter($options, 'is_string');
     }
 
-    private function initBlockWrappers(array $options): void
+    protected function initBlockWrappers(array $options): void
     {
         $this->styling['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
         $this->styling['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
-    private function initElementWrappers(array $options): void
+    protected function initElementWrappers(array $options): void
     {
         $this->styling['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
         $this->styling['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
     }
 
-    private function initElementAttributes(array $options): void
+    protected function initElementAttributes(array $options): void
     {
         $this->attributes = array_diff_key($options, $this->styling);
     }
@@ -162,7 +162,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @return array<string, string>
      */
-    private function retrieveElementReplacements(string $url, array $options): array
+    protected function retrieveElementReplacements(string $url, array $options): array
     {
         $replacements = ['url' => $url];
         $attributes = $this->retrieveAttributes($options);
@@ -176,7 +176,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @return array<string, string>
      */
-    private function retrieveAttributes(array $options): array
+    protected function retrieveAttributes(array $options): array
     {
         $attributes = array_merge($this->attributes, $options);
 
