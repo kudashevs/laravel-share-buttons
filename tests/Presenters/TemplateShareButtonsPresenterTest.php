@@ -22,7 +22,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      */
     public function it_can_set_values_from_options(array $options, string $method, string $expected)
     {
-        $this->presenter->refreshStyling($options);
+        $this->presenter->refresh($options);
 
         $result = $this->presenter->$method();
 
