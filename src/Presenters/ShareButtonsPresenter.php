@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Presenters;
 
-use Kudashevs\ShareButtons\ShareProviders\ShareProvider;
-
+/**
+ * ShareButtonsPresenter represents an abstraction that is responsible for a visual representation of the share buttons.
+ */
 interface ShareButtonsPresenter
 {
     /**
