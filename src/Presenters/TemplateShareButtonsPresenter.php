@@ -14,7 +14,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
 {
     protected Templater $templater;
 
-    protected TemplateUrlPresenter $presenter;
+    protected TemplateShareButtonsUrlPresenter $urlPresenter;
 
     protected AttributesFormatter $formatter;
 
@@ -60,7 +60,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
 
     protected function initPresenter(array $options): void
     {
-        $this->presenter = new TemplateUrlPresenter($options);
+        $this->urlPresenter = new TemplateShareButtonsUrlPresenter($options);
     }
 
     protected function initAttributesFormatter(): void
@@ -147,7 +147,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getElementBody(string $name, array $arguments): string
     {
-        $url = $this->presenter->generateUrl($name, $arguments);
+        $url = $this->urlPresenter->generateUrl($name, $arguments);
 
         $template = $this->retrieveElementTemplate($name);
         $replacements = $this->retrieveElementReplacements($url, $arguments);
@@ -189,6 +189,6 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getElementUrl(string $name, array $arguments): string
     {
-        return $this->presenter->generateUrl($name, $arguments);
+        return $this->urlPresenter->generateUrl($name, $arguments);
     }
 }
