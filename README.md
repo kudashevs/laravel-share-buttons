@@ -82,8 +82,8 @@ to your `public/js` folder and use the code from the example below, or you can a
 
 ## Usage
 
-The package is easy to use. It provides a fluent interface to build the share buttons code. To start a method chaining, 
-you just need to use one of the specific methods (start chaining methods). These methods are:
+The package is easy and convenient to use. It provides a fluent interface to build the HTML code of share buttons.
+To start a method chaining you just need to use one of the methods (start chaining methods). These methods are:
 
 ```
 page($url, $title = '', $options = [])
