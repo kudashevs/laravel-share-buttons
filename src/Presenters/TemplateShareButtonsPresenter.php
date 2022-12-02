@@ -31,9 +31,8 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     ];
 
     /**
-     * Contain global element attributes. These are attributes passed to the ShareButtons main method.
-     * They will be applied to all the elements, however, if necessary, they could be overridden by
-     * the attributes provided to any specific share service methods.
+     * Contain attributes that are passed to the page() method (the global attributes). If no specific attributes with
+     * a share button method will be provided, these global attributes are going to be applied to all of the elements.
      */
     protected array $attributes = [];
 
