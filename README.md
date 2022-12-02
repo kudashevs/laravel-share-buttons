@@ -277,7 +277,7 @@ Each share provider link representation can be changed. A representation contain
 processing. The format of substituted elements depends on the current package templater.
 
 ```
-:url                            # Will be replaced with a ready-to-use URL to the service
+:url                            # Will be replaced with a prepared share button URL
 :id                             # Will be replaced with an id attribute
 :class                          # Will be replaced with a class attribute
 :title                          # Will be replaced with a title attribute
