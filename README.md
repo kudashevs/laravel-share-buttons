@@ -25,13 +25,11 @@ This package gives the possibility to create social share buttons for your site 
 ## Installation
 
 You can install the package via composer:
-
 ```bash
 composer require kudashevs/laravel-share-buttons
 ```
 
 If you don't use auto-discovery just add a ServiceProvider to the `config/app.php`
-
 ```php
 'providers' => [
     Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
@@ -39,7 +37,6 @@ If you don't use auto-discovery just add a ServiceProvider to the `config/app.ph
 ```
 
 If you want to add a Laravel Facade just add it to the `aliases` array in the `config/app.php`
-
 ```php
 'aliases' => [
     'ShareButtons' => Kudashevs\ShareButtons\Facades\ShareButtonsFacade::class,
@@ -49,13 +46,11 @@ by default, it binds a ShareButtons class instance to the `sharebuttons` alias.
 
 Publish the package config and resource files. You might need to republish the config after major changes in the package.
 In the case of major changes, it is recommended to back up your config file somewhere and republish a new one from scratch.
-
 ```bash
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
 ```
 
 This command will create three different files:
-
 ```
 config/share-buttons.php                     # A configuration file
 resources/assets/js/share-buttons.js         # A javascript (jQuery) file
@@ -74,7 +69,6 @@ For further information on how to use Font Awesome please read the [introduction
 This package uses the jQuery library. So you need to install it and integrate `resources/assets/js/share-buttons.js` into
 your template eco-system. There are different ways to do it. The simplest one, is to copy this `share-buttons.js` file
 to your `public/js` folder and use the code from the example below, or you can add this file into your assets compiling flow.
-
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/share-buttons.js') }}"></script>
@@ -84,7 +78,6 @@ to your `public/js` folder and use the code from the example below, or you can a
 
 The package is easy and convenient to use. It provides a fluent interface to build the HTML code of share buttons.
 To start a method chaining you just need to use one of the methods (start chaining methods). These methods are:
-
 ```
 page($url, $title = '', $options = [])
 currentPage($title = '', $options = [])
@@ -117,7 +110,6 @@ methods accepts an array of options (you can find more information about options
 ```
 
 ### Share a specific page
-
 ```php
 ShareButtons::page('https://site.com')->facebook();
 ShareButtons::page('https://site.com', 'Your share text here')->twitter();
@@ -126,7 +118,6 @@ ShareButtons::createForPage('https://site.com', 'Your share text here')->twitter
 ```
 
 ### Share a current page
-
 ```php
 ShareButtons::currentPage()->facebook();
 ShareButtons::currentPage('Your share text here')->twitter();
@@ -137,7 +128,6 @@ ShareButtons::createForCurrentPage('Your share text here')->twitter();
 ### Creating multiple share buttons
 
 When you want to create multiple share buttons, you just need to chain different methods in sequence.
-
 ```php
 ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
@@ -147,7 +137,6 @@ ShareButtons::page('https://site.com', 'Share title')
 ```
 
 This will generate the following HTML code:
-
 ```html
 <div id="social-links">
     <ul>
@@ -164,7 +153,6 @@ This will generate the following HTML code:
 You can use a ShareButtons object as a string or cast it to a string to get the share buttons HTML code. However,
 this is not the preferred way how to use it. If you want to be precise and clear with your code intentions just use
 the ```getShareButtons``` method to get the result.
-
 ```php
 ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
@@ -174,7 +162,6 @@ ShareButtons::page('https://site.com', 'Share title')
 ### Getting the raw links
 
 In some cases, you may only need the raw links without any HTML. In such a case use the `getRawLinks` method.
-
 ```php
 ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
@@ -191,7 +178,6 @@ to the fluent interface start method), and locally (by providing options to the 
 At the moment, the package supports the following options:
 
 ### Global options
-
 ```
 'block_prefix' => 'value'       # Set up a block prefix, e.g. <ul>
 'block_suffix' => 'value'       # Set up a block prefix, e.g. </ul>
@@ -204,7 +190,6 @@ At the moment, the package supports the following options:
 ```
 
 ### Local options
-
 ```
 'id' => 'value'                 # Add an id attribute to a link
 'class' => 'value'              # Add a class attribute to a link
@@ -214,7 +199,6 @@ At the moment, the package supports the following options:
 ```
 
 #### Usage examples
-
 ```php
 ShareButtons::page('https://site.com', '', [
         'block_prefix' => '<ul>',
@@ -228,7 +212,6 @@ ShareButtons::page('https://site.com', '', [
 ```
 
 will result into the following HTML code
-
 ```html
 <ul>
     <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
@@ -249,7 +232,6 @@ ShareButtons::page('https://site.com', '', [
 ```
 
 will result into the following HTML code
-
 ```html
 <ul>
     <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
@@ -264,7 +246,6 @@ The package comes with some configuration settings. These are:
 ### Providers section
 
 Each share provider has specific settings that can be configured. 
-
 ```
 'url' => 'value'                # A share url which is used by a provider
 'text' => 'value'               # A text which is used when page title is not set
@@ -275,7 +256,6 @@ Each share provider has specific settings that can be configured.
 
 Each share provider link representation can be changed. A representation contains elements that will be changed during
 processing. The format of substituted elements depends on the current package templater.
-
 ```
 :url                            # Will be replaced with a prepared share button URL
 :id                             # Will be replaced with an id attribute
@@ -285,7 +265,6 @@ processing. The format of substituted elements depends on the current package te
 ```
 
 ### Formatting elements section
-
 ```
 'block_prefix' => 'value'       # Set up a block prefix, e.g. <ul>
 'block_suffix' => 'value'       # Set up a block prefix, e.g. </ul>
@@ -294,14 +273,12 @@ processing. The format of substituted elements depends on the current package te
 ```
 
 ### React on errors section
-
 ```
 'reactOnErrors' => bool         # Specify whether it throws exceptions on unexpected methods or not
 'throwException' => FQCN        # Specify the exception to throw (should be in the context-independent FQCN format)
 ```
 
 ## Testing
-
 ```bash
 composer test
 ```
