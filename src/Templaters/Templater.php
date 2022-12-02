@@ -10,6 +10,8 @@ namespace Kudashevs\ShareButtons\Templaters;
 interface Templater
 {
     /**
+     * Process a template and return a result.
+     *
      * @param string $template
      * @param array $replacements
      * @return string
