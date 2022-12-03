@@ -138,6 +138,6 @@ return [
     |
     */
 
-    'handleUnexpectedCalls' => true,
+    'reportUnexpectedCalls' => true,
 
 ];

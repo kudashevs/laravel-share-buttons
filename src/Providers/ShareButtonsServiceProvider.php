@@ -30,7 +30,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     {
         $this->app->bind(ShareButtons::class, function () {
             $options = [
-                'handleUnexpectedCalls' => config('share-buttons.handleUnexpectedCalls'),
+                'reportUnexpectedCalls' => config('share-buttons.reportUnexpectedCalls'),
             ];
 
             return new ShareButtons($options);
