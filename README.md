@@ -50,10 +50,10 @@ In the case of major changes, it is recommended to back up your config file some
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
 ```
 
-This command will create three different files:
+This command will create two different files:
 ```
-config/share-buttons.php                     # A configuration file
-resources/assets/js/share-buttons.js         # A javascript (jQuery) file
+config/share-buttons.php                      # A configuration file
+resources/assets/js/share-buttons.js          # A javascript (jQuery) file
 ```
 
 ### Font Awesome
