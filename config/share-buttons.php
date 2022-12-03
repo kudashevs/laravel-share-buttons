@@ -112,11 +112,14 @@ return [
     | Representation
     |--------------------------------------------------------------------------
     |
-    | These values specify a share buttons representation. Here we can specify:
+    | These values specify representations of different parts of share buttons.
     |
-    | - block wrapper (block_prefix starts a block, block_suffix ends a block)
-    | - element wrapper (element_prefix starts an element, element_suffix ends
-    |   an element)
+    | Block representation:
+    | - 'block_prefix' represents a share buttons block start
+    | - 'block_suffix' represents a share buttons block end
+    | Element representation:
+    | - 'element_prefix' represents an element start
+    | - 'element_suffix' represents an element end
     |
     */
 
