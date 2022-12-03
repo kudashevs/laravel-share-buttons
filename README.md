@@ -223,39 +223,38 @@ will result into the following HTML code
 
 The package comes with some configuration settings. These are:
 
-### Providers section
-
-Each share provider has specific settings that can be configured. 
+### Representation section
 ```
-'url' => 'value'                # A share url which is used by a provider
-'text' => 'value'               # A text which is used when page title is not set
-'extra' => []                   # Extra options which are required by the specific providers
+'block_prefix' => 'value'           # Sets a share buttons block prefix (default is <ul>)
+'block_suffix' => 'value'           # Sets a share buttons block suffix (default is </ul>)
+'element_prefix' => 'value'         # Sets an element prefix (default is <li>)
+'element_suffix' => 'value'         # Sets an element suffix (default is </li>)
+```
+
+### Share buttons section
+
+Each share button has some settings that can be configured.
+```
+'url' => 'value'                    # A share button URL template (used to form a button's URL)
+'text' => 'value'                   # A default text for the title (used when the page title is empty)
+'extra' => []                       # Extra options which are required by some specific buttons
 ```
 
 ### Templates section
 
-Each share provider link representation can be changed. A representation contains elements that will be changed during
-processing. The format of substituted elements depends on the current package templater.
+Each share button has a link representation represented by a corresponding template. A template contains some elements
+will be changed during processing. The format of substituted elements depends on the package templater.
 ```
-:url                            # Will be replaced with a prepared share button URL
-:id                             # Will be replaced with an id attribute
-:class                          # Will be replaced with a class attribute
-:title                          # Will be replaced with a title attribute
-:rel                            # Will be replaced with a rel attribute
-```
-
-### Formatting elements section
-```
-'block_prefix' => 'value'       # Set up a block prefix, e.g. <ul>
-'block_suffix' => 'value'       # Set up a block prefix, e.g. </ul>
-'element_prefix' => 'value'     # Set up an element prefix, e.g. <li>
-'element_suffix' => 'value'     # Set up an element suffix, e.g. </li>
+:url                                # Will be replaced with a prepared share button URL
+:id                                 # Will be replaced with an id attribute
+:class                              # Will be replaced with a class attribute
+:title                              # Will be replaced with a title attribute
+:rel                                # Will be replaced with a rel attribute
 ```
 
-### React on errors section
+### React on unexpected calls
 ```
-'reactOnErrors' => bool         # Specify whether it throws exceptions on unexpected methods or not
-'throwException' => FQCN        # Specify the exception to throw (should be in the context-independent FQCN format)
+'handleUnexpectedCalls' => bool     # Specify whether it throws exceptions on unexpected methods or not
 ```
 
 ## Testing
