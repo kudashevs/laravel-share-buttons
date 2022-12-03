@@ -33,12 +33,12 @@ class ShareButtons
     protected ShareButtonsPresenter $presenter;
 
     /**
-     * The url of a page to share.
+     * A URL of the page to share.
      */
     protected string $pageUrl;
 
     /**
-     * Optional text for some share providers.
+     * A title of the page to share.
      */
     protected string $pageTitle;
 
