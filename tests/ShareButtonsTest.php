@@ -63,7 +63,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_without_a_title_for_provider_with_predefined_title()
+    public function it_can_return_one_link_with_a_predefined_title()
     {
         $expected = config('share-buttons.buttons.twitter.text');
 
@@ -73,7 +73,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_with_a_provided_title_for_provider_with_predefined_title()
+    public function it_can_return_one_link_with_a_provided_title()
     {
         $expected = 'Page title';
 
@@ -83,7 +83,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_with_page_method()
+    public function it_can_return_one_link_with_page_method()
     {
         $result = $this->share->page('https://mysite.com')->facebook();
 
@@ -91,7 +91,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_with_current_page_method()
+    public function it_can_return_one_link_with_current_page_method()
     {
         $result = $this->share->currentPage()->facebook();
 
@@ -99,7 +99,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_with_create_for_page_method()
+    public function it_can_return_one_link_with_create_for_page_method()
     {
         $result = $this->share->createForPage('https://mysite.com')->twitter();
 
@@ -107,7 +107,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_with_create_for_current_page_method_using_request()
+    public function it_can_return_one_link_with_create_for_current_page_method()
     {
         $result = $this->share->createForCurrentPage()->twitter();
 
@@ -173,7 +173,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_at_once_with_get_share_buttons_method()
+    public function it_can_return_multiple_links_with_get_share_buttons_method()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
@@ -187,7 +187,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_multiple_share_links_at_once_and_multiple_times_after_each_other()
+    public function it_can_return_multiple_links_and_then_multiple_links_another_time()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
@@ -208,7 +208,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_multiple_share_links_at_once_with_extra_options()
+    public function it_can_return_multiple_links_with_extra_options()
     {
         $result = $this->share->page(
             'https://mysite.com',
@@ -233,7 +233,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_multiple_share_links_and_add_provider_arguments()
+    public function it_can_return_multiple_links_with_provided_arguments()
     {
         $result = $this->share->page('https://mysite.com', 'Page share title')
             ->facebook(['rel' => 'nofollow'])
@@ -245,7 +245,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_multiple_share_links_at_once_with_extra_options_and_provider_arguments()
+    public function it_can_return_multiple_links_with_extra_options_and_provided_arguments()
     {
         $result = $this->share->page(
             'https://mysite.com',
