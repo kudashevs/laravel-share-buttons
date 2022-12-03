@@ -7,9 +7,9 @@ return [
     | Share buttons
     |--------------------------------------------------------------------------
     |
-    | This value specifies basic settings for share providers.
-    | They include a share url, default share text, some extras.
-    |
+    | These values specify some configuration settings for the social share buttons.
+    | These settings include a share button url, a default share text, some extras.
+    | The format of substitution depends on a templater (see Templaters section).
     |
     */
 
