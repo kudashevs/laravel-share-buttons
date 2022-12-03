@@ -225,11 +225,16 @@ class ShareButtons
      */
     protected function handleUnexpectedCall(string $name): void
     {
-        if ($this->options['reportUnexpectedCalls'] === true) {
+        if ($this->shouldReportCall()) {
             throw new BadMethodCallException(
                 sprintf('Call to undefined method %s::%s().', __CLASS__, $name)
             );
         }
+    }
+
+    protected function shouldReportCall(): bool
+    {
+        return $this->options['reportUnexpectedCalls'] === true;
     }
 
     /**
