@@ -189,20 +189,20 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_return_multiple_links_and_then_multiple_links_another_time()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $result = $this->share->page('https://mysite.com', 'My first title')
             ->facebook()
             ->twitter()
             ->linkedin();
 
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+share+title" class="social-button"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=My+share+title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+first+title" class="social-button"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+first+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-twitter"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=My+first+title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
 
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $result = $this->share->page('https://mysite.com', 'My second title')
             ->reddit()
             ->telegram();
 
-        $expected = '<div id="social-links"><ul><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a></li></ul></div>';
+        $expected = '<div id="social-links"><ul><li><a href="https://www.reddit.com/submit?title=My+second+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+second+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a></li></ul></div>';
 
         $this->assertEquals($expected, (string)$result);
     }
