@@ -85,10 +85,10 @@ createForPage($url, $title = '', $options = [])
 createForCurrentPage($title = '', $options = [])
 ```
 
-### Available service methods
+### Share button methods
 
-To create a single share button, you just need to add one of the following methods to the start point. Each of these
-methods accepts an array of options (you can find more information about options below in the Optional parameters section).
+To create a single share button, you just need to add one of the following methods to the method chaining. Each of these
+methods accepts an array of options (you can find more information about the options in the [Optional parameters](#optional-parameters) section).
 
 [//]: # (@todo don't forget to update these methods)
 ```
@@ -111,39 +111,35 @@ methods accepts an array of options (you can find more information about options
 
 ### Share a specific page
 ```php
-ShareButtons::page('https://site.com')->facebook();
-ShareButtons::page('https://site.com', 'Your share text here')->twitter();
-ShareButtons::createForPage('https://site.com')->facebook();
-ShareButtons::createForPage('https://site.com', 'Your share text here')->twitter();
+ShareButtons::page('https://site.com/', 'Page title')->facebook();           # Create a facebook button with the provided URL
+ShareButtons::createForPage('https://site.com/', 'Page title')->facebook();  # An alias to the page() method
 ```
 
 ### Share a current page
 ```php
-ShareButtons::currentPage()->facebook();
-ShareButtons::currentPage('Your share text here')->twitter();
-ShareButtons::createForCurrentPage()->facebook();
-ShareButtons::createForCurrentPage('Your share text here')->twitter();
+ShareButtons::currentPage('Page title')->twitter();                          # Creates a twitter button with the current page URL
+ShareButtons::createForCurrentPage('Page title')->twitter();                 # An alias to the currentPage() method
 ```
 
 ### Creating multiple share buttons
 
-When you want to create multiple share buttons, you just need to chain different methods in sequence.
+In case you want to create multiple share buttons, you just need to chain different methods in a sequence.
 ```php
-ShareButtons::page('https://site.com', 'Share title')
+ShareButtons::page('https://site.com', 'Page title')
     ->facebook()
     ->twitter()
     ->linkedin(['summary' => 'Extra linkedin summary can be passed here'])
     ->whatsapp();
 ```
 
-This will generate the following HTML code:
+This sequence will generate the following HTML code:
 ```html
 <div id="social-links">
     <ul>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com&quote=Share+title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>
-        <li><a href="https://twitter.com/intent/tweet?text=Share+title&url=https://site.com" class="social-button"><span class="fab fa-twitter"></span></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://site.com&title=Share+title&summary=Extra+linkedin+summary+can+be+passed+here" class="social-button"><span class="fab fa-linkedin"></span></a></li>
-        <li><a href="https://wa.me/?text=https://site.com" class="social-button" target="_blank"><span class="fab fa-whatsapp"></span></a></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>
+        <li><a href="https://twitter.com/intent/tweet?text=Page+title&url=https%3A%2F%2Fsite.com" class="social-button"><span class="fab fa-twitter"></span></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=Extra+linkedin+summary+can+be+passed+here" class="social-button"><span class="fab fa-linkedin"></span></a></li>
+        <li><a href="https://wa.me/?text=https%3A%2F%2Fsite.com%20Page+title" class="social-button" target="_blank"><span class="fab fa-whatsapp"></span></a></li>
     </ul>
 </div>
 ```
@@ -151,8 +147,8 @@ This will generate the following HTML code:
 ### Getting the result
 
 You can use a ShareButtons object as a string or cast it to a string to get the share buttons HTML code. However,
-this is not the preferred way how to use it. If you want to be precise and clear with your code intentions just use
-the ```getShareButtons``` method to get the result.
+this is not the preferred way how to use it. If you want to be clear in your intentions, use the `getShareButtons`
+method to get the prepared result.
 ```php
 ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
@@ -161,7 +157,7 @@ ShareButtons::page('https://site.com', 'Share title')
 
 ### Getting the raw links
 
-In some cases, you may only need the raw links without any HTML. In such a case use the `getRawLinks` method.
+Sometimes, you may only want the raw links without any HTML. In such a case, just use the `getRawLinks` method.
 ```php
 ShareButtons::page('https://site.com', 'Share title')
     ->facebook()
