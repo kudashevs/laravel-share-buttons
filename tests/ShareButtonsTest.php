@@ -195,18 +195,6 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_multiple_share_links_at_once()
-    {
-        $result = $this->share->page('https://mysite.com', 'My share title')
-            ->facebook()
-            ->linkedin()
-            ->whatsapp();
-
-        $expected = '<div id="social-links"><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+share+title" class="social-button"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=My+share+title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a></li><li><a href="https://wa.me/?text=https%3A%2F%2Fmysite.com%20My+share+title" class="social-button" target="_blank"><span class="fab fa-whatsapp"></span></a></li></ul></div>';
-        $this->assertEquals($expected, (string)$result);
-    }
-
-    /** @test */
     public function it_can_generate_multiple_share_links_at_once_and_multiple_times_after_each_other()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
