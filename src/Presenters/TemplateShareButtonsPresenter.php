@@ -147,10 +147,8 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
      */
     public function getElementBody(string $name, array $arguments): string
     {
-        $url = $this->urlPresenter->generateUrl($name, $arguments);
-
         $template = $this->retrieveElementTemplate($name);
-        $replacements = $this->retrieveElementReplacements($url, $arguments);
+        $replacements = $this->retrieveReplacements($name, $arguments);
 
         return $this->templater->process($template, $replacements);
     }
@@ -172,6 +170,18 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
             $replacements,
             $attributes,
         );
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function retrieveReplacements(string $name, array $arguments): array
+    {
+        $elementReplacements = $this->retrieveAttributes($arguments);
+
+        return array_merge([
+            'url' => $this->urlPresenter->generateUrl($name, $arguments),
+        ], $elementReplacements);
     }
 
     /**
