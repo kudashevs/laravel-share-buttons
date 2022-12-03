@@ -130,6 +130,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Templaters
+    |--------------------------------------------------------------------------
+    |
+    | This package uses a simple template engine to substitute values in different
+    | configuration settings and templates. If you want to change the substitution
+    | format, feel free to use your favorite template engine (in this case you
+    | should add an adapter that must conform to the Templater interface).
+    |
+    */
+
+    'templater' => \Kudashevs\ShareButtons\Templaters\LaravelTemplater::class,
+
+    /*
+    |--------------------------------------------------------------------------
     | React on unexpected calls
     |--------------------------------------------------------------------------
     |

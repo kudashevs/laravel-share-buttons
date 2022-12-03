@@ -30,6 +30,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     {
         $this->app->bind(ShareButtons::class, function () {
             $options = [
+                'templater' => config('share-buttons.templater'),
                 'reportUnexpectedCalls' => config('share-buttons.reportUnexpectedCalls'),
             ];
 
