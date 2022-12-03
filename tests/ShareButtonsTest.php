@@ -63,14 +63,6 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_one_link_without_a_title()
-    {
-        $result = $this->share->page('https://mysite.com')->facebook();
-
-        $this->assertStringContainsString('facebook', (string)$result);
-    }
-
-    /** @test */
     public function it_can_generate_one_link_without_a_title_for_provider_with_predefined_title()
     {
         $expected = config('share-buttons.buttons.twitter.text');
