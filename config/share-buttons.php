@@ -109,7 +109,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Formatting elements
+    | Representation
     |--------------------------------------------------------------------------
     |
     | These values specify a share buttons representation. Here we can specify:
