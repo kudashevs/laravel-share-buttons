@@ -29,15 +29,23 @@ class ShareButtonsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ShareButtons::class, function () {
-            $options = [
-                'templater' => config('share-buttons.templater'),
-                'reportUnexpectedCalls' => config('share-buttons.reportUnexpectedCalls'),
-            ];
-
-            return new ShareButtons($options);
+            return new ShareButtons($this->prepareConfig());
         });
         $this->app->alias(ShareButtons::class, 'sharebuttons');
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');
+    }
+
+    /**
+     * @return array<string, bool|string>
+     */
+    protected function prepareConfig(): array
+    {
+        $config = [
+            'templater' => config('share-buttons.templater'),
+            'reportUnexpectedCalls' => config('share-buttons.reportUnexpectedCalls'),
+        ];
+
+        return array_filter($config);
     }
 }
