@@ -161,20 +161,6 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @return array<string, string>
      */
-    protected function retrieveElementReplacements(string $url, array $arguments): array
-    {
-        $replacements = ['url' => $url];
-        $attributes = $this->retrieveAttributes($arguments);
-
-        return array_merge(
-            $replacements,
-            $attributes,
-        );
-    }
-
-    /**
-     * @return array<string, string>
-     */
     protected function retrieveReplacements(string $name, array $arguments): array
     {
         $elementReplacements = $this->retrieveAttributes($arguments);
