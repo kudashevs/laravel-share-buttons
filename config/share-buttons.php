@@ -4,6 +4,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Representation
+    |--------------------------------------------------------------------------
+    |
+    | These values specify representations of different parts of share buttons.
+    |
+    | Block representation:
+    | - 'block_prefix' represents a share buttons block start
+    | - 'block_suffix' represents a share buttons block end
+    | Element representation:
+    | - 'element_prefix' represents an element start
+    | - 'element_suffix' represents an element end
+    |
+    */
+
+    'block_prefix' => '<div id="social-links"><ul>',
+    'block_suffix' => '</ul></div>',
+    'element_prefix' => '<li>',
+    'element_suffix' => '</li>',
+
+    /*
+    |--------------------------------------------------------------------------
     | Share buttons
     |--------------------------------------------------------------------------
     |
@@ -106,27 +127,6 @@ return [
         'whatsapp' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-whatsapp"></span></a>',
         'xing' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-xing"></span></a>',
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Representation
-    |--------------------------------------------------------------------------
-    |
-    | These values specify representations of different parts of share buttons.
-    |
-    | Block representation:
-    | - 'block_prefix' represents a share buttons block start
-    | - 'block_suffix' represents a share buttons block end
-    | Element representation:
-    | - 'element_prefix' represents an element start
-    | - 'element_suffix' represents an element end
-    |
-    */
-
-    'block_prefix' => '<div id="social-links"><ul>',
-    'block_suffix' => '</ul></div>',
-    'element_prefix' => '<li>',
-    'element_suffix' => '</li>',
 
     /*
     |--------------------------------------------------------------------------
