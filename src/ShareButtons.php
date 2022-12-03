@@ -165,9 +165,9 @@ class ShareButtons
         if ($this->isExpectedCall($name)) {
             $applicableArguments = $this->prepareApplicableArguments($arguments);
             $this->rememberProcessedCall($name, $applicableArguments);
+        } else {
+            $this->handleUnexpectedCall($name);
         }
-
-        $this->handleUnexpectedCall($name);
 
         return $this;
     }
