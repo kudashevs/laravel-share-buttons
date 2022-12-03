@@ -164,58 +164,42 @@ ShareButtons::page('https://site.com', 'Share title')
     ->getRawLinks();
 ```
 
-## Optional parameters
+## Parameters
 
-### Add extra options to your buttons
+The package allows you to provide different options to decorate and improve the resulting share buttons HTML code.
 
-The package allows you to provide additional options to the share buttons code. It can be made globally (by providing options
-to the fluent interface start method), and locally (by providing options to the specific method).
+### Main parameters (global options)
 
-At the moment, the package supports the following options:
-
-### Global options
+Every time a chaining method is called it takes several arguments, including a page URL (it depends on the exact method),
+a page title, and an array of options. These are global options that will be used to form the visual representation and 
+URLs of share buttons. They will be applied to every share buttons element during processing. These options include:
 ```
-'block_prefix' => 'value'       # Set up a block prefix, e.g. <ul>
-'block_suffix' => 'value'       # Set up a block prefix, e.g. </ul>
-'element_prefix' => 'value'     # Set up an element prefix, e.g. <li>
-'element_suffix' => 'value'     # Set up an element suffix, e.g. </li>
-'id' => 'value'                 # Add an id attribute to a link
-'class' => 'value'              # Add a class attribute to a link
-'title' => 'value'              # Add a title attribute to a link
-'rel' => 'value'                # Add a rel attribute to a link
+'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <ul>)
+'block_suffix' => 'tag'          # Sets a share buttons block suffix (default is </ul>)
+'element_prefix' => 'tag'        # Sets an element prefix (default is <li>)
+'element_suffix' => 'tag'        # Sets an element suffix (default is </li>)
+'id' => 'value'                  # Adds an HTML id attribute to the output links
+'class' => 'value'               # Adds an HTML class attribute to the output links
+'title' => 'value'               # Adds an HTML title attribute to the output links
+'rel' => 'value'                 # Adds an HTML rel attribute to the output links
 ```
 
-### Local options
+### Optional parameters (local options)
+
+Each of the [share button methods](#share-button-methods) takes several arguments. These are local options that will be
+applied to a specific element only. The local options have a higher priority, therefore they will overwrite the global
+options if there is any overlap. At the moment, the package supports the following local options:
 ```
-'id' => 'value'                 # Add an id attribute to a link
-'class' => 'value'              # Add a class attribute to a link
-'title' => 'value'              # Add a title attribute to a link
-'rel' => 'value'                # Add a rel attribute to a link
-'summary' => 'value'            # Only used with a linkedin provider (special case)
+'id' => 'value'                  # Adds an HTML id attribute to the button link
+'class' => 'value'               # Adds an HTML class attribute to the button link
+'title' => 'value'               # Adds an HTML title attribute to the button link
+'rel' => 'value'                 # Adds an HTML rel attribute to the button link
+'summary' => 'value'             # Adds a summary text to the URL (linkedin button only)
 ```
 
 #### Usage examples
 ```php
-ShareButtons::page('https://site.com', '', [
-        'block_prefix' => '<ul>',
-        'block_suffix' => '</ul>',
-        'class' => 'my-class',
-        'id' => 'my-id',
-        'title' => 'my-title',
-        'rel' => 'nofollow noopener noreferrer',
-    ])
-    ->facebook();
-```
-
-will result into the following HTML code
-```html
-<ul>
-    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
-</ul>
-```
-
-```php
-ShareButtons::page('https://site.com', '', [
+ShareButtons::page('https://site.com', 'Page title', [
         'block_prefix' => '<ul>',
         'block_suffix' => '</ul>',
         'class' => 'my-class',
@@ -230,8 +214,8 @@ ShareButtons::page('https://site.com', '', [
 will result into the following HTML code
 ```html
 <ul>
-    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://site.com" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
-    <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https://site.com&title=Default+share+text&summary=cool+summary" class="social-button hover" id="linked" title="my-title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+    <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=cool+summary" class="social-button hover" id="linked" title="my-title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
 </ul>
 ```
 
