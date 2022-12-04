@@ -114,8 +114,8 @@ class ShareButtonsTest extends ExtendedTestCase
             'vkontakte' => [
                 'vkontakte',
                 'https://mysite.com',
-                'My twitter title',
-                'https://vk.com/share.php?url=https%3A%2F%2Fmysite.com&title=My+twitter+title',
+                'My vkontakte title',
+                'https://vk.com/share.php?url=https%3A%2F%2Fmysite.com&title=My+vkontakte+title',
             ],
             'whatsapp' => [
                 'whatsapp',
