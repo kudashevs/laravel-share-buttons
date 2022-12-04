@@ -65,7 +65,7 @@ class ShareButtonsTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentShareButtonsValues
      */
-    public function it_can_return_an_expected_share_button_url(
+    public function it_can_generate_an_expected_share_button(
         string $media,
         string $url,
         string $title,
