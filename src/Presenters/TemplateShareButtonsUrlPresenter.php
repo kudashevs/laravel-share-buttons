@@ -28,7 +28,7 @@ class TemplateShareButtonsUrlPresenter
     }
 
     /**
-     * Return a share provider's ready-to-use URL.
+     * Return a button's ready-to-use URL.
      *
      * @param string $name
      * @param array $arguments
