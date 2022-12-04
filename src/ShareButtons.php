@@ -55,7 +55,7 @@ class ShareButtons
     protected array $calls = [];
 
     /**
-     * @param array $options
+     * @param array<string, bool|string> $options
      */
     public function __construct(array $options = [])
     {
@@ -75,7 +75,7 @@ class ShareButtons
     }
 
     /**
-     * @param array $options
+     * @param array<string, bool|string> $options
      */
     protected function initOptions(array $options = []): void
     {
@@ -251,7 +251,7 @@ class ShareButtons
     }
 
     /**
-     * Return the prepared share buttons HTML code.
+     * Return a generated share buttons HTML code.
      *
      * @return string
      */
@@ -261,7 +261,7 @@ class ShareButtons
     }
 
     /**
-     * Return a string with generated HTML code.
+     * Return a generated share buttons HTML code.
      *
      * @return string
      */
