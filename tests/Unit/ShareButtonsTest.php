@@ -17,7 +17,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_exception_when_a_wrong_url_provider_name()
+    public function it_can_throw_exception_when_a_wrong_button_name()
     {
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage('ShareButtons::wrong()');
@@ -27,7 +27,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_skip_throwing_exception_when_a_wrong_url_provider_name()
+    public function it_can_skip_throwing_exception_when_a_wrong_button_name()
     {
         $instance = new ShareButtons(['reportUnexpectedCalls' => false]);
         $result = $instance->page('https://mysite.com')->wrong()->getRawLinks();
