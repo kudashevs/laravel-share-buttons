@@ -3,6 +3,7 @@
 namespace Kudashevs\ShareButtons\Tests\Acceptance;
 
 use BadMethodCallException;
+use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -28,9 +29,31 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function a_facade_can_throw_bad_method_call_exception_when_a_wrong_button_name()
+    {
+        config()->set('share-buttons.reportUnexpectedCalls', true);
+
+        $this->expectException(BadMethodCallException::class);
+        $this->expectExceptionMessage('ShareButtons::wrong()');
+
+        ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
+    }
+
+    /** @test */
     public function an_instance_can_generate_one_share_button_url()
     {
         $result = $this->share->page('https://mysite.com')
+            ->twitter()
+            ->getRawLinks();
+
+        $this->assertNotEmpty($result);
+        $this->assertStringContainsString('twitter', current($result));
+    }
+
+    /** @test */
+    public function a_facade_can_generate_one_share_button_url()
+    {
+        $result = ShareButtonsFacade::page('https://mysite.com')
             ->twitter()
             ->getRawLinks();
 
