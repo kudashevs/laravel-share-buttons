@@ -36,7 +36,7 @@ class TemplateShareButtonsUrlPresenter
      */
     public function generateUrl(string $name, array $arguments): string
     {
-        $this->initProviderName($name);
+        $this->initElementName($name);
 
         $template = $this->retrieveUrlTemplate();
         $replacements = $this->retrieveUrlReplacements($arguments);
@@ -46,7 +46,7 @@ class TemplateShareButtonsUrlPresenter
         return $this->templater->process($template, $encoded);
     }
 
-    protected function initProviderName(string $name): void
+    protected function initElementName(string $name): void
     {
         $this->name = $name;
     }
