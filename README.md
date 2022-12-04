@@ -248,7 +248,7 @@ will be changed during processing. The format of substituted elements depends on
 
 ### React on unexpected calls
 ```
-'handleUnexpectedCalls' => bool     # Specify whether it throws exceptions on unexpected methods or not
+'reportUnexpectedCalls' => bool     # Specify whether to throw exception on unexpected method calls
 ```
 
 ## Testing
