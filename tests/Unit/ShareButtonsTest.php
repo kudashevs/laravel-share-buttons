@@ -2,7 +2,6 @@
 
 namespace Kudashevs\ShareButtons\Tests\Unit;
 
-use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -20,12 +19,11 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_throw_exception_when_a_wrong_url_provider_name()
     {
-        config()->set('share-buttons.reportUnexpectedCalls', true);
-
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage('ShareButtons::wrong()');
 
-        ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
+        $instance = new ShareButtons(['reportUnexpectedCalls' => true]);
+        $instance->page('https://mysite.com')->wrong()->getRawLinks();
     }
 
     /** @test */
