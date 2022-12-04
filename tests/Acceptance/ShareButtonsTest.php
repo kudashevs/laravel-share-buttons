@@ -73,9 +73,9 @@ class ShareButtonsTest extends ExtendedTestCase
     ) {
         $result = $this->share->page($url, $title)
             ->$media()
-            ->getRawLinks();
+            ->getShareButtons();
 
-        $this->assertEquals([$media => $expected], $result);
+        $this->assertStringContainsString($expected, $result);
     }
 
     /**
