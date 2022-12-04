@@ -18,7 +18,7 @@ class ShareButtonsTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provide_different_share_providers_for_one_link
+     * @dataProvider provideDifferentShareButtonsValues
      * @param string $media
      * @param string $url
      * @param string $title
@@ -36,7 +36,7 @@ class ShareButtonsTest extends ExtendedTestCase
     /**
      * @todo don't forget to update these test cases
      */
-    public function provide_different_share_providers_for_one_link()
+    public function provideDifferentShareButtonsValues()
     {
         return [
             'copylink' => [
