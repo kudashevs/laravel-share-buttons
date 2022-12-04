@@ -107,7 +107,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provideDifferentGetStylingMethods
+     * @dataProvider provideDifferentDifferentPresentationOptions
      */
     public function it_can_set_default_values_without_options(string $method, string $expected)
     {
@@ -116,7 +116,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideDifferentGetStylingMethods()
+    public function provideDifferentDifferentPresentationOptions()
     {
         return [
             'block_prefix results in the default' => [
