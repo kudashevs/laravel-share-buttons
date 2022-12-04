@@ -9,14 +9,14 @@ gives the possibility to create social media share buttons for your site in a fl
 * Facebook
 * Twitter
 * LinkedIn
+* Telegram
 * WhatsApp
 * Reddit
-* Telegram
+* Hacker News
 * VKontakte
 * Pinterest
 * Pocket
 * Evernote
-* Hacker News
 * Skype
 * Xing
 * Copy the link
@@ -92,18 +92,18 @@ methods accepts an array of options (you can find more information about the opt
 
 [//]: # (@todo don't forget to update these methods)
 ```
-* evernote($options)            # Generate an Evernote share button
 * facebook($options)            # Generate a Facebook share button
-* hackernews($options)          # Generate a Hacker News share button
+* twitter($options)             # Generate a Twitter share button
 * linkedin($options)            # Generate a LinkedIn share button
+* telegram($options)            # Generate a Telegram share button
+* whatsapp($options)            # Generate a WhatsApp share button
+* reddit($options)              # Generate a Reddit share button
+* hackernews($options)          # Generate a Hacker News share button
+* vkontakte($options)           # Generate a VKontakte share button
 * pinterest($options)           # Generate a Pinterest share button
 * pocket($options)              # Generate a Pocket share button
-* reddit($options)              # Generate a Reddit share button
+* evernote($options)            # Generate an Evernote share button
 * skype($options)               # Generate a Skype share button
-* telegram($options)            # Generate a Telegram share button
-* twitter($options)             # Generate a Twitter share button
-* vkontakte($options)           # Generate a VKontakte share button
-* whatsapp($options)            # Generate a WhatsApp share button
 * xing($options)                # Generate a Xing share button
 * copylink($options)            # Generate a copy to the clipboard share button
 * mailto($options)              # Generate a send by mail share button
