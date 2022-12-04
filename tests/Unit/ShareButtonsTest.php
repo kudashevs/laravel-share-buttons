@@ -29,9 +29,8 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_skip_throwing_exception_when_a_wrong_url_provider_name()
     {
-        config()->set('share-buttons.reportUnexpectedCalls', false);
-
-        $result = $this->share->page('https://mysite.com')->wrong()->getRawLinks();
+        $instance = new ShareButtons(['reportUnexpectedCalls' => false]);
+        $result = $instance->page('https://mysite.com')->wrong()->getRawLinks();
 
         $this->assertIsArray($result);
         $this->assertEmpty($result);
