@@ -214,8 +214,8 @@ class ShareButtons
     protected function rememberProcessedCall(string $name, array $arguments = []): void
     {
         /**
-         * Since a share provider button can be displayed only once, there is no need to keep track and
-         * make sure that the information about a previous provider's call might be overwritten.
+         * Since a share button can be displayed only once, there is no need to keep track and
+         * make sure that the information about a previous button's call might be overwritten.
          */
         $this->calls[$name] = new ProcessedCall($name, $arguments);
     }
