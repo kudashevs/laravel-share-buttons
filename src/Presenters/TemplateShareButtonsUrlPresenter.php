@@ -71,10 +71,10 @@ class TemplateShareButtonsUrlPresenter
      */
     protected function retrieveUrlReplacements(array $arguments): array
     {
-        $providerReplacements = $this->retrieveElementReplacements();
+        $elementReplacements = $this->retrieveElementReplacements();
         $applicableArguments = array_filter($arguments, 'strlen');
 
-        return array_merge($providerReplacements, $applicableArguments);
+        return array_merge($elementReplacements, $applicableArguments);
     }
 
     protected function retrieveElementReplacements(): array
