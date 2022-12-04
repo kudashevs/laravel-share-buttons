@@ -212,11 +212,11 @@ class ShareButtonsTest extends ExtendedTestCase
     {
         $result = $this->share->page(
             'https://mysite.com',
-            'My share title',
+            'Page share title',
             [
                 'block_prefix' => '<ul>',
                 'block_suffix' => '</ul>',
-                'title' => 'My Title for SEO',
+                'title' => 'link title',
                 'class' => 'page-class',
                 'id' => 'page-id',
                 'rel' => 'nofollow',
@@ -227,7 +227,7 @@ class ShareButtonsTest extends ExtendedTestCase
             ->reddit()
             ->telegram();
 
-        $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+share+title" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-twitter"></span></a></li><li><a href="https://wa.me/?text=https%3A%2F%2Fmysite.com%20My+share+title" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://www.reddit.com/submit?title=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button page-class" id="page-id" title="My Title for SEO" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></li></ul>';
+        $expected = '<ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li><li><a href="https://twitter.com/intent/tweet?text=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-twitter"></span></a></li><li><a href="https://wa.me/?text=https%3A%2F%2Fmysite.com%20Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-whatsapp"></span></a></li><li><a href="https://www.reddit.com/submit?title=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-reddit"></span></a></li><li><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></li></ul>';
 
         $this->assertEquals($expected, (string)$result);
     }
