@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\Presenters;
+namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 
 use Kudashevs\ShareButtons\Presenters\TemplateShareButtonsPresenter;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;

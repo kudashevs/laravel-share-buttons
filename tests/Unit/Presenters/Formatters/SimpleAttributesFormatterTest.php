@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\Presenters\Formatters;
+namespace Kudashevs\ShareButtons\Tests\Unit\Presenters\Formatters;
 
 use Kudashevs\ShareButtons\Presenters\Formatters\SimpleAttributesFormatter;
 use PHPUnit\Framework\TestCase;

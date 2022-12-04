@@ -1,9 +1,10 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests;
+namespace Kudashevs\ShareButtons\Tests\Unit;
 
 use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\ShareButtons;
+use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class ShareButtonsTest extends ExtendedTestCase
 {

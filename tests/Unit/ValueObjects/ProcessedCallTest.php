@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\ValueObjects;
+namespace Kudashevs\ShareButtons\Tests\Unit\ValueObjects;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidProcessedCallArgument;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;

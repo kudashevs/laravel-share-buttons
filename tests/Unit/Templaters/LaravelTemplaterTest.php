@@ -1,6 +1,6 @@
 <?php
 
-namespace Kudashevs\ShareButtons\Tests\Templaters;
+namespace Kudashevs\ShareButtons\Tests\Unit\Templaters;
 
 use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
