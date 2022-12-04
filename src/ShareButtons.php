@@ -199,14 +199,14 @@ class ShareButtons
      */
     protected function retrieveApplicableArguments(array $arguments): array
     {
-        if ($this->isAnyArgumentsProvided($arguments)) {
+        if ($this->isAnyApplicableArgumentsProvided($arguments)) {
             return array_filter($arguments[0], 'is_string');
         }
 
         return [];
     }
 
-    protected function isAnyArgumentsProvided(array $arguments): bool
+    protected function isAnyApplicableArgumentsProvided(array $arguments): bool
     {
         return isset($arguments[0]) && is_array($arguments[0]);
     }
