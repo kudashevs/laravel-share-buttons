@@ -38,21 +38,21 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     public function provideDifferentShareButtonsValues()
     {
         return [
-            'copylink provider' => [
+            'copylink button' => [
                 'copylink',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https%3A%2F%2Fmysite.com',
             ],
-            'evernote provider without text results in the default text' => [
+            'evernote button without text results in the default text' => [
                 'evernote',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://www.evernote.com/clip.action?url=https%3A%2F%2Fmysite.com&t=Default+share+text',
             ],
-            'evernote provider with text results in the provided text' => [
+            'evernote button with text results in the provided text' => [
                 'evernote',
                 [
                     'url' => 'https://mysite.com',
@@ -60,14 +60,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://www.evernote.com/clip.action?url=https%3A%2F%2Fmysite.com&t=My+evernote+title',
             ],
-            'facebook provider without text results in the default text' => [
+            'facebook button without text results in the default text' => [
                 'facebook',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text',
             ],
-            'facebook provider with text results in the provided text' => [
+            'facebook button with text results in the provided text' => [
                 'facebook',
                 [
                     'url' => 'https://mysite.com',
@@ -75,14 +75,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+facebook+title',
             ],
-            'hackernews provider without text results in the default text' => [
+            'hackernews button without text results in the default text' => [
                 'hackernews',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://news.ycombinator.com/submitlink?t=Default+share+text&u=https%3A%2F%2Fmysite.com',
             ],
-            'hackernews provider with text results in the provided text' => [
+            'hackernews button with text results in the provided text' => [
                 'hackernews',
                 [
                     'url' => 'https://mysite.com',
@@ -90,14 +90,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://news.ycombinator.com/submitlink?t=My+hacker+news+title&u=https%3A%2F%2Fmysite.com',
             ],
-            'linkedin provider without text results in the default text' => [
+            'linkedin button without text results in the default text' => [
                 'linkedin',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=',
             ],
-            'linkedin provider with text results in the provided text' => [
+            'linkedin button with text results in the provided text' => [
                 'linkedin',
                 [
                     'url' => 'https://mysite.com',
@@ -105,7 +105,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=My+linkedin+title&summary=',
             ],
-            'linkedin provider with text and summary results in the provided text and summary' => [
+            'linkedin button with text and summary results in the provided text and summary' => [
                 'linkedin',
                 [
                     'url' => 'https://mysite.com',
@@ -114,14 +114,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=My+linkedin+title&summary=Text+summary',
             ],
-            'mailto provider without text results in the default text' => [
+            'mailto button without text results in the default text' => [
                 'mailto',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'mailto:?subject=Default+share+text&body=https%3A%2F%2Fmysite.com',
             ],
-            'mailto provider with text results in the provided text' => [
+            'mailto button with text results in the provided text' => [
                 'mailto',
                 [
                     'url' => 'https://mysite.com',
@@ -129,7 +129,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'mailto:?subject=My+share+by+mail+title&body=https%3A%2F%2Fmysite.com',
             ],
-            'pinterest provider with text results in without text' => [
+            'pinterest button with text results in without text' => [
                 'pinterest',
                 [
                     'url' => 'https://mysite.com',
@@ -137,14 +137,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmysite.com',
             ],
-            'pocket provider without text results in the default text' => [
+            'pocket button without text results in the default text' => [
                 'pocket',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://getpocket.com/edit?url=https%3A%2F%2Fmysite.com&title=Default+share+text',
             ],
-            'pocket provider with text results in the provided text' => [
+            'pocket button with text results in the provided text' => [
                 'pocket',
                 [
                     'url' => 'https://mysite.com',
@@ -152,14 +152,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://getpocket.com/edit?url=https%3A%2F%2Fmysite.com&title=My+pocket+title',
             ],
-            'reddit provider without text results in the default text' => [
+            'reddit button without text results in the default text' => [
                 'reddit',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://www.reddit.com/submit?title=Default+share+text&url=https%3A%2F%2Fmysite.com',
             ],
-            'reddit provider with text results in the provided text' => [
+            'reddit button with text results in the provided text' => [
                 'reddit',
                 [
                     'url' => 'https://mysite.com',
@@ -167,14 +167,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://www.reddit.com/submit?title=My+reddit+title&url=https%3A%2F%2Fmysite.com',
             ],
-            'skype provider without text results in the default text' => [
+            'skype button without text results in the default text' => [
                 'skype',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://web.skype.com/share?url=https%3A%2F%2Fmysite.com&text=Default+share+text&source=button',
             ],
-            'skype provider with text results in the provided text' => [
+            'skype button with text results in the provided text' => [
                 'skype',
                 [
                     'url' => 'https://mysite.com',
@@ -182,14 +182,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://web.skype.com/share?url=https%3A%2F%2Fmysite.com&text=My+skype+title&source=button',
             ],
-            'telegram provider without text results in the default text' => [
+            'telegram button without text results in the default text' => [
                 'telegram',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=Default+share+text',
             ],
-            'telegram provider with text results in the provided text' => [
+            'telegram button with text results in the provided text' => [
                 'telegram',
                 [
                     'url' => 'https://mysite.com',
@@ -197,14 +197,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+telegram+title',
             ],
-            'twitter provider without text results in the default text' => [
+            'twitter button without text results in the default text' => [
                 'twitter',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://twitter.com/intent/tweet?text=Default+share+text&url=https%3A%2F%2Fmysite.com',
             ],
-            'twitter provider with text results in the provided text' => [
+            'twitter button with text results in the provided text' => [
                 'twitter',
                 [
                     'url' => 'https://mysite.com',
@@ -212,14 +212,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://twitter.com/intent/tweet?text=My+twitter+title&url=https%3A%2F%2Fmysite.com',
             ],
-            'vkontakte provider without text results in the default text' => [
+            'vkontakte button without text results in the default text' => [
                 'vkontakte',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://vk.com/share.php?url=https%3A%2F%2Fmysite.com&title=Default+share+text',
             ],
-            'vkontakte provider with text results in the provided text' => [
+            'vkontakte button with text results in the provided text' => [
                 'vkontakte',
                 [
                     'url' => 'https://mysite.com',
@@ -227,14 +227,14 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://vk.com/share.php?url=https%3A%2F%2Fmysite.com&title=My+twitter+title',
             ],
-            'whatsapp provider without text results in the default text' => [
+            'whatsapp button without text results in the default text' => [
                 'whatsapp',
                 [
                     'url' => 'https://mysite.com',
                 ],
                 'https://wa.me/?text=https%3A%2F%2Fmysite.com%20Default+share+text',
             ],
-            'whatsapp provider with text results in the provided text' => [
+            'whatsapp button with text results in the provided text' => [
                 'whatsapp',
                 [
                     'url' => 'https://mysite.com',
@@ -242,7 +242,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 ],
                 'https://wa.me/?text=https%3A%2F%2Fmysite.com%20My+whatsapp+title',
             ],
-            'xing provider with text results in without text' => [
+            'xing button with text results in without text' => [
                 'xing',
                 [
                     'url' => 'https://mysite.com',
