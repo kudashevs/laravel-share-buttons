@@ -184,14 +184,12 @@ class ShareButtons
      */
     protected function prepareApplicableArguments(array $arguments): array
     {
-        $initial = [
-            'url' => $this->pageUrl,
-            'text' => $this->pageTitle,
-        ];
-
         $applicable = $this->retrieveApplicableArguments($arguments);
 
-        return array_merge($applicable, $initial);
+        return array_merge($applicable, [
+            'url' => $this->pageUrl,
+            'text' => $this->pageTitle,
+        ]);
     }
 
     /**
