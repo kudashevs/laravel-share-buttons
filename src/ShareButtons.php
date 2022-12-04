@@ -225,7 +225,7 @@ class ShareButtons
     {
         if ($this->shouldReportCall()) {
             throw new BadMethodCallException(
-                sprintf('Call to undefined method %s::%s().', __CLASS__, $name)
+                sprintf('Call to undefined method %s::%s().', static::class, $name)
             );
         }
     }
