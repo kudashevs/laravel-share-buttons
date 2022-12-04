@@ -26,7 +26,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provideDifferentShareProviderValues
+     * @dataProvider provideDifferentShareButtonsValues
      */
     public function it_can_generate_a_url(string $name, array $arguments, string $expected)
     {
@@ -35,7 +35,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideDifferentShareProviderValues()
+    public function provideDifferentShareButtonsValues()
     {
         return [
             'copylink provider' => [
