@@ -175,7 +175,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provideShareProviderDifferentStylingOptions
+     * @dataProvider provideDifferentShareButtonsStylingOptions
      */
     public function it_can_format_an_element_with_custom_styling_from_call_options(
         string $page,
@@ -195,7 +195,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertEquals($expected, $result);
     }
 
-    public function provideShareProviderDifferentStylingOptions()
+    public function provideDifferentShareButtonsStylingOptions()
     {
         return [
             'check class option' => [
