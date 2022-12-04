@@ -42,7 +42,7 @@ class ShareButtonsTest extends ExtendedTestCase
             'copylink' => [
                 'copylink',
                 'https://mysite.com',
-                'My facebook title',
+                'My copylink title',
                 'https%3A%2F%2Fmysite.com',
             ],
             'evernote' => [
