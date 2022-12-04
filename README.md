@@ -60,9 +60,9 @@ For further information on how to use Font Awesome please read the [introduction
 
 ### Javascript
 
-This package uses the jQuery library. So you need to install it and integrate `resources/assets/js/share-buttons.js` into
-your template eco-system. There are different ways to do it. The simplest one, is to copy this `share-buttons.js` file
-to your `public/js` folder and use the code from the example below, or you can add this file into your assets compiling flow.
+This package uses the jQuery library. So you need to link the library and integrate a `resources/assets/js/share-buttons.js`
+file into your eco-system. There are different ways to do it. The simplest one is to copy the `resources/assets/js/share-buttons.js`
+file to the `public/js` folder and use the code from the example below, or you can add this file into your assets compiling flow.
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/share-buttons.js') }}"></script>
