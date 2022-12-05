@@ -43,7 +43,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
                 [
                     'url' => 'https://mysite.com',
                 ],
-                'https%3A%2F%2Fmysite.com',
+                'https://mysite.com',
             ],
             'evernote button without text results in the default text' => [
                 'evernote',

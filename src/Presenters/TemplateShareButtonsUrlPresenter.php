@@ -97,7 +97,15 @@ class TemplateShareButtonsUrlPresenter
     protected function encodeReplacements(array $replacements): array
     {
         return array_map(function (string $value) {
-            return urlencode($value);
+            return $this->isRaw()
+                ? $value
+                : urlencode($value);
         }, $replacements);
+    }
+
+    protected function isRaw(): bool
+    {
+        return config()->has('share-buttons.buttons.' . $this->name . '.extra.raw') ||
+            config('share-buttons.buttons.' . $this->name . '.extra.raw') === true;
     }
 }
