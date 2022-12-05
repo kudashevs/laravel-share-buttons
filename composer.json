@@ -51,7 +51,7 @@
                 "Kudashevs\\ShareButtons\\Providers\\ShareButtonsServiceProvider"
             ],
             "aliases": {
-                "Share": "Kudashevs\\ShareButtons\\Facades\\ShareButtonsFacade"
+                "ShareButtons": "Kudashevs\\ShareButtons\\Facades\\ShareButtonsFacade"
             }
         }
     }
