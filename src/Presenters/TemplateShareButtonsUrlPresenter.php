@@ -55,12 +55,12 @@ class TemplateShareButtonsUrlPresenter
     {
         $url = config('share-buttons.buttons.' . $this->name . '.url', '');
 
-        return $this->isHashedUrl()
+        return $this->isHash()
             ? '#'
             : $url;
     }
 
-    protected function isHashedUrl(): bool
+    protected function isHash(): bool
     {
         return config()->has('share-buttons.buttons.' . $this->name . '.extra.hash') &&
             config('share-buttons.buttons.' . $this->name . '.extra.hash') === true;
