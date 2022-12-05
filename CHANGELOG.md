@@ -2,6 +2,21 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v3.0.0 - 2022-12-05](https://github.com/kudashevs/laravel-share-buttons/compare/v2.2.0...v3.0.0)
+
+- Increase the minimum supported PHP version to 7.4
+- Add support for PHP 8.2 version
+- Add support for Laravel 9
+- Add a `templater` configuration option
+- Remove the `throwException` configuration option
+- Change the `share` alias rename to `sharebuttons`
+- Change config `providers` rename to `buttons`
+- Update the Laravel service provider
+- Update README.md
+- Massive refactoring
+
+Breaking change: the container binding alias has changed from `share` to `sharebuttons`.
+
 ## [v2.2.0 - 2022-03-04](https://github.com/kudashevs/laravel-share-buttons/compare/v2.1.3...v2.2.0)
 
 - Add a Xing share provider
