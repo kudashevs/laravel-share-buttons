@@ -38,6 +38,7 @@ return [
         'copylink' => [
             'url' => ':url',
             'extra' => [
+                'raw' => 'true',
                 'hash' => 'true',
             ],
         ],
