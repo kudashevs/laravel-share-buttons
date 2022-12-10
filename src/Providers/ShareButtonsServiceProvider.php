@@ -37,13 +37,12 @@ class ShareButtonsServiceProvider extends ServiceProvider
     }
 
     /**
-     * @return array<string, bool|string>
+     * @return array<string, string>
      */
     protected function prepareConfig(): array
     {
         $config = [
             'templater' => config('share-buttons.templater'),
-            'reportUnexpectedCalls' => config('share-buttons.reportUnexpectedCalls'),
         ];
 
         return array_filter($config);
