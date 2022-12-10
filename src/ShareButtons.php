@@ -75,7 +75,7 @@ class ShareButtons
     /**
      * @param array<string, bool|string> $options
      */
-    protected function initOptions(array $options = []): void
+    protected function initOptions(array $options): void
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
