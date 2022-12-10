@@ -45,9 +45,7 @@ class ShareButtons
     /**
      * Extra runtime options.
      */
-    protected array $options = [
-        'reportUnexpectedCalls' => false,
-    ];
+    protected array $options = [];
 
     /**
      * Contain processed calls.
@@ -223,16 +221,9 @@ class ShareButtons
      */
     protected function handleUnexpectedCall(string $name): void
     {
-        if ($this->shouldReportCall()) {
-            throw new BadMethodCallException(
-                sprintf('Call to undefined method %s::%s().', static::class, $name)
-            );
-        }
-    }
-
-    protected function shouldReportCall(): bool
-    {
-        return $this->options['reportUnexpectedCalls'] === true;
+        throw new BadMethodCallException(
+            sprintf('Call to undefined method %s::%s().', static::class, $name)
+        );
     }
 
     /**

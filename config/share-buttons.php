@@ -143,21 +143,4 @@ return [
 
     'templater' => \Kudashevs\ShareButtons\Templaters\LaravelTemplater::class,
 
-    /*
-    |--------------------------------------------------------------------------
-    | React on unexpected calls
-    |--------------------------------------------------------------------------
-    |
-    | This package uses a magic __call() method (the method which is triggered
-    | every time when a non-existing method or inaccessible method is invoked).
-    | Therefore, the package will process all of the invoked methods, even if
-    | the method name is wrong. If you want to be aware of all unexpected calls,
-    | you can use different options to report them:
-    | - 'reportUnexpectedCalls' set to true will raise the BadMethodCallException
-    |   exception on every unexpected call.
-    |
-    */
-
-    'reportUnexpectedCalls' => true,
-
 ];

@@ -246,11 +246,6 @@ will be changed during processing. The format of substituted elements depends on
 :rel                                # Will be replaced with a rel attribute
 ```
 
-### React on unexpected calls
-```
-'reportUnexpectedCalls' => bool     # Specify whether to throw exception on unexpected method calls
-```
-
 ## Testing
 ```bash
 composer test

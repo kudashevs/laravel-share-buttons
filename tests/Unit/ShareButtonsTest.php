@@ -22,18 +22,8 @@ class ShareButtonsTest extends ExtendedTestCase
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage('ShareButtons::wrong()');
 
-        $instance = new ShareButtons(['reportUnexpectedCalls' => true]);
+        $instance = new ShareButtons();
         $instance->page('https://mysite.com')->wrong()->getRawLinks();
-    }
-
-    /** @test */
-    public function it_can_skip_throwing_exception_when_a_wrong_button_name()
-    {
-        $instance = new ShareButtons(['reportUnexpectedCalls' => false]);
-        $result = $instance->page('https://mysite.com')->wrong()->getRawLinks();
-
-        $this->assertIsArray($result);
-        $this->assertEmpty($result);
     }
 
     /** @test */
