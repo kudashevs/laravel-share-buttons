@@ -103,8 +103,7 @@ class ShareButtons
      */
     public function page(string $url, string $title = '', array $options = []): self
     {
-        $this->presenter->refresh($options);
-        $this->refreshState();
+        $this->refreshState($options);
 
         $this->pageUrl = $url;
         $this->pageTitle = $title;
@@ -113,10 +112,11 @@ class ShareButtons
     }
 
     /**
-     * Refresh state (delete all previously remembered processed calls).
+     * Refresh state and delete all previously remembered calls.
      */
-    protected function refreshState(): void
+    protected function refreshState(array $options): void
     {
+        $this->presenter->refresh($options);
         $this->calls = [];
     }
 
