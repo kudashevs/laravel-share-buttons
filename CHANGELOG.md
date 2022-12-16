@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v3.1.0 - 2022-12-16](https://github.com/kudashevs/laravel-share-buttons/compare/v3.0.0...v3.1.0)
+
+- Remove a redundant `reportUnexpectedCalls` option
+- Some improvements
+
 ## [v3.0.0 - 2022-12-05](https://github.com/kudashevs/laravel-share-buttons/compare/v2.2.0...v3.0.0)
 
 - Increase the minimum supported PHP version to 7.4
