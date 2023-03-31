@@ -15,7 +15,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_can_remove_unknown_attributes()
+    public function it_skips_a_not_supported_attribute()
     {
         $attributes = ['unknown' => 'test'];
 
@@ -25,7 +25,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_can_return_an_empty_string_when_an_attribute_is_not_provided()
+    public function it_returns_an_empty_string_when_supported_attribute_is_not_provided()
     {
         $attributes = [];
 
@@ -35,7 +35,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_can_format_known_attributes()
+    public function it_performs_formatting_of_supported_attributes()
     {
         $attributes = [
             'class' => 'class',
