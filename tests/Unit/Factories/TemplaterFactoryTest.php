@@ -21,7 +21,7 @@ class TemplaterFactoryTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_from_options()
+    public function it_can_be_instantiated_from_options()
     {
         $formatter = TemplaterFactory::createFromOptions([
             'templater' => LaravelTemplater::class,
