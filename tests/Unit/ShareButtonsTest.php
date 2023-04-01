@@ -103,7 +103,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_array_when_no_calls_provided()
+    public function it_returns_empty_array_through_get_raw_links_method_when_no_calls_provided()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->getRawLinks();
@@ -142,7 +142,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_string_when_no_calls_provided_through_string_casting()
+    public function it_returns_empty_string_through_string_casting_when_no_calls_provided()
     {
         $result = $this->share->page('https://mysite.com', 'My share title');
 
@@ -172,7 +172,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_string_when_no_calls_provided_through_render_method()
+    public function it_returns_empty_string_through_render_method_when_no_calls_provided()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->render();
@@ -205,7 +205,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_string_when_no_calls_provided_through_get_share_buttons_method()
+    public function it_returns_empty_string_through_get_share_buttons_method_when_no_calls_provided()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->getShareButtons();;
