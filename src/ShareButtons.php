@@ -237,21 +237,6 @@ class ShareButtons
     }
 
     /**
-     * Return generated raw links.
-     *
-     * @return array
-     */
-    public function getRawLinks(): array
-    {
-        return array_map(function ($call) {
-            return $this->presenter->getElementUrl(
-                $call->getName(),
-                $call->getArguments(),
-            );
-        }, $this->calls);
-    }
-
-    /**
      * Return a generated share buttons HTML code.
      *
      * @return string
@@ -278,5 +263,20 @@ class ShareButtons
         $representation .= $this->presenter->getBlockSuffix();
 
         return $representation;
+    }
+
+    /**
+     * Return generated raw links.
+     *
+     * @return array
+     */
+    public function getRawLinks(): array
+    {
+        return array_map(function ($call) {
+            return $this->presenter->getElementUrl(
+                $call->getName(),
+                $call->getArguments(),
+            );
+        }, $this->calls);
     }
 }
