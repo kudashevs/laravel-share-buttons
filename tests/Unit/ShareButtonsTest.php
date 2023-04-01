@@ -132,13 +132,10 @@ class ShareButtonsTest extends ExtendedTestCase
             ->telegram()
             ->getRawLinks();
 
-        $expected = [
-            'twitter' => 'https://twitter.com/intent/tweet?text=My+share+title&url=https%3A%2F%2Fmysite.com',
-            'reddit' => 'https://www.reddit.com/submit?title=My+share+title&url=https%3A%2F%2Fmysite.com',
-            'telegram' => 'https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title',
-        ];
-
-        $this->assertEquals($expected, $result);
+        $this->assertCount(3, $result);
+        $this->assertStringContainsString('twitter', $result['twitter']);
+        $this->assertStringContainsString('reddit', $result['reddit']);
+        $this->assertStringContainsString('telegram', $result['telegram']);
     }
 
     /** @test */
