@@ -142,12 +142,33 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_returns_empty_string_when_no_calls_provided_through_string_casting()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title');
+
+        $this->assertStringContainsString('', (string)$result);
+    }
+
+    /** @test */
     public function it_can_return_one_link_through_string_casting()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->facebook();
 
         $this->assertStringContainsString('facebook', (string)$result);
+    }
+
+    /** @test */
+    public function it_can_return_multiple_links_through_string_casting()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->twitter()
+            ->reddit()
+            ->telegram();
+
+        $this->assertStringContainsString('twitter', (string)$result);
+        $this->assertStringContainsString('reddit', (string)$result);
+        $this->assertStringContainsString('telegram', (string)$result);
     }
 
     /** @test */
