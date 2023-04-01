@@ -70,6 +70,27 @@ file to the `public/js` folder and use the code from the example below, or you c
 
 ## Usage
 
+The package is really easy and convenient to use. Just to prove it, let's take a look at a short usage example.
+```php
+ShareButtons::page('https://site.com', 'Page title', [
+        'title' => 'Page title',
+        'rel' => 'nofollow noopener noreferrer',
+    ])
+    ->facebook()
+    ->linkedin(['rel' => 'follow'])
+    ->render();
+```
+
+This call will result into the following HTML code:
+```html
+<div id="social-links">
+    <ul>
+        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button" title="Page title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=" class="social-button" title="Page title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
+    </ul>
+</div>
+```
+
 The package is easy and convenient to use. It provides a fluent interface to build an HTML code of share buttons.
 To start a method chaining you just need to use one of the methods (start chaining methods). These methods are:
 ```
@@ -191,7 +212,7 @@ options if there is any overlap. At the moment, the package supports the followi
 'summary' => 'value'             # Adds a summary text to the URL (linkedin button only)
 ```
 
-#### Usage examples
+#### A detailed usage example
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'block_prefix' => '<ul>',
