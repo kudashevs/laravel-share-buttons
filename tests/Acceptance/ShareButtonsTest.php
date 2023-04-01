@@ -59,6 +59,26 @@ class ShareButtonsTest extends ExtendedTestCase
         $this->assertStringContainsString('twitter', current($result));
     }
 
+    /** @test */
+    public function an_instance_can_generate_one_share_button_link()
+    {
+        $result = $this->share->page('https://mysite.com')
+            ->twitter()
+            ->getShareButtons();
+
+        $this->assertMatchesRegularExpression('/href.*twitter/', $result);
+    }
+
+    /** @test */
+    public function a_facade_can_generate_one_share_button_link()
+    {
+        $result = ShareButtonsFacade::page('https://mysite.com')
+            ->twitter()
+            ->getShareButtons();
+
+        $this->assertMatchesRegularExpression('/href.*twitter/', $result);
+    }
+
     /**
      * @test
      * @dataProvider provideDifferentShareButtonsValues
