@@ -227,6 +227,16 @@ class ShareButtons
     }
 
     /**
+     * Return a generated share buttons HTML code.
+     *
+     * @return string
+     */
+    public function getShareButtons(): string
+    {
+        return $this->generateShareButtons();
+    }
+
+    /**
      * Return generated raw links.
      *
      * @return array
@@ -239,16 +249,6 @@ class ShareButtons
                 $call->getArguments(),
             );
         }, $this->calls);
-    }
-
-    /**
-     * Return a generated share buttons HTML code.
-     *
-     * @return string
-     */
-    public function getShareButtons(): string
-    {
-        return $this->generateShareButtons();
     }
 
     /**
