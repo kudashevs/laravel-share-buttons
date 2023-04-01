@@ -39,13 +39,13 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_create_self_instance_with_create_for_page_method()
+    public function it_creates_self_instance_with_create_for_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForPage('https://mysite.com'));
     }
 
     /** @test */
-    public function it_create_self_instance_with_create_for_current_page_method()
+    public function it_creates_self_instance_with_create_for_current_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForCurrentPage());
     }
