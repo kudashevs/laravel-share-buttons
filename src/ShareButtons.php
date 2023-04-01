@@ -231,6 +231,16 @@ class ShareButtons
      *
      * @return string
      */
+    public function render(): string
+    {
+        return $this->generateShareButtons();
+    }
+
+    /**
+     * Return a generated share buttons HTML code.
+     *
+     * @return string
+     */
     public function getShareButtons(): string
     {
         return $this->generateShareButtons();

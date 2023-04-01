@@ -172,6 +172,48 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_returns_empty_string_when_no_calls_provided_through_render_method()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->render();
+
+        $this->assertStringContainsString('', $result);
+    }
+
+    /** @test */
+    public function it_can_return_one_link_through_render_method()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->facebook()
+            ->render();
+
+        $this->assertStringContainsString('facebook', $result);
+    }
+
+    /** @test */
+    public function it_can_return_multiple_links_through_render_method()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->twitter()
+            ->reddit()
+            ->telegram()
+            ->render();
+
+        $this->assertStringContainsString('twitter', $result);
+        $this->assertStringContainsString('reddit', $result);
+        $this->assertStringContainsString('telegram', $result);
+    }
+
+    /** @test */
+    public function it_returns_empty_string_when_no_calls_provided_through_get_share_buttons_method()
+    {
+        $result = $this->share->page('https://mysite.com', 'My share title')
+            ->getShareButtons();;
+
+        $this->assertStringContainsString('', $result);
+    }
+
+    /** @test */
     public function it_can_return_one_link_through_get_share_buttons_method()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
