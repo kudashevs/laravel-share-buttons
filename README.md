@@ -202,19 +202,19 @@ The code above will result into the following HTML code:
 
 ## Configuration
 
-The package comes with some configuration settings. These are:
+This package is configurable. All the available configuration settings are located in the `config/share-buttons.php` file.
 
 ### Representation section
 ```
-'block_prefix' => 'value'           # Sets a share buttons block prefix (default is <ul>)
-'block_suffix' => 'value'           # Sets a share buttons block suffix (default is </ul>)
+'block_prefix' => 'value'           # Sets a share buttons block prefix (default is <div id="social-links"><ul>)
+'block_suffix' => 'value'           # Sets a share buttons block suffix (default is </ul></div>)
 'element_prefix' => 'value'         # Sets an element prefix (default is <li>)
 'element_suffix' => 'value'         # Sets an element suffix (default is </li>)
 ```
 
 ### Share buttons section
 
-Each share button has some settings that can be configured.
+Each social media share button has its individual configuration settings.
 ```
 'url' => 'value'                    # A share button URL template (used to form a button's URL)
 'text' => 'value'                   # A default text for the title (used when the page title is empty)
@@ -224,7 +224,7 @@ Each share button has some settings that can be configured.
 ### Templates section
 
 Each share button has a link representation represented by a corresponding template. A template contains some elements
-will be changed during processing. The format of substituted elements depends on the package templater.
+that will be changed during processing. The format of substituted elements depends on the `templater` setting.
 ```
 :url                                # Will be replaced with a prepared share button URL
 :id                                 # Will be replaced with an id attribute
@@ -232,6 +232,12 @@ will be changed during processing. The format of substituted elements depends on
 :title                              # Will be replaced with a title attribute
 :rel                                # Will be replaced with a rel attribute
 ```
+
+### Templaters section
+```
+'templater'                         # A template engine (templater) class
+```
+ 
 
 ## Testing
 ```bash
