@@ -7,7 +7,11 @@ namespace Kudashevs\ShareButtons\Templaters;
 class SimpleColonTemplater implements Templater
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @param string $template
+     * @param array<string, string> $replacements
+     * @return string
      */
     public function process(string $template, array $replacements): string
     {
@@ -16,6 +20,10 @@ class SimpleColonTemplater implements Templater
         return $this->applyReplacements($template, $prepared);
     }
 
+    /**
+     * @param array<string, string> $replacements
+     * @return array<string, string>
+     */
     protected function prepareReplacements(array $replacements): array
     {
         $prepared = [];
@@ -28,6 +36,9 @@ class SimpleColonTemplater implements Templater
         return $prepared;
     }
 
+    /**
+     * @param array<string, string> $replacements
+     */
     protected function applyReplacements(string $template, array $replacements): string
     {
         return strtr($template, $replacements);
