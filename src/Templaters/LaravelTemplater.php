@@ -7,7 +7,11 @@ namespace Kudashevs\ShareButtons\Templaters;
 class LaravelTemplater implements Templater
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @param string $template
+     * @param array<string, string> $replacements
+     * @return string
      */
     public function process(string $template, array $replacements): string
     {
