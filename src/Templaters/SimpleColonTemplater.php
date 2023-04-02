@@ -13,7 +13,7 @@ class SimpleColonTemplater implements Templater
     {
         $prepared = $this->prepareReplacements($replacements);
 
-        return strtr($template, $prepared);
+        return $this->applyReplacements($template, $prepared);
     }
 
     protected function prepareReplacements(array $replacements): array
@@ -26,5 +26,10 @@ class SimpleColonTemplater implements Templater
         }
 
         return $prepared;
+    }
+
+    protected function applyReplacements(string $template, array $replacements): string
+    {
+        return strtr($template, $replacements);
     }
 }
