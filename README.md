@@ -143,13 +143,13 @@ getRawLinks()           # Returns an array of generated links
 
 ## Parameters
 
-The package allows you to provide different options to decorate and improve the resulting share buttons HTML code.
+There is the possibility to provide different options at different levels to style and decorate the resulting HTML code.
 
 ### Main parameters (global options)
 
 Every time a chaining method is called it takes several arguments, including a page URL (it depends on the exact method),
 a page title, and an array of options. These are global options that will be used to form the visual representation and 
-URLs of share buttons. They will be applied to every share buttons element during processing. These options include:
+URLs of share buttons. They will be applied to every element during processing. These options include:
 ```
 'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <ul>)
 'block_suffix' => 'tag'          # Sets a share buttons block suffix (default is </ul>)
@@ -163,9 +163,9 @@ URLs of share buttons. They will be applied to every share buttons element durin
 
 ### Optional parameters (local options)
 
-Each of the [share button methods](#add-buttons) takes several arguments. These are local options that will be
-applied to a specific element only. The local options have a higher priority, therefore they will overwrite the global
-options if there is any overlap. At the moment, the package supports the following local options:
+Each of the [share button methods](#add-buttons) takes several arguments. These are local options that will be applied to
+the specific element only. The local options have a **higher priority**. Therefore, they will overwrite the global options
+if there is any overlap. At the moment, the package supports the following local options:
 ```
 'id' => 'value'                  # Adds an HTML id attribute to the button link
 'class' => 'value'               # Adds an HTML class attribute to the button link
