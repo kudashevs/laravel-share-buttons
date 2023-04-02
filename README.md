@@ -127,22 +127,18 @@ These methods are a part of the fluent interface. Therefore, to create multiple 
 
 ### Getting the result
 
-You can use a ShareButtons object as a string or cast it to a string to get the share buttons HTML code. However,
-this is not the preferred way how to use it. If you want to be clear in your intentions, use the `getShareButtons`
-method to get the prepared result.
+You can use a ShareButtons instance as a string or cast it to a string to get the HTML code. However, this is not the best way
+how to use it. If you want to be clear in your intentions, use `render` or `getShareButtons` methods to get the prepared result.
 ```php
-ShareButtons::page('https://site.com', 'Share title')
-    ->facebook()
-    ->getShareButtons();
+render()                # Returns a generated share buttons HTML code
+getShareButtons()       # Does the same (is an alias of the render() method)
 ```
 
 ### Getting the raw links
 
 Sometimes, you may only want the raw links without any HTML. In such a case, just use the `getRawLinks` method.
 ```php
-ShareButtons::page('https://site.com', 'Share title')
-    ->facebook()
-    ->getRawLinks();
+getRawLinks()           # Returns an array of generated links
 ```
 
 ## Parameters
