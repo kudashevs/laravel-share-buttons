@@ -68,7 +68,7 @@ or you could integrate this file into your assets compiling flow.
 
 ## Usage
 
-This package is highly customizable and easy to use. Let's take a look at a short usage example (a detailed usage example is located [below](#a-detailed-usage-example)).
+This package is highly customizable and easy to use. Let's take a look at a short usage example (a detailed usage example is located in the [A detailed usage example](#a-detailed-usage-example) section).
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'title' => 'Page title',
@@ -94,10 +94,10 @@ The code above will result into the following HTML code:
 The `ShareButtons` instance provides a fluent interface. The fluent interface is a pattern based on method chaining.
 To start a method chaining you just need to use one of the methods listed below (the start chaining methods).
 ```
-page($url, $title = '', $options = [])                  # Creates a method chaining with a given URL and a given page title
-createForPage($url, $title = '', $options = [])         # Does the same (is an alias os the page() method)
-currentPage($title = '', $options = [])                 # Creates a method chaining with the current page URL and a given page title
-createForCurrentPage($title = '', $options = [])        # Does the same (is an alias of the currentPage() method)
+page($url, $title, $options)              # Creates a chaining with a given URL and a given page title
+createForPage($url, $title, $options)     # Does the same (is an alias os the page() method)
+currentPage($title, $options)             # Creates a chaining with the current page URL and a given page title
+createForCurrentPage($title, $options)    # Does the same (is an alias of the currentPage() method)
 ```
 
 ### Add buttons
