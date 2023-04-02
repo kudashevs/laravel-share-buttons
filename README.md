@@ -207,8 +207,8 @@ This package is configurable. All the available configuration settings are locat
 
 ### Representation section
 ```
-'block_prefix' => 'value'       # Sets a share buttons block prefix (default is <div id="social-links"><ul>)
-'block_suffix' => 'value'       # Sets a share buttons block suffix (default is </ul></div>)
+'block_prefix' => 'value'       # Sets a block prefix (default is <div id="social-links"><ul>)
+'block_suffix' => 'value'       # Sets a block suffix (default is </ul></div>)
 'element_prefix' => 'value'     # Sets an element prefix (default is <li>)
 'element_suffix' => 'value'     # Sets an element suffix (default is </li>)
 ```
