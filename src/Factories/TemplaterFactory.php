@@ -14,6 +14,13 @@ final class TemplaterFactory
     {
     }
 
+    /**
+     * Retrieve and create an instance of Templater implementation from options.
+     * If a Templater class is not provided, the default Templater is created.
+     *
+     * @param array<string, string> $options
+     * @return Templater
+     */
     public static function createFromOptions(array $options): Templater
     {
         $class = $options['templater'] ?? self::getDefaultClass();
