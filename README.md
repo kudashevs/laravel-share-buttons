@@ -227,7 +227,7 @@ Each social media share button has its individual configuration settings.
 Each share button has a link representation represented by a corresponding template. A template contains some elements
 that will be changed during processing. The format of substituted elements depends on the `templater` setting.
 ```
-:url                                # Will be replaced with a prepared share button URL
+:url                                # Will be replaced with a prepared URL
 :id                                 # Will be replaced with an id attribute
 :class                              # Will be replaced with a class attribute
 :title                              # Will be replaced with a title attribute
