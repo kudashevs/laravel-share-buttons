@@ -10,6 +10,9 @@ final class ProcessedCall
 {
     private string $name;
 
+    /**
+     * @var array<string, string>
+     */
     private array $arguments;
 
     /**
