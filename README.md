@@ -88,13 +88,15 @@ The code above will result into the following HTML code:
 </div>
 ```
 
-The package is easy and convenient to use. It provides a fluent interface to build an HTML code of share buttons.
-To start a method chaining you just need to use one of the methods (start chaining methods). These methods are:
+### Fluent interface
+
+The `ShareButtons` instance provides a fluent interface. The fluent interface is a pattern based on method chaining.
+To start a method chaining you just need to use one of the methods listed below (the start chaining methods).
 ```
-page($url, $title = '', $options = [])
-currentPage($title = '', $options = [])
-createForPage($url, $title = '', $options = [])
-createForCurrentPage($title = '', $options = [])
+page($url, $title = '', $options = [])                  # Creates a method chaining with a given URL and a given page title
+createForPage($url, $title = '', $options = [])         # Does the same (is an alias os the page() method)
+currentPage($title = '', $options = [])                 # Creates a method chaining with the current page URL and a given page title
+createForCurrentPage($title = '', $options = [])        # Does the same (is an alias of the currentPage() method)
 ```
 
 ### Share button methods
