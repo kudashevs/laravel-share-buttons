@@ -67,7 +67,7 @@ To enable the jQuery library, use the code sample below. Then copy a `resources/
 
 ## Usage
 
-The package is really easy and convenient to use. Just to prove it, let's take a look at a short usage example.
+This package is highly customizable and easy to use. Let's take a look at a short usage example.
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'title' => 'Page title',
@@ -78,7 +78,7 @@ ShareButtons::page('https://site.com', 'Page title', [
     ->render();
 ```
 
-This call will result into the following HTML code:
+The code above will result into the following HTML code:
 ```html
 <div id="social-links">
     <ul>
