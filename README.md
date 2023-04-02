@@ -67,7 +67,7 @@ To enable the jQuery library, use the code sample below. Then copy a `resources/
 
 ## Usage
 
-This package is highly customizable and easy to use. Let's take a look at a short usage example.
+This package is highly customizable and easy to use. Let's take a look at a short usage example (a detailed usage example is located [below](#a-detailed-usage-example)).
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'title' => 'Page title',
@@ -174,7 +174,10 @@ if there is any overlap. At the moment, the package supports the following local
 'summary' => 'value'             # Adds a summary text to the URL (linkedin button only)
 ```
 
-#### A detailed usage example
+## A detailed usage example
+
+To summarize all of the above, we begin with a method that starts the fluent interface and accepts the main parameters (global options). Then we chain the methods
+that create social media share buttons and accept the optional parameters (local options). Then we use one of the methods to return the resulting HTML code.
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'block_prefix' => '<ul>',
@@ -185,10 +188,11 @@ ShareButtons::page('https://site.com', 'Page title', [
         'rel' => 'nofollow noopener noreferrer',
     ])
     ->facebook()
-    ->linkedin(['id' => 'linked', 'class' => 'hover', 'rel' => 'follow', 'summary' => 'cool summary']);
+    ->linkedin(['id' => 'linked', 'class' => 'hover', 'rel' => 'follow', 'summary' => 'cool summary'])
+    ->render();
 ```
 
-will result into the following HTML code
+The code above will result into the following HTML code:
 ```html
 <ul>
     <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
