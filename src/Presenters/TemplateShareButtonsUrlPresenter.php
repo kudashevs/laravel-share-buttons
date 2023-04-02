@@ -14,6 +14,9 @@ class TemplateShareButtonsUrlPresenter
 
     protected string $name;
 
+    /**
+     * @param array<string, string> $options
+     */
     public function __construct(array $options = [])
     {
         $this->initTemplater($options);
@@ -31,7 +34,7 @@ class TemplateShareButtonsUrlPresenter
      * Return a button's ready-to-use URL.
      *
      * @param string $name
-     * @param array $arguments
+     * @param array<string, string> $arguments
      * @return string
      */
     public function generateUrl(string $name, array $arguments): string
