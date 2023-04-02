@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v3.2.0 - 2023-04-02](https://github.com/kudashevs/laravel-share-buttons/compare/v3.1.0...v3.2.0)
+
+- Set PHPUnit version to 9.1
+- Add a new `render` method
+- Add support for Laravel 10
+- Update README.md
+- Some improvements
+
 ## [v3.1.0 - 2022-12-16](https://github.com/kudashevs/laravel-share-buttons/compare/v3.0.0...v3.1.0)
 
 - Remove a redundant `reportUnexpectedCalls` option
