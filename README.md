@@ -48,7 +48,7 @@ Don't forget to publish the package configuration and resource files.
 ```bash
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
 ```
-> **_NOTE:_** In case of major changes, it is recommended to back up your config file and republish a new one from scratch.
+> In case of a major change, it is recommended to back up your config file and republish a new one from scratch.
 
 ### Assets
 
