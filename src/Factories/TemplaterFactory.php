@@ -23,6 +23,7 @@ final class TemplaterFactory
      */
     public static function createFromOptions(array $options): Templater
     {
+        /** @var class-string<Templater> $class */
         $class = $options['templater'] ?? self::getDefaultClass();
 
         if (!self::isValidTemplater($class)) {
