@@ -44,11 +44,15 @@ class ShareButtons
 
     /**
      * Extra runtime options.
+     *
+     * @var array<string, string>
      */
     protected array $options = [];
 
     /**
      * Contain processed calls.
+     *
+     * @var array<string, ProcessedCall>
      */
     protected array $calls = [];
 
@@ -83,7 +87,7 @@ class ShareButtons
     }
 
     /**
-     * @return array<string, bool|string>
+     * @return array<string, string>
      */
     protected function retrieveApplicableOptions(array $options): array
     {
@@ -96,7 +100,7 @@ class ShareButtons
     /**
      * @param string $url
      * @param string $title
-     * @param array $options
+     * @param array<string, string> $options
      * @return $this
      */
     public function page(string $url, string $title = '', array $options = []): self
