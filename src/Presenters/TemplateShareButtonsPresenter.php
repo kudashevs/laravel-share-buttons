@@ -31,8 +31,10 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     ];
 
     /**
-     * Contain attributes that are passed to the page() method (the global attributes). If no specific attributes with
-     * a share button method will be provided, these global attributes are going to be applied to all of the elements.
+     * Contain attributes passed to the page() method (the global attributes). These attributes will be
+     * automatically applied to all the elements in the case where no specific attributes are provided.
+     *
+     * @var array<string, string>
      */
     protected array $attributes = [];
 
@@ -103,7 +105,10 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @param array<string, string> $options
+     * @return void
      */
     public function refresh(array $options): void
     {
@@ -143,7 +148,11 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @param string $name
+     * @param array<string, string> $arguments
+     * @return string
      */
     public function getElementBody(string $name, array $arguments): string
     {
@@ -181,7 +190,11 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @param string $name
+     * @param array $arguments
+     * @return string
      */
     public function getElementUrl(string $name, array $arguments): string
     {
