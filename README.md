@@ -99,64 +99,31 @@ currentPage($title = '', $options = [])                 # Creates a method chain
 createForCurrentPage($title = '', $options = [])        # Does the same (is an alias of the currentPage() method)
 ```
 
-### Share button methods
+### Add buttons
 
-To create a single share button, you just need to add one of the following methods to the method chaining. Each of these
+To create a single social media share button, you just need to add one of the following methods to the method chaining. Each of these
 methods accepts an array of options (you can find more information about the options in the [Optional parameters](#optional-parameters) section).
 
 [//]: # (@todo don't forget to update these methods)
 ```
-* facebook($options)            # Generate a Facebook share button
-* twitter($options)             # Generate a Twitter share button
-* linkedin($options)            # Generate a LinkedIn share button
-* telegram($options)            # Generate a Telegram share button
-* whatsapp($options)            # Generate a WhatsApp share button
-* reddit($options)              # Generate a Reddit share button
-* hackernews($options)          # Generate a Hacker News share button
-* vkontakte($options)           # Generate a VKontakte share button
-* pinterest($options)           # Generate a Pinterest share button
-* pocket($options)              # Generate a Pocket share button
-* evernote($options)            # Generate an Evernote share button
-* skype($options)               # Generate a Skype share button
-* xing($options)                # Generate a Xing share button
-* copylink($options)            # Generate a copy to the clipboard share button
-* mailto($options)              # Generate a send by mail share button
+facebook($options)      # Generates a Facebook share button
+twitter($options)       # Generates a Twitter share button
+linkedin($options)      # Generates a LinkedIn share button
+telegram($options)      # Generates a Telegram share button
+whatsapp($options)      # Generates a WhatsApp share button
+reddit($options)        # Generates a Reddit share button
+hackernews($options)    # Generates a Hacker News share button
+vkontakte($options)     # Generates a VKontakte share button
+pinterest($options)     # Generates a Pinterest share button
+pocket($options)        # Generates a Pocket share button
+evernote($options)      # Generates an Evernote share button
+skype($options)         # Generates a Skype share button
+xing($options)          # Generates a Xing share button
+copylink($options)      # Generates a copy to the clipboard share button
+mailto($options)        # Generates a send by mail share button
 ```
 
-### Share a specific page
-```php
-ShareButtons::page('https://site.com/', 'Page title')->facebook();           # Create a facebook button with the provided URL
-ShareButtons::createForPage('https://site.com/', 'Page title')->facebook();  # An alias to the page() method
-```
-
-### Share a current page
-```php
-ShareButtons::currentPage('Page title')->twitter();                          # Creates a twitter button with the current page URL
-ShareButtons::createForCurrentPage('Page title')->twitter();                 # An alias to the currentPage() method
-```
-
-### Creating multiple share buttons
-
-In case you want to create multiple share buttons, you just need to chain different methods in a sequence.
-```php
-ShareButtons::page('https://site.com', 'Page title')
-    ->facebook()
-    ->twitter()
-    ->linkedin(['summary' => 'Extra linkedin summary can be passed here'])
-    ->whatsapp();
-```
-
-This sequence will generate the following HTML code:
-```html
-<div id="social-links">
-    <ul>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>
-        <li><a href="https://twitter.com/intent/tweet?text=Page+title&url=https%3A%2F%2Fsite.com" class="social-button"><span class="fab fa-twitter"></span></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=Extra+linkedin+summary+can+be+passed+here" class="social-button"><span class="fab fa-linkedin"></span></a></li>
-        <li><a href="https://wa.me/?text=https%3A%2F%2Fsite.com%20Page+title" class="social-button" target="_blank"><span class="fab fa-whatsapp"></span></a></li>
-    </ul>
-</div>
-```
+These methods are a part of the fluent interface. Therefore, to create multiple social media share buttons you just need to chain them.
 
 ### Getting the result
 
