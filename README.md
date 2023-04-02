@@ -163,7 +163,7 @@ URLs of share buttons. They will be applied to every share buttons element durin
 
 ### Optional parameters (local options)
 
-Each of the [share button methods](#share-button-methods) takes several arguments. These are local options that will be
+Each of the [share button methods](#add-buttons) takes several arguments. These are local options that will be
 applied to a specific element only. The local options have a higher priority, therefore they will overwrite the global
 options if there is any overlap. At the moment, the package supports the following local options:
 ```
