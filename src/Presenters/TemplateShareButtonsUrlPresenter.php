@@ -44,9 +44,9 @@ class TemplateShareButtonsUrlPresenter
         $template = $this->retrieveUrlTemplate();
         $replacements = $this->retrieveUrlReplacements($arguments);
 
-        $encoded = $this->encodeReplacements($replacements);
+        $encodedReplacements = $this->encodeReplacements($replacements);
 
-        return $this->templater->process($template, $encoded);
+        return $this->templater->process($template, $encodedReplacements);
     }
 
     protected function initElementName(string $name): void
