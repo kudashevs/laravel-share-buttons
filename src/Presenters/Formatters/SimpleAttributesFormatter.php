@@ -14,7 +14,10 @@ class SimpleAttributesFormatter implements AttributesFormatter
     ];
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * @param array<string, string> $attributes
+     * @return array<string, string>
      */
     public function format(array $attributes): array
     {
