@@ -207,19 +207,19 @@ This package is configurable. All the available configuration settings are locat
 
 ### Representation section
 ```
-'block_prefix' => 'value'           # Sets a share buttons block prefix (default is <div id="social-links"><ul>)
-'block_suffix' => 'value'           # Sets a share buttons block suffix (default is </ul></div>)
-'element_prefix' => 'value'         # Sets an element prefix (default is <li>)
-'element_suffix' => 'value'         # Sets an element suffix (default is </li>)
+'block_prefix' => 'value'       # Sets a share buttons block prefix (default is <div id="social-links"><ul>)
+'block_suffix' => 'value'       # Sets a share buttons block suffix (default is </ul></div>)
+'element_prefix' => 'value'     # Sets an element prefix (default is <li>)
+'element_suffix' => 'value'     # Sets an element suffix (default is </li>)
 ```
 
 ### Share buttons section
 
 Each social media share button has its individual configuration settings.
 ```
-'url' => 'value'                    # A share button URL template (used to form a button's URL)
-'text' => 'value'                   # A default text for the title (used when the page title is empty)
-'extra' => []                       # Extra options which are required by some specific buttons
+'url' => 'value'                # A share button URL template (used to form a button's URL)
+'text' => 'value'               # A default text for the title (used when the page title is empty)
+'extra' => []                   # Extra options which are required by some specific buttons
 ```
 
 ### Templates section
@@ -227,11 +227,11 @@ Each social media share button has its individual configuration settings.
 Each share button has a link representation represented by a corresponding template. A template contains some elements
 that will be changed during processing. The format of substituted elements depends on the `templater` setting.
 ```
-:url                                # Will be replaced with a prepared URL
-:id                                 # Will be replaced with an id attribute
-:class                              # Will be replaced with a class attribute
-:title                              # Will be replaced with a title attribute
-:rel                                # Will be replaced with a rel attribute
+:url                            # Will be replaced with a prepared URL
+:id                             # Will be replaced with an id attribute
+:class                          # Will be replaced with a class attribute
+:title                          # Will be replaced with a title attribute
+:rel                            # Will be replaced with a rel attribute
 ```
 
 ### Templaters section
