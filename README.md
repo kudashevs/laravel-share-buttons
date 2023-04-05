@@ -95,9 +95,9 @@ The `ShareButtons` instance provides a fluent interface. The fluent interface is
 To start a method chaining you just need to use one of the methods listed below (the start chaining methods).
 ```
 page($url, $title, $options)              # Creates a chaining with a given URL and a given page title
-createForPage($url, $title, $options)     # Does the same (is an alias os the page() method)
+createForPage($url, $title, $options)     # Does the same (an alias of the page() method)
 currentPage($title, $options)             # Creates a chaining with the current page URL and a given page title
-createForCurrentPage($title, $options)    # Does the same (is an alias of the currentPage() method)
+createForCurrentPage($title, $options)    # Does the same (an alias of the currentPage() method)
 ```
 
 ### Add buttons
@@ -132,7 +132,7 @@ You can use a ShareButtons instance as a string or cast it to a string to get th
 how to use it. If you want to be clear in your intentions, use `render` or `getShareButtons` methods to get the prepared result.
 ```php
 render()                # Returns a generated share buttons HTML code
-getShareButtons()       # Does the same (is an alias of the render() method)
+getShareButtons()       # Does the same (an alias of the render() method)
 ```
 
 ### Getting the raw links
