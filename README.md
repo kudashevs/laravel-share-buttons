@@ -50,17 +50,30 @@ php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareBut
 ```
 > In case of a major change, it is recommended to back up your config file and republish a new one from scratch.
 
-### Assets
+## Assets
 
-By default, this package relies on Font Awesome icons and the jQuery library. However, you can use any custom fonts, CSS, or JS.
+By default, this package relies on the Font Awesome icons and includes vanilla JS and jQuery files at your choice.
+However, you are not limited to just this choice. So, you can use any custom fonts, icons, or JavaScript.
+
+### Font Awesome
 
 To enable the Font Awesome icons, use the code sample below. For further information on how to use Font Awesome, please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 ```
 
-To enable the jQuery library, use the code sample below. Then copy the `resources/assets/js/share-buttons.jquery.js` file to the `public/js` folder,
-or you could integrate this file into your assets compiling flow.
+### JavaScript
+
+To enable interaction on social media buttons, use the code sample below. Then copy the `resources/assets/js/share-buttons.js` file
+to the `public/js` folder, or you could integrate this file into your assets compiling flow.
+```html
+<script src="{{ asset('js/share-buttons.js') }}"></script>
+```
+
+### jQuery
+
+To enable the jQuery library, use the code sample below. Then copy the `resources/assets/js/share-buttons.jquery.js` file
+to the `public/js` folder, or you could integrate this file into your assets compiling flow.
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/share-buttons.jquery.js') }}"></script>
