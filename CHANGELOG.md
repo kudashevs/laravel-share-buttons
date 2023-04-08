@@ -2,6 +2,13 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v3.3.0 - 2023-04-08](https://github.com/kudashevs/laravel-share-buttons/compare/v3.2.0...v3.3.0)
+
+- Add a plain JavaScript implementation
+- Move jQuery implementation to a new file
+- Update README.md
+- Some improvements
+
 ## [v3.2.0 - 2023-04-02](https://github.com/kudashevs/laravel-share-buttons/compare/v3.1.0...v3.2.0)
 
 - Set PHPUnit version to 9.1
