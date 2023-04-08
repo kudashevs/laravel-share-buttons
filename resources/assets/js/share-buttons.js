@@ -1,8 +1,6 @@
 $(document).ready(function () {
-    let wSize = {
-        width: 780,
-        height: 550
-    };
+    let popupWidth = 780;
+    let popupHeight = 550;
 
     $(document).on('click', '.social-button', function (e) {
         if ((e.target.id || e.target.parentElement.id) === 'clip') {
@@ -20,11 +18,11 @@ $(document).ready(function () {
             return;
         }
 
-        let vPosition = Math.floor(($(window).width() - wSize.width) / 2),
-            hPosition = Math.floor(($(window).height() - wSize.height) / 2);
+        let vPosition = Math.floor(($(window).width() - popupWidth) / 2),
+            hPosition = Math.floor(($(window).height() - popupHeight) / 2);
 
         let popup = window.open($(this).prop('href'), 'social',
-            'width=' + wSize.width + ',height=' + wSize.height +
+            'width=' + popupWidth + ',height=' + popupHeight +
             ',left=' + vPosition + ',top=' + hPosition +
             ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
 
