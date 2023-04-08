@@ -216,7 +216,7 @@ The code above will result into the following HTML code:
 
 ## Configuration
 
-This package is configurable. All the available configuration settings are located in the `config/share-buttons.php` file.
+All of the available configuration settings are located in the `config/share-buttons.php` file.
 
 ### Representation section
 ```
