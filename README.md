@@ -52,8 +52,8 @@ php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareBut
 
 ## Assets
 
-By default, this package relies on the Font Awesome icons and includes vanilla JS and jQuery files at your choice.
-However, you are not limited to just this choice. So, you can use any custom fonts, icons, or JavaScript.
+By default, this package relies on the `Font Awesome` icons. The social buttons interactivity is implemented in two different ways
+(with `Vanilla JS` and with the `jQuery` library). However, you can use any custom fonts, icons, or JavaScript.
 
 ### Font Awesome
 
