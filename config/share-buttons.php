@@ -108,6 +108,7 @@ return [
     |
     | These values specify templates for the elements of the social share buttons.
     | The format of substitution depends on a templater (see Templaters section).
+    | Note: Don't remove the social-button class from links because it's used in js.
     |
     */
 
