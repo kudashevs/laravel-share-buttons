@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    let popupWidth = 780;
-    let popupHeight = 550;
+    const popupWidth = 780;
+    const popupHeight = 550;
 
     $(document).on('click', '.social-button', function (e) {
         if ((e.target.id || e.target.parentElement.id) === 'clip') {
