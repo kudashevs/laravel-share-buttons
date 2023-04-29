@@ -65,8 +65,8 @@ class TemplateShareButtonsUrlPresenter
 
     protected function isHash(): bool
     {
-        return config()->has('share-buttons.buttons.' . $this->name . '.extra.hash') &&
-            config('share-buttons.buttons.' . $this->name . '.extra.hash') === true;
+        return config()->has('share-buttons.buttons.' . $this->name . '.extra.hash')
+            && config('share-buttons.buttons.' . $this->name . '.extra.hash') === true;
     }
 
     /**
@@ -108,7 +108,7 @@ class TemplateShareButtonsUrlPresenter
 
     protected function isRaw(): bool
     {
-        return config()->has('share-buttons.buttons.' . $this->name . '.extra.raw') ||
-            config('share-buttons.buttons.' . $this->name . '.extra.raw') === true;
+        return config()->has('share-buttons.buttons.' . $this->name . '.extra.raw')
+            || config('share-buttons.buttons.' . $this->name . '.extra.raw') === true;
     }
 }
