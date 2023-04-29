@@ -92,8 +92,7 @@ class ShareButtons
     protected function retrieveApplicableOptions(array $options): array
     {
         return array_filter($options, function ($option, $name) {
-            return isset($this->options[$name]) &&
-                gettype($this->options[$name]) === gettype($option);
+            return isset($this->options[$name]) && gettype($this->options[$name]) === gettype($option);
         }, ARRAY_FILTER_USE_BOTH);
     }
 
@@ -176,8 +175,8 @@ class ShareButtons
 
     protected function isExpectedCall(string $name): bool
     {
-        return config()->has('share-buttons.buttons.' . $name) &&
-            config()->has('share-buttons.templates.' . $name);
+        return config()->has('share-buttons.buttons.' . $name)
+            && config()->has('share-buttons.templates.' . $name);
     }
 
     /**
