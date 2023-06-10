@@ -99,7 +99,7 @@ class ShareButtonsTest extends ExtendedTestCase
     /**
      * @todo don't forget to update these test cases
      */
-    public function provideDifferentShareButtonsValues()
+    public function provideDifferentShareButtonsValues(): array
     {
         return [
             'copylink' => [
