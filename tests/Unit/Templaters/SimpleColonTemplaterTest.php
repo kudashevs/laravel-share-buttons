@@ -27,7 +27,7 @@ class SimpleColonTemplaterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideDifferentSearchReplaceValues()
+    public function provideDifferentSearchReplaceValues(): array
     {
         return [
             'replace a search with the replacement' => [
