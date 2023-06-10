@@ -35,7 +35,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideDifferentShareButtonsValues()
+    public function provideDifferentShareButtonsValues(): array
     {
         return [
             'copylink button' => [
