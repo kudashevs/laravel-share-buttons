@@ -254,6 +254,16 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_generate_a_hashed_url_for_copylink()
+    {
+        config()->set('share-buttons.buttons.copylink.extra.hash', true);
+
+        $result = $this->presenter->generateUrl('copylink', []);
+
+        $this->assertSame('#', $result);
+    }
+
+    /** @test */
     public function it_can_generate_a_url_with_infromation_from_defaults()
     {
         $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
@@ -277,16 +287,6 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
         ]);
 
         $this->assertSame($expected, $result);
-    }
-
-    /** @test */
-    public function it_can_generate_a_hashed_url_for_copylink()
-    {
-        config()->set('share-buttons.buttons.copylink.extra.hash', true);
-
-        $result = $this->presenter->generateUrl('copylink', []);
-
-        $this->assertSame('#', $result);
     }
 
     /** @test */
