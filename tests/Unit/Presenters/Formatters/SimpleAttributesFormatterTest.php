@@ -35,20 +35,40 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_formats_all_of_the_attributes()
+    public function it_formats_some_of_the_attributes()
     {
         $attributes = [
-            'class' => 'class',
-            'id' => 'id',
-            'title' => 'title',
-            'rel' => 'rel',
+            'class' => 'active',
+            'rel' => 'follow',
         ];
 
         $expected = [
-            'class' => ' class',
+            'class' => ' active',
+            'id' => '',
+            'title' => '',
+            'rel' => ' rel="follow"',
+        ];
+
+        $result = $this->formatter->format($attributes);
+
+        $this->assertSame($expected, $result);
+    }
+
+    /** @test */
+    public function it_formats_all_of_the_attributes()
+    {
+        $attributes = [
+            'class' => 'active',
+            'id' => 'id',
+            'title' => 'Some title',
+            'rel' => 'nofollow',
+        ];
+
+        $expected = [
+            'class' => ' active',
             'id' => ' id="id"',
-            'title' => ' title="title"',
-            'rel' => ' rel="rel"',
+            'title' => ' title="Some title"',
+            'rel' => ' rel="nofollow"',
         ];
 
         $result = $this->formatter->format($attributes);
