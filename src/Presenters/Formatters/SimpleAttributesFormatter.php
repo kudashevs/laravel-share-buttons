@@ -6,7 +6,7 @@ namespace Kudashevs\ShareButtons\Presenters\Formatters;
 
 class SimpleAttributesFormatter implements AttributesFormatter
 {
-    protected const SUPPORTED_ATTRIBUTE_FORMATS = [
+    protected const KNOWN_ATTRIBUTE_FORMATS = [
         'class' => ' %s',
         'id' => ' id="%s"',
         'title' => ' title="%s"',
@@ -23,7 +23,7 @@ class SimpleAttributesFormatter implements AttributesFormatter
     {
         $formattedAttributes = [];
 
-        foreach (self::SUPPORTED_ATTRIBUTE_FORMATS as $name => $format) {
+        foreach (self::KNOWN_ATTRIBUTE_FORMATS as $name => $format) {
             $formattedAttributes[$name] = isset($attributes[$name])
                 ? sprintf($format, trim($attributes[$name]))
                 : '';
