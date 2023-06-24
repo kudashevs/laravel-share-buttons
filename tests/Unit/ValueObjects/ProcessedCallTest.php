@@ -14,7 +14,7 @@ class ProcessedCallTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_exception_when_empty_name()
+    public function it_can_throw_an_exception_when_empty_name()
     {
         $this->expectException(InvalidProcessedCallArgument::class);
         $this->expectExceptionMessage('empty');
