@@ -24,7 +24,7 @@ final class TemplaterFactory
     public static function createFromOptions(array $options): Templater
     {
         /** @var class-string<Templater> $class */
-        $class = $options['templater'] ?? self::getDefaultClass();
+        $class = $options['templater'] ?? self::getDefaultTemplaterClass();
 
         if (!self::isValidTemplater($class)) {
             throw new InvalidTemplaterFactoryArgument(
@@ -43,7 +43,7 @@ final class TemplaterFactory
     /**
      * @return class-string<Templater>
      */
-    private static function getDefaultClass(): string
+    private static function getDefaultTemplaterClass(): string
     {
         return SimpleColonTemplater::class;
     }
