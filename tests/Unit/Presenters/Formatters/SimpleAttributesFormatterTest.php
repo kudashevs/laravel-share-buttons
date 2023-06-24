@@ -35,7 +35,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_performs_formatting_of_supported_attributes()
+    public function it_formats_all_of_the_attributes()
     {
         $attributes = [
             'class' => 'class',
