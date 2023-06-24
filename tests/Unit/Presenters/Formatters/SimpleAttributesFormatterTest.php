@@ -15,7 +15,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_skips_a_not_supported_attribute()
+    public function it_skips_an_unknown_attribute()
     {
         $attributes = ['unknown' => 'test'];
 
@@ -25,7 +25,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_an_empty_string_when_supported_attribute_is_not_provided()
+    public function it_returns_an_empty_string_when_no_attribute_provided()
     {
         $attributes = [];
 
