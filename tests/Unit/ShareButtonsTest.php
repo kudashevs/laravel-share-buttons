@@ -139,7 +139,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_through_string_casting_when_no_calls_provided()
+    public function it_returns_empty_when_cast_to_string_and_no_calls_provided()
     {
         $result = $this->share->page('https://mysite.com', 'My share title');
 
@@ -147,7 +147,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_through_string_casting()
+    public function it_can_return_one_link_when_cast_to_string()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->facebook();
@@ -156,7 +156,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_through_string_casting()
+    public function it_can_return_multiple_links_when_cast_to_string()
     {
         $result = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
