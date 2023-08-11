@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let socialButtons = document.querySelectorAll('.social-button');
 
-    socialButtons.forEach((social) => {
-        social.addEventListener('click', clickHandler)
+    socialButtons.forEach((button) => {
+        button.addEventListener('click', clickHandler)
     })
 
     function clickHandler(e) {
