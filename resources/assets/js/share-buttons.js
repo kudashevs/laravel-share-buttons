@@ -41,3 +41,13 @@ function socialButtonClickHandler(e) {
         popup.focus();
     }
 }
+
+function identifyTargetElement(e) {
+    if (e.target.parentElement.className === 'social-button') {
+        return e.target.parentElement;
+    }
+
+    if (e.target.className === 'social-button') {
+        return e.target;
+    }
+}
