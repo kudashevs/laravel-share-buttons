@@ -25,13 +25,13 @@ function socialButtonClickHandler(e) {
         return;
     }
 
-    let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    let windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-    let vPosition = Math.floor((windowWidth - popupWidth) / 2),
+    const vPosition = Math.floor((windowWidth - popupWidth) / 2),
         hPosition = Math.floor((windowHeight - popupHeight) / 2);
 
-    let popup = window.open(this.href, 'social',
+    const popup = window.open(this.href, 'social',
         'width=' + popupWidth + ',height=' + popupHeight +
         ',left=' + vPosition + ',top=' + hPosition +
         ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
