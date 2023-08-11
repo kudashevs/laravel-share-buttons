@@ -10,13 +10,16 @@ function socialButtonClickHandler(e) {
     const popupWidth = 780;
     const popupHeight = 550;
 
-    if ((e.target.id || e.target.parentElement.id) === 'clip') {
+    let el = identifyTargetElement(e);
+    if (el === undefined) return;
+
+    if (el.id === 'clip') {
         e.preventDefault();
         if (window.clipboardData && window.clipboardData.setData) {
-            clipboardData.setData("Text", this.href);
+            clipboardData.setData("Text", el.href);
         } else {
             let textArea = document.createElement("textarea");
-            textArea.value = this.href;
+            textArea.value = el.href;
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand("copy");  // Security exception may be thrown by some browsers.
@@ -31,7 +34,7 @@ function socialButtonClickHandler(e) {
     const vPosition = Math.floor((windowWidth - popupWidth) / 2),
         hPosition = Math.floor((windowHeight - popupHeight) / 2);
 
-    const popup = window.open(this.href, 'social',
+    const popup = window.open(el.href, 'social',
         'width=' + popupWidth + ',height=' + popupHeight +
         ',left=' + vPosition + ',top=' + hPosition +
         ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
