@@ -94,7 +94,7 @@ ShareButtons::page('https://site.com', 'Page title', [
 
 The code above will result into the following HTML code:
 ```html
-<div id="social-links">
+<div id="social-buttons">
     <ul>
         <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button" title="Page title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
         <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=" class="social-button" title="Page title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
@@ -220,7 +220,7 @@ All of the available configuration settings are located in the `config/share-but
 
 ### Representation section
 ```
-'block_prefix' => 'value'       # Sets a block prefix (default is <div id="social-links"><ul>)
+'block_prefix' => 'value'       # Sets a block prefix (default is <div id="social-buttons"><ul>)
 'block_suffix' => 'value'       # Sets a block suffix (default is </ul></div>)
 'element_prefix' => 'value'     # Sets an element prefix (default is <li>)
 'element_suffix' => 'value'     # Sets an element suffix (default is </li>)

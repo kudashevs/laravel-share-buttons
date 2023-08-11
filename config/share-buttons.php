@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'block_prefix' => '<div id="social-links"><ul>',
+    'block_prefix' => '<div id="social-buttons"><ul>',
     'block_suffix' => '</ul></div>',
     'element_prefix' => '<li>',
     'element_suffix' => '</li>',

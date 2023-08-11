@@ -121,7 +121,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         return [
             'block_prefix results in the default' => [
                 'getBlockPrefix',
-                '<div id="social-links"><ul>',
+                '<div id="social-buttons"><ul>',
             ],
             'block_suffix results in the default' => [
                 'getBlockSuffix',
