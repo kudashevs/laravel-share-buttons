@@ -124,7 +124,7 @@ return [
         'reddit' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-reddit"></span></a>',
         'skype' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-skype"></span></a>',
         'telegram' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-telegram"></span></a>',
-        'twitter' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-twitter"></span></a>',
+        'twitter' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-square-x-twitter"></span></a>',
         'vkontakte' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-vk"></span></a>',
         'whatsapp' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-whatsapp"></span></a>',
         'xing' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-xing"></span></a>',
