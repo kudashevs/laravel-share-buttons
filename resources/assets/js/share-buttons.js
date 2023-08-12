@@ -15,6 +15,7 @@ function socialButtonClickHandler(e) {
 
     if (el.id === 'clip') {
         e.preventDefault();
+        e.stopImmediatePropagation();
         if (window.clipboardData && window.clipboardData.setData) {
             clipboardData.setData("Text", el.href);
         } else {
@@ -41,6 +42,7 @@ function socialButtonClickHandler(e) {
 
     if (popup) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         popup.focus();
     }
 }
