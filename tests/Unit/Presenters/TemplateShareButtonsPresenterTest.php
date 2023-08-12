@@ -20,7 +20,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentStylingOptions
      */
-    public function it_can_set_values_from_options(array $options, string $method, string $expected)
+    public function it_can_retrieve_presentation_values_from_options(array $options, string $method, string $expected)
     {
         $this->presenter->refresh($options);
 
@@ -109,7 +109,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentPresentationOptions
      */
-    public function it_can_set_default_values_without_options(string $method, string $expected)
+    public function it_can_retrieve_presentation_values_from_configuration(string $method, string $expected)
     {
         $result = $this->presenter->$method();
 
