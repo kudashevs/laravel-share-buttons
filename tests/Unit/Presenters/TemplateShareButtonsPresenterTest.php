@@ -109,8 +109,10 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentPresentationConfigurations
      */
-    public function it_can_retrieve_presentation_values_from_configuration(string $method, string $expected)
+    public function it_can_retrieve_presentation_values_from_configuration(string $configuration, string $method)
     {
+        $expected = config('share-buttons.' . $configuration);
+
         $result = $this->presenter->$method();
 
         $this->assertSame($expected, $result);
@@ -120,20 +122,20 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     {
         return [
             'block_prefix results in the default' => [
+                'block_prefix',
                 'getBlockPrefix',
-                '<div id="social-buttons"><ul>',
             ],
             'block_suffix results in the default' => [
+                'block_suffix',
                 'getBlockSuffix',
-                '</ul></div>',
             ],
             'element_prefix results in the default' => [
+                'element_prefix',
                 'getElementPrefix',
-                '<li>',
             ],
             'element_suffix results in the default' => [
+                'element_suffix',
                 'getElementSuffix',
-                '</li>',
             ],
         ];
     }
