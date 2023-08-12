@@ -77,6 +77,7 @@ class TemplateShareButtonsUrlPresenter
         $elementReplacements = $this->retrieveElementReplacements();
         $applicableArguments = array_filter($arguments, 'strlen');
 
+        // Arguments override replacements because they have a higher priority.
         return array_merge($elementReplacements, $applicableArguments);
     }
 
