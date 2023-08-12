@@ -23,7 +23,7 @@ class ProcessedCallTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_creates_object_with_the_correct_state()
+    public function it_creates_an_object_with_the_provided_state()
     {
         $name = 'facebook';
         $options = ['title' => 'test'];
