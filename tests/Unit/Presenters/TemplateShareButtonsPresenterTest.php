@@ -47,7 +47,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
                 'getBlockPrefix',
                 '<p>',
             ],
-            'block_prefix option with close p results in close p' => [
+            'block_suffix option with close p results in close p' => [
                 ['block_suffix' => '</p>'],
                 'getBlockSuffix',
                 '</p>',
@@ -57,7 +57,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
                 'getElementPrefix',
                 '<article>',
             ],
-            'block_prefix option with close article results in close article' => [
+            'block_suffix option with close article results in close article' => [
                 ['element_suffix' => '</article>'],
                 'getElementSuffix',
                 '</article>',
