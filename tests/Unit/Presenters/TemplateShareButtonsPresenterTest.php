@@ -143,16 +143,19 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_presentation_values_from_configuration()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $elementPrefix = config('share-buttons.element_prefix');
+        $elementSuffix = config('share-buttons.element_suffix');
+        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a>';
+        $expected = $elementPrefix . $elementBody . $elementSuffix;
 
-        $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody(
+        $result = $this->presenter->getElementPrefix()
+            . $this->presenter->getElementBody(
                 'facebook',
                 [
                     'url' => 'https://mysite.com',
                     'text' => 'test',
                 ])
-        );
+            . $this->presenter->getElementSuffix();
 
         $this->assertEquals($expected, $result);
     }
@@ -160,17 +163,21 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_format_an_element_with_presentation_values_from_provided_options()
     {
-        $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
-        $this->presenter->refresh(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
+        $elementPrefix = '<p>';
+        $elementSuffix = '</p>';
+        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a>';
+        $expected = $elementPrefix . $elementBody . $elementSuffix;
 
-        $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody(
+        $this->presenter->refresh(['element_prefix' => $elementPrefix, 'element_suffix' => $elementSuffix]);
+
+        $result = $this->presenter->getElementPrefix()
+            . $this->presenter->getElementBody(
                 'facebook',
                 [
                     'url' => 'https://mysite.com',
                     'text' => '',
                 ])
-        );
+            . $this->presenter->getElementSuffix();
 
         $this->assertEquals($expected, $result);
     }
