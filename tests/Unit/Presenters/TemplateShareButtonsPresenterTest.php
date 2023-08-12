@@ -186,19 +186,17 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentOptions
      */
-    public function it_can_format_an_element_with_custom_styling_from_call_options(
+    public function it_can_format_an_element_body_with_values_from_call_options(
         string $page,
         array $options,
         string $expected
     ) {
-        $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody(
-                'facebook',
-                array_merge([
-                    'url' => $page,
-                    'text' => 'Title',
-                ], $options)
-            )
+        $result = $this->presenter->getElementBody(
+            'facebook',
+            array_merge([
+                'url' => $page,
+                'text' => 'Title',
+            ], $options)
         );
 
         $this->assertEquals($expected, $result);
@@ -212,30 +210,30 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
                 [
                     'class' => 'tested',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button tested"><span class="fab fa-facebook-square"></span></a>',
             ],
             'check id option' => [
                 'https://mysite.com',
                 [
                     'id' => 'tested',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a>',
             ],
             'check title option' => [
                 'https://mysite.com',
                 [
                     'title' => 'tested',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a></li>',
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a>',
             ],
             'check rel option' => [
                 'https://mysite.com',
                 [
                     'rel' => 'nofollow',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a>',
             ],
-            'check mass options' => [
+            'check all of the options' => [
                 'https://mysite.com',
                 [
                     'rel' => 'nofollow',
@@ -243,7 +241,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
                     'id' => 'click',
                     'class' => 'hover active',
                 ],
-                '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>',
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button hover active" id="click" title="Title" rel="nofollow"><span class="fab fa-facebook-square"></span></a>',
             ],
         ];
     }
