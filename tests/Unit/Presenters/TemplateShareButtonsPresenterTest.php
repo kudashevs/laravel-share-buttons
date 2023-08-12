@@ -18,7 +18,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provideDifferentStylingOptions
+     * @dataProvider provideDifferentPresentationOptions
      */
     public function it_can_retrieve_presentation_values_from_options(array $options, string $method, string $expected)
     {
@@ -29,7 +29,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideDifferentStylingOptions(): array
+    public function provideDifferentPresentationOptions(): array
     {
         return [
             'block_prefix option with open div results in open div' => [
@@ -107,7 +107,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provideDifferentPresentationOptions
+     * @dataProvider provideDifferentPresentationConfigurations
      */
     public function it_can_retrieve_presentation_values_from_configuration(string $method, string $expected)
     {
@@ -116,7 +116,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideDifferentPresentationOptions(): array
+    public function provideDifferentPresentationConfigurations(): array
     {
         return [
             'block_prefix results in the default' => [
@@ -175,7 +175,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provideDifferentShareButtonsStylingOptions
+     * @dataProvider provideDifferentOptions
      */
     public function it_can_format_an_element_with_custom_styling_from_call_options(
         string $page,
@@ -195,7 +195,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertEquals($expected, $result);
     }
 
-    public function provideDifferentShareButtonsStylingOptions(): array
+    public function provideDifferentOptions(): array
     {
         return [
             'check class option' => [
