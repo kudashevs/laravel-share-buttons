@@ -23,6 +23,17 @@ class ProcessedCallTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_creates_an_object_with_a_name()
+    {
+        $name = 'twitter';
+
+        $instance = new ProcessedCall($name, []);
+
+        $this->assertSame($name, $instance->getName());
+        $this->assertEmpty($instance->getArguments());
+    }
+
+    /** @test */
     public function it_creates_an_object_with_the_provided_state()
     {
         $name = 'facebook';
