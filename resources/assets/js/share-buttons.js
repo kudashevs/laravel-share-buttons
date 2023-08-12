@@ -46,11 +46,16 @@ function socialButtonClickHandler(e) {
 }
 
 function identifyTargetElement(e) {
-    if (e.target.parentElement.className === 'social-button') {
+    if (
+        e.target.parentElement &&
+        e.target.parentElement.className.indexOf('social-button') !== -1
+    ) {
         return e.target.parentElement;
     }
 
-    if (e.target.className === 'social-button') {
+    if (
+        e.target.className.indexOf('social-button') !== -1
+    ) {
         return e.target;
     }
 }
