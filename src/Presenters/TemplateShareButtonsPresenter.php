@@ -182,9 +182,9 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     /**
      * @return array<string, string>
      */
-    protected function retrieveAttributes(array $options): array
+    protected function retrieveAttributes(array $arguments): array
     {
-        $attributes = array_merge($this->attributes, $options);
+        $attributes = array_merge($this->attributes, $arguments);
 
         return $this->formatter->format($attributes);
     }
