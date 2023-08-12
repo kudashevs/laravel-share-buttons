@@ -141,7 +141,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_default_styling()
+    public function it_can_format_an_element_with_presentation_values_from_configuration()
     {
         $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
 
@@ -158,7 +158,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_custom_styling_from_class_options()
+    public function it_can_format_an_element_with_presentation_values_from_provided_options()
     {
         $expected = '<p><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a></p>';
         $this->presenter->refresh(['element_prefix' => '<p>', 'element_suffix' => '</p>']);
