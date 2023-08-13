@@ -20,7 +20,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentPresentationOptions
      */
-    public function it_can_retrieve_presentation_values_from_options(array $options, string $method, string $expected)
+    public function it_can_retrieve_presentation_data_from_options(array $options, string $method, string $expected)
     {
         $this->presenter->refresh($options);
 
@@ -109,7 +109,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentPresentationConfigurations
      */
-    public function it_can_retrieve_presentation_values_from_configuration(string $configuration, string $method)
+    public function it_can_retrieve_presentation_data_from_configuration(string $configuration, string $method)
     {
         $expected = config('share-buttons.' . $configuration);
 
@@ -141,7 +141,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_presentation_values_from_configuration()
+    public function it_can_format_an_element_with_presentation_data_from_configuration()
     {
         $elementPrefix = config('share-buttons.element_prefix');
         $elementSuffix = config('share-buttons.element_suffix');
@@ -160,7 +160,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_presentation_values_from_provided_options_through_refresh_method()
+    public function it_can_format_an_element_with_presentation_data_from_options_provided_through_refresh_method()
     {
         $elementPrefix = '<p>';
         $elementSuffix = '</p>';
@@ -184,7 +184,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentOptions
      */
-    public function it_can_format_an_element_body_with_values_from_call_options(
+    public function it_can_format_an_element_body_with_presentation_data_from_options(
         string $url,
         array $options,
         string $expected
@@ -266,7 +266,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_cannot_override_arguments_with_options()
+    public function it_cannot_override_presentation_values_from_arguments_with_provided_options()
     {
         $elementPrefix = config('share-buttons.element_prefix');
         $elementSuffix = config('share-buttons.element_suffix');
