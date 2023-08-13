@@ -27,31 +27,31 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_creates_self_instance_with_page_method()
+    public function it_can_return_self_instance_from_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->page('https://mysite.com'));
     }
 
     /** @test */
-    public function it_creates_self_instance_with_current_page_method()
+    public function it_can_return_self_instance_from_current_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->currentPage());
     }
 
     /** @test */
-    public function it_creates_self_instance_with_create_for_page_method()
+    public function it_can_return_self_instance_from_create_for_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForPage('https://mysite.com'));
     }
 
     /** @test */
-    public function it_creates_self_instance_with_create_for_current_page_method()
+    public function it_can_return_self_instance_from_create_for_current_page_method()
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForCurrentPage());
     }
 
     /** @test */
-    public function it_creates_one_link_with_a_predefined_title()
+    public function it_can_create_one_link_with_a_predefined_title()
     {
         $expected = config('share-buttons.buttons.twitter.text');
 
@@ -61,7 +61,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_creates_one_link_with_a_provided_title()
+    public function it_can_create_one_link_with_a_provided_title()
     {
         $expected = 'Page title';
 
