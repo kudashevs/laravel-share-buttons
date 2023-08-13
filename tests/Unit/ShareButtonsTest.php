@@ -242,24 +242,24 @@ class ShareButtonsTest extends ExtendedTestCase
             ->twitter()
             ->linkedin();
 
-        $expected = [
+        $expectedLinks = [
             '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+first+title" class="social-button"><span class="fab fa-facebook-square"></span></a>',
             '<a href="https://twitter.com/intent/tweet?text=My+first+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-square-x-twitter"></span></a>',
             '<a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=My+first+title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expected, (string)$result);
+        $this->assertStringContainsStrings($expectedLinks, (string)$result);
 
         $result = $this->share->page('https://mysite.com', 'My second title')
             ->reddit()
             ->telegram();
 
-        $expected = [
+        $expectedLinks = [
             '<a href="https://www.reddit.com/submit?title=My+second+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-reddit"></span></a>',
             '<a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+second+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expected, (string)$result);
+        $this->assertStringContainsStrings($expectedLinks, (string)$result);
     }
 
     /** @test */
@@ -284,13 +284,13 @@ class ShareButtonsTest extends ExtendedTestCase
             ->reddit()
             ->telegram();
 
-        $expected = '<div><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></div>'
+        $expectedString = '<div><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></div>'
             . '<div><a href="https://twitter.com/intent/tweet?text=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-square-x-twitter"></span></a></div>'
             . '<div><a href="https://wa.me/?text=https%3A%2F%2Fmysite.com%20Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-square-whatsapp"></span></a></div>'
             . '<div><a href="https://www.reddit.com/submit?title=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-reddit"></span></a></div>'
             . '<div><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></div>';
 
-        $this->assertEquals($expected, (string)$result);
+        $this->assertEquals($expectedString, (string)$result);
     }
 
     /** @test */
@@ -301,13 +301,13 @@ class ShareButtonsTest extends ExtendedTestCase
             ->linkedin(['summary' => 'Test summary', 'class' => 'active'])
             ->twitter(['rel' => 'follow']);
 
-        $expected = [
+        $expectedLinks = [
             '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Page+share+title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a>',
             '<a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Page+share+title&summary=Test+summary" class="social-button active"><span class="fab fa-linkedin"></span></a>',
             '<a href="https://twitter.com/intent/tweet?text=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button" rel="follow"><span class="fab fa-square-x-twitter"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expected, (string)$result);
+        $this->assertStringContainsStrings($expectedLinks, (string)$result);
     }
 
     /** @test */
@@ -332,7 +332,7 @@ class ShareButtonsTest extends ExtendedTestCase
             ->reddit(['id' => 'provided-id', 'class' => 'provided-class', 'rel' => 'provided'])
             ->telegram(['wrong' => null]);
 
-        $expected = '<ul>'
+        $expectedString = '<ul>'
             . '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>'
             . '<li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="Provided title" rel="nofollow"><span class="fab fa-square-x-twitter"></span></a></li>'
             . '<li><a href="https://wa.me/?text=https%3A%2F%2Fmysite.com%20My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-square-whatsapp"></span></a></li>'
@@ -340,7 +340,7 @@ class ShareButtonsTest extends ExtendedTestCase
             . '<li><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></li>'
             . '</ul>';
 
-        $this->assertEquals($expected, (string)$result);
+        $this->assertEquals($expectedString, (string)$result);
     }
 
     /**
