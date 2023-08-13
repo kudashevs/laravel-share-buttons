@@ -185,19 +185,19 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @dataProvider provideDifferentOptions
      */
     public function it_can_format_an_element_body_with_values_from_call_options(
-        string $page,
+        string $url,
         array $options,
         string $expected
     ) {
-        $result = $this->presenter->getElementBody(
+        $elementBody = $this->presenter->getElementBody(
             'facebook',
             array_merge([
-                'url' => $page,
+                'url' => $url,
                 'text' => 'Title',
             ], $options)
         );
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $elementBody);
     }
 
     public function provideDifferentOptions(): array
