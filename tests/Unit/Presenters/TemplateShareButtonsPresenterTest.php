@@ -257,8 +257,8 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
             [
                 'url' => 'https://mysite.com',
                 'text' => 'Title',
-                'element_prefix' => '<p>',
-                'element_suffix' => '</p>',
+                'element_prefix' => '<wrong>',
+                'element_suffix' => '</wrong>',
             ]
         );
 
