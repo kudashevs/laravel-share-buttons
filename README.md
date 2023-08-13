@@ -139,16 +139,16 @@ mailto($options)        # Generates a send by mail share button
 
 These methods are a part of the fluent interface. Therefore, to create multiple social media share buttons you just need to chain them.
 
-### Getting the result
+### Getting share buttons
 
-You can use a ShareButtons instance as a string or cast it to a string to get the HTML code. However, this is not the best way
-how to use it. If you want to be clear in your intentions, use `render` or `getShareButtons` methods to get the prepared result.
+You can use a ShareButtons instance as a string or cast it to a string to get ready-to-use HTML code. However, this is not the best way.
+If you want to be clear in your intentions, use `render` or `getShareButtons` methods to get the prepared result.
 ```php
 render()                # Returns a generated share buttons HTML code
 getShareButtons()       # Does the same (an alias of the render() method)
 ```
 
-### Getting the raw links
+### Getting raw links
 
 Sometimes, you may only want the raw links without any HTML. In such a case, just use the `getRawLinks` method.
 ```php
