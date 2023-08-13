@@ -171,26 +171,26 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_returns_empty_from_render_method_when_no_calls_provided()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->render();
 
-        $this->assertStringContainsString('', $result);
+        $this->assertStringContainsString('', $readyHtml);
     }
 
     /** @test */
     public function it_can_return_one_link_from_render_method()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
             ->render();
 
-        $this->assertStringContainsString('facebook', $result);
+        $this->assertStringContainsString('facebook', $readyHtml);
     }
 
     /** @test */
     public function it_can_return_multiple_links_from_render_method()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
             ->reddit()
             ->telegram()
@@ -202,32 +202,32 @@ class ShareButtonsTest extends ExtendedTestCase
             '<a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expectedLinks, $result);
+        $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
     /** @test */
     public function it_returns_empty_from_get_share_buttons_method_when_no_calls_provided()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->getShareButtons();;
 
-        $this->assertStringContainsString('', $result);
+        $this->assertStringContainsString('', $readyHtml);
     }
 
     /** @test */
     public function it_can_return_one_link_from_get_share_buttons_method()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
             ->getShareButtons();
 
-        $this->assertStringContainsString('facebook', $result);
+        $this->assertStringContainsString('facebook', $readyHtml);
     }
 
     /** @test */
     public function it_can_return_multiple_links_from_get_share_buttons_method()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
             ->reddit()
             ->telegram()
@@ -239,7 +239,7 @@ class ShareButtonsTest extends ExtendedTestCase
             '<a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expectedLinks, $result);
+        $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
     /** @test */
