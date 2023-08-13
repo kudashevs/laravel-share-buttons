@@ -18,10 +18,10 @@ return [
     |
     */
 
-    'block_prefix' => '<div id="social-buttons"><ul>',
-    'block_suffix' => '</ul></div>',
-    'element_prefix' => '<li>',
-    'element_suffix' => '</li>',
+    'block_prefix' => '<div id="social-buttons">',
+    'block_suffix' => '</div>',
+    'element_prefix' => '',
+    'element_suffix' => '',
 
     /*
     |--------------------------------------------------------------------------
