@@ -40,43 +40,43 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function an_instance_can_generate_one_share_button_url()
     {
-        $result = $this->share->page('https://mysite.com')
+        $rawLinks = $this->share->page('https://mysite.com')
             ->twitter()
             ->getRawLinks();
 
-        $this->assertNotEmpty($result);
-        $this->assertStringContainsString('twitter', current($result));
+        $this->assertNotEmpty($rawLinks);
+        $this->assertStringContainsString('twitter', current($rawLinks));
     }
 
     /** @test */
     public function a_facade_can_generate_one_share_button_url()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com')
+        $rawLinks = ShareButtonsFacade::page('https://mysite.com')
             ->twitter()
             ->getRawLinks();
 
-        $this->assertNotEmpty($result);
-        $this->assertStringContainsString('twitter', current($result));
+        $this->assertNotEmpty($rawLinks);
+        $this->assertStringContainsString('twitter', current($rawLinks));
     }
 
     /** @test */
     public function an_instance_can_generate_one_share_button_link()
     {
-        $result = $this->share->page('https://mysite.com')
+        $readyHtml = $this->share->page('https://mysite.com')
             ->twitter()
             ->getShareButtons();
 
-        $this->assertMatchesRegularExpression('/href.*twitter/', $result);
+        $this->assertMatchesRegularExpression('/href.*twitter/', $readyHtml);
     }
 
     /** @test */
     public function a_facade_can_generate_one_share_button_link()
     {
-        $result = ShareButtonsFacade::page('https://mysite.com')
+        $readyHtml = ShareButtonsFacade::page('https://mysite.com')
             ->twitter()
             ->getShareButtons();
 
-        $this->assertMatchesRegularExpression('/href.*twitter/', $result);
+        $this->assertMatchesRegularExpression('/href.*twitter/', $readyHtml);
     }
 
     /**
@@ -89,11 +89,11 @@ class ShareButtonsTest extends ExtendedTestCase
         string $title,
         string $expected
     ) {
-        $result = $this->share->page($url, $title)
+        $readyHtml = $this->share->page($url, $title)
             ->$media()
             ->getShareButtons();
 
-        $this->assertStringContainsString($expected, $result);
+        $this->assertStringContainsString($expected, $readyHtml);
     }
 
     /**
