@@ -295,7 +295,12 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertEquals($expected, $element);
     }
 
-    private function generateElement(string $name, array $arguments)
+    /**
+     * @param string $name
+     * @param array<string, string> $arguments
+     * @return string
+     */
+    private function generateElement(string $name, array $arguments): string
     {
         return $this->presenter->getElementPrefix()
             . $this->presenter->getElementBody($name, $arguments)
