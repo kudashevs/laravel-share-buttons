@@ -38,7 +38,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     public function provideDifferentShareButtonsValues(): array
     {
         return [
-            'copylink button' => [
+            'copylink button remains raw' => [
                 'copylink',
                 [
                     'url' => 'https://mysite.com',
