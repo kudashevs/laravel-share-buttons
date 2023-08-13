@@ -316,4 +316,15 @@ class ShareButtonsTest extends ExtendedTestCase
 
         $this->assertEquals($expected, (string)$result);
     }
+
+    /**
+     * @param array<int, string> $needles
+     * @param string $haystack
+     */
+    private function assertStringContainsStrings(array $needles, string $haystack): void
+    {
+        foreach ($needles as $needle) {
+            $this->assertStringContainsString($needle, $haystack);
+        }
+    }
 }
