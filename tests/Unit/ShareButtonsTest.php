@@ -245,10 +245,11 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_return_multiple_links_and_then_multiple_links_another_time()
     {
-        $result = $this->share->page('https://mysite.com', 'My first title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My first title')
             ->facebook()
             ->twitter()
-            ->linkedin();
+            ->linkedin()
+            ->render();
 
         $expectedLinks = [
             '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+first+title" class="social-button"><span class="fab fa-facebook-square"></span></a>',
@@ -256,24 +257,25 @@ class ShareButtonsTest extends ExtendedTestCase
             '<a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=My+first+title&summary=" class="social-button"><span class="fab fa-linkedin"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expectedLinks, (string)$result);
+        $this->assertStringContainsStrings($expectedLinks, $readyHtml);
 
-        $result = $this->share->page('https://mysite.com', 'My second title')
+        $readyHtml = $this->share->page('https://mysite.com', 'My second title')
             ->reddit()
-            ->telegram();
+            ->telegram()
+            ->render();
 
         $expectedLinks = [
             '<a href="https://www.reddit.com/submit?title=My+second+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-reddit"></span></a>',
             '<a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+second+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expectedLinks, (string)$result);
+        $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
     /** @test */
     public function it_can_return_multiple_links_with_extra_options()
     {
-        $result = $this->share->page(
+        $readyHtml = $this->share->page(
             'https://mysite.com',
             'Page share title',
             [
@@ -290,7 +292,8 @@ class ShareButtonsTest extends ExtendedTestCase
             ->twitter()
             ->whatsapp()
             ->reddit()
-            ->telegram();
+            ->telegram()
+            ->render();
 
         $expectedString = '<div><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></div>'
             . '<div><a href="https://twitter.com/intent/tweet?text=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-square-x-twitter"></span></a></div>'
@@ -298,16 +301,17 @@ class ShareButtonsTest extends ExtendedTestCase
             . '<div><a href="https://www.reddit.com/submit?title=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-reddit"></span></a></div>'
             . '<div><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=Page+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></div>';
 
-        $this->assertEquals($expectedString, (string)$result);
+        $this->assertEquals($expectedString, $readyHtml);
     }
 
     /** @test */
     public function it_can_return_multiple_links_with_provided_arguments()
     {
-        $result = $this->share->page('https://mysite.com', 'Page share title')
+        $readyHtml = $this->share->page('https://mysite.com', 'Page share title')
             ->facebook(['rel' => 'nofollow'])
             ->linkedin(['summary' => 'Test summary', 'class' => 'active'])
-            ->twitter(['rel' => 'follow']);
+            ->twitter(['rel' => 'follow'])
+            ->render();
 
         $expectedLinks = [
             '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Page+share+title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a>',
@@ -315,13 +319,13 @@ class ShareButtonsTest extends ExtendedTestCase
             '<a href="https://twitter.com/intent/tweet?text=Page+share+title&url=https%3A%2F%2Fmysite.com" class="social-button" rel="follow"><span class="fab fa-square-x-twitter"></span></a>',
         ];
 
-        $this->assertStringContainsStrings($expectedLinks, (string)$result);
+        $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
     /** @test */
     public function it_can_return_multiple_links_with_extra_options_and_provided_arguments()
     {
-        $result = $this->share->page(
+        $readyHtml = $this->share->page(
             'https://mysite.com',
             'My share title',
             [
@@ -338,7 +342,8 @@ class ShareButtonsTest extends ExtendedTestCase
             ->twitter(['title' => 'Provided title'])
             ->whatsapp()
             ->reddit(['id' => 'provided-id', 'class' => 'provided-class', 'rel' => 'provided'])
-            ->telegram(['wrong' => null]);
+            ->telegram(['wrong' => null])
+            ->render();
 
         $expectedString = '<ul>'
             . '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>'
@@ -348,7 +353,7 @@ class ShareButtonsTest extends ExtendedTestCase
             . '<li><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></li>'
             . '</ul>';
 
-        $this->assertEquals($expectedString, (string)$result);
+        $this->assertEquals($expectedString, $readyHtml);
     }
 
     /**
