@@ -21,6 +21,10 @@ class ShareButtonsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../resources/assets/js/share-buttons.js' => resource_path('assets/js/share-buttons.js'),
         ], 'assets');
+
+        $this->publishes([
+            __DIR__ . '/../../resources/css/share-buttons.css' => resource_path('css/share-buttons.css'),
+        ], ['css', 'styles']);
     }
 
     /**
