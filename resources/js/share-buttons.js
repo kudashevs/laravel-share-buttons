@@ -60,4 +60,6 @@ function identifyTargetElement(e) {
     ) {
         return e.target;
     }
+
+    // @todo add a reporting callback here
 }
