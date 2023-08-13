@@ -160,7 +160,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_presentation_values_from_provided_options()
+    public function it_can_format_an_element_with_presentation_values_from_provided_options_through_refresh_method()
     {
         $elementPrefix = '<p>';
         $elementSuffix = '</p>';
