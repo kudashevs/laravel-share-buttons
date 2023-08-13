@@ -148,16 +148,15 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a>';
         $expected = $elementPrefix . $elementBody . $elementSuffix;
 
-        $result = $this->presenter->getElementPrefix()
-            . $this->presenter->getElementBody(
-                'facebook',
-                [
-                    'url' => 'https://mysite.com',
-                    'text' => 'test',
-                ])
-            . $this->presenter->getElementSuffix();
+        $element = $this->generateElement(
+            'facebook',
+            [
+                'url' => 'https://mysite.com',
+                'text' => 'test',
+            ]
+        );
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $element);
     }
 
     /** @test */
@@ -170,16 +169,15 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
 
         $this->presenter->refresh(['element_prefix' => $elementPrefix, 'element_suffix' => $elementSuffix]);
 
-        $result = $this->presenter->getElementPrefix()
-            . $this->presenter->getElementBody(
-                'facebook',
-                [
-                    'url' => 'https://mysite.com',
-                    'text' => '',
-                ])
-            . $this->presenter->getElementSuffix();
+        $element = $this->generateElement(
+            'facebook',
+            [
+                'url' => 'https://mysite.com',
+                'text' => '',
+            ]
+        );
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $element);
     }
 
     /**
@@ -249,26 +247,32 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_format_an_element_with_custom_styling_from_call_options()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a></li>';
+        $elementPrefix = config('share-buttons.element_prefix');
+        $elementSuffix = config('share-buttons.element_suffix');
+        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a>';
+        $expected = $elementPrefix . $elementBody . $elementSuffix;
 
-        $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody(
-                'facebook',
-                [
-                    'url' => 'https://mysite.com',
-                    'text' => 'Title',
-                    'element_prefix' => '<p>',
-                    'element_suffix' => '</p>',
-                ])
+        $element = $this->generateElement(
+            'facebook',
+            [
+                'url' => 'https://mysite.com',
+                'text' => 'Title',
+                'element_prefix' => '<p>',
+                'element_suffix' => '</p>',
+            ]
         );
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $element);
     }
 
     /** @test */
     public function it_cannot_override_arguments_with_options()
     {
-        $expected = '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a></li>';
+        $elementPrefix = config('share-buttons.element_prefix');
+        $elementSuffix = config('share-buttons.element_suffix');
+        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a>';
+        $expected = $elementPrefix . $elementBody . $elementSuffix;
+
         $this->presenter->refresh([
             'class' => 'options',
             'id' => 'options',
@@ -276,24 +280,25 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
             'rel' => 'options',
         ]);
 
-        $result = $this->wrapElementInStyling(
-            $this->presenter->getElementBody(
-                'facebook',
-                [
-                    'url' => 'https://mysite.com',
-                    'text' => 'Title',
-                    'class' => 'arguments',
-                    'id' => 'arguments',
-                    'title' => 'arguments',
-                    'rel' => 'arguments',
-                ])
+        $element = $this->generateElement(
+            'facebook',
+            [
+                'url' => 'https://mysite.com',
+                'text' => 'Title',
+                'class' => 'arguments',
+                'id' => 'arguments',
+                'title' => 'arguments',
+                'rel' => 'arguments',
+            ]
         );
 
-        $this->assertEquals($expected, $result);
+        $this->assertEquals($expected, $element);
     }
 
-    private function wrapElementInStyling(string $element): string
+    private function generateElement(string $name, array $arguments)
     {
-        return $this->presenter->getElementPrefix() . $element . $this->presenter->getElementSuffix();
+        return $this->presenter->getElementPrefix()
+            . $this->presenter->getElementBody($name, $arguments)
+            . $this->presenter->getElementSuffix();
     }
 }
