@@ -196,9 +196,13 @@ class ShareButtonsTest extends ExtendedTestCase
             ->telegram()
             ->render();
 
-        $this->assertStringContainsString('twitter', $result);
-        $this->assertStringContainsString('reddit', $result);
-        $this->assertStringContainsString('telegram', $result);
+        $expectedLinks = [
+            '<a href="https://twitter.com/intent/tweet?text=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-square-x-twitter"></span></a>',
+            '<a href="https://www.reddit.com/submit?title=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-reddit"></span></a>',
+            '<a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a>',
+        ];
+
+        $this->assertStringContainsStrings($expectedLinks, $result);
     }
 
     /** @test */
@@ -229,9 +233,13 @@ class ShareButtonsTest extends ExtendedTestCase
             ->telegram()
             ->getShareButtons();
 
-        $this->assertStringContainsString('twitter', $result);
-        $this->assertStringContainsString('reddit', $result);
-        $this->assertStringContainsString('telegram', $result);
+        $expectedLinks = [
+            '<a href="https://twitter.com/intent/tweet?text=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-square-x-twitter"></span></a>',
+            '<a href="https://www.reddit.com/submit?title=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button"><span class="fab fa-reddit"></span></a>',
+            '<a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button" target="_blank"><span class="fab fa-telegram"></span></a>',
+        ];
+
+        $this->assertStringContainsStrings($expectedLinks, $result);
     }
 
     /** @test */
