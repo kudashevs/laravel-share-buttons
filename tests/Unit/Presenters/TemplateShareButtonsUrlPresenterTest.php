@@ -19,9 +19,9 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_an_empty_url_when_wrong_name()
     {
-        $result = $this->presenter->generateUrl('wrong', []);
+        $generatedUrl = $this->presenter->generateUrl('wrong', []);
 
-        $this->assertSame('', $result);
+        $this->assertSame('', $generatedUrl);
     }
 
     /**
@@ -30,9 +30,9 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
      */
     public function it_can_generate_a_url(string $name, array $arguments, string $expected)
     {
-        $result = $this->presenter->generateUrl($name, $arguments);
+        $generatedUrl = $this->presenter->generateUrl($name, $arguments);
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $generatedUrl);
     }
 
     public function provideDifferentShareButtonsValues(): array
@@ -258,48 +258,48 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     {
         config()->set('share-buttons.buttons.copylink.extra.hash', true);
 
-        $result = $this->presenter->generateUrl('copylink', []);
+        $generatedUrl = $this->presenter->generateUrl('copylink', []);
 
-        $this->assertSame('#', $result);
+        $this->assertSame('#', $generatedUrl);
     }
 
     /** @test */
     public function it_can_generate_a_url_with_infromation_from_defaults()
     {
-        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
+        $expectedUrl = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
 
-        $result = $this->presenter->generateUrl('facebook', [
+        $generatedUrl = $this->presenter->generateUrl('facebook', [
             'url' => 'https://mysite.com',
             'text' => '',
         ]);
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expectedUrl, $generatedUrl);
     }
 
     /** @test */
     public function it_can_generate_a_url_with_information_from_call_options()
     {
-        $expected = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title';
+        $expectedUrl = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title';
 
-        $result = $this->presenter->generateUrl('facebook', [
+        $generatedUrl = $this->presenter->generateUrl('facebook', [
             'url' => 'https://mysite.com',
             'text' => 'Title',
         ]);
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expectedUrl, $generatedUrl);
     }
 
     /** @test */
     public function it_can_generate_a_url_with_summary_for_linkedin()
     {
-        $expected = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
+        $expectedUrl = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
 
-        $result = $this->presenter->generateUrl('linkedin', [
+        $generatedUrl = $this->presenter->generateUrl('linkedin', [
             'url' => 'https://mysite.com',
             'text' => '',
             'summary' => 'Share text',
         ]);
 
-        $this->assertSame($expected, $result);;
+        $this->assertSame($expectedUrl, $generatedUrl);;
     }
 }
