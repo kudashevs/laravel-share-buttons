@@ -24,9 +24,9 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     {
         $this->presenter->refresh($options);
 
-        $result = $this->presenter->$method();
+        $presentation = $this->presenter->$method();
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $presentation);
     }
 
     public function provideDifferentPresentationOptions(): array
@@ -113,9 +113,9 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     {
         $expected = config('share-buttons.' . $configuration);
 
-        $result = $this->presenter->$method();
+        $presentation = $this->presenter->$method();
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $presentation);
     }
 
     public function provideDifferentPresentationConfigurations(): array
