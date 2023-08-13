@@ -245,7 +245,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_cannot_format_an_element_with_custom_styling_from_call_options()
+    public function it_cannot_override_presentation_data_with_options_provided_directly_without_calling_refresh_method()
     {
         $elementPrefix = config('share-buttons.element_prefix');
         $elementSuffix = config('share-buttons.element_suffix');
@@ -266,7 +266,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_cannot_override_presentation_values_from_arguments_with_provided_options()
+    public function it_cannot_override_presentation_data_from_arguments_with_options_provided_through_refresh_method()
     {
         $elementPrefix = config('share-buttons.element_prefix');
         $elementSuffix = config('share-buttons.element_suffix');
