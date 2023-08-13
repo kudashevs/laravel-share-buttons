@@ -105,37 +105,37 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_returns_empty_from_get_raw_links_method_when_no_calls_provided()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $rawLinks = $this->share->page('https://mysite.com', 'My share title')
             ->getRawLinks();
 
-        $this->assertIsArray($result);
-        $this->assertEmpty($result);
+        $this->assertIsArray($rawLinks);
+        $this->assertEmpty($rawLinks);
     }
 
     /** @test */
     public function it_can_return_one_link_from_get_raw_links_method()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $rawLinks = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
             ->getRawLinks();
 
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+        $this->assertIsArray($rawLinks);
+        $this->assertNotEmpty($rawLinks);
     }
 
     /** @test */
     public function it_can_return_multiple_links_at_once_from_get_raw_links_method()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $rawLinks = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
             ->reddit()
             ->telegram()
             ->getRawLinks();
 
-        $this->assertCount(3, $result);
-        $this->assertStringContainsString('twitter', $result['twitter']);
-        $this->assertStringContainsString('reddit', $result['reddit']);
-        $this->assertStringContainsString('telegram', $result['telegram']);
+        $this->assertCount(3, $rawLinks);
+        $this->assertStringContainsString('twitter', $rawLinks['twitter']);
+        $this->assertStringContainsString('reddit', $rawLinks['reddit']);
+        $this->assertStringContainsString('telegram', $rawLinks['telegram']);
     }
 
     /** @test */
