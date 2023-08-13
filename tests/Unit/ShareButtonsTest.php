@@ -55,9 +55,9 @@ class ShareButtonsTest extends ExtendedTestCase
     {
         $expected = config('share-buttons.buttons.twitter.text');
 
-        $result = $this->share->page('https://mysite.com')->twitter();
+        $instance = $this->share->page('https://mysite.com')->twitter();
 
-        $this->assertStringContainsString(urlencode($expected), (string)$result);
+        $this->assertStringContainsString(urlencode($expected), (string)$instance);
     }
 
     /** @test */
@@ -65,41 +65,41 @@ class ShareButtonsTest extends ExtendedTestCase
     {
         $expected = 'Page title';
 
-        $result = $this->share->page('https://mysite.com', $expected)->twitter();
+        $instance = $this->share->page('https://mysite.com', $expected)->twitter();
 
-        $this->assertStringContainsString(urlencode($expected), (string)$result);
+        $this->assertStringContainsString(urlencode($expected), (string)$instance);
     }
 
     /** @test */
     public function it_can_return_one_link_from_page_method()
     {
-        $result = $this->share->page('https://mysite.com')->facebook();
+        $instance = $this->share->page('https://mysite.com')->facebook();
 
-        $this->assertStringContainsString('facebook', (string)$result);
+        $this->assertStringContainsString('facebook', (string)$instance);
     }
 
     /** @test */
     public function it_can_return_one_link_from_current_page_method()
     {
-        $result = $this->share->currentPage()->facebook();
+        $instance = $this->share->currentPage()->facebook();
 
-        $this->assertStringContainsString('facebook', (string)$result);
+        $this->assertStringContainsString('facebook', (string)$instance);
     }
 
     /** @test */
     public function it_can_return_one_link_from_create_for_page_method()
     {
-        $result = $this->share->createForPage('https://mysite.com')->twitter();
+        $instance = $this->share->createForPage('https://mysite.com')->twitter();
 
-        $this->assertStringContainsString('twitter', (string)$result);
+        $this->assertStringContainsString('twitter', (string)$instance);
     }
 
     /** @test */
     public function it_can_return_one_link_from_create_for_current_page_method()
     {
-        $result = $this->share->createForCurrentPage()->twitter();
+        $instance = $this->share->createForCurrentPage()->twitter();
 
-        $this->assertStringContainsString('twitter', (string)$result);
+        $this->assertStringContainsString('twitter', (string)$instance);
     }
 
     /** @test */
@@ -141,31 +141,31 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_returns_empty_when_cast_to_string_and_no_calls_provided()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title');
+        $instance = $this->share->page('https://mysite.com', 'My share title');
 
-        $this->assertStringContainsString('', (string)$result);
+        $this->assertStringContainsString('', (string)$instance);
     }
 
     /** @test */
     public function it_can_return_one_link_when_cast_to_string()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $instance = $this->share->page('https://mysite.com', 'My share title')
             ->facebook();
 
-        $this->assertStringContainsString('facebook', (string)$result);
+        $this->assertStringContainsString('facebook', (string)$instance);
     }
 
     /** @test */
     public function it_can_return_multiple_links_when_cast_to_string()
     {
-        $result = $this->share->page('https://mysite.com', 'My share title')
+        $instance = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
             ->reddit()
             ->telegram();
 
-        $this->assertStringContainsString('twitter', (string)$result);
-        $this->assertStringContainsString('reddit', (string)$result);
-        $this->assertStringContainsString('telegram', (string)$result);
+        $this->assertStringContainsString('twitter', (string)$instance);
+        $this->assertStringContainsString('reddit', (string)$instance);
+        $this->assertStringContainsString('telegram', (string)$instance);
     }
 
     /** @test */
