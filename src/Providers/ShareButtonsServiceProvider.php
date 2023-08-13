@@ -10,7 +10,7 @@ use Kudashevs\ShareButtons\ShareButtons;
 class ShareButtonsServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Bootstrap any package services.
      */
     public function boot()
     {
