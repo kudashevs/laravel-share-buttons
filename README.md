@@ -88,7 +88,7 @@ After publishing, you can copy this file to your `public/js` folder and use it d
 
 ## Usage
 
-This package is highly customizable and easy to use. Let's take a look at a short usage example (a detailed usage example is located in the [A detailed usage example](#a-detailed-usage-example) section).
+This package is highly customizable and easy to use. Let's take a look at a short usage example (a detailed usage example is located in [A detailed usage example](#a-detailed-usage-example) section).
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'title' => 'Page title',
@@ -102,17 +102,15 @@ ShareButtons::page('https://site.com', 'Page title', [
 The code above will result into the following HTML code:
 ```html
 <div id="social-buttons">
-    <ul>
-        <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button" title="Page title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
-        <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=" class="social-button" title="Page title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
-    </ul>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button" title="Page title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a>
+    <a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=" class="social-button" title="Page title" rel="follow"><span class="fab fa-linkedin"></span></a>
 </div>
 ```
 
 ### Fluent interface
 
 The `ShareButtons` instance provides a fluent interface. The fluent interface is a pattern based on method chaining.
-To start a method chaining you just need to use one of the methods listed below (the start chaining methods).
+To start a method chaining you just need to use one of the methods listed below (the starting point).
 ```
 page($url, $title, $options)              # Creates a chaining with a given URL and a given page title
 createForPage($url, $title, $options)     # Does the same (an alias of the page() method)
@@ -123,7 +121,7 @@ createForCurrentPage($title, $options)    # Does the same (an alias of the curre
 ### Add buttons
 
 To create a single social media share button, you just need to add one of the following methods to the method chaining. Each of these
-methods accepts an array of options (you can find more information about the options in the [Optional parameters](#optional-parameters) section).
+methods accepts an array of options (you can find more information about these options in the [Optional parameters](#optional-parameters) section).
 
 [//]: # (@todo don't forget to update these methods)
 ```
