@@ -10,7 +10,7 @@ use Kudashevs\ShareButtons\ShareButtons;
 class ShareButtonsServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Bootstrap any package services.
      */
     public function boot()
     {
@@ -19,8 +19,16 @@ class ShareButtonsServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
-            __DIR__ . '/../../resources/assets/js/share-buttons.js' => resource_path('assets/js/share-buttons.js'),
-        ], 'assets');
+            __DIR__ . '/../../resources/js/share-buttons.js' => resource_path('js/share-buttons.js'),
+        ], ['js', 'vanilla']);
+
+        $this->publishes([
+            __DIR__ . '/../../resources/js/share-buttons.jquery.js' => resource_path('js/share-buttons.js'),
+        ], ['js', 'jquery']);
+
+        $this->publishes([
+            __DIR__ . '/../../resources/css/share-buttons.css' => resource_path('css/share-buttons.css'),
+        ], ['css']);
     }
 
     /**

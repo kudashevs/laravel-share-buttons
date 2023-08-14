@@ -44,7 +44,8 @@ If you want to add a Laravel Facade just add it to the `aliases` array in the `c
 ```
 by default, it binds a `ShareButtons` class instance to the `sharebuttons` alias.
 
-Don't forget to publish the package configuration and resource files.
+<a id="publish"></a>Don't forget to publish a configuration file and assets. By default, the below command will publish all of the available files.
+If you want to limit the type of assets, you can use the `--tag` option with one of the following tags: `config`, `js` (all js files), `vanilla`, `jquery`, `css`.
 ```bash
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
 ```
@@ -55,25 +56,31 @@ php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareBut
 By default, this package relies on the `Font Awesome` icons. The social media buttons interactivity is implemented in two
 different ways (via `Vanilla JS` and via the `jQuery` library). However, you can use any custom fonts, icons, or JavaScript.
 
-### Font Awesome
+### Font Awesome and default styles
 
-To enable the Font Awesome icons, use the code sample below. For further information on how to use Font Awesome, please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
+To enable Font Awesome icons, use the code sample below in your template. For further information on how to use Font Awesome, please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 ```
 
+To enable the default styles, you should [publish](#publish) the `css` assets (the publish command will create a `resources/css/share-buttons.css` file). After publishing,
+you can copy this file to the `public/css` folder and use it directly by using the code sample below. Or you can integrate the css file into your assets compilation flow.
+```html
+<link rel="stylesheet" href="{{ asset('css/share-buttons.css') }}">
+```
+
 ### JavaScript
 
-To enable interaction on social media buttons, use the code sample below. Then copy the `resources/assets/js/share-buttons.js` file
-to the `public/js` folder, or you could integrate this file into your assets compiling flow.
+To enable interaction on social media buttons with JavaScript, you should [publish](#publish) the `vanilla` assets (the publish command will create a `resources/js/share-buttons.js` file).
+After publishing, you can copy this file to your `public/js` folder and use it directly by using the code sample below. Or you can integrate this file into your assets compilation flow.
 ```html
 <script src="{{ asset('js/share-buttons.js') }}"></script>
 ```
 
 ### jQuery
 
-To enable the jQuery library, use the code sample below. Then copy the `resources/assets/js/share-buttons.jquery.js` file
-to the `public/js` folder, or you could integrate this file into your assets compiling flow.
+To enable interaction on social media buttons with jQuery, you should [publish](#publish) the `jquery` assets (the publish command will create a `resources/js/share-buttons.jquery.js` file).
+After publishing, you can copy this file to your `public/js` folder and use it directly by using the code sample below. Or you can integrate this file into your assets compilation flow.
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/share-buttons.jquery.js') }}"></script>
@@ -165,10 +172,10 @@ Every time a chaining method is called it takes several arguments, including a p
 a page title, and an array of options. These are global options that will be used to form the visual representation and 
 URLs of share buttons. They will be applied to every element during processing. These options include:
 ```
-'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <ul>)
-'block_suffix' => 'tag'          # Sets a share buttons block suffix (default is </ul>)
-'element_prefix' => 'tag'        # Sets an element prefix (default is <li>)
-'element_suffix' => 'tag'        # Sets an element suffix (default is </li>)
+'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <div id="social-buttons">)
+'block_suffix' => 'tag'          # Sets a share buttons block suffix (default is </div>)
+'element_prefix' => 'tag'        # Sets an element prefix (default is empty)
+'element_suffix' => 'tag'        # Sets an element suffix (default is empty)
 'id' => 'value'                  # Adds an HTML id attribute to the output links
 'class' => 'value'               # Adds an HTML class attribute to the output links
 'title' => 'value'               # Adds an HTML title attribute to the output links
@@ -196,6 +203,8 @@ that create social media share buttons and accept the optional parameters (local
 ShareButtons::page('https://site.com', 'Page title', [
         'block_prefix' => '<ul>',
         'block_suffix' => '</ul>',
+        'element_prefix' => '<li>',
+        'element_suffix' => '</li>',
         'class' => 'my-class',
         'id' => 'my-id',
         'title' => 'my-title',
@@ -220,10 +229,10 @@ All of the available configuration settings are located in the `config/share-but
 
 ### Representation section
 ```
-'block_prefix' => 'value'       # Sets a block prefix (default is <div id="social-buttons"><ul>)
-'block_suffix' => 'value'       # Sets a block suffix (default is </ul></div>)
-'element_prefix' => 'value'     # Sets an element prefix (default is <li>)
-'element_suffix' => 'value'     # Sets an element suffix (default is </li>)
+'block_prefix' => 'tag'       # Sets a block prefix (default is <div id="social-buttons">)
+'block_suffix' => 'tag'       # Sets a block suffix (default is </div>)
+'element_prefix' => 'tag'     # Sets an element prefix (default is empty)
+'element_suffix' => 'tag'     # Sets an element suffix (default is empty)
 ```
 
 ### Share buttons section
