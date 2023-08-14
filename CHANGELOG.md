@@ -2,6 +2,20 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v4.0.0 - 2023-08-15](https://github.com/kudashevs/laravel-share-buttons/compare/v3.3.0...v4.0.0)
+- Add a separate JS function that can be attached to an event manually suggested by @ronald2wing
+- Add default styles by @kudashevs in https://github.com/kudashevs/laravel-share-buttons/pull/5
+- Change the share buttons block id attribute to `social-buttons`
+- Change the default representation of share buttons
+- Change the twitter icon by @kudashevs in https://github.com/kudashevs/laravel-share-buttons/pull/4
+- Change the publishing assets paths
+- Change the publishing assets tags
+- Update tests (almost representation independent now)
+- Update README.md
+- Some improvements
+
+This is a major release. The changes of the block id attribute and default representation break the backward compatibility. 
+
 ## [v3.3.0 - 2023-04-08](https://github.com/kudashevs/laravel-share-buttons/compare/v3.2.0...v3.3.0)
 
 - Add a plain JavaScript implementation
