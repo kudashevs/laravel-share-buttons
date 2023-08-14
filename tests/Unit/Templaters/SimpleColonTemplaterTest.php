@@ -22,9 +22,9 @@ class SimpleColonTemplaterTest extends TestCase
      */
     public function it_performs_a_pattern_replacement(string $input, array $replacements, string $expected)
     {
-        $result = $this->templater->process($input, $replacements);
+        $processedString = $this->templater->process($input, $replacements);
 
-        $this->assertSame($expected, $result);
+        $this->assertSame($expected, $processedString);
     }
 
     public function provideDifferentSearchReplaceValues(): array
