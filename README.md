@@ -203,6 +203,8 @@ that create social media share buttons and accept the optional parameters (local
 ShareButtons::page('https://site.com', 'Page title', [
         'block_prefix' => '<ul>',
         'block_suffix' => '</ul>',
+        'element_prefix' => '<li>',
+        'element_suffix' => '</li>',
         'class' => 'my-class',
         'id' => 'my-id',
         'title' => 'my-title',
