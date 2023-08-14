@@ -10,7 +10,7 @@ function socialButtonClickHandler(e) {
     const popupWidth = 780;
     const popupHeight = 550;
 
-    let el = identifyTargetElement(e);
+    let el = identifyTargetElement(e, provideMissingTargetElementHandler(e));
     if (el === undefined) return;
 
     if (el.id === 'clip') {
@@ -47,19 +47,30 @@ function socialButtonClickHandler(e) {
     }
 }
 
-function identifyTargetElement(e) {
+function identifyTargetElement(e, cb) {
+    let buttonClassName = 'social-button';
+
     if (
         e.target.parentElement &&
-        e.target.parentElement.className.indexOf('social-button') !== -1
+        e.target.parentElement.className.indexOf(buttonClassName) !== -1
     ) {
         return e.target.parentElement;
     }
 
     if (
-        e.target.className.indexOf('social-button') !== -1
+        e.target.className.indexOf(buttonClassName) !== -1
     ) {
         return e.target;
     }
 
-    // @todo add a reporting callback here
+    typeof cb === 'function' && cb(buttonClassName)
+}
+
+// this function can be modified to handle a missing target element
+// don't remove it because it is used in the socialButtonClickHandler
+function provideMissingTargetElementHandler(e) {
+    // returns a function with an enclosing e variable (contains a triggered event)
+    // accepts a name argument (contains a classname used to identify a target element)
+    return (name) => {
+    }
 }
