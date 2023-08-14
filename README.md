@@ -172,10 +172,10 @@ Every time a chaining method is called it takes several arguments, including a p
 a page title, and an array of options. These are global options that will be used to form the visual representation and 
 URLs of share buttons. They will be applied to every element during processing. These options include:
 ```
-'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <ul>)
-'block_suffix' => 'tag'          # Sets a share buttons block suffix (default is </ul>)
-'element_prefix' => 'tag'        # Sets an element prefix (default is <li>)
-'element_suffix' => 'tag'        # Sets an element suffix (default is </li>)
+'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <div id="social-buttons">)
+'block_suffix' => 'tag'          # Sets a share buttons block suffix (default is </div>)
+'element_prefix' => 'tag'        # Sets an element prefix (default is empty)
+'element_suffix' => 'tag'        # Sets an element suffix (default is empty)
 'id' => 'value'                  # Adds an HTML id attribute to the output links
 'class' => 'value'               # Adds an HTML class attribute to the output links
 'title' => 'value'               # Adds an HTML title attribute to the output links
