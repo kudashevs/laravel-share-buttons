@@ -128,7 +128,7 @@ class ShareButtons
      */
     public function currentPage(string $title = '', array $options = []): self
     {
-        $url = request()->getUri();
+        $url = app('request')->url();
 
         return $this->page($url, $title, $options);
     }
