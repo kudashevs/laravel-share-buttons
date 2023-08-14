@@ -227,10 +227,10 @@ All of the available configuration settings are located in the `config/share-but
 
 ### Representation section
 ```
-'block_prefix' => 'tag'       # Sets a block prefix (default is <div id="social-buttons">)
-'block_suffix' => 'tag'       # Sets a block suffix (default is </div>)
-'element_prefix' => 'tag'     # Sets an element prefix (default is empty)
-'element_suffix' => 'tag'     # Sets an element suffix (default is empty)
+'block_prefix' => 'tag'         # Sets a block prefix (default is <div id="social-buttons">)
+'block_suffix' => 'tag'         # Sets a block suffix (default is </div>)
+'element_prefix' => 'tag'       # Sets an element prefix (default is empty)
+'element_suffix' => 'tag'       # Sets an element suffix (default is empty)
 ```
 
 ### Share buttons section
