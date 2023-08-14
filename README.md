@@ -162,9 +162,9 @@ getRawLinks()           # Returns an array of generated links
 
 ## Parameters
 
-There is the possibility to provide different options at different levels to style and decorate the resulting HTML code.
+There is the possibility to provide different options to style and decorate the resulting HTML code at different levels.
 
-### Main parameters (global options)
+### Global options (main parameters)
 
 Every time a chaining method is called it takes several arguments, including a page URL (it depends on the exact method),
 a page title, and an array of options. These are global options that will be used to form the visual representation and 
@@ -180,10 +180,10 @@ URLs of share buttons. They will be applied to every element during processing. 
 'rel' => 'value'                 # Adds an HTML rel attribute to the output links
 ```
 
-### Optional parameters (local options)
+### Local options (optional parameters)
 
-Each of the [share button methods](#add-buttons) takes several arguments. These are local options that will be applied to
-the specific element only. The local options have a **higher priority**. Therefore, they will overwrite the global options
+Each of the [add share button methods](#add-buttons) takes several arguments. These are local options that will be applied to
+the specific element only. The local options have the **higher priority**. Therefore, they will overwrite the global options
 if there is any overlap. At the moment, the package supports the following local options:
 ```
 'id' => 'value'                  # Adds an HTML id attribute to the button link
@@ -195,8 +195,8 @@ if there is any overlap. At the moment, the package supports the following local
 
 ## A detailed usage example
 
-To summarize all of the above, we begin with a method that starts the fluent interface and accepts the main parameters (global options). Then we chain the methods
-that create social media share buttons and accept the optional parameters (local options). Then we use one of the methods to return the resulting HTML code.
+To summarize all of the information above, we begin with a method that starts a fluent interface and accepts some global options. Then we chain the methods
+that create social media share buttons and accept the local options (optional parameters). Then we use one of the methods to return the resulting HTML code.
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'block_prefix' => '<ul>',
