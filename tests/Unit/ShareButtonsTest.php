@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\Unit;
 
+use Illuminate\Http\Request;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -358,6 +359,21 @@ class ShareButtonsTest extends ExtendedTestCase
             . '</ul>';
 
         $this->assertEquals($expectedHtml, $readyHtml);
+    }
+
+    /**
+     * @param string $url
+     */
+    private function stubRequestUrl(string $url): void
+    {
+        $request = Request::create($url);
+
+        $request->setRouteResolver(function () use ($request) {
+            return (new Illuminate\Routing\Route('GET', '/', []))->bind($request);
+        });
+
+        $this->instance(Request::class, $request);
+        $this->instance('request', $request);
     }
 
     /**
