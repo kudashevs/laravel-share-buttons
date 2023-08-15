@@ -73,7 +73,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_from_page_method()
+    public function it_can_return_one_correct_link_from_page_method()
     {
         $instance = $this->share->page('https://mysite.com')->facebook();
 
@@ -81,7 +81,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_from_current_page_method()
+    public function it_can_return_one_correct_link_from_current_page_method()
     {
         $instance = $this->share->currentPage()->facebook();
 
@@ -89,7 +89,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_from_create_for_page_method()
+    public function it_can_return_one_correct_link_from_create_for_page_method()
     {
         $instance = $this->share->createForPage('https://mysite.com')->twitter();
 
@@ -97,7 +97,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_from_create_for_current_page_method()
+    public function it_can_return_one_correct_link_from_create_for_current_page_method()
     {
         $instance = $this->share->createForCurrentPage()->twitter();
 
