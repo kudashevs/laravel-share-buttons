@@ -77,6 +77,7 @@ class ShareButtonsTest extends ExtendedTestCase
     {
         $instance = $this->share->page('https://mysite.com')->facebook();
 
+        $this->assertStringContainsString('mysite.com', (string)$instance);
         $this->assertStringContainsString('facebook', (string)$instance);
     }
 
@@ -93,6 +94,7 @@ class ShareButtonsTest extends ExtendedTestCase
     {
         $instance = $this->share->createForPage('https://mysite.com')->twitter();
 
+        $this->assertStringContainsString('mysite.com', (string)$instance);
         $this->assertStringContainsString('twitter', (string)$instance);
     }
 
