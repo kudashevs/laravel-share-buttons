@@ -53,21 +53,23 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_create_one_link_with_a_predefined_title()
     {
-        $expected = config('share-buttons.buttons.twitter.text');
+        $title = config('share-buttons.buttons.twitter.text');
+        $expected = urlencode($title);
 
         $instance = $this->share->page('https://mysite.com')->twitter();
 
-        $this->assertStringContainsString(urlencode($expected), (string)$instance);
+        $this->assertStringContainsString($expected, (string)$instance);
     }
 
     /** @test */
     public function it_can_create_one_link_with_a_provided_title()
     {
-        $expected = 'Page title';
+        $title = 'Page title';
+        $expected = urlencode($title);
 
-        $instance = $this->share->page('https://mysite.com', $expected)->twitter();
+        $instance = $this->share->page('https://mysite.com', $title)->twitter();
 
-        $this->assertStringContainsString(urlencode($expected), (string)$instance);
+        $this->assertStringContainsString($expected, (string)$instance);
     }
 
     /** @test */
