@@ -85,8 +85,11 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_return_one_correct_link_from_current_page_method()
     {
+        $this->stubRequestUrl('https://mysite.com');
+
         $instance = $this->share->currentPage()->facebook();
 
+        $this->assertStringContainsString('mysite.com', (string)$instance);
         $this->assertStringContainsString('facebook', (string)$instance);
     }
 
@@ -102,8 +105,11 @@ class ShareButtonsTest extends ExtendedTestCase
     /** @test */
     public function it_can_return_one_correct_link_from_create_for_current_page_method()
     {
+        $this->stubRequestUrl('https://mysite.com');
+
         $instance = $this->share->createForCurrentPage()->twitter();
 
+        $this->assertStringContainsString('mysite.com', (string)$instance);
         $this->assertStringContainsString('twitter', (string)$instance);
     }
 
