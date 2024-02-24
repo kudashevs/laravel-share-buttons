@@ -53,7 +53,7 @@ php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareBut
 
 ## Assets
 
-By default, this package relies on the `Font Awesome` icons. The buttons interactivity is implemented in two
+By default, this package relies on the `Font Awesome` icons. The buttons' interactivity is implemented in two
 different ways (via `Vanilla JS` and `jQuery`). However, you can use any custom fonts, icons, or JavaScript.
 
 ### Font Awesome and default styles
