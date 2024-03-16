@@ -3,6 +3,7 @@
          colors="true"
          stopOnError="false"
          stopOnFailure="false"
+         stopOnWarning="false"
          processIsolation="false"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
