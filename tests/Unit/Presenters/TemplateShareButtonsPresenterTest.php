@@ -29,7 +29,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $presentation);
     }
 
-    public function provideDifferentPresentationOptions(): array
+    public static function provideDifferentPresentationOptions(): array
     {
         return [
             'block_prefix option with open div results in open div' => [
@@ -118,7 +118,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $presentation);
     }
 
-    public function provideDifferentPresentationConfigurations(): array
+    public static function provideDifferentPresentationConfigurations(): array
     {
         return [
             'block_prefix results in the default' => [
@@ -200,7 +200,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         $this->assertEquals($expected, $elementBody);
     }
 
-    public function provideDifferentOptions(): array
+    public static function provideDifferentOptions(): array
     {
         return [
             'check class option' => [

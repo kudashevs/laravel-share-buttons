@@ -27,7 +27,7 @@ class LaravelTemplaterTest extends ExtendedTestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideDifferentSearchReplaceValues(): array
+    public static function provideDifferentSearchReplaceValues(): array
     {
         return [
             'replace a search with the replacement' => [

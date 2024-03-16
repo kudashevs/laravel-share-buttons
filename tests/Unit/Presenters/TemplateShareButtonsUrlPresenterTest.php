@@ -35,7 +35,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
         $this->assertSame($expected, $generatedUrl);
     }
 
-    public function provideDifferentShareButtonsValues(): array
+    public static function provideDifferentShareButtonsValues(): array
     {
         return [
             'copylink button remains raw' => [
