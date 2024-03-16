@@ -1,6 +1,7 @@
 .idea/
 .fleet/
 .vscode/
+.phpunit.cache/
 /build/
 /vendor/
 .phpunit.result.cache
