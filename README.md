@@ -7,7 +7,7 @@ the possibility to generate share links (social media share buttons) for your si
 ### Available services
 
 * Facebook
-* Twitter
+* X (formerly Twitter)
 * LinkedIn
 * Telegram
 * WhatsApp
