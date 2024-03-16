@@ -23,7 +23,7 @@ class ProcessedCallTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_creates_an_object_with_a_name()
+    public function it_creates_an_object_with_a_name_only()
     {
         $name = 'twitter';
 
