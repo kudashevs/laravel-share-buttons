@@ -33,14 +33,14 @@ If you don't use auto-discovery just add a ShareButtonsServiceProvider to the `c
 ```php
 'providers' => [
     Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
-];
+],
 ```
 
 If you want to add a Laravel Facade just add a ShareButtonsFacade to the `config/app.php`
 ```php
 'aliases' => [
     'ShareButtons' => Kudashevs\ShareButtons\Facades\ShareButtonsFacade::class,
-];
+],
 ```
 by default, the `ShareButtons` class instance is bound to the `sharebuttons` alias.
 
