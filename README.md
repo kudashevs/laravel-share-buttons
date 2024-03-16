@@ -262,6 +262,8 @@ that will be changed during processing. The format of substituted elements depen
  
 
 ## Testing
+
+If you want to make sure that everything works as expected, you can run unit tests provided with the package.
 ```bash
 composer test
 ```
