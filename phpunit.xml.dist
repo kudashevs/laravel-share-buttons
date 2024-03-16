@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         bootstrap="vendor/autoload.php"
-         backupGlobals="false"
-         backupStaticAttributes="false"
+<phpunit bootstrap="vendor/autoload.php"
          colors="true"
+         stopOnError="false"
+         stopOnFailure="false"
+         processIsolation="false"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
-         processIsolation="false"
+         convertDeprecationsToExceptions="true"
          verbose="true">
     <testsuites>
         <testsuite name="ShareButtons Test Suite">
