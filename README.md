@@ -44,8 +44,9 @@ If you want to add a Laravel Facade just add a ShareButtonsFacade to the `config
 ```
 by default, the `ShareButtons` class instance is bound to the `sharebuttons` alias.
 
-<a id="publish"></a>**Don't forget** to publish a configuration file and assets. If you want to limit the type of assets,
-you can use the `--tag` option with one of the following tags: `config`, `js` (all js files), `vanilla`, `jquery`, `css`.
+<a id="publish"></a>**Don't forget** to publish the configuration file and assets. The configuration file is necessary
+for the correct functioning of the package. If you want to limit the type of assets, you can use the `--tag` option
+with one of the following tags: `config`, `js` (all js files), `vanilla`, `jquery`, `css`.
 ```bash
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
 ```
