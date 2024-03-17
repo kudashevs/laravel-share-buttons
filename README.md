@@ -29,20 +29,14 @@ You can install the package via composer:
 composer require kudashevs/laravel-share-buttons
 ```
 
+By default, the `ShareButtons` class instance is bound to the `sharebuttons` alias.  
 If you don't use auto-discovery just add a ShareButtonsServiceProvider to the `config/app.php`
 ```php
 'providers' => [
     Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
 ],
 ```
-
-If you want to add a Laravel Facade just add a ShareButtonsFacade to the `config/app.php`
-```php
-'aliases' => [
-    'ShareButtons' => Kudashevs\ShareButtons\Facades\ShareButtonsFacade::class,
-],
-```
-by default, the `ShareButtons` class instance is bound to the `sharebuttons` alias.
+, then, you might want to add a `ShareButtonsFacade::class` to the aliases.
 
 <a id="publish"></a>**Don't forget** to publish the configuration file and assets. The configuration file is necessary
 for the correct functioning of the package. If you want to limit the type of assets, you can use the `--tag` option
