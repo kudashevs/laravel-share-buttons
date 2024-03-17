@@ -2,6 +2,17 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v5.0.0 - 2024-03-17](https://github.com/kudashevs/laravel-share-buttons/compare/v4.0.0...v5.0.0)
+
+- Drop support of the old 6 and 7 Laravel versions
+- Add support for PHP 8.3
+- Add support for Laravel 11
+- Add support for PHPUnit 11
+- Update README.md
+- Some improvements
+
+This is a major release because it drops the old Laravel versions.
+
 ## [v4.0.0 - 2023-08-15](https://github.com/kudashevs/laravel-share-buttons/compare/v3.3.0...v4.0.0)
 
 - Add a separate JS function that can be attached to an event manually suggested by @ronald2wing
