@@ -85,7 +85,7 @@ After publishing, you can copy this file to your `public/js` folder and use it d
 
 ## Usage
 
-This package is highly customizable and easy to use. Let's take a look at a short usage example (a detailed usage example is located in [A detailed usage example](#a-detailed-usage-example) section).
+Let's take a look at a small usage example (a detailed usage example is located in [A detailed usage example](#a-detailed-usage-example) section).
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'title' => 'Page title',
