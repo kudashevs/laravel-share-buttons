@@ -367,9 +367,6 @@ class ShareButtonsTest extends ExtendedTestCase
         $this->assertEquals($expectedHtml, $readyHtml);
     }
 
-    /**
-     * @param string $url
-     */
     private function stubRequestUrl(string $url): void
     {
         $request = Request::create($url);
