@@ -36,9 +36,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(ShareButtons::class, function () {
-            return new ShareButtons($this->prepareConfig());
-        });
+        $this->app->bind(ShareButtons::class, fn() => new ShareButtons($this->prepareConfig()));
         $this->app->alias(ShareButtons::class, 'sharebuttons');
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');
