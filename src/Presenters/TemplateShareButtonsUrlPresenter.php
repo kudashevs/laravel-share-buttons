@@ -102,7 +102,7 @@ class TemplateShareButtonsUrlPresenter
     {
         return array_map(function (string $value) {
             return $this->isRaw()
-                ? $value
+                ? (string)$value
                 : urlencode($value);
         }, $replacements);
     }
