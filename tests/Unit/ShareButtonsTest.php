@@ -380,7 +380,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /**
-     * @param array<int, string> $needles
+     * @param array<array-key, string> $needles
      * @param string $haystack
      */
     private function assertStringContainsStrings(array $needles, string $haystack): void
