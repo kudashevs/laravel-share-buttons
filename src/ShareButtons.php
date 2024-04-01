@@ -57,7 +57,7 @@ class ShareButtons
     protected array $calls = [];
 
     /**
-     * @param array<string, bool|string> $options
+     * @param array<string, string> $options
      */
     public function __construct(array $options = [])
     {
@@ -66,18 +66,24 @@ class ShareButtons
         $this->initOptions($options);
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     protected function initPresenter(array $options): void
     {
         $this->presenter = $this->createPresenter($options);
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     protected function createPresenter(array $options): ShareButtonsPresenter
     {
         return new TemplateShareButtonsPresenter($options);
     }
 
     /**
-     * @param array<string, bool|string> $options
+     * @param array<string, string> $options
      */
     protected function initOptions(array $options): void
     {
@@ -87,6 +93,7 @@ class ShareButtons
     }
 
     /**
+     * @param array<string, string> $options
      * @return array<string, string>
      */
     protected function retrieveApplicableOptions(array $options): array
@@ -114,6 +121,8 @@ class ShareButtons
 
     /**
      * Refresh state and delete all previously remembered calls.
+     *
+     * @param array<string, string> $options
      */
     protected function refreshState(array $options): void
     {
@@ -123,7 +132,7 @@ class ShareButtons
 
     /**
      * @param string $title
-     * @param array $options
+     * @param array<string, string> $options
      * @return $this
      */
     public function currentPage(string $title = '', array $options = []): self
@@ -136,7 +145,7 @@ class ShareButtons
     /**
      * @param string $url
      * @param string $title
-     * @param array $options
+     * @param array<string, string> $options
      * @return $this
      */
     public function createForPage(string $url, string $title = '', array $options = []): self
@@ -146,7 +155,7 @@ class ShareButtons
 
     /**
      * @param string $title
-     * @param array $options
+     * @param array<string, string> $options
      * @return $this
      */
     public function createForCurrentPage(string $title = '', array $options = []): self
@@ -156,7 +165,7 @@ class ShareButtons
 
     /**
      * @param string $name
-     * @param array $arguments
+     * @param array<array-key, mixed> $arguments
      * @return ShareButtons
      *
      * @throws BadMethodCallException
@@ -180,7 +189,7 @@ class ShareButtons
     }
 
     /**
-     * @param array<string, mixed> $arguments
+     * @param array<array-key, mixed> $arguments
      * @return array<string, string>
      */
     protected function prepareApplicableArguments(array $arguments): array
@@ -194,6 +203,7 @@ class ShareButtons
     }
 
     /**
+     * @param array<array-key, mixed> $arguments
      * @return array<string, string>
      */
     protected function retrieveApplicableArguments(array $arguments): array
@@ -205,11 +215,17 @@ class ShareButtons
         return [];
     }
 
+    /**
+     * @param array<array-key, mixed> $arguments
+     */
     protected function isAnyApplicableArgumentsProvided(array $arguments): bool
     {
         return isset($arguments[0]) && is_array($arguments[0]);
     }
 
+    /**
+     * @param array<string, string> $arguments
+     */
     protected function rememberProcessedCall(string $name, array $arguments = []): void
     {
         // Since a share button can be displayed only once, there is no need to keep track and
@@ -279,7 +295,7 @@ class ShareButtons
     /**
      * Return generated raw links.
      *
-     * @return array
+     * @return array<string, string>
      */
     public function getRawLinks(): array
     {
