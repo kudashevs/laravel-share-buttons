@@ -53,6 +53,8 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     }
 
     /**
+     * @param array<string, string> $options
+     *
      * @throws InvalidTemplaterFactoryArgument
      */
     protected function initTemplater(array $options): void
@@ -60,6 +62,9 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     protected function initUrlPresenter(array $options): void
     {
         $this->urlPresenter = new TemplateShareButtonsUrlPresenter($options);
@@ -70,6 +75,9 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         $this->formatter = new SimpleAttributesFormatter();
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     protected function initRepresentation(array $options): void
     {
         $applicable = $this->retrieveApplicableOptions($options);
@@ -80,6 +88,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     }
 
     /**
+     * @param array<string, string> $options
      * @return array<string, string>
      */
     protected function retrieveApplicableOptions(array $options): array
@@ -87,18 +96,27 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
         return array_filter($options, 'is_string');
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     protected function initBlockWrappers(array $options): void
     {
         $this->styling['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
         $this->styling['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     protected function initElementWrappers(array $options): void
     {
         $this->styling['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
         $this->styling['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
     }
 
+    /**
+     * @param array<string, string> $options
+     */
     protected function initElementAttributes(array $options): void
     {
         $this->attributes = array_diff_key($options, $this->styling);
@@ -168,6 +186,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     }
 
     /**
+     * @param array<string, string> $arguments
      * @return array<string, string>
      */
     protected function retrieveReplacements(string $name, array $arguments): array
@@ -181,6 +200,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     }
 
     /**
+     * @param array<string, string> $arguments
      * @return array<string, string>
      */
     protected function retrieveAttributes(array $arguments): array
@@ -194,7 +214,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
      * {@inheritDoc}
      *
      * @param string $name
-     * @param array $arguments
+     * @param array<string, string> $arguments
      * @return string
      */
     public function getElementUrl(string $name, array $arguments): string

@@ -12,7 +12,7 @@ interface ShareButtonsPresenter
     /**
      * Refresh styling (style of layout elements) of the share buttons.
      *
-     * @param array $options
+     * @param array<array-key, string> $options
      * @return void
      */
     public function refresh(array $options): void;
@@ -49,7 +49,7 @@ interface ShareButtonsPresenter
      * Return a representation of an element's body.
      *
      * @param string $name
-     * @param array $arguments
+     * @param array<array-key, string> $arguments
      * @return string
      */
     public function getElementBody(string $name, array $arguments): string;
@@ -58,7 +58,7 @@ interface ShareButtonsPresenter
      * Return a representation of an element's URL.
      *
      * @param string $name
-     * @param array $arguments
+     * @param array<array-key, string> $arguments
      * @return string
      */
     public function getElementUrl(string $name, array $arguments): string;

@@ -23,6 +23,7 @@ class TemplateShareButtonsUrlPresenter
     }
 
     /**
+     * @param array<string, string> $options
      * @throws InvalidTemplaterFactoryArgument
      */
     private function initTemplater(array $options): void
@@ -70,6 +71,7 @@ class TemplateShareButtonsUrlPresenter
     }
 
     /**
+     * @param array<string, string> $arguments
      * @return array<string, string>
      */
     protected function retrieveUrlReplacements(array $arguments): array
@@ -81,6 +83,9 @@ class TemplateShareButtonsUrlPresenter
         return array_merge($elementReplacements, $applicableArguments);
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function retrieveElementReplacements(): array
     {
         return array_merge([
@@ -93,11 +98,18 @@ class TemplateShareButtonsUrlPresenter
         return config('share-buttons.buttons.' . $this->name . '.text', '');
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function retrieveExtras(): array
     {
         return config('share-buttons.buttons.' . $this->name . '.extra', []);
     }
 
+    /**
+     * @param array<string, string> $replacements
+     * @return array<string, string>
+     */
     protected function encodeReplacements(array $replacements): array
     {
         return array_map(function (string $value) {
