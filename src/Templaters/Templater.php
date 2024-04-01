@@ -13,7 +13,7 @@ interface Templater
      * Process a template and return a result.
      *
      * @param string $template
-     * @param array $replacements
+     * @param array<array-key, string> $replacements
      * @return string
      */
     public function process(string $template, array $replacements): string;
