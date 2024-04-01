@@ -12,7 +12,7 @@ interface AttributesFormatter
     /**
      * Format and return formatted attributes.
      *
-     * @param array $attributes
+     * @param array<array-key, string> $attributes
      * @return array<string, string>
      */
     public function format(array $attributes): array;
