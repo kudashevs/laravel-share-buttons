@@ -372,7 +372,7 @@ class ShareButtonsTest extends ExtendedTestCase
         $request = Request::create($url);
 
         $request->setRouteResolver(function () use ($request) {
-            return (new Illuminate\Routing\Route('GET', '/', []))->bind($request);
+            return (new \Illuminate\Routing\Route('GET', '/', []))->bind($request);
         });
 
         $this->instance(Request::class, $request);
