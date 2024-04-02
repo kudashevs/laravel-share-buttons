@@ -112,7 +112,7 @@ class TemplateShareButtonsUrlPresenter
      */
     protected function encodeReplacements(array $replacements): array
     {
-        return array_map(function (string $value) {
+        return array_map(function (string $value): string {
             return $this->isRaw()
                 ? (string)$value
                 : urlencode($value);
