@@ -44,7 +44,8 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit --no-coverage",
-        "test-coverage": "vendor/bin/phpunit --coverage-html build/coverage"
+        "test-coverage": "vendor/bin/phpunit --coverage-html build/coverage",
+        "analyze": "phpstan analyze --no-progress --memory-limit=1024M"
     },
     "extra": {
         "laravel": {

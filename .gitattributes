@@ -11,4 +11,5 @@
 /.gitignore         export-ignore
 /CHANGELOG.md       export-ignore
 /CONTRIBUTING.md    export-ignore
+/phpstan*           export-ignore
 /phpunit.xml.dist   export-ignore

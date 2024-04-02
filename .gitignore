@@ -7,4 +7,5 @@
 .phpunit.result.cache
 .php_cs
 composer.lock
+phpstan.neon
 phpunit.xml
