@@ -2,6 +2,15 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v5.0.1 - 2024-04-02](https://github.com/kudashevs/laravel-share-buttons/compare/v5.0.0...v5.0.1)
+
+- Increase the minimum supported `orchestra/testbench` version
+- Add a `phpstan/phpstan` dev dependency
+- Add Github Action with PHPStan analysis tool
+- Update PHPDoc types
+- Update README.md
+- Some improvements
+
 ## [v5.0.0 - 2024-03-17](https://github.com/kudashevs/laravel-share-buttons/compare/v4.0.0...v5.0.0)
 
 - Drop support of the old 6 and 7 Laravel versions
