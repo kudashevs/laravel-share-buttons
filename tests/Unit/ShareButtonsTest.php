@@ -18,7 +18,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_an_exception_when_a_wrong_share_button_name()
+    public function it_can_throw_an_exception_when_a_wrong_share_button_name(): void
     {
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage('ShareButtons::wrong()');
@@ -28,31 +28,31 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_self_instance_from_page_method()
+    public function it_can_return_self_instance_from_page_method(): void
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->page('https://mysite.com'));
     }
 
     /** @test */
-    public function it_can_return_self_instance_from_current_page_method()
+    public function it_can_return_self_instance_from_current_page_method(): void
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->currentPage());
     }
 
     /** @test */
-    public function it_can_return_self_instance_from_create_for_page_method()
+    public function it_can_return_self_instance_from_create_for_page_method(): void
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForPage('https://mysite.com'));
     }
 
     /** @test */
-    public function it_can_return_self_instance_from_create_for_current_page_method()
+    public function it_can_return_self_instance_from_create_for_current_page_method(): void
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->createForCurrentPage());
     }
 
     /** @test */
-    public function it_can_create_one_link_with_a_predefined_title()
+    public function it_can_create_one_link_with_a_predefined_title(): void
     {
         $title = config('share-buttons.buttons.twitter.text');
         $expected = urlencode($title);
@@ -63,7 +63,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_create_one_link_with_a_provided_title()
+    public function it_can_create_one_link_with_a_provided_title(): void
     {
         $title = 'Page title';
         $expected = urlencode($title);
@@ -74,7 +74,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_correct_link_from_page_method()
+    public function it_can_return_one_correct_link_from_page_method(): void
     {
         $instance = $this->share->page('https://mysite.com')->facebook();
 
@@ -83,7 +83,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_correct_link_from_current_page_method()
+    public function it_can_return_one_correct_link_from_current_page_method(): void
     {
         $this->stubRequestUrl('https://mysite.com');
 
@@ -94,7 +94,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_correct_link_from_create_for_page_method()
+    public function it_can_return_one_correct_link_from_create_for_page_method(): void
     {
         $instance = $this->share->createForPage('https://mysite.com')->twitter();
 
@@ -103,7 +103,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_correct_link_from_create_for_current_page_method()
+    public function it_can_return_one_correct_link_from_create_for_current_page_method(): void
     {
         $this->stubRequestUrl('https://mysite.com');
 
@@ -114,7 +114,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_from_get_raw_links_method_when_no_calls_provided()
+    public function it_returns_empty_from_get_raw_links_method_when_no_calls_provided(): void
     {
         $rawLinks = $this->share->page('https://mysite.com', 'My share title')
             ->getRawLinks();
@@ -124,7 +124,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_from_get_raw_links_method()
+    public function it_can_return_one_link_from_get_raw_links_method(): void
     {
         $rawLinks = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
@@ -135,7 +135,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_at_once_from_get_raw_links_method()
+    public function it_can_return_multiple_links_at_once_from_get_raw_links_method(): void
     {
         $rawLinks = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
@@ -150,7 +150,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_when_cast_to_string_and_no_calls_provided()
+    public function it_returns_empty_when_cast_to_string_and_no_calls_provided(): void
     {
         $instance = $this->share->page('https://mysite.com', 'My share title');
 
@@ -158,7 +158,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_when_cast_to_string()
+    public function it_can_return_one_link_when_cast_to_string(): void
     {
         $instance = $this->share->page('https://mysite.com', 'My share title')
             ->facebook();
@@ -167,7 +167,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_when_cast_to_string()
+    public function it_can_return_multiple_links_when_cast_to_string(): void
     {
         $instance = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
@@ -180,7 +180,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_from_render_method_when_no_calls_provided()
+    public function it_returns_empty_from_render_method_when_no_calls_provided(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->render();
@@ -189,7 +189,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_from_render_method()
+    public function it_can_return_one_link_from_render_method(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
@@ -199,7 +199,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_from_render_method()
+    public function it_can_return_multiple_links_from_render_method(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
@@ -217,7 +217,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_returns_empty_from_get_share_buttons_method_when_no_calls_provided()
+    public function it_returns_empty_from_get_share_buttons_method_when_no_calls_provided(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->getShareButtons();;
@@ -226,7 +226,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_one_link_from_get_share_buttons_method()
+    public function it_can_return_one_link_from_get_share_buttons_method(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->facebook()
@@ -236,7 +236,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_from_get_share_buttons_method()
+    public function it_can_return_multiple_links_from_get_share_buttons_method(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
             ->twitter()
@@ -254,7 +254,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_and_then_multiple_links_another_time()
+    public function it_can_return_multiple_links_and_then_multiple_links_another_time(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My first title')
             ->facebook()
@@ -284,7 +284,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_with_extra_options()
+    public function it_can_return_multiple_links_with_extra_options(): void
     {
         $readyHtml = $this->share->page(
             'https://mysite.com',
@@ -316,7 +316,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_with_provided_arguments()
+    public function it_can_return_multiple_links_with_provided_arguments(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'Page share title')
             ->facebook(['rel' => 'nofollow'])
@@ -334,7 +334,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_return_multiple_links_with_extra_options_and_provided_arguments()
+    public function it_can_return_multiple_links_with_extra_options_and_provided_arguments(): void
     {
         $readyHtml = $this->share->page(
             'https://mysite.com',

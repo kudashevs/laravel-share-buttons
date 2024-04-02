@@ -20,7 +20,7 @@ class SimpleColonTemplaterTest extends TestCase
      * @test
      * @dataProvider provideDifferentSearchReplaceValues
      */
-    public function it_performs_a_pattern_replacement(string $input, array $replacements, string $expected)
+    public function it_performs_a_pattern_replacement(string $input, array $replacements, string $expected): void
     {
         $processedString = $this->templater->process($input, $replacements);
 

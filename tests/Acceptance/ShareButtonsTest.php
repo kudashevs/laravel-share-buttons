@@ -19,7 +19,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function an_instance_can_throw_an_exception_when_a_wrong_button_name()
+    public function an_instance_can_throw_an_exception_when_a_wrong_button_name(): void
     {
         $this->expectException(BadMethodCallException::class);
         $this->expectExceptionMessage('ShareButtons::wrong()');
@@ -29,7 +29,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function a_facade_can_throw_an_exception_when_a_wrong_button_name()
+    public function a_facade_can_throw_an_exception_when_a_wrong_button_name(): void
     {
         $this->expectException(BadMethodCallException::class);
         $this->expectExceptionMessage('ShareButtons::wrong()');
@@ -38,7 +38,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function an_instance_can_generate_one_share_button_url()
+    public function an_instance_can_generate_one_share_button_url(): void
     {
         $rawLinks = $this->share->page('https://mysite.com')
             ->twitter()
@@ -49,7 +49,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function a_facade_can_generate_one_share_button_url()
+    public function a_facade_can_generate_one_share_button_url(): void
     {
         $rawLinks = ShareButtonsFacade::page('https://mysite.com')
             ->twitter()
@@ -60,7 +60,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function an_instance_can_generate_one_share_button_link()
+    public function an_instance_can_generate_one_share_button_link(): void
     {
         $readyHtml = $this->share->page('https://mysite.com')
             ->twitter()
@@ -70,7 +70,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function a_facade_can_generate_one_share_button_link()
+    public function a_facade_can_generate_one_share_button_link(): void
     {
         $readyHtml = ShareButtonsFacade::page('https://mysite.com')
             ->twitter()
@@ -88,7 +88,7 @@ class ShareButtonsTest extends ExtendedTestCase
         string $url,
         string $title,
         string $expected
-    ) {
+    ): void {
         $readyHtml = $this->share->page($url, $title)
             ->$media()
             ->getShareButtons();

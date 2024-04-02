@@ -20,7 +20,7 @@ class LaravelTemplaterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentSearchReplaceValues
      */
-    public function it_performs_a_pattern_replacement(string $input, array $replacements, string $expected)
+    public function it_performs_a_pattern_replacement(string $input, array $replacements, string $expected): void
     {
         $result = $this->templater->process($input, $replacements);
 

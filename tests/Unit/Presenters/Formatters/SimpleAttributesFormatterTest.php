@@ -15,7 +15,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_skips_an_unknown_attribute()
+    public function it_skips_an_unknown_attribute(): void
     {
         $attributes = ['unknown' => 'test'];
 
@@ -25,7 +25,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_an_empty_string_when_no_attribute_provided()
+    public function it_returns_an_empty_string_when_no_attribute_provided(): void
     {
         $attributes = [];
 
@@ -35,7 +35,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_formats_some_of_the_attributes()
+    public function it_formats_some_of_the_attributes(): void
     {
         $attributes = [
             'class' => 'active',
@@ -55,7 +55,7 @@ class SimpleAttributesFormatterTest extends TestCase
     }
 
     /** @test */
-    public function it_formats_all_of_the_attributes()
+    public function it_formats_all_of_the_attributes(): void
     {
         $attributes = [
             'class' => 'active',

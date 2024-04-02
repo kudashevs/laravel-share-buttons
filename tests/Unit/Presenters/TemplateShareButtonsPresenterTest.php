@@ -20,8 +20,11 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentPresentationOptions
      */
-    public function it_can_retrieve_presentation_data_from_options(array $options, string $method, string $expected)
-    {
+    public function it_can_retrieve_presentation_data_from_options(
+        array $options,
+        string $method,
+        string $expected
+    ): void {
         $this->presenter->refresh($options);
 
         $presentation = $this->presenter->$method();
@@ -109,7 +112,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentPresentationConfigurations
      */
-    public function it_can_retrieve_presentation_data_from_configuration(string $configuration, string $method)
+    public function it_can_retrieve_presentation_data_from_configuration(string $configuration, string $method): void
     {
         $expected = config('share-buttons.' . $configuration);
 
@@ -141,7 +144,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_presentation_data_from_configuration()
+    public function it_can_format_an_element_with_presentation_data_from_configuration(): void
     {
         $elementPrefix = config('share-buttons.element_prefix');
         $elementSuffix = config('share-buttons.element_suffix');
@@ -160,7 +163,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_format_an_element_with_presentation_data_from_options_provided_through_refresh_method()
+    public function it_can_format_an_element_with_presentation_data_from_options_provided_through_refresh_method(): void
     {
         $elementPrefix = '<p>';
         $elementSuffix = '</p>';
@@ -188,7 +191,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
         string $url,
         array $options,
         string $expected
-    ) {
+    ): void {
         $elementBody = $this->presenter->getElementBody(
             'facebook',
             array_merge([
@@ -245,7 +248,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_cannot_override_presentation_data_with_options_provided_directly_without_calling_refresh_method()
+    public function it_cannot_override_presentation_data_with_options_provided_directly_without_calling_refresh_method(): void
     {
         $elementPrefix = config('share-buttons.element_prefix');
         $elementSuffix = config('share-buttons.element_suffix');
@@ -266,7 +269,7 @@ class TemplateShareButtonsPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_cannot_override_presentation_data_from_arguments_with_options_provided_through_refresh_method()
+    public function it_cannot_override_presentation_data_from_arguments_with_options_provided_through_refresh_method(): void
     {
         $elementPrefix = config('share-buttons.element_prefix');
         $elementSuffix = config('share-buttons.element_suffix');

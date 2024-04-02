@@ -14,7 +14,7 @@ class ProcessedCallTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_throw_an_exception_when_empty_name()
+    public function it_can_throw_an_exception_when_empty_name(): void
     {
         $this->expectException(InvalidProcessedCallArgument::class);
         $this->expectExceptionMessage('empty');
@@ -23,7 +23,7 @@ class ProcessedCallTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_creates_an_object_with_a_name_only()
+    public function it_creates_an_object_with_a_name_only(): void
     {
         $name = 'twitter';
 
@@ -34,7 +34,7 @@ class ProcessedCallTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_creates_an_object_with_the_provided_state()
+    public function it_creates_an_object_with_the_provided_state(): void
     {
         $name = 'facebook';
         $options = ['title' => 'test'];

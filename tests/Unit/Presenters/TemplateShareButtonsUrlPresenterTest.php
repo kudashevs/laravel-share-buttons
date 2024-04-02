@@ -17,7 +17,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_an_empty_url_when_wrong_name()
+    public function it_can_generate_an_empty_url_when_wrong_name(): void
     {
         $generatedUrl = $this->presenter->generateUrl('wrong', []);
 
@@ -28,7 +28,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentShareButtonsValues
      */
-    public function it_can_generate_a_url(string $name, array $arguments, string $expected)
+    public function it_can_generate_a_url(string $name, array $arguments, string $expected): void
     {
         $generatedUrl = $this->presenter->generateUrl($name, $arguments);
 
@@ -254,7 +254,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_hashed_url_for_copylink()
+    public function it_can_generate_a_hashed_url_for_copylink(): void
     {
         config()->set('share-buttons.buttons.copylink.extra.hash', true);
 
@@ -264,7 +264,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_url_with_infromation_from_defaults()
+    public function it_can_generate_a_url_with_infromation_from_defaults(): void
     {
         $expectedUrl = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
 
@@ -277,7 +277,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_url_with_information_from_call_options()
+    public function it_can_generate_a_url_with_information_from_call_options(): void
     {
         $expectedUrl = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title';
 
@@ -290,7 +290,7 @@ class TemplateShareButtonsUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_url_with_summary_for_linkedin()
+    public function it_can_generate_a_url_with_summary_for_linkedin(): void
     {
         $expectedUrl = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
 
