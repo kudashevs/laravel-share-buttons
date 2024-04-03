@@ -43,13 +43,6 @@ class ShareButtons
     protected string $pageTitle;
 
     /**
-     * Extra runtime options.
-     *
-     * @var array<string, string>
-     */
-    protected array $options = [];
-
-    /**
      * Contain processed calls.
      *
      * @var array<string, ProcessedCall>
@@ -62,8 +55,6 @@ class ShareButtons
     public function __construct(array $options = [])
     {
         $this->initPresenter($options);
-
-        $this->initOptions($options);
     }
 
     /**
@@ -80,27 +71,6 @@ class ShareButtons
     protected function createPresenter(array $options): ShareButtonsPresenter
     {
         return new TemplateShareButtonsPresenter($options);
-    }
-
-    /**
-     * @param array<string, string> $options
-     */
-    protected function initOptions(array $options): void
-    {
-        $applicable = $this->retrieveApplicableOptions($options);
-
-        $this->options = array_merge($this->options, $applicable);
-    }
-
-    /**
-     * @param array<string, string> $options
-     * @return array<string, string>
-     */
-    protected function retrieveApplicableOptions(array $options): array
-    {
-        return array_filter($options, function ($value, $name) {
-            return isset($this->options[$name]) && gettype($this->options[$name]) === gettype($value);
-        }, ARRAY_FILTER_USE_BOTH);
     }
 
     /**
