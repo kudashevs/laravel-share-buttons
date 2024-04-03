@@ -98,8 +98,8 @@ class ShareButtons
      */
     protected function retrieveApplicableOptions(array $options): array
     {
-        return array_filter($options, function ($option, $name) {
-            return isset($this->options[$name]) && gettype($this->options[$name]) === gettype($option);
+        return array_filter($options, function ($value, $name) {
+            return isset($this->options[$name]) && gettype($this->options[$name]) === gettype($value);
         }, ARRAY_FILTER_USE_BOTH);
     }
 
