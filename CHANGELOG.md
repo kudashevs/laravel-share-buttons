@@ -6,7 +6,7 @@ All Notable changes to `laravel-share-buttons` will be documented in this file
 
 - Increase the minimum supported `orchestra/testbench` version
 - Add a `phpstan/phpstan` dev dependency
-- Add Github Action with PHPStan analysis tool
+- Add a Github Action with PHPStan analysis tool
 - Update PHPDoc types
 - Update README.md
 - Some improvements
