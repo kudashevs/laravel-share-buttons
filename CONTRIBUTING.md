@@ -1,9 +1,6 @@
 # Contributing
 
-Contribution is **welcome**. However, if you have a good idea on how to improve this package please propose it to the
-original [Laravel Share](https://github.com/jorenvh/laravel-share) package too.
-
-Please read and understand the contribution guide before creating an issue or pull request.
+Contribution is **welcome**. Please read and understand the contribution guide before creating an issue or pull request.
 
 ## Etiquette
 
