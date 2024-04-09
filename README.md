@@ -188,34 +188,6 @@ will overwrite the global options if there is any overlap. At the moment, the pa
 'summary' => 'value'             # Adds a summary text to the URL (linkedin button only)
 ```
 
-## A detailed usage example
-
-To summarize all of the information above, we begin with a method that starts a fluent interface and accepts some global options. Then we chain the methods
-that create social media share buttons and accept the local options (optional parameters). Then we use one of the methods to return the resulting HTML code.
-```php
-ShareButtons::page('https://site.com', 'Page title', [
-        'block_prefix' => '<ul>',
-        'block_suffix' => '</ul>',
-        'element_prefix' => '<li>',
-        'element_suffix' => '</li>',
-        'class' => 'my-class',
-        'id' => 'my-id',
-        'title' => 'my-title',
-        'rel' => 'nofollow noopener noreferrer',
-    ])
-    ->facebook()
-    ->linkedin(['id' => 'linked', 'class' => 'hover', 'rel' => 'follow', 'summary' => 'cool summary'])
-    ->render();
-```
-
-The code above will result into the following HTML code:
-```html
-<ul>
-    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
-    <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=cool+summary" class="social-button hover" id="linked" title="my-title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
-</ul>
-```
-
 ## Configuration
 
 The configuration settings are located in the `config/share-buttons.php` file.
@@ -254,6 +226,35 @@ that will be changed during processing. The format of substituted elements depen
 'templater'                         # A template engine (templater) class
 ```
  
+
+## A detailed usage example
+
+To summarize all of the information above, we begin with a method that starts a fluent interface and accepts some global options. Then we chain the methods
+that create social media share buttons and accept the local options (optional parameters). Then we use one of the methods to return the resulting HTML code.
+```php
+ShareButtons::page('https://site.com', 'Page title', [
+        'block_prefix' => '<ul>',
+        'block_suffix' => '</ul>',
+        'element_prefix' => '<li>',
+        'element_suffix' => '</li>',
+        'class' => 'my-class',
+        'id' => 'my-id',
+        'title' => 'my-title',
+        'rel' => 'nofollow noopener noreferrer',
+    ])
+    ->facebook()
+    ->linkedin(['id' => 'linked', 'class' => 'hover', 'rel' => 'follow', 'summary' => 'cool summary'])
+    ->render();
+```
+
+The code above will result into the following HTML code:
+```html
+<ul>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsite.com&quote=Page+title" class="social-button my-class" id="my-id" title="my-title" rel="nofollow noopener noreferrer"><span class="fab fa-facebook-square"></span></a></li>
+    <li><a href="https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fsite.com&title=Page+title&summary=cool+summary" class="social-button hover" id="linked" title="my-title" rel="follow"><span class="fab fa-linkedin"></span></a></li>
+</ul>
+```
+
 
 ## Testing
 
