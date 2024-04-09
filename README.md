@@ -116,8 +116,8 @@ createForCurrentPage($title, $options)    # Does the same (an alias of the curre
 
 ### Add buttons
 
-To create a single social media share button, you just need to add one of the following methods to the method chaining. Each of these
-methods accepts an array of options (you can find more information about these options in the [Optional parameters](#optional-parameters) section).
+To generate a single social media button, you just need to add one of the following methods to the [method chaining](#fluent-interface).
+Each method accepts an array of options (more information about these options in the [local options](#local-options) section).
 
 [//]: # (@todo don't forget to update these methods)
 ```
@@ -158,11 +158,11 @@ getRawLinks()           # Returns an array of generated links
 
 ## Parameters
 
-There is the possibility to provide different options to style and decorate the resulting HTML code at different levels.
+There is the possibility of providing different options to style and decorate the resulting HTML code at different levels.
 
-### Global options (main parameters)
+### Global options
 
-Every time a chaining method is called it accepts several arguments, including a page URL (depending on the method), a page title,
+Every time a chaining method is called, it accepts several arguments, including a page URL (depending on the method), a page title,
 and an array of options. These options are global because they change the representation of all share buttons. These options are:
 ```
 'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <div id="social-buttons">)
@@ -175,10 +175,10 @@ and an array of options. These options are global because they change the repres
 'rel' => 'value'                 # Adds an HTML rel attribute to the output links
 ```
 
-### Local options (optional parameters)
+### Local options
 
 Any of the [share button methods](#add-buttons), that generates a button, accepts several arguments. These options are local
-because they will be applied to the specific element only. The local options have a **higher priority**. Therefore, they
+because they will be applied to a specific element only. The local options have a **higher priority**. Therefore, they
 will overwrite the global options if there is any overlap. At the moment, the package supports the following local options:
 ```
 'id' => 'value'                  # Adds an HTML id attribute to the button link
