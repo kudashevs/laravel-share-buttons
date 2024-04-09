@@ -177,9 +177,9 @@ and an array of options. These options are global because they change the repres
 
 ### Local options (optional parameters)
 
-Each of the [add share button methods](#add-buttons) takes several arguments. These are local options that will be applied to
-the specific element only. The local options have the **higher priority**. Therefore, they will overwrite the global options
-if there is any overlap. At the moment, the package supports the following local options:
+Any of the [share button methods](#add-buttons), that generates a button, accepts several arguments. These options are local
+because they will be applied to the specific element only. The local options have a **higher priority**. Therefore, they
+will overwrite the global options if there is any overlap. At the moment, the package supports the following local options:
 ```
 'id' => 'value'                  # Adds an HTML id attribute to the button link
 'class' => 'value'               # Adds an HTML class attribute to the button link
