@@ -162,9 +162,8 @@ There is the possibility to provide different options to style and decorate the 
 
 ### Global options (main parameters)
 
-Every time a chaining method is called it takes several arguments, including a page URL (it depends on the exact method),
-a page title, and an array of options. These are global options that will be used to form the visual representation and 
-URLs of share buttons. They will be applied to every element during processing. These options include:
+Every time a chaining method is called it accepts several arguments, including a page URL (depending on the method), a page title,
+and an array of options. These options are global because they change the representation of all share buttons. These options are:
 ```
 'block_prefix' => 'tag'          # Sets a share buttons block prefix (default is <div id="social-buttons">)
 'block_suffix' => 'tag'          # Sets a share buttons block suffix (default is </div>)
