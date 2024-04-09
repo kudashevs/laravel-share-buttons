@@ -15,6 +15,8 @@ class LaravelTemplater implements Templater
      */
     public function process(string $template, array $replacements): string
     {
-        return trans($template, $replacements);
+        $result = trans($template, $replacements);
+
+        return is_string($result) ? $result : '';
     }
 }
