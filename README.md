@@ -84,7 +84,7 @@ After publishing, you can copy this file to your `public/js` folder and use it d
 
 ## Usage
 
-Let's take a look at a short usage example (you can find a detailed usage example in [the corresponding section](#a-detailed-usage-example)).
+Let's take a look at a short usage example (you can find a detailed usage example in the [corresponding section](#a-detailed-usage-example)).
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'title' => 'Page title',
@@ -143,7 +143,7 @@ These methods are a part of the fluent interface. Therefore, to create multiple 
 ### Getting share buttons
 
 You can use a ShareButtons instance as a string or cast it to a string to get ready-to-use HTML code. However, this is not the best way.
-If you want to be clear in your intentions, use `render` or `getShareButtons` methods to get the prepared result.
+If you want to be clear in your intentions, use one of the methods that return generated HTML code. These methods are:
 ```php
 render()                # Returns a generated share buttons HTML code
 getShareButtons()       # Does the same (an alias of the render() method)
