@@ -22,6 +22,7 @@ a flexible and convenient way within seconds. The package was originated from th
 * Copy the link
 * Mail the link
 
+
 ## Installation
 
 You can install the package via composer:
@@ -81,6 +82,7 @@ After publishing, you can copy this file to your `public/js` folder and use it d
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/share-buttons.jquery.js') }}"></script>
 ```
+
 
 ## Usage
 
@@ -228,7 +230,7 @@ these elements are:
 ```
 'templater'                         # A template engine (templater) class
 ```
- 
+
 
 ## A detailed usage example
 
