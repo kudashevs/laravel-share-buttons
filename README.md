@@ -232,8 +232,10 @@ these elements are:
 
 ## A detailed usage example
 
-To summarize all of the information above, we begin with a method that starts a fluent interface and accepts some global options. Then we chain the methods
-that create social media share buttons and accept the local options (optional parameters). Then we use one of the methods to return the resulting HTML code.
+To summarize all of the information from above, let's take a look at a real-life example. We begin with one of the methods
+that start the fluent interface, and we provide some global options. Then, we add some specific methods that generate social
+media share buttons. At this step, we can provide any local options, as it is done in the `linkedin()` method. Finally,
+we finish the fluent interface chain with one of the methods that return the resulting HTML code.
 ```php
 ShareButtons::page('https://site.com', 'Page title', [
         'block_prefix' => '<ul>',
