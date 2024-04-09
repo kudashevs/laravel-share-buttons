@@ -219,7 +219,7 @@ The code above will result into the following HTML code:
 
 ## Configuration
 
-All of the available configuration settings are located in the `config/share-buttons.php` file.
+The configuration settings are located in the `config/share-buttons.php` file.
 
 ### Representation section
 ```
