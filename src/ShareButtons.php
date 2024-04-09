@@ -76,7 +76,7 @@ class ShareButtons
     /**
      * @param string $url
      * @param string $title
-     * @param array<string, string> $options
+     * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
     public function page(string $url, string $title = '', array $options = []): self
@@ -102,7 +102,7 @@ class ShareButtons
 
     /**
      * @param string $title
-     * @param array<string, string> $options
+     * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
     public function currentPage(string $title = '', array $options = []): self
@@ -115,7 +115,7 @@ class ShareButtons
     /**
      * @param string $url
      * @param string $title
-     * @param array<string, string> $options
+     * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
     public function createForPage(string $url, string $title = '', array $options = []): self
@@ -125,7 +125,7 @@ class ShareButtons
 
     /**
      * @param string $title
-     * @param array<string, string> $options
+     * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
     public function createForCurrentPage(string $title = '', array $options = []): self
