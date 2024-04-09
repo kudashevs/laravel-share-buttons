@@ -204,7 +204,7 @@ This section contains settings related to the "container" in which the social me
 
 ### Share buttons section
 
-Each social media share button has its individual configuration settings.
+Each social media share button has its own individual configuration settings.
 ```
 'url' => 'value'                # A share button URL template (used to form a button's URL)
 'text' => 'value'               # A default text for the title (used when the page title is empty)
