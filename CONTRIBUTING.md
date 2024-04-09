@@ -48,7 +48,7 @@ or registered. Please, don't forget to update the list of providers in [README.m
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - the easiest way to apply the conventions is to use [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
+- **[PSR-12 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-12-extended-coding-style-guide.md)** - the easiest way to apply the conventions is to use [PHP Code Sniffer](http://pear.php.net/package/PHP_CodeSniffer).
 
 - **Add tests!** - your patch won't be accepted if it doesn't have any tests.
 
