@@ -135,7 +135,7 @@ class ShareButtons
 
     /**
      * @param string $name
-     * @param array<array-key, mixed> $arguments
+     * @param array<array-key, array<string, string>> $arguments
      * @return ShareButtons
      *
      * @throws BadMethodCallException
@@ -159,7 +159,7 @@ class ShareButtons
     }
 
     /**
-     * @param array<array-key, mixed> $arguments
+     * @param array<array-key, array<string, string>> $arguments
      * @return array<string, string>
      */
     protected function prepareApplicableArguments(array $arguments): array
@@ -173,7 +173,7 @@ class ShareButtons
     }
 
     /**
-     * @param array<array-key, mixed> $arguments
+     * @param array<array-key, array<string, string>> $arguments
      * @return array<string, string>
      */
     protected function retrieveApplicableArguments(array $arguments): array
@@ -186,7 +186,7 @@ class ShareButtons
     }
 
     /**
-     * @param array<array-key, mixed> $arguments
+     * @param array<array-key, array<string, string>> $arguments
      */
     protected function isAnyApplicableArgumentsProvided(array $arguments): bool
     {
