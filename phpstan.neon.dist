@@ -7,3 +7,4 @@ parameters:
         - src
     tmpDir: build/phpstan
     checkMissingIterableValueType: true
+    treatPhpDocTypesAsCertain: false
