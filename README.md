@@ -193,6 +193,8 @@ will overwrite the global options if there is any overlap. At the moment, the pa
 The configuration settings are located in the `config/share-buttons.php` file.
 
 ### Representation section
+
+This section contains settings related to the "container" in which the social media buttons will be displayed.
 ```
 'block_prefix' => 'tag'         # Sets a block prefix (default is <div id="social-buttons">)
 'block_suffix' => 'tag'         # Sets a block suffix (default is </div>)
@@ -211,8 +213,9 @@ Each social media share button has its individual configuration settings.
 
 ### Templates section
 
-Each share button has a link representation represented by a corresponding template. A template contains some elements
-that will be changed during processing. The format of substituted elements depends on the `templater` setting.
+Each share button has a corresponding link template. A template contains several elements that will be substituted with
+data from different arguments and options. The format of these elements depends on the `templater` setting. By default,
+these elements are:
 ```
 :url                            # Will be replaced with a prepared URL
 :id                             # Will be replaced with an id attribute
