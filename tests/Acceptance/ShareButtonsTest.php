@@ -93,7 +93,8 @@ class ShareButtonsTest extends ExtendedTestCase
             ->$media()
             ->getShareButtons();
 
-        $this->assertStringContainsString($expected, $readyHtml);
+        $expectedHtmlAttribute = sprintf(' href="%s"', $expected);
+        $this->assertStringContainsString($expectedHtmlAttribute, $readyHtml);
     }
 
     /**
