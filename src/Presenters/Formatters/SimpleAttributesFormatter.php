@@ -20,8 +20,8 @@ class SimpleAttributesFormatter implements AttributesFormatter
     {
         $formattedAttributes = [];
 
-        // We iterate over the constant, but not a parameter, because
-        // we want all the known attributes to be present in the result.
+        // Since we need all the attributes to be present in the result, we iterate over
+        // the attributes listed in the constant, rather than the provided attributes.
         foreach (self::KNOWN_ATTRIBUTE_FORMATS as $name => $format) {
             $formattedAttributes[$name] = isset($attributes[$name])
                 ? sprintf($format, trim($attributes[$name]))
