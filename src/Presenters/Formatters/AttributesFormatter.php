@@ -12,8 +12,8 @@ interface AttributesFormatter
     /**
      * Format and return formatted attributes.
      *
-     * @param array<array-key, string> $attributes
-     * @return array<string, string>
+     * @param array{class?:string, id?: string, title?: string, rel?: string} $attributes
+     * @return array{class: string, id: string, title: string, rel: string}
      */
     public function format(array $attributes): array;
 }
