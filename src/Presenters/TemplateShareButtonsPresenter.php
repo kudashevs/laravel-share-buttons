@@ -7,7 +7,7 @@ namespace Kudashevs\ShareButtons\Presenters;
 use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Presenters\Formatters\AttributesFormatter;
-use Kudashevs\ShareButtons\Presenters\Formatters\SimpleAttributesFormatter;
+use Kudashevs\ShareButtons\Presenters\Formatters\DefaultAttributesFormatter;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateShareButtonsPresenter implements ShareButtonsPresenter
@@ -72,7 +72,7 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
 
     protected function initAttributesFormatter(): void
     {
-        $this->formatter = new SimpleAttributesFormatter();
+        $this->formatter = new DefaultAttributesFormatter();
     }
 
     /**

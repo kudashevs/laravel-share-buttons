@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Presenters\Formatters;
 
-class SimpleAttributesFormatter implements AttributesFormatter
+class DefaultAttributesFormatter implements AttributesFormatter
 {
     protected const KNOWN_ATTRIBUTE_FORMATS = [
         'class' => ' %s',

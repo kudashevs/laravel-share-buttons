@@ -2,16 +2,16 @@
 
 namespace Kudashevs\ShareButtons\Tests\Unit\Presenters\Formatters;
 
-use Kudashevs\ShareButtons\Presenters\Formatters\SimpleAttributesFormatter;
+use Kudashevs\ShareButtons\Presenters\Formatters\DefaultAttributesFormatter;
 use PHPUnit\Framework\TestCase;
 
-class SimpleAttributesFormatterTest extends TestCase
+class DefaultAttributesFormatterTest extends TestCase
 {
-    private SimpleAttributesFormatter $formatter;
+    private DefaultAttributesFormatter $formatter;
 
     protected function setUp(): void
     {
-        $this->formatter = new SimpleAttributesFormatter();
+        $this->formatter = new DefaultAttributesFormatter();
     }
 
     /** @test */
