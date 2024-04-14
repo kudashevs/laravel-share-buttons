@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Presenters;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
-use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Presenters\Formatters\AttributesFormatter;
 use Kudashevs\ShareButtons\Presenters\Formatters\DefaultAttributesFormatter;
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
@@ -45,16 +43,6 @@ class TemplateBasedElementPresenter
         $this->initAttributesFormatter();
 
         $this->initRepresentation();
-    }
-
-    /**
-     * @param array<string, string> $options
-     *
-     * @throws InvalidTemplaterFactoryArgument
-     */
-    protected function initTemplater(array $options): void
-    {
-        $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
     protected function initUrlPresenter(): void
