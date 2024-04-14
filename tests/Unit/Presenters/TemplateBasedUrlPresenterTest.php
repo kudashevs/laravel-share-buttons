@@ -19,7 +19,10 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_an_empty_url_when_wrong_name(): void
     {
-        $generatedUrl = $this->presenter->generateUrl('wrong', []);
+        $generatedUrl = $this->presenter->generateUrl('wrong', [
+            'url' => 'any',
+            'text' => 'any',
+        ]);
 
         $this->assertSame('', $generatedUrl);
     }
@@ -42,6 +45,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'copylink',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://mysite.com',
             ],
@@ -49,6 +53,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'evernote',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://www.evernote.com/clip.action?url=https%3A%2F%2Fmysite.com&t=Default+share+text',
             ],
@@ -64,6 +69,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'facebook',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text',
             ],
@@ -79,6 +85,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'hackernews',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://news.ycombinator.com/submitlink?t=Default+share+text&u=https%3A%2F%2Fmysite.com',
             ],
@@ -94,6 +101,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'linkedin',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=',
             ],
@@ -118,6 +126,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'mailto',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'mailto:?subject=Default+share+text&body=https%3A%2F%2Fmysite.com',
             ],
@@ -141,6 +150,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'pocket',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://getpocket.com/edit?url=https%3A%2F%2Fmysite.com&title=Default+share+text',
             ],
@@ -156,6 +166,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'reddit',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://www.reddit.com/submit?title=Default+share+text&url=https%3A%2F%2Fmysite.com',
             ],
@@ -171,6 +182,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'skype',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://web.skype.com/share?url=https%3A%2F%2Fmysite.com&text=Default+share+text&source=button',
             ],
@@ -186,6 +198,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'telegram',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=Default+share+text',
             ],
@@ -201,6 +214,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'twitter',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://twitter.com/intent/tweet?text=Default+share+text&url=https%3A%2F%2Fmysite.com',
             ],
@@ -216,6 +230,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'vkontakte',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => '',
                 ],
                 'https://vk.com/share.php?url=https%3A%2F%2Fmysite.com&title=Default+share+text',
             ],
@@ -231,6 +246,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
                 'whatsapp',
                 [
                     'url' => 'https://mysite.com',
+                    'text' => 'Default share text',
                 ],
                 'https://wa.me/?text=https%3A%2F%2Fmysite.com%20Default+share+text',
             ],
@@ -258,7 +274,10 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     {
         config()->set('share-buttons.buttons.copylink.extra.hash', true);
 
-        $generatedUrl = $this->presenter->generateUrl('copylink', []);
+        $generatedUrl = $this->presenter->generateUrl('copylink', [
+            'url' => 'any',
+            'text' => 'any',
+        ]);
 
         $this->assertSame('#', $generatedUrl);
     }
@@ -270,7 +289,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
 
         $generatedUrl = $this->presenter->generateUrl('facebook', [
             'url' => 'https://mysite.com',
-            'text' => '',
+            'text' => 'Default share text',
         ]);
 
         $this->assertSame($expectedUrl, $generatedUrl);

@@ -35,7 +35,7 @@ class TemplateBasedUrlPresenter
      * Return a button's ready-to-use URL.
      *
      * @param string $name
-     * @param array<string, string> $arguments
+     * @param array{url: string, text: string, summary?: string} $arguments
      * @return string
      */
     public function generateUrl(string $name, array $arguments): string
