@@ -26,43 +26,29 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     /**
      * @param array{templater?: class-string, url_templater?: class-string} $options
      *
-     * @throws InvalidTemplaterFactoryArgument
+     * @throws InvalidOptionValue
      */
     public function __construct(array $options = [])
     {
-        $this->initBlockPresenter($options);
-        $this->initPresenter($options);
-        $this->initUrlPresenter($options);
+        $this->initMediator($options);
     }
 
     /**
-     * @param array{} $options
+     * @param array{templater?: class-string, url_templater?: class-string} $options
+     *
+     * @throws InvalidOptionValue
      */
-    protected function initBlockPresenter(array $options): void
+    protected function initMediator(array $options): void
     {
         $this->blockPresenter = new TemplateBasedBlockPresenter($options);
-    }
 
-    /**
-     * @param array{templater?: class-string, url_templater?: class-string} $options
-     */
-    protected function initPresenter(array $options): void
-    {
+        $templaterClass1 = $options['url_templater'] ?? self::DEFAULT_TEMPLATER_CLASS;
+        $templaterInstance1 = $this->createTemplater($templaterClass1);
+        $this->urlPresenter = new TemplateBasedUrlPresenter($templaterInstance1);
+
         $templaterClass = $options['templater'] ?? self::DEFAULT_TEMPLATER_CLASS;
         $templaterInstance = $this->createTemplater($templaterClass);
-
         $this->elementPresenter = new TemplateBasedElementPresenter($templaterInstance);
-    }
-
-    /**
-     * @param array{templater?: class-string, url_templater?: class-string} $options
-     */
-    protected function initUrlPresenter(array $options): void
-    {
-        $templaterClass = $options['url_templater'] ?? self::DEFAULT_TEMPLATER_CLASS;
-        $templaterInstance = $this->createTemplater($templaterClass);
-
-        $this->urlPresenter = new TemplateBasedUrlPresenter($templaterInstance);
     }
 
     /**
