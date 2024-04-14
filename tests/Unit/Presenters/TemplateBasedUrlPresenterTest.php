@@ -19,10 +19,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_can_generate_an_empty_url_when_wrong_name(): void
     {
-        $generatedUrl = $this->presenter->generateUrl('wrong', [
-            'url' => 'any',
-            'text' => 'any',
-        ]);
+        $generatedUrl = $this->presenter->generateUrl('wrong', $this->generateRequiredArguments());
 
         $this->assertSame('', $generatedUrl);
     }
@@ -320,5 +317,16 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
         ]);
 
         $this->assertSame($expectedUrl, $generatedUrl);;
+    }
+
+    /**
+     * @return array{url: string, text: string}
+     */
+    private function generateRequiredArguments(): array
+    {
+        return [
+            'url' => 'any',
+            'text' => 'any',
+        ];
     }
 }
