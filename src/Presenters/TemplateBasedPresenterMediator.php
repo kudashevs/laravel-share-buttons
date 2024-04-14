@@ -14,7 +14,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 
     protected TemplateBasedBlockPresenter $blockPresenter;
 
-    protected TemplateShareButtonsPresenter $presenter;
+    protected TemplateShareButtonsPresenter $elementPresenter;
 
     protected TemplateShareButtonsUrlPresenter $urlPresenter;
 
@@ -54,7 +54,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function initPresenter(array $options): void
     {
-        $this->presenter = new TemplateShareButtonsPresenter($options);
+        $this->elementPresenter = new TemplateShareButtonsPresenter($options);
     }
 
     /**
@@ -68,7 +68,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     public function refresh(array $options): void
     {
         $this->blockPresenter->refresh($options);
-        $this->presenter->refresh($options);
+        $this->elementPresenter->refresh($options);
     }
 
     public function getBlockPrefix(): string
@@ -83,17 +83,17 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 
     public function getElementPrefix(): string
     {
-        return $this->presenter->getElementPrefix();
+        return $this->elementPresenter->getElementPrefix();
     }
 
     public function getElementSuffix(): string
     {
-        return $this->presenter->getElementSuffix();
+        return $this->elementPresenter->getElementSuffix();
     }
 
     public function getElementBody(string $name, array $arguments): string
     {
-        return $this->presenter->getElementBody($name, $arguments);
+        return $this->elementPresenter->getElementBody($name, $arguments);
     }
 
     public function getElementUrl(string $name, array $arguments): string
