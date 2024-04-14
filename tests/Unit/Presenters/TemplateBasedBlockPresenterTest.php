@@ -7,6 +7,9 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateBasedBlockPresenterTest extends ExtendedTestCase
 {
+    const DEFAULT_BLOCK_PREFIX = '<div id="social-buttons">';
+    const DEFAULT_BLOCK_SUFFIX = '</div>';
+
     private TemplateBasedBlockPresenter $presenter;
 
     protected function setUp(): void
@@ -35,6 +38,16 @@ class TemplateBasedBlockPresenterTest extends ExtendedTestCase
     public static function provideDifferentPresentationOptions(): array
     {
         return [
+            'no options provided results in the default prefix' => [
+                [],
+                'getBlockPrefix',
+                self::DEFAULT_BLOCK_PREFIX,
+            ],
+            'no options provided results in the default suffix' => [
+                [],
+                'getBlockSuffix',
+                self::DEFAULT_BLOCK_SUFFIX,
+            ],
             'block_prefix option with open div results in open div' => [
                 ['block_prefix' => '<div>'],
                 'getBlockPrefix',
