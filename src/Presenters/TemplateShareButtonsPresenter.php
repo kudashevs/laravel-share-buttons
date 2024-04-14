@@ -10,7 +10,7 @@ use Kudashevs\ShareButtons\Presenters\Formatters\AttributesFormatter;
 use Kudashevs\ShareButtons\Presenters\Formatters\DefaultAttributesFormatter;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
-class TemplateShareButtonsPresenter implements ShareButtonsPresenter
+class TemplateShareButtonsPresenter
 {
     protected Templater $templater;
 
@@ -131,22 +131,6 @@ class TemplateShareButtonsPresenter implements ShareButtonsPresenter
     public function refresh(array $options): void
     {
         $this->initRepresentation($options);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getBlockPrefix(): string
-    {
-        return $this->styling['block_prefix'];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getBlockSuffix(): string
-    {
-        return $this->styling['block_suffix'];
     }
 
     /**

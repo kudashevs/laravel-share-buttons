@@ -12,6 +12,8 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 {
     protected Templater $templater;
 
+    protected TemplateBasedBlockPresenter $blockPresenter;
+
     protected TemplateShareButtonsPresenter $presenter;
 
     protected TemplateShareButtonsUrlPresenter $urlPresenter;
