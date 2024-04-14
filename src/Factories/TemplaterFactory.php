@@ -28,7 +28,10 @@ final class TemplaterFactory
 
         if (!self::isValidTemplater($class)) {
             throw new InvalidTemplaterFactoryArgument(
-                sprintf('The %s is not a valid class name for a templater.', $class)
+                sprintf(
+                    '%s is not a valid templater class. Check if it implements the Templater interface.',
+                    $class
+                )
             );
         }
 
