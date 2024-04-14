@@ -109,6 +109,42 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_retrieve_values_from_configuration_on_refresh(): void
+    {
+        $elementPrefix = '<element>';
+        $elementSuffix = '</element>';
+
+        config()->set('share-buttons.element_prefix', $elementPrefix);
+        config()->set('share-buttons.element_suffix', $elementSuffix);
+
+        $this->presenter->refresh();
+
+        $this->assertEquals($elementPrefix, $this->presenter->getElementPrefix());
+        $this->assertEquals($elementSuffix, $this->presenter->getElementSuffix());
+    }
+
+    /** @test */
+    public function it_cannot_update_values_from_arguments_with_wrong_type_on_refresh(): void
+    {
+        $this->presenter->refresh(['element_prefix' => 42, 'element_suffix' => 42]);
+
+        $this->assertEquals(self::DEFAULT_ELEMENT_PREFIX, $this->presenter->getElementPrefix());
+        $this->assertEquals(self::DEFAULT_ELEMENT_SUFFIX, $this->presenter->getElementSuffix());
+    }
+
+    /** @test */
+    public function it_can_update_values_from_arguments_with_correct_type_on_refresh(): void
+    {
+        $elementPrefix = '<p>';
+        $elementSuffix = '</p>';
+
+        $this->presenter->refresh(['element_prefix' => $elementPrefix, 'element_suffix' => $elementSuffix]);
+
+        $this->assertEquals($elementPrefix, $this->presenter->getElementPrefix());
+        $this->assertEquals($elementSuffix, $this->presenter->getElementSuffix());
+    }
+
+    /** @test */
     public function it_can_format_an_element_with_presentation_data_from_configuration(): void
     {
         $elementPrefix = config('share-buttons.element_prefix');
