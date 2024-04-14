@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons\Presenters;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
-use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
@@ -31,20 +30,9 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     public function __construct(array $options = [])
     {
-        $this->initTemplater($options);
         $this->initBlockPresenter($options);
         $this->initPresenter($options);
         $this->initUrlPresenter($options);
-    }
-
-    /**
-     * @param array{templater?: class-string, urlTemplater?: class-string} $options
-     *
-     * @throws InvalidTemplaterFactoryArgument
-     */
-    protected function initTemplater(array $options): void
-    {
-        $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
     /**
