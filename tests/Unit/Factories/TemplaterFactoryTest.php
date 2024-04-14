@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class TemplaterFactoryTest extends TestCase
 {
     /** @test */
-    public function it_can_throw_an_exception_when_an_unknown_formatter_is_provided(): void
+    public function it_can_throw_an_exception_when_an_unknown_templater_is_provided(): void
     {
         $this->expectException(InvalidTemplaterFactoryArgument::class);
         $this->expectExceptionMessage('not a valid');
