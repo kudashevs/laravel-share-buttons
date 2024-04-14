@@ -7,11 +7,7 @@ namespace Kudashevs\ShareButtons\Templaters;
 class SimpleColonTemplater implements Templater
 {
     /**
-     * {@inheritDoc}
-     *
-     * @param string $template
-     * @param array<string, string> $replacements
-     * @return string
+     * @inheritDoc
      */
     public function process(string $template, array $replacements): string
     {
