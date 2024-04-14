@@ -26,6 +26,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     public function __construct(array $options = [])
     {
         $this->initTemplater($options);
+        $this->initBlockPresenter($options);
         $this->initPresenter($options);
         $this->initUrlPresenter($options);
     }
@@ -38,6 +39,14 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     protected function initTemplater(array $options): void
     {
         $this->templater = TemplaterFactory::createFromOptions($options);
+    }
+
+    /**
+     * @param array{} $options
+     */
+    protected function initBlockPresenter(array $options): void
+    {
+        $this->blockPresenter = new TemplateBasedBlockPresenter($options);
     }
 
     /**
@@ -58,17 +67,18 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 
     public function refresh(array $options): void
     {
+        $this->blockPresenter->refresh($options);
         $this->presenter->refresh($options);
     }
 
     public function getBlockPrefix(): string
     {
-        return $this->presenter->getBlockPrefix();
+        return $this->blockPresenter->getBlockPrefix();
     }
 
     public function getBlockSuffix(): string
     {
-        return $this->presenter->getBlockSuffix();
+        return $this->blockPresenter->getBlockSuffix();
     }
 
     public function getElementPrefix(): string
