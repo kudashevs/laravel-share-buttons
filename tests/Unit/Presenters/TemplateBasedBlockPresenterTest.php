@@ -104,4 +104,31 @@ class TemplateBasedBlockPresenterTest extends ExtendedTestCase
             ],
         ];
     }
+
+    /** @test */
+    public function it_can_retrieve_values_from_configuration_on_refresh_method(): void
+    {
+        $blockPrefix = '<element>';
+        $blockSuffix = '</element>';
+
+        config()->set('share-buttons.block_prefix', $blockPrefix);
+        config()->set('share-buttons.block_suffix', $blockSuffix);
+
+        $this->presenter->refresh();
+
+        $this->assertEquals($blockPrefix, $this->presenter->getBlockPrefix());
+        $this->assertEquals($blockSuffix, $this->presenter->getBlockSuffix());
+    }
+
+    /** @test */
+    public function it_can_update_values_from_arguments_on_refresh_method(): void
+    {
+        $blockPrefix = '<p>';
+        $blockSuffix = '</p>';
+
+        $this->presenter->refresh(['block_prefix' => $blockPrefix, 'block_suffix' => $blockSuffix]);
+
+        $this->assertEquals($blockPrefix, $this->presenter->getBlockPrefix());
+        $this->assertEquals($blockSuffix, $this->presenter->getBlockSuffix());
+    }
 }

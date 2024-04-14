@@ -39,7 +39,7 @@ class TemplateBasedBlockPresenter
      * @param array{block_prefix?: string, block_suffix?: string} $options
      * @return void
      */
-    public function refresh(array $options): void
+    public function refresh(array $options = []): void
     {
         $this->initRepresentation($options);
     }
