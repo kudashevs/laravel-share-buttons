@@ -24,8 +24,6 @@ class TemplateBasedElementPresenter
      * @var array{'block_prefix': string, 'block_suffix': string, 'element_prefix': string, 'element_suffix': string}
      */
     protected array $styling = [
-        'block_prefix' => '',
-        'block_suffix' => '',
         'element_prefix' => '',
         'element_suffix' => '',
     ];
@@ -82,7 +80,6 @@ class TemplateBasedElementPresenter
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
-        $this->initBlockWrappers($applicable);
         $this->initElementWrappers($applicable);
         $this->initElementAttributes($applicable);
     }
@@ -94,15 +91,6 @@ class TemplateBasedElementPresenter
     protected function retrieveApplicableOptions(array $options): array
     {
         return array_filter($options, 'is_string');
-    }
-
-    /**
-     * @param array<string, string> $options
-     */
-    protected function initBlockWrappers(array $options): void
-    {
-        $this->styling['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
-        $this->styling['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
     }
 
     /**
