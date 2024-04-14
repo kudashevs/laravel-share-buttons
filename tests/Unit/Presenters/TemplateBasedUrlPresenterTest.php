@@ -267,6 +267,19 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_generate_a_full_url_for_copylink(): void
+    {
+        config()->set('share-buttons.buttons.copylink.extra.hash', false);
+
+        $generatedUrl = $this->presenter->generateUrl('copylink', [
+            'url' => 'https://mysite.com',
+            'text' => 'any',
+        ]);
+
+        $this->assertSame('https://mysite.com', $generatedUrl);
+    }
+
+    /** @test */
     public function it_can_generate_a_hashed_url_for_copylink(): void
     {
         config()->set('share-buttons.buttons.copylink.extra.hash', true);
