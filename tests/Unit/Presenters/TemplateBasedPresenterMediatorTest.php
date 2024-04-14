@@ -185,9 +185,9 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
 
     /**
      * @test
-     * @dataProvider provideDifferentOptions
+     * @dataProvider provideDifferentAttributeOptions
      */
-    public function it_can_format_an_element_body_with_presentation_data_from_options(
+    public function it_can_apply_provided_attributes_to_an_element(
         string $url,
         array $options,
         string $expected
@@ -203,7 +203,7 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         $this->assertEquals($expected, $elementBody);
     }
 
-    public static function provideDifferentOptions(): array
+    public static function provideDifferentAttributeOptions(): array
     {
         return [
             'check class option' => [
