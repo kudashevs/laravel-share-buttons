@@ -55,7 +55,8 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function initPresenter(array $options): void
     {
-        $this->elementPresenter = new TemplateBasedElementPresenter($options);
+        $templater = new SimpleColonTemplater(); // @note don't forget to update
+        $this->elementPresenter = new TemplateBasedElementPresenter($templater);
     }
 
     /**

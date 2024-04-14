@@ -3,6 +3,8 @@
 namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 
 use Kudashevs\ShareButtons\Presenters\TemplateBasedElementPresenter;
+use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
+use Kudashevs\ShareButtons\Templaters\Templater;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateBasedElementPresenterTest extends ExtendedTestCase
@@ -16,7 +18,8 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->presenter = new TemplateBasedElementPresenter();
+        $templater = $this->createDefaultTemplater();
+        $this->presenter = new TemplateBasedElementPresenter($templater);
     }
 
     /**
@@ -269,5 +272,10 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
         return $this->presenter->getElementPrefix()
             . $this->presenter->getElementBody($name, $arguments)
             . $this->presenter->getElementSuffix();
+    }
+
+    private function createDefaultTemplater(): Templater
+    {
+        return new SimpleColonTemplater();
     }
 }

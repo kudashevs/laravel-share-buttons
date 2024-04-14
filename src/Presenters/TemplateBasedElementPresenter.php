@@ -37,18 +37,14 @@ class TemplateBasedElementPresenter
      */
     protected array $attributes = [];
 
-    /**
-     * @param array<string, string> $options
-     *
-     * @throws InvalidTemplaterFactoryArgument
-     */
-    public function __construct(array $options = [])
+    public function __construct(Templater $templater)
     {
-        $this->initTemplater($options);
-        $this->initUrlPresenter($options);
+        $this->templater = $templater;
+
+        $this->initUrlPresenter();
         $this->initAttributesFormatter();
 
-        $this->initRepresentation($options);
+        $this->initRepresentation();
     }
 
     /**
@@ -61,10 +57,7 @@ class TemplateBasedElementPresenter
         $this->templater = TemplaterFactory::createFromOptions($options);
     }
 
-    /**
-     * @param array<string, string> $options
-     */
-    protected function initUrlPresenter(array $options): void
+    protected function initUrlPresenter(): void
     {
         $templater = new SimpleColonTemplater(); // @note don't forget to update
         $this->urlPresenter = new TemplateBasedUrlPresenter($templater);
@@ -78,7 +71,7 @@ class TemplateBasedElementPresenter
     /**
      * @param array<string, string> $options
      */
-    protected function initRepresentation(array $options): void
+    protected function initRepresentation(array $options = []): void
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
@@ -118,7 +111,7 @@ class TemplateBasedElementPresenter
      * @param array<string, string> $options
      * @return void
      */
-    public function refresh(array $options): void
+    public function refresh(array $options = []): void
     {
         $this->initRepresentation($options);
     }
