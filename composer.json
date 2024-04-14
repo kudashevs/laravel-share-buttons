@@ -12,7 +12,9 @@
     "authors": [
         {
             "name": "Sergey Kudashev",
-            "email": "kudashevs@gmail.com"
+            "email": "kudashevs@gmail.com",
+            "homepage": "https://kudashevs.com",
+            "role": "Developer"
         },
         {
             "name": "Joren Van Hocht",
