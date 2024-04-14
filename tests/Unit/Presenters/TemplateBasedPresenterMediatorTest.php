@@ -2,6 +2,7 @@
 
 namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 
+use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\Presenters\TemplateBasedPresenterMediator;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -14,6 +15,17 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         parent::setUp(); // it goes first to set up an application
 
         $this->mediator = new TemplateBasedPresenterMediator();
+    }
+
+    /** @test */
+    public function it_can_throw_an_exception_when_a_wrong_templater_option(): void
+    {
+        $this->expectException(InvalidOptionValue::class);
+        $this->expectExceptionMessage('not a valid');
+
+        new TemplateBasedPresenterMediator([
+            'templater' => \stdClass::class,
+        ]);
     }
 
     /**

@@ -4,13 +4,18 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Presenters;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
+use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 {
+    /**
+     * @var class-string<Templater>
+     */
+    const DEFAULT_TEMPLATER_CLASS = SimpleColonTemplater::class;
+
     protected Templater $templater;
 
     protected TemplateBasedBlockPresenter $blockPresenter;
@@ -55,8 +60,10 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function initPresenter(array $options): void
     {
-        $templater = new SimpleColonTemplater(); // @note don't forget to update
-        $this->elementPresenter = new TemplateBasedElementPresenter($templater);
+        $templaterClass = $options['templater'] ?? self::DEFAULT_TEMPLATER_CLASS;
+        $templaterInstance = $this->createTemplater($templaterClass);
+
+        $this->elementPresenter = new TemplateBasedElementPresenter($templaterInstance);
     }
 
     /**
@@ -66,6 +73,28 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     {
         $templater = new SimpleColonTemplater(); // @note don't forget to update
         $this->urlPresenter = new TemplateBasedUrlPresenter($templater);
+    }
+
+    /**
+     * @throws InvalidOptionValue
+     */
+    protected function createTemplater(string $class): Templater
+    {
+        if (!$this->isValidTemplater($class)) {
+            throw new InvalidOptionValue(
+                sprintf(
+                    '%s is not a valid templater class. Check if it implements the Templater interface.',
+                    $class
+                )
+            );
+        }
+
+        return new $class();
+    }
+
+    private function isValidTemplater(string $class): bool
+    {
+        return class_exists($class) && is_a($class, Templater::class, true);
     }
 
     public function refresh(array $options): void
