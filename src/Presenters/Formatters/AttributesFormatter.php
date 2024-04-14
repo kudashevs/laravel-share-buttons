@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons\Presenters\Formatters;
 
 /**
- * AttributesFormatter represents an abstraction that formats attributes of a share buttons element.
+ * It represents an abstraction that formats attributes of a social media button link.
  */
 interface AttributesFormatter
 {
