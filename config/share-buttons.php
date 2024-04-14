@@ -7,12 +7,12 @@ return [
     | Representation
     |--------------------------------------------------------------------------
     |
-    | These values specify representations of different parts of share buttons.
+    | These values specify representations for different visual parts of buttons.
     |
-    | Block representation:
+    | Visual block/Visual container representation:
     | - 'block_prefix' represents a share buttons block start
     | - 'block_suffix' represents a share buttons block end
-    | Element representation:
+    | Each element representation:
     | - 'element_prefix' represents an element start
     | - 'element_suffix' represents an element end
     |
@@ -28,8 +28,8 @@ return [
     | Share buttons
     |--------------------------------------------------------------------------
     |
-    | These values specify some configuration settings for the social share buttons.
-    | These settings include a share button url, a default share text, some extras.
+    | These values specify configuration settings for each social media button.
+    | The settings include a sharing url, a default text in the url, some extras.
     | The format of substitution depends on a templater (see Templaters section).
     |
     */
@@ -106,7 +106,7 @@ return [
     | Templates
     |--------------------------------------------------------------------------
     |
-    | These values specify templates for the elements of the social share buttons.
+    | These values specify link templates for each of the social media buttons.
     | The format of substitution depends on a templater (see Templaters section).
     | Note: Don't remove the social-button class from links because it's used in js.
     |
@@ -137,8 +137,8 @@ return [
     |
     | This package uses a simple template engine to substitute values in different
     | configuration settings and templates. If you want to change the substitution
-    | format, feel free to use your favorite template engine (in this case you
-    | should add an adapter that must conform to the Templater interface).
+    | format, feel free to use your favorite template engine (in this case it is
+    | recommended to introduce an adapter that conforms to the Templater interface).
     |
     */
 
