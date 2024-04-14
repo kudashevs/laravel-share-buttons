@@ -14,7 +14,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 
     protected TemplateBasedBlockPresenter $blockPresenter;
 
-    protected TemplateShareButtonsPresenter $elementPresenter;
+    protected TemplateBasedElementPresenter $elementPresenter;
 
     protected TemplateBasedUrlPresenter $urlPresenter;
 
@@ -54,7 +54,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function initPresenter(array $options): void
     {
-        $this->elementPresenter = new TemplateShareButtonsPresenter($options);
+        $this->elementPresenter = new TemplateBasedElementPresenter($options);
     }
 
     /**

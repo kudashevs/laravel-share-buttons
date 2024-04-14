@@ -10,7 +10,7 @@ use Kudashevs\ShareButtons\Presenters\Formatters\AttributesFormatter;
 use Kudashevs\ShareButtons\Presenters\Formatters\DefaultAttributesFormatter;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
-class TemplateShareButtonsPresenter
+class TemplateBasedElementPresenter
 {
     protected Templater $templater;
 
