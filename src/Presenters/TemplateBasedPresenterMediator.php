@@ -40,7 +40,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function initMediator(array $options): void
     {
-        $this->blockPresenter = new TemplateBasedBlockPresenter($options);
+        $this->blockPresenter = new TemplateBasedBlockPresenter();
 
         $templaterClass1 = $options['url_templater'] ?? self::DEFAULT_TEMPLATER_CLASS;
         $templaterInstance1 = $this->createTemplater($templaterClass1);

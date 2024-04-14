@@ -16,18 +16,15 @@ class TemplateBasedBlockPresenter
         'block_suffix' => '',
     ];
 
-    /**
-     * @param array{} $options
-     */
-    public function __construct(array $options = [])
+    public function __construct()
     {
-        $this->initRepresentation($options);
+        $this->initRepresentation();
     }
 
     /**
      * @param array{block_prefix?: string, block_suffix?: string} $options
      */
-    protected function initRepresentation(array $options): void
+    protected function initRepresentation(array $options = []): void
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
