@@ -16,7 +16,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 
     protected TemplateShareButtonsPresenter $elementPresenter;
 
-    protected TemplateShareButtonsUrlPresenter $urlPresenter;
+    protected TemplateBasedUrlPresenter $urlPresenter;
 
     /**
      * @param array{templater?: class-string, urlTemplater?: class-string} $options
@@ -62,7 +62,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function initUrlPresenter(array $options): void
     {
-        $this->urlPresenter = new TemplateShareButtonsUrlPresenter($options);
+        $this->urlPresenter = new TemplateBasedUrlPresenter($options);
     }
 
     public function refresh(array $options): void

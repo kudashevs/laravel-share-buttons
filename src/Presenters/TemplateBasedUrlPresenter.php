@@ -8,7 +8,7 @@ use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
-class TemplateShareButtonsUrlPresenter
+class TemplateBasedUrlPresenter
 {
     protected Templater $templater;
 

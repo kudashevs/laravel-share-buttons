@@ -14,7 +14,7 @@ class TemplateShareButtonsPresenter
 {
     protected Templater $templater;
 
-    protected TemplateShareButtonsUrlPresenter $urlPresenter;
+    protected TemplateBasedUrlPresenter $urlPresenter;
 
     protected AttributesFormatter $formatter;
 
@@ -67,7 +67,7 @@ class TemplateShareButtonsPresenter
      */
     protected function initUrlPresenter(array $options): void
     {
-        $this->urlPresenter = new TemplateShareButtonsUrlPresenter($options);
+        $this->urlPresenter = new TemplateBasedUrlPresenter($options);
     }
 
     protected function initAttributesFormatter(): void
