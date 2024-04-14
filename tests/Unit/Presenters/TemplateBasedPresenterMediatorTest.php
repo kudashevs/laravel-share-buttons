@@ -56,13 +56,13 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
                 '</p>',
             ],
             'block_prefix option with open article results in open article' => [
-                ['element_prefix' => '<article>'],
-                'getElementPrefix',
+                ['block_prefix' => '<article>'],
+                'getBlockPrefix',
                 '<article>',
             ],
             'block_suffix option with close article results in close article' => [
-                ['element_suffix' => '</article>'],
-                'getElementSuffix',
+                ['block_suffix' => '</article>'],
+                'getBlockSuffix',
                 '</article>',
             ],
             'block_prefix option with empty string results in empty string' => [
