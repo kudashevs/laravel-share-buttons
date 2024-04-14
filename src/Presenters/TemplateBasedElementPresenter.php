@@ -80,7 +80,7 @@ class TemplateBasedElementPresenter
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
-        $this->initElementWrappers($applicable);
+        $this->initElementRepresentation($applicable);
         $this->initElementAttributes($applicable);
     }
 
@@ -96,7 +96,7 @@ class TemplateBasedElementPresenter
     /**
      * @param array<string, string> $options
      */
-    protected function initElementWrappers(array $options): void
+    protected function initElementRepresentation(array $options): void
     {
         $this->styling['element_prefix'] = $options['element_prefix'] ?? config('share-buttons.element_prefix', '<li>');
         $this->styling['element_suffix'] = $options['element_suffix'] ?? config('share-buttons.element_suffix', '</li>');
