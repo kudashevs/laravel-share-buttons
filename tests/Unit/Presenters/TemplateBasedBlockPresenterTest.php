@@ -119,7 +119,7 @@ class TemplateBasedBlockPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_retrieve_values_from_configuration_on_refresh_method(): void
+    public function it_can_retrieve_values_from_configuration_on_refresh(): void
     {
         $blockPrefix = '<element>';
         $blockSuffix = '</element>';
@@ -144,7 +144,7 @@ class TemplateBasedBlockPresenterTest extends ExtendedTestCase
 
 
     /** @test */
-    public function it_can_update_values_from_arguments_on_refresh_method(): void
+    public function it_can_update_values_from_arguments_with_correct_type_on_refresh(): void
     {
         $blockPrefix = '<p>';
         $blockSuffix = '</p>';
