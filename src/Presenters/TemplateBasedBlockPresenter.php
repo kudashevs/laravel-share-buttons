@@ -21,7 +21,26 @@ class TemplateBasedBlockPresenter
      */
     public function __construct(array $options = [])
     {
-        $this->initRepresentation($options);
+        $this->init($options);
+    }
+
+    /**
+     * @param array{block_prefix?: string, block_suffix?: string} $options
+     */
+    protected function init(array $options): void
+    {
+        $applicable = $this->retrieveApplicableOptions($options);
+
+        $this->initRepresentation($applicable);
+    }
+
+    /**
+     * @param array<string, string> $options
+     * @return array<string, string>
+     */
+    protected function retrieveApplicableOptions(array $options): array
+    {
+        return array_filter($options, 'is_string');
     }
 
     /**
@@ -41,7 +60,7 @@ class TemplateBasedBlockPresenter
      */
     public function refresh(array $options = []): void
     {
-        $this->initRepresentation($options);
+        $this->init($options);
     }
 
     /**

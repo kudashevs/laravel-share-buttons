@@ -134,6 +134,16 @@ class TemplateBasedBlockPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_cannot_update_values_from_arguments_with_wrong_type_on_refresh(): void
+    {
+        $this->presenter->refresh(['block_prefix' => 42, 'block_suffix' => 42]);
+
+        $this->assertEquals(self::DEFAULT_BLOCK_PREFIX, $this->presenter->getBlockPrefix());
+        $this->assertEquals(self::DEFAULT_BLOCK_SUFFIX, $this->presenter->getBlockSuffix());
+    }
+
+
+    /** @test */
     public function it_can_update_values_from_arguments_on_refresh_method(): void
     {
         $blockPrefix = '<p>';
