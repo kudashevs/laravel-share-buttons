@@ -7,13 +7,13 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
 {
-    private TemplateBasedPresenterMediator $presenter;
+    private TemplateBasedPresenterMediator $mediator;
 
     protected function setUp(): void
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->presenter = new TemplateBasedPresenterMediator();
+        $this->mediator = new TemplateBasedPresenterMediator();
     }
 
     /**
@@ -25,9 +25,9 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         string $method,
         string $expected
     ): void {
-        $this->presenter->refresh($options);
+        $this->mediator->refresh($options);
 
-        $presentation = $this->presenter->$method();
+        $presentation = $this->mediator->$method();
 
         $this->assertSame($expected, $presentation);
     }
@@ -116,7 +116,7 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
     {
         $expected = config('share-buttons.' . $configuration);
 
-        $presentation = $this->presenter->$method();
+        $presentation = $this->mediator->$method();
 
         $this->assertSame($expected, $presentation);
     }
@@ -170,7 +170,7 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a>';
         $expected = $elementPrefix . $elementBody . $elementSuffix;
 
-        $this->presenter->refresh(['element_prefix' => $elementPrefix, 'element_suffix' => $elementSuffix]);
+        $this->mediator->refresh(['element_prefix' => $elementPrefix, 'element_suffix' => $elementSuffix]);
 
         $element = $this->generateElement(
             'facebook',
@@ -192,7 +192,7 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         array $options,
         string $expected
     ): void {
-        $elementBody = $this->presenter->getElementBody(
+        $elementBody = $this->mediator->getElementBody(
             'facebook',
             array_merge([
                 'url' => $url,
@@ -278,7 +278,7 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a>';
         $expected = $elementPrefix . $elementBody . $elementSuffix;
 
-        $this->presenter->refresh([
+        $this->mediator->refresh([
             'class' => 'options',
             'id' => 'options',
             'title' => 'options',
@@ -307,8 +307,8 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
      */
     private function generateElement(string $name, array $arguments): string
     {
-        return $this->presenter->getElementPrefix()
-            . $this->presenter->getElementBody($name, $arguments)
-            . $this->presenter->getElementSuffix();
+        return $this->mediator->getElementPrefix()
+            . $this->mediator->getElementBody($name, $arguments)
+            . $this->mediator->getElementSuffix();
     }
 }
