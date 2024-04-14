@@ -28,6 +28,17 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         ]);
     }
 
+    /** @test */
+    public function it_can_throw_an_exception_when_a_wrong_url_templater_option(): void
+    {
+        $this->expectException(InvalidOptionValue::class);
+        $this->expectExceptionMessage('not a valid');
+
+        new TemplateBasedPresenterMediator([
+            'url_templater' => \stdClass::class,
+        ]);
+    }
+
     /**
      * @test
      * @dataProvider provideDifferentPresentationOptions

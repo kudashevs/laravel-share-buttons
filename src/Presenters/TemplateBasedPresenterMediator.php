@@ -25,7 +25,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     protected TemplateBasedUrlPresenter $urlPresenter;
 
     /**
-     * @param array{templater?: class-string, urlTemplater?: class-string} $options
+     * @param array{templater?: class-string, url_templater?: class-string} $options
      *
      * @throws InvalidTemplaterFactoryArgument
      */
@@ -56,7 +56,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     }
 
     /**
-     * @param array{templater?: class-string, urlTemplater?: class-string} $options
+     * @param array{templater?: class-string, url_templater?: class-string} $options
      */
     protected function initPresenter(array $options): void
     {
@@ -67,12 +67,14 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
     }
 
     /**
-     * @param array{templater?: class-string, urlTemplater?: class-string} $options
+     * @param array{templater?: class-string, url_templater?: class-string} $options
      */
     protected function initUrlPresenter(array $options): void
     {
-        $templater = new SimpleColonTemplater(); // @note don't forget to update
-        $this->urlPresenter = new TemplateBasedUrlPresenter($templater);
+        $templaterClass = $options['url_templater'] ?? self::DEFAULT_TEMPLATER_CLASS;
+        $templaterInstance = $this->createTemplater($templaterClass);
+
+        $this->urlPresenter = new TemplateBasedUrlPresenter($templaterInstance);
     }
 
     /**
