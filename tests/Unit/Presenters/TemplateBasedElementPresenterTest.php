@@ -7,6 +7,9 @@ use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateBasedElementPresenterTest extends ExtendedTestCase
 {
+    const DEFAULT_ELEMENT_PREFIX = '';
+    const DEFAULT_ELEMENT_SUFFIX = '';
+
     private TemplateBasedElementPresenter $presenter;
 
     protected function setUp(): void
@@ -35,6 +38,16 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
     public static function provideDifferentPresentationOptions(): array
     {
         return [
+            'no options provided results in the default prefix' => [
+                [],
+                'getElementPrefix',
+                self::DEFAULT_ELEMENT_PREFIX,
+            ],
+            'no options provided results in the default suffix' => [
+                [],
+                'getElementSuffix',
+                self::DEFAULT_ELEMENT_SUFFIX,
+            ],
             'element_prefix option with open p results in open p' => [
                 ['element_prefix' => '<p>'],
                 'getElementPrefix',
