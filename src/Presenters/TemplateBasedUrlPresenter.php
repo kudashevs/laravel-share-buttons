@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Kudashevs\ShareButtons\Presenters;
 
-use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
-use Kudashevs\ShareButtons\Factories\TemplaterFactory;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateBasedUrlPresenter
@@ -14,21 +12,9 @@ class TemplateBasedUrlPresenter
 
     protected string $name;
 
-    /**
-     * @param array<string, string> $options
-     */
-    public function __construct(array $options = [])
+    public function __construct(Templater $templater)
     {
-        $this->initTemplater($options);
-    }
-
-    /**
-     * @param array<string, string> $options
-     * @throws InvalidTemplaterFactoryArgument
-     */
-    private function initTemplater(array $options): void
-    {
-        $this->templater = TemplaterFactory::createFromOptions($options);
+        $this->templater = $templater;
     }
 
     /**

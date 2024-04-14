@@ -3,6 +3,8 @@
 namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 
 use Kudashevs\ShareButtons\Presenters\TemplateBasedUrlPresenter;
+use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
+use Kudashevs\ShareButtons\Templaters\Templater;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
 class TemplateBasedUrlPresenterTest extends ExtendedTestCase
@@ -13,7 +15,8 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     {
         parent::setUp(); // it goes first to set up an application
 
-        $this->presenter = new TemplateBasedUrlPresenter();
+        $templater = $this->createDefaultTemplater();
+        $this->presenter = new TemplateBasedUrlPresenter($templater);
     }
 
     /** @test */
@@ -341,5 +344,10 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
             'url' => 'any',
             'text' => 'any',
         ];
+    }
+
+    private function createDefaultTemplater(): Templater
+    {
+        return new SimpleColonTemplater();
     }
 }
