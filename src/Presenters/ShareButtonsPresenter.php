@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons\Presenters;
 
 /**
- * ShareButtonsPresenter represents an abstraction that is responsible for a visual representation of the share buttons.
+ * It represents an abstraction that is responsible for a visual representation of the social media buttons.
  */
 interface ShareButtonsPresenter
 {
