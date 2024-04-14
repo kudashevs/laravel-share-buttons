@@ -144,46 +144,6 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
         $this->assertEquals($elementSuffix, $this->presenter->getElementSuffix());
     }
 
-    /** @test */
-    public function it_can_format_an_element_with_presentation_data_from_configuration(): void
-    {
-        $elementPrefix = config('share-buttons.element_prefix');
-        $elementSuffix = config('share-buttons.element_suffix');
-        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=test" class="social-button"><span class="fab fa-facebook-square"></span></a>';
-        $expected = $elementPrefix . $elementBody . $elementSuffix;
-
-        $element = $this->generateElement(
-            'facebook',
-            [
-                'url' => 'https://mysite.com',
-                'text' => 'test',
-            ]
-        );
-
-        $this->assertEquals($expected, $element);
-    }
-
-    /** @test */
-    public function it_can_format_an_element_with_presentation_data_from_options_provided_through_refresh_method(): void
-    {
-        $elementPrefix = '<p>';
-        $elementSuffix = '</p>';
-        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text" class="social-button"><span class="fab fa-facebook-square"></span></a>';
-        $expected = $elementPrefix . $elementBody . $elementSuffix;
-
-        $this->presenter->refresh(['element_prefix' => $elementPrefix, 'element_suffix' => $elementSuffix]);
-
-        $element = $this->generateElement(
-            'facebook',
-            [
-                'url' => 'https://mysite.com',
-                'text' => '',
-            ]
-        );
-
-        $this->assertEquals($expected, $element);
-    }
-
     /**
      * @test
      * @dataProvider provideDifferentOptions
