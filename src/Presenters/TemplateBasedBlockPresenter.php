@@ -21,17 +21,17 @@ class TemplateBasedBlockPresenter
      */
     public function __construct(array $options = [])
     {
-        $this->init($options);
+        $this->initRepresentation($options);
     }
 
     /**
      * @param array{block_prefix?: string, block_suffix?: string} $options
      */
-    protected function init(array $options): void
+    protected function initRepresentation(array $options): void
     {
         $applicable = $this->retrieveApplicableOptions($options);
 
-        $this->initRepresentation($applicable);
+        $this->initBlockRepresentation($applicable);
     }
 
     /**
@@ -46,7 +46,7 @@ class TemplateBasedBlockPresenter
     /**
      * @param array{block_prefix?: string, block_suffix?: string} $options
      */
-    protected function initRepresentation(array $options): void
+    protected function initBlockRepresentation(array $options): void
     {
         $this->styling['block_prefix'] = $options['block_prefix'] ?? config('share-buttons.block_prefix', '<ul>');
         $this->styling['block_suffix'] = $options['block_suffix'] ?? config('share-buttons.block_suffix', '</ul>');
@@ -60,7 +60,7 @@ class TemplateBasedBlockPresenter
      */
     public function refresh(array $options = []): void
     {
-        $this->init($options);
+        $this->initRepresentation($options);
     }
 
     /**
