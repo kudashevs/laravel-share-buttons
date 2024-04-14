@@ -6,7 +6,7 @@ namespace Kudashevs\ShareButtons;
 
 use BadMethodCallException;
 use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
-use Kudashevs\ShareButtons\Presenters\TemplateShareButtonsPresenter;
+use Kudashevs\ShareButtons\Presenters\TemplateBasedPresenterMediator;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
 /**
@@ -70,7 +70,7 @@ class ShareButtons
      */
     protected function createPresenter(array $options): ShareButtonsPresenter
     {
-        return new TemplateShareButtonsPresenter($options);
+        return new TemplateBasedPresenterMediator($options);
     }
 
     /**
