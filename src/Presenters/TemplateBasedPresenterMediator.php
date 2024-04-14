@@ -6,6 +6,7 @@ namespace Kudashevs\ShareButtons\Presenters;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidTemplaterFactoryArgument;
 use Kudashevs\ShareButtons\Factories\TemplaterFactory;
+use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateBasedPresenterMediator implements ShareButtonsPresenter
@@ -62,7 +63,8 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function initUrlPresenter(array $options): void
     {
-        $this->urlPresenter = new TemplateBasedUrlPresenter($options);
+        $templater = new SimpleColonTemplater(); // @note don't forget to update
+        $this->urlPresenter = new TemplateBasedUrlPresenter($templater);
     }
 
     public function refresh(array $options): void
