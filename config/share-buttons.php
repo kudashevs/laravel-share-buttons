@@ -144,4 +144,6 @@ return [
 
     'templater' => \Kudashevs\ShareButtons\Templaters\LaravelTemplater::class,
 
+    'url_templater' => \Kudashevs\ShareButtons\Templaters\LaravelTemplater::class,
+
 ];
