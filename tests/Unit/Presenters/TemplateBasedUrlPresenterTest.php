@@ -307,7 +307,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_url_with_infromation_from_defaults(): void
+    public function it_can_generate_a_url_with_information_from_defaults(): void
     {
         $expectedUrl = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
 
