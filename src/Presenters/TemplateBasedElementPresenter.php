@@ -13,8 +13,6 @@ class TemplateBasedElementPresenter
 {
     protected Templater $templater;
 
-    protected TemplateBasedUrlPresenter $urlPresenter;
-
     protected AttributesFormatter $formatter;
 
     /**
@@ -39,16 +37,9 @@ class TemplateBasedElementPresenter
     {
         $this->templater = $templater;
 
-        $this->initUrlPresenter();
         $this->initAttributesFormatter();
 
         $this->initRepresentation();
-    }
-
-    protected function initUrlPresenter(): void
-    {
-        $templater = new SimpleColonTemplater(); // @note don't forget to update
-        $this->urlPresenter = new TemplateBasedUrlPresenter($templater);
     }
 
     protected function initAttributesFormatter(): void
