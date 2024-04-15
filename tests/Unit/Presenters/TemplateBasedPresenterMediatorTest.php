@@ -206,6 +206,42 @@ class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
         $this->assertEquals($expected, $element);
     }
 
+    /** @test */
+    public function it_can_generate_a_full_url_for_copylink(): void
+    {
+        config()->set('share-buttons.buttons.copylink.extra.hash', false);
+
+        $expected = '<a href="https://mysite.com" class="social-button" id="clip"><span class="fas fa-share"></span></a>';
+
+        $element = $this->generateElement(
+            'copylink',
+            [
+                'url' => 'https://mysite.com',
+                'text' => 'any',
+            ]
+        );
+
+        $this->assertSame($expected, $element);
+    }
+
+    /** @test */
+    public function it_can_generate_a_hashed_url_for_copylink(): void
+    {
+        config()->set('share-buttons.buttons.copylink.extra.hash', true);
+
+        $expected = '<a href="#" class="social-button" id="clip"><span class="fas fa-share"></span></a>';
+
+        $element = $this->generateElement(
+            'copylink',
+            [
+                'url' => 'https://mysite.com',
+                'text' => 'any',
+            ]
+        );
+
+        $this->assertSame($expected, $element);
+    }
+
     /**
      * @test
      * @dataProvider provideDifferentAttributeOptions
