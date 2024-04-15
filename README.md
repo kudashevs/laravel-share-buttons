@@ -208,9 +208,13 @@ This section contains settings related to the "container" in which the social me
 
 Each social media share button has its own individual configuration settings.
 ```
-'url' => 'value'                # A share button URL template (used to form a button's URL)
-'text' => 'value'               # A default text for the title (used when the page title is empty)
-'extra' => []                   # Extra options which are required by some specific buttons
+'url' => 'value'                # A share button URL template (is used to generate a button's URL)
+'text' => 'value'               # A default text to be added to the url (is used when the page title is empty)
+'extra' => [                    # Extra options that are required by some specific buttons
+    'summary' => 'value'        # A default summary to be added to the url (linkedin button only) 
+    'raw' => 'value'            # A boolean defines whether to skip the URL-encoding of the url
+    'hash' => 'value'           # A boolean defines whether to use a hash instead of the url
+]
 ```
 
 ### Templates section
