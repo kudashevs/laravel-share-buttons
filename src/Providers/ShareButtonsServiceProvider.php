@@ -6,6 +6,7 @@ namespace Kudashevs\ShareButtons\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Kudashevs\ShareButtons\ShareButtons;
+use Kudashevs\ShareButtons\Templaters\Templater;
 
 class ShareButtonsServiceProvider extends ServiceProvider
 {
@@ -43,7 +44,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     }
 
     /**
-     * @return array<string, string>
+     * @return array{templater?: class-string<Templater>, url_templater?: class-string<Templater>}
      */
     protected function prepareConfig(): array
     {
@@ -51,6 +52,8 @@ class ShareButtonsServiceProvider extends ServiceProvider
             'templater' => config('share-buttons.templater'),
         ];
 
-        return array_filter($config);
+        return array_filter($config, fn($templater) => is_string($templater)
+            && is_a($templater, Templater::class, true)
+        );
     }
 }
