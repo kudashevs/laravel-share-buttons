@@ -50,6 +50,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     {
         $config = [
             'templater' => config('share-buttons.templater'),
+            'url_templater' => config('share-buttons.url_templater'),
         ];
 
         return array_filter($config, fn($templater) => is_string($templater)
