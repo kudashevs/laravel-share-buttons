@@ -8,6 +8,9 @@ use Kudashevs\ShareButtons\Templaters\Templater;
 
 class TemplateBasedUrlPresenter
 {
+    // Some extras are not supposed to be a part of the substitution process.
+    const EXTRA_EXCLUSIONS = ['raw', 'hash'];
+
     protected Templater $templater;
 
     protected string $name;
@@ -100,10 +103,9 @@ class TemplateBasedUrlPresenter
      */
     protected function retrieveExtras(): array
     {
-        $exclusions = ['raw', 'hash'];
         $extras = config('share-buttons.buttons.' . $this->name . '.extra', []);
 
-        return array_diff_key($extras, array_flip($exclusions));
+        return array_diff_key($extras, array_flip(self::EXTRA_EXCLUSIONS));
     }
 
     /**
