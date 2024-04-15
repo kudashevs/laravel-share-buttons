@@ -31,6 +31,8 @@ return [
     | These values specify configuration settings for each social media button.
     | The settings include a sharing url, a default text in the url, some extras.
     | The format of substitution depends on a templater (see Templaters section).
+    | Note: It is allowed to provide a site's url to the copylink button, because
+    | some people might want to see it there, even though using a hash is enough.
     |
     */
 
