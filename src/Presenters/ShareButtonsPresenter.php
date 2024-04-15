@@ -10,9 +10,9 @@ namespace Kudashevs\ShareButtons\Presenters;
 interface ShareButtonsPresenter
 {
     /**
-     * Refresh styling (style of layout elements) of the share buttons.
+     * Refresh styling (style of elements representation) of the share buttons.
      *
-     * @param array<array-key, string> $options
+     * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return void
      */
     public function refresh(array $options): void;
@@ -49,7 +49,7 @@ interface ShareButtonsPresenter
      * Return a representation of an element's body.
      *
      * @param string $name
-     * @param array<array-key, string> $arguments
+     * @param array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
      * @return string
      */
     public function getElementBody(string $name, array $arguments): string;
@@ -58,7 +58,7 @@ interface ShareButtonsPresenter
      * Return a representation of an element's URL.
      *
      * @param string $name
-     * @param array<array-key, string> $arguments
+     * @param array{url: string, text: string, summary?: string} $arguments
      * @return string
      */
     public function getElementUrl(string $name, array $arguments): string;
