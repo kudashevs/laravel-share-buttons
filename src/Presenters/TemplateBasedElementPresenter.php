@@ -146,11 +146,10 @@ class TemplateBasedElementPresenter
      */
     protected function retrieveReplacements(string $name, array $arguments): array
     {
-        $elementUrl = $this->getElementUrl($name, $arguments);
         $elementAttributes = $this->retrieveAttributes($arguments);
 
         return array_merge([
-            'url' => $elementUrl,
+            'url' => $arguments['url'],
         ], $elementAttributes);
     }
 
@@ -163,17 +162,5 @@ class TemplateBasedElementPresenter
         $attributes = array_merge($this->attributes, $arguments);
 
         return $this->formatter->format($attributes);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param string $name
-     * @param array<string, string> $arguments
-     * @return string
-     */
-    public function getElementUrl(string $name, array $arguments): string
-    {
-        return $this->urlPresenter->generateUrl($name, $arguments);
     }
 }

@@ -171,35 +171,35 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
     {
         return [
             'check class option' => [
-                'https://mysite.com',
+                'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title',
                 [
                     'class' => 'tested',
                 ],
                 '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button tested"><span class="fab fa-facebook-square"></span></a>',
             ],
             'check id option' => [
-                'https://mysite.com',
+                'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title',
                 [
                     'id' => 'tested',
                 ],
                 '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" id="tested"><span class="fab fa-facebook-square"></span></a>',
             ],
             'check title option' => [
-                'https://mysite.com',
+                'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title',
                 [
                     'title' => 'tested',
                 ],
                 '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" title="tested"><span class="fab fa-facebook-square"></span></a>',
             ],
             'check rel option' => [
-                'https://mysite.com',
+                'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title',
                 [
                     'rel' => 'nofollow',
                 ],
                 '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button" rel="nofollow"><span class="fab fa-facebook-square"></span></a>',
             ],
             'check all of the options' => [
-                'https://mysite.com',
+                'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title',
                 [
                     'rel' => 'nofollow',
                     'title' => 'Title',
@@ -214,15 +214,12 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_override_presentation_data_with_options_provided_directly_without_calling_refresh_method(): void
     {
-        $elementPrefix = config('share-buttons.element_prefix');
-        $elementSuffix = config('share-buttons.element_suffix');
-        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a>';
-        $expected = $elementPrefix . $elementBody . $elementSuffix;
+        $expected = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a>';
 
-        $element = $this->generateElement(
+        $element = $this->presenter->getElementBody(
             'facebook',
             [
-                'url' => 'https://mysite.com',
+                'url' => 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title',
                 'text' => 'Title',
                 'element_prefix' => '<wrong>',
                 'element_suffix' => '</wrong>',
@@ -235,10 +232,7 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
     /** @test */
     public function it_cannot_override_presentation_data_from_arguments_with_options_provided_through_refresh_method(): void
     {
-        $elementPrefix = config('share-buttons.element_prefix');
-        $elementSuffix = config('share-buttons.element_suffix');
-        $elementBody = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a>';
-        $expected = $elementPrefix . $elementBody . $elementSuffix;
+        $expected = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a>';
 
         $this->presenter->refresh([
             'class' => 'options',
@@ -247,10 +241,10 @@ class TemplateBasedElementPresenterTest extends ExtendedTestCase
             'rel' => 'options',
         ]);
 
-        $element = $this->generateElement(
+        $element = $this->presenter->getElementBody(
             'facebook',
             [
-                'url' => 'https://mysite.com',
+                'url' => 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title',
                 'text' => 'Title',
                 'class' => 'arguments',
                 'id' => 'arguments',
