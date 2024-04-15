@@ -2,6 +2,17 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v5.1.0 - 2024-04-15](https://github.com/kudashevs/laravel-share-buttons/compare/v5.0.1...v5.1.0)
+
+- Add a `url_templater` configuration option
+- Add an `InvalidOptionValue` exception
+- Refactor `TemplateShareButtonsPresenter` to `TemplateBasedPresenterMediator`
+- Remove factories
+- Fix some test cases
+- Fix some docblocks
+- Update README.md
+- Some improvements
+
 ## [v5.0.1 - 2024-04-02](https://github.com/kudashevs/laravel-share-buttons/compare/v5.0.0...v5.0.1)
 
 - Increase the minimum supported `orchestra/testbench` version
