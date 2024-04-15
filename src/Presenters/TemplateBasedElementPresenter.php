@@ -137,7 +137,7 @@ class TemplateBasedElementPresenter
      */
     protected function retrieveReplacements(array $arguments): array
     {
-        $elementAttributes = $this->retrieveAttributes($arguments);
+        $elementAttributes = $this->prepareAttributes($arguments);
 
         return array_merge([
             'url' => $arguments['url'],
@@ -145,10 +145,13 @@ class TemplateBasedElementPresenter
     }
 
     /**
+     * Prepare element's attributes. The preparation process includes:
+     * - format the attributes according to the formatter's rules
+     *
      * @param array<string, string> $arguments
      * @return array<string, string>
      */
-    protected function retrieveAttributes(array $arguments): array
+    protected function prepareAttributes(array $arguments): array
     {
         $attributes = array_merge($this->attributes, $arguments);
 
