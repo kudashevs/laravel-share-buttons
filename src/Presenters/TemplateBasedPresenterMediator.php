@@ -56,6 +56,7 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
      */
     protected function createTemplater(string $class): Templater
     {
+        /** @var class-string<Templater> $class */
         if (!$this->isValidTemplater($class)) {
             throw new InvalidOptionValue(
                 sprintf(
@@ -73,32 +74,50 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
         return class_exists($class) && is_a($class, Templater::class, true);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function refresh(array $options): void
     {
         $this->blockPresenter->refresh($options);
         $this->elementPresenter->refresh($options);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getBlockPrefix(): string
     {
         return $this->blockPresenter->getBlockPrefix();
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getBlockSuffix(): string
     {
         return $this->blockPresenter->getBlockSuffix();
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getElementPrefix(): string
     {
         return $this->elementPresenter->getElementPrefix();
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getElementSuffix(): string
     {
         return $this->elementPresenter->getElementSuffix();
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getElementBody(string $name, array $arguments): string
     {
         $preparedArguments = $this->prepareElementArguments($name, $arguments);
@@ -121,6 +140,9 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
         );
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getElementUrl(string $name, array $arguments): string
     {
         return $this->urlPresenter->generateUrl($name, $arguments);
