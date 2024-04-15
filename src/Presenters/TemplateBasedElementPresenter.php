@@ -17,7 +17,7 @@ class TemplateBasedElementPresenter
     /**
      * Contain options related to the representation of share buttons.
      *
-     * @var array{'block_prefix': string, 'block_suffix': string, 'element_prefix': string, 'element_suffix': string}
+     * @var array{element_prefix: string, element_suffix: string}
      */
     protected array $styling = [
         'element_prefix' => '',
@@ -28,7 +28,7 @@ class TemplateBasedElementPresenter
      * Contain attributes passed to the page() method (the global attributes). These attributes will be
      * automatically applied to all the elements in the case where no specific attributes are provided.
      *
-     * @var array<string, string>
+     * @var array{class?: string, id?: string, title?: string, rel?: string}
      */
     protected array $attributes = [];
 
@@ -47,7 +47,7 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * @param array<string, string> $options
+     * @param array{element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      */
     protected function initRepresentation(array $options = []): void
     {
@@ -67,7 +67,7 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * @param array<string, string> $options
+     * @param array{element_prefix?: string, element_suffix?: string} $options
      */
     protected function initElementRepresentation(array $options): void
     {
@@ -76,7 +76,7 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * @param array<string, string> $options
+     * @param array{id?: string, class?: string, title?: string, rel?: string} $options
      */
     protected function initElementAttributes(array $options): void
     {
@@ -84,9 +84,9 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * {@inheritDoc}
+     * Refresh styling (style of elements representation) of the share buttons.
      *
-     * @param array<string, string> $options
+     * @param array{element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return void
      */
     public function refresh(array $options = []): void
@@ -95,7 +95,7 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * @inheritDoc
+     * @see TemplateBasedPresenterMediator::getElementPrefix()
      */
     public function getElementPrefix(): string
     {
@@ -103,7 +103,7 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * @inheritDoc
+     * @see TemplateBasedPresenterMediator::getElementSuffix()
      */
     public function getElementSuffix(): string
     {
@@ -111,11 +111,8 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * {@inheritDoc}
-     *
-     * @param string $name
-     * @param array<string, string> $arguments
-     * @return string
+     * @param array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
+     * @see TemplateBasedPresenterMediator::getElementBody()
      */
     public function getElementBody(string $name, array $arguments): string
     {
@@ -131,8 +128,8 @@ class TemplateBasedElementPresenter
     }
 
     /**
-     * @param array<string, string> $arguments
-     * @return array<string, string>
+     * @param array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
+     * @return array{url: string, id: string, class: string, title: string, rel: string}
      */
     protected function retrieveReplacements(array $arguments): array
     {
@@ -147,8 +144,8 @@ class TemplateBasedElementPresenter
      * Prepare element's attributes. The preparation process includes:
      * - format the attributes according to the formatter's rules
      *
-     * @param array<string, string> $arguments
-     * @return array<string, string>
+     * @param array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
+     * @return array{class: string, id: string, title: string, rel: string}
      */
     protected function prepareAttributes(array $arguments): array
     {
