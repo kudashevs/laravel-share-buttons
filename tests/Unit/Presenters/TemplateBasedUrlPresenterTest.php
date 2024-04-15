@@ -281,25 +281,27 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_full_url_for_copylink(): void
+    public function it_can_provide_a_url_when_extra_hash_is_false(): void
     {
-        config()->set('share-buttons.buttons.copylink.extra.hash', false);
+        config()->set('share-buttons.buttons.twitter.extra.hash', false);
+        config()->set('share-buttons.buttons.twitter.url', ':url');
 
-        $generatedUrl = $this->presenter->generateUrl('copylink', [
-            'url' => 'https://mysite.com',
+        $generatedUrl = $this->presenter->generateUrl('twitter', [
+            'url' => 'url',
             'text' => 'any',
         ]);
 
-        $this->assertSame('https://mysite.com', $generatedUrl);
+        $this->assertSame('url', $generatedUrl);
     }
 
     /** @test */
-    public function it_can_generate_a_hashed_url_for_copylink(): void
+    public function it_can_provide_a_hash_when_extra_hash_is_true(): void
     {
-        config()->set('share-buttons.buttons.copylink.extra.hash', true);
+        config()->set('share-buttons.buttons.twitter.extra.hash', true);
+        config()->set('share-buttons.buttons.twitter.url', ':url');
 
-        $generatedUrl = $this->presenter->generateUrl('copylink', [
-            'url' => 'any',
+        $generatedUrl = $this->presenter->generateUrl('twitter', [
+            'url' => 'url',
             'text' => 'any',
         ]);
 
