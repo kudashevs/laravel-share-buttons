@@ -211,7 +211,7 @@ Each social media share button has its own individual configuration settings.
 'url' => 'value'                # A share button URL template (is used to generate a button's URL)
 'text' => 'value'               # A default text to be added to the url (is used when the page title is empty)
 'extra' => [                    # Extra options that are required by some specific buttons
-    'summary' => 'value'        # A default summary to be added to the url (linkedin button only) 
+    'summary' => 'value'        # A default summary to be added to the url (linkedin only) 
     'raw' => 'value'            # A boolean defines whether to skip the URL-encoding of the url
     'hash' => 'value'           # A boolean defines whether to use a hash instead of the url
 ]
@@ -231,8 +231,12 @@ these elements are:
 ```
 
 ### Templaters section
+
+For processing different templates and substitute elements in them, the package uses templaters (template engines).
+By default, these options are optional (if no value provided, the default templater will be used). 
 ```
-'templater'                         # A template engine (templater) class
+'templater'                     # A template engine for processing link templates
+'url_templater'                 # A template engine for processing share buttons URLs
 ```
 
 
