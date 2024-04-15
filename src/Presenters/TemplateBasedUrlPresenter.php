@@ -63,7 +63,7 @@ class TemplateBasedUrlPresenter
     protected function retrieveUrlReplacements(array $arguments): array
     {
         $elementReplacements = $this->retrieveElementReplacements();
-        $applicableArguments = array_filter($arguments, fn($argument) => $argument !== '');
+        $applicableArguments = $this->retrieveApplicableArguments($arguments);
 
         // Arguments override replacements because they have a higher priority.
         return array_merge($elementReplacements, $applicableArguments);
@@ -77,6 +77,15 @@ class TemplateBasedUrlPresenter
         return array_merge([
             'text' => $this->retrieveText(),
         ], $this->retrieveExtras());
+    }
+
+    /**
+     * @param array<string, string> $arguments
+     * @return array<string, string>
+     */
+    protected function retrieveApplicableArguments(array $arguments): array
+    {
+        return array_filter($arguments, fn($argument) => $argument !== '');
     }
 
     protected function retrieveText(): string
