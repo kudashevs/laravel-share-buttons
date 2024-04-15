@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kudashevs\ShareButtons;
 
 use BadMethodCallException;
+use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\Presenters\ShareButtonsPresenter;
 use Kudashevs\ShareButtons\Presenters\TemplateBasedPresenterMediator;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
@@ -50,7 +51,9 @@ class ShareButtons
     protected array $calls = [];
 
     /**
-     * @param array<string, string> $options
+     * @param array{templater?: class-string, url_templater?: class-string} $options
+     *
+     * @throws InvalidOptionValue
      */
     public function __construct(array $options = [])
     {
@@ -58,7 +61,9 @@ class ShareButtons
     }
 
     /**
-     * @param array<string, string> $options
+     * @param array{templater?: class-string, url_templater?: class-string} $options
+     *
+     * @throws InvalidOptionValue
      */
     protected function initPresenter(array $options): void
     {
@@ -66,7 +71,9 @@ class ShareButtons
     }
 
     /**
-     * @param array<string, string> $options
+     * @param array{templater?: class-string, url_templater?: class-string} $options
+     *
+     * @throws InvalidOptionValue
      */
     protected function createPresenter(array $options): ShareButtonsPresenter
     {
