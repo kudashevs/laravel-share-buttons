@@ -20,11 +20,22 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_an_empty_url_when_wrong_name(): void
+    public function it_can_handle_a_wrong_name_and_return_an_empty_url(): void
     {
         $generatedUrl = $this->presenter->generateUrl('wrong', $this->generateRequiredArguments());
 
         $this->assertSame('', $generatedUrl);
+    }
+
+    /** @test */
+    public function it_can_handle_an_empty_url_value(): void
+    {
+        $generatedUrl = $this->presenter->generateUrl('facebook', [
+            'url' => '',
+            'text' => 'Title',
+        ]);
+
+        $this->assertSame('https://www.facebook.com/sharer/sharer.php?u=&quote=Title', $generatedUrl);
     }
 
     /**

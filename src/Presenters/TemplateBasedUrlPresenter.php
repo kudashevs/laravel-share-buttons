@@ -85,7 +85,9 @@ class TemplateBasedUrlPresenter
      */
     protected function retrieveApplicableArguments(array $arguments): array
     {
-        return array_filter($arguments, fn($argument) => $argument !== '');
+        return array_filter($arguments, function ($value, $key) {
+            return is_string($value) && ($value !== '' || $key === 'url');
+        }, ARRAY_FILTER_USE_BOTH);
     }
 
     protected function retrieveText(): string
