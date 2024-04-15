@@ -100,7 +100,10 @@ class TemplateBasedUrlPresenter
      */
     protected function retrieveExtras(): array
     {
-        return config('share-buttons.buttons.' . $this->name . '.extra', []);
+        $exclusions = ['raw', 'hash'];
+        $extras = config('share-buttons.buttons.' . $this->name . '.extra', []);
+
+        return array_diff_key($extras, array_flip($exclusions));
     }
 
     /**
