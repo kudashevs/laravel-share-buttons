@@ -121,7 +121,7 @@ class TemplateBasedElementPresenter
     public function getElementBody(string $name, array $arguments): string
     {
         $template = $this->retrieveElementTemplate($name);
-        $replacements = $this->retrieveReplacements($name, $arguments);
+        $replacements = $this->retrieveReplacements($arguments);
 
         return $this->templater->process($template, $replacements);
     }
@@ -135,7 +135,7 @@ class TemplateBasedElementPresenter
      * @param array<string, string> $arguments
      * @return array<string, string>
      */
-    protected function retrieveReplacements(string $name, array $arguments): array
+    protected function retrieveReplacements(array $arguments): array
     {
         $elementAttributes = $this->retrieveAttributes($arguments);
 
