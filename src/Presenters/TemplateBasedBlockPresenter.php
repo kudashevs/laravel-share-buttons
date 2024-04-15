@@ -50,7 +50,7 @@ class TemplateBasedBlockPresenter
     }
 
     /**
-     * Refresh styling (style of layout elements) of the share buttons.
+     * Refresh styling (style of elements representation) of the share buttons.
      *
      * @param array{block_prefix?: string, block_suffix?: string} $options
      * @return void
@@ -61,7 +61,7 @@ class TemplateBasedBlockPresenter
     }
 
     /**
-     * @inheritDoc
+     * @see TemplateBasedPresenterMediator::getBlockPrefix()
      */
     public function getBlockPrefix(): string
     {
@@ -69,7 +69,7 @@ class TemplateBasedBlockPresenter
     }
 
     /**
-     * @inheritDoc
+     * @see TemplateBasedPresenterMediator::getBlockSuffix()
      */
     public function getBlockSuffix(): string
     {
