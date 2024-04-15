@@ -101,7 +101,24 @@ class TemplateBasedPresenterMediator implements ShareButtonsPresenter
 
     public function getElementBody(string $name, array $arguments): string
     {
-        return $this->elementPresenter->getElementBody($name, $arguments);
+        $preparedArguments = $this->prepareElementArguments($name, $arguments);
+
+        return $this->elementPresenter->getElementBody($name, $preparedArguments);
+    }
+
+    /**
+     * Prepare element's arguments. The preparation process includes:
+     * - convert a provided URL to a representation of the element's URL
+     *
+     * @param array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
+     * @return array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
+     */
+    protected function prepareElementArguments(string $name, array $arguments): array
+    {
+        return array_merge(
+            $arguments,
+            ['url' => $this->getElementUrl($name, $arguments)],
+        );
     }
 
     public function getElementUrl(string $name, array $arguments): string
