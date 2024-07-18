@@ -220,7 +220,7 @@ class ShareButtonsTest extends ExtendedTestCase
     public function it_returns_empty_from_get_share_buttons_method_when_no_calls_provided(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
-            ->getShareButtons();;
+            ->getShareButtons();
 
         $this->assertStringContainsString('', $readyHtml);
     }
