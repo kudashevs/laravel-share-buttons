@@ -300,6 +300,37 @@ class ShareButtonsTest extends ExtendedTestCase
         $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
+    /**
+     * @test
+     * @dataProvider provideIntersectionGlobalLocalOptions
+     */
+    public function it_can_override_global_options_with_local_options(string $option): void
+    {
+        $readyHtml = $this->share->page(
+            'https://mysite.com',
+            'test',
+            [
+                $option => 'global-options',
+            ]
+        )->linkedin([
+            $option => 'local-options',
+        ])->render();
+
+        $this->assertStringNotContainsString('global-options', $readyHtml);
+        $this->assertStringContainsString('local-options', $readyHtml);
+    }
+
+    public function provideIntersectionGlobalLocalOptions(): array
+    {
+        return [
+            'id' => ['id'],
+            'class' => ['class'],
+            'title' => ['title'],
+            'rel' => ['rel'],
+            'summary' => ['summary'],
+        ];
+    }
+
     /** @test */
     public function it_can_generate_multiple_links_with_extra_options(): void
     {
