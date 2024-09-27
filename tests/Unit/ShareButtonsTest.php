@@ -27,28 +27,38 @@ class ShareButtonsTest extends ExtendedTestCase
         $instance->page('https://mysite.com')->wrong()->getRawLinks();
     }
 
-    /** @test */
-    public function it_can_return_self_instance_from_page_method(): void
+    /**
+     * @test
+     * @dataProvider providePageMethods
+     */
+    public function it_can_start_method_chaining_from_any_page($method): void
     {
-        $this->assertInstanceOf(ShareButtons::class, $this->share->page('https://mysite.com'));
+        $this->assertInstanceOf(ShareButtons::class, $this->share->$method('https://mysite.com'));
     }
 
-    /** @test */
-    public function it_can_return_self_instance_from_current_page_method(): void
+    public static function providePageMethods(): array
     {
-        $this->assertInstanceOf(ShareButtons::class, $this->share->currentPage());
+        return [
+            'page method' => ['page'],
+            'createForPage method' => ['createForPage'],
+        ];
     }
 
-    /** @test */
-    public function it_can_return_self_instance_from_create_for_page_method(): void
+    /**
+     * @test
+     * @dataProvider provideCurrentPageMethods
+     */
+    public function it_can_start_method_chaining_from_current_page($method): void
     {
-        $this->assertInstanceOf(ShareButtons::class, $this->share->createForPage('https://mysite.com'));
+        $this->assertInstanceOf(ShareButtons::class, $this->share->$method());
     }
 
-    /** @test */
-    public function it_can_return_self_instance_from_create_for_current_page_method(): void
+    public static function provideCurrentPageMethods(): array
     {
-        $this->assertInstanceOf(ShareButtons::class, $this->share->createForCurrentPage());
+        return [
+            'currentPage method' => ['currentPage'],
+            'createForCurrentPage method' => ['createForCurrentPage'],
+        ];
     }
 
     /** @test */
