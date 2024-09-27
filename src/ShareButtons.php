@@ -167,15 +167,18 @@ class ShareButtons
 
     /**
      * @param array<array-key, array<string, string>> $arguments
-     * @return array<string, string>
+     * @return array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
      */
     protected function prepareApplicableArguments(array $arguments): array
     {
+        $initial = [
+            'text' => $this->pageTitle,
+        ];
+
         $applicable = $this->retrieveApplicableArguments($arguments);
 
-        return array_merge($applicable, [
+        return array_merge($initial, $applicable, [
             'url' => $this->pageUrl,
-            'text' => $this->pageTitle,
         ]);
     }
 

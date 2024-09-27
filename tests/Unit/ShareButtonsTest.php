@@ -332,6 +332,21 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_override_link_text_with_local_options(): void
+    {
+        $readyHtml = $this->share->page(
+            'https://mysite.com',
+            'global-text',
+            []
+        )->linkedin([
+            'text' => 'local-text',
+        ])->render();
+
+        $this->assertStringNotContainsString('global-text', $readyHtml);
+        $this->assertStringContainsString('local-text', $readyHtml);
+    }
+
+    /** @test */
     public function it_can_generate_multiple_links_with_extra_options(): void
     {
         $readyHtml = $this->share->page(
