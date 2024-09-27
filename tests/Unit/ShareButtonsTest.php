@@ -52,6 +52,15 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_be_stringified(): void
+    {
+        $instance = $this->share->page('https://mysite.com', 'any')->linkedin();
+
+        $this->assertInstanceOf(\Stringable::class, $instance);
+        $this->assertStringContainsString('linkedin', (string)$instance);
+    }
+
+    /** @test */
     public function it_can_create_one_link_with_a_predefined_title(): void
     {
         $title = config('share-buttons.buttons.twitter.text');
