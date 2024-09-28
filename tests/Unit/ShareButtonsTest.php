@@ -320,7 +320,7 @@ class ShareButtonsTest extends ExtendedTestCase
         $this->assertStringContainsString('local-options', $readyHtml);
     }
 
-    public function provideIntersectionGlobalLocalOptions(): array
+    public static function provideIntersectionGlobalLocalOptions(): array
     {
         return [
             'id' => ['id'],
