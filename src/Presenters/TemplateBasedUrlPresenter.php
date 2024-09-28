@@ -120,10 +120,18 @@ class TemplateBasedUrlPresenter
     protected function selfProcessReplacements(array $replacements): array
     {
         if (array_key_exists('text', $replacements)) {
-            $replacements['text'] = $this->templater->process($replacements['text'], $replacements);
+            $replacements['text'] = $this->selfProcessText($replacements);
         }
 
         return $replacements;
+    }
+
+    protected function selfProcessText(array $replacements): string
+    {
+        return $this->templater->process(
+            $replacements['text'],
+            $replacements,
+        );
     }
 
     /**
