@@ -29,7 +29,7 @@ use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
  * @method ShareButtons whatsapp(array $options = [])
  * @method ShareButtons xing(array $options = [])
  */
-class ShareButtons
+class ShareButtons implements \Stringable
 {
     protected ShareButtonsPresenter $presenter;
 
