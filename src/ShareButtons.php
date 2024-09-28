@@ -150,7 +150,7 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isExpectedCall($name)) {
-            $applicableArguments = $this->prepareApplicableArguments($arguments);
+            $applicableArguments = $this->retrieveApplicableArguments($arguments);
             $prioritizedArguments = $this->preparePrioritizedArguments($applicableArguments);
 
             $this->rememberProcessedCall($name, $prioritizedArguments);
@@ -165,15 +165,6 @@ class ShareButtons
     {
         return config()->has('share-buttons.buttons.' . $name)
             && config()->has('share-buttons.templates.' . $name);
-    }
-
-    /**
-     * @param array<array-key, array<string, string>> $arguments
-     * @return array{text?: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
-     */
-    protected function prepareApplicableArguments(array $arguments): array
-    {
-        return $this->retrieveApplicableArguments($arguments);
     }
 
     /**
