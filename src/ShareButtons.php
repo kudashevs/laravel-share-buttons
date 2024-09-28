@@ -150,8 +150,8 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isExpectedCall($name)) {
-            $applicableArguments = $this->retrieveApplicableArguments($arguments);
-            $prioritizedArguments = $this->preparePrioritizedArguments($applicableArguments);
+            $applicableArguments = $this->retrieveCallArguments($arguments);
+            $prioritizedArguments = $this->prioritizeArguments($applicableArguments);
 
             $this->rememberProcessedCall($name, $prioritizedArguments);
         } else {
@@ -171,9 +171,9 @@ class ShareButtons
      * @param array<array-key, array<string, string>> $arguments
      * @return array{text?: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
      */
-    protected function retrieveApplicableArguments(array $arguments): array
+    protected function retrieveCallArguments(array $arguments): array
     {
-        if ($this->isAnyApplicableArgumentsProvided($arguments)) {
+        if ($this->isAnyApplicableCallArguments($arguments)) {
             return array_filter($arguments[0], 'is_string');
         }
 
@@ -183,7 +183,7 @@ class ShareButtons
     /**
      * @param array<array-key, array<string, string>> $arguments
      */
-    protected function isAnyApplicableArgumentsProvided(array $arguments): bool
+    protected function isAnyApplicableCallArguments(array $arguments): bool
     {
         return isset($arguments[0]) && is_array($arguments[0]);
     }
@@ -192,7 +192,7 @@ class ShareButtons
      * @param array $arguments
      * @return array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
      */
-    protected function preparePrioritizedArguments(array $arguments): array
+    protected function prioritizeArguments(array $arguments): array
     {
         $lowPriorityArguments = [
             'text' => $this->pageTitle,
