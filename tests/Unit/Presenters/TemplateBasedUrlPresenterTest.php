@@ -364,6 +364,21 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
         $this->assertSame($expectedUrl, $generatedUrl);;
     }
 
+    /** @test */
+    public function it_can_apply_a_url_to_a_text(): void
+    {
+        config()->set('share-buttons.buttons.mailto.url', 'mailto:?subject=:subject&body=:text');
+        $expectedUrl = 'mailto:?subject=subject-test&body=text-test+url';
+
+        $generatedUrl = $this->presenter->generateUrl('mailto', [
+            'url' => 'url',
+            'text' => 'text-test :url',
+            'subject' => 'subject-test',
+        ]);
+
+        $this->assertSame($expectedUrl, $generatedUrl);;
+    }
+
     /**
      * @return array{url: string, text: string}
      */

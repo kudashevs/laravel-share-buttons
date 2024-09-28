@@ -34,7 +34,9 @@ class TemplateBasedUrlPresenter
         $template = $this->retrieveUrlTemplate();
         $replacements = $this->retrieveUrlReplacements($arguments);
 
-        $encodedReplacements = $this->encodeReplacements($replacements);
+        $processedReplacements = $this->selfProcessReplacements($replacements);
+
+        $encodedReplacements = $this->encodeReplacements($processedReplacements);
 
         return $this->templater->process($template, $encodedReplacements);
     }
@@ -106,6 +108,22 @@ class TemplateBasedUrlPresenter
         $extras = config('share-buttons.buttons.' . $this->name . '.extra', []);
 
         return array_diff_key($extras, array_flip(self::EXTRA_EXCLUSIONS));
+    }
+
+    /**
+     * Process retrieved replacements. The self-processing includes:
+     * - replace an url element with a provided page URL
+     *
+     * @param array<string, string> $replacements
+     * @return array<string, string>
+     */
+    protected function selfProcessReplacements(array $replacements): array
+    {
+        if (array_key_exists('text', $replacements)) {
+            $replacements['text'] = $this->templater->process($replacements['text'], $replacements);
+        }
+
+        return $replacements;
     }
 
     /**
