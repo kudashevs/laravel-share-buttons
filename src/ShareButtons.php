@@ -29,7 +29,7 @@ use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
  * @method ShareButtons whatsapp(array $options = [])
  * @method ShareButtons xing(array $options = [])
  */
-class ShareButtons
+class ShareButtons implements \Stringable
 {
     protected ShareButtonsPresenter $presenter;
 
@@ -150,8 +150,10 @@ class ShareButtons
     public function __call(string $name, array $arguments)
     {
         if ($this->isExpectedCall($name)) {
-            $applicableArguments = $this->prepareApplicableArguments($arguments);
-            $this->rememberProcessedCall($name, $applicableArguments);
+            $applicableArguments = $this->retrieveCallArguments($arguments);
+            $prioritizedArguments = $this->prioritizeArguments($applicableArguments);
+
+            $this->rememberProcessedCall($name, $prioritizedArguments);
         } else {
             $this->handleUnexpectedCall($name);
         }
@@ -167,25 +169,11 @@ class ShareButtons
 
     /**
      * @param array<array-key, array<string, string>> $arguments
-     * @return array<string, string>
+     * @return array{text?: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
      */
-    protected function prepareApplicableArguments(array $arguments): array
+    protected function retrieveCallArguments(array $arguments): array
     {
-        $applicable = $this->retrieveApplicableArguments($arguments);
-
-        return array_merge($applicable, [
-            'url' => $this->pageUrl,
-            'text' => $this->pageTitle,
-        ]);
-    }
-
-    /**
-     * @param array<array-key, array<string, string>> $arguments
-     * @return array<string, string>
-     */
-    protected function retrieveApplicableArguments(array $arguments): array
-    {
-        if ($this->isAnyApplicableArgumentsProvided($arguments)) {
+        if ($this->isAnyApplicableCallArguments($arguments)) {
             return array_filter($arguments[0], 'is_string');
         }
 
@@ -195,13 +183,34 @@ class ShareButtons
     /**
      * @param array<array-key, array<string, string>> $arguments
      */
-    protected function isAnyApplicableArgumentsProvided(array $arguments): bool
+    protected function isAnyApplicableCallArguments(array $arguments): bool
     {
         return isset($arguments[0]) && is_array($arguments[0]);
     }
 
     /**
-     * @param array<string, string> $arguments
+     * @param array $arguments
+     * @return array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
+     */
+    protected function prioritizeArguments(array $arguments): array
+    {
+        $lowPriorityArguments = [
+            'text' => $this->pageTitle,
+        ];
+
+        $highPriorityArguments = [
+            'url' => $this->pageUrl,
+        ];
+
+        return array_merge(
+            $lowPriorityArguments,
+            $arguments,
+            $highPriorityArguments,
+        );
+    }
+
+    /**
+     * @param array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
      */
     protected function rememberProcessedCall(string $name, array $arguments): void
     {
