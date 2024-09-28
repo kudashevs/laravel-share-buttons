@@ -347,6 +347,34 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
+    public function it_can_override_all_of_the_overlapping_global_options_with_local_options(): void
+    {
+        $readyHtml = $this->share->page(
+            'https://mysite.com',
+            'global-text',
+            [
+                'title' => 'global-title',
+                'class' => 'global-class',
+                'id' => 'global-id',
+                'rel' => 'global-rel',
+            ]
+        )->whatsapp([
+            'title' => 'local-title',
+            'class' => 'local-class',
+            'id' => 'local-id',
+            'rel' => 'local-rel',
+            'text' => 'local-text',
+        ])->render();
+
+        $this->assertStringNotContainsString('global', $readyHtml);
+        $this->assertStringContainsString('local-title', $readyHtml);
+        $this->assertStringContainsString('local-class', $readyHtml);
+        $this->assertStringContainsString('local-id', $readyHtml);
+        $this->assertStringContainsString('local-rel', $readyHtml);
+        $this->assertStringContainsString('local-text', $readyHtml);
+    }
+
+    /** @test */
     public function it_can_generate_multiple_links_with_extra_options(): void
     {
         $readyHtml = $this->share->page(
@@ -414,7 +442,7 @@ class ShareButtonsTest extends ExtendedTestCase
             ])
             ->facebook()
             ->twitter(['title' => 'Provided title'])
-            ->whatsapp()
+            ->whatsapp(['text' => 'Provided *title*'])
             ->reddit(['id' => 'provided-id', 'class' => 'provided-class', 'rel' => 'provided'])
             ->telegram(['wrong' => null])
             ->render();
@@ -422,7 +450,7 @@ class ShareButtonsTest extends ExtendedTestCase
         $expectedHtml = '<ul>'
             . '<li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow"><span class="fab fa-facebook-square"></span></a></li>'
             . '<li><a href="https://twitter.com/intent/tweet?text=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button page-class" id="page-id" title="Provided title" rel="nofollow"><span class="fab fa-square-x-twitter"></span></a></li>'
-            . '<li><a href="https://wa.me/?text=https%3A%2F%2Fmysite.com%20My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-square-whatsapp"></span></a></li>'
+            . '<li><a href="https://wa.me/?text=https%3A%2F%2Fmysite.com%20Provided+%2Atitle%2A" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-square-whatsapp"></span></a></li>'
             . '<li><a href="https://www.reddit.com/submit?title=My+share+title&url=https%3A%2F%2Fmysite.com" class="social-button provided-class" id="provided-id" title="link title" rel="provided"><span class="fab fa-reddit"></span></a></li>'
             . '<li><a href="https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+share+title" class="social-button page-class" id="page-id" title="link title" rel="nofollow" target="_blank"><span class="fab fa-telegram"></span></a></li>'
             . '</ul>';
