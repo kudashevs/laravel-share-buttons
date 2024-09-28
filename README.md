@@ -217,6 +217,7 @@ Each social media share button has its own individual configuration settings.
     'hash' => 'value'           # A boolean defines whether to use a hash instead of the url
 ]
 ```
+*note*: a text value might contain a `url` element, which will be replaced by the page url while processing.
 
 ### Templates section
 
