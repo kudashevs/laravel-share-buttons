@@ -183,7 +183,7 @@ Any of the [share button methods](#add-buttons), that generates a button, accept
 because they will be applied to a specific element only. The local options have a **higher priority**. Therefore, they
 will overwrite the global options if there is any overlap. At the moment, the package supports the following local options:
 ```
-'text' => 'value'                # Adds a text to a generated URL
+'text' => 'value'                # Adds a link text to a generated URL (overrides global page title)
 'id' => 'value'                  # Adds an HTML id attribute to the button link
 'class' => 'value'               # Adds an HTML class attribute to the button link
 'title' => 'value'               # Adds an HTML title attribute to the button link
