@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v5.2.0 - 2024-09-28](https://github.com/kudashevs/laravel-share-buttons/compare/v5.1.0...v5.2.0)
+
+- `ShareButtons` class now implements `Stringable` interface
+- Add the possibility to change the link text in methods
+- Add the possibility to access a page url in the text
+- Update README.md
+- Some improvements
+
 ## [v5.1.0 - 2024-04-15](https://github.com/kudashevs/laravel-share-buttons/compare/v5.0.1...v5.1.0)
 
 - Add a `url_templater` configuration option
