@@ -348,6 +348,22 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
         $this->assertSame($expectedUrl, $generatedUrl);;
     }
 
+    /** @test */
+    public function it_can_generate_a_url_with_a_random_extra_key(): void
+    {
+        config()->set('share-buttons.buttons.mailto.url', 'mailto:?subject=:subject&body=:text');
+        config()->set('share-buttons.buttons.mailto.extra', ['subject' => '']);
+        $expectedUrl = 'mailto:?subject=subject-test&body=text-test';
+
+        $generatedUrl = $this->presenter->generateUrl('mailto', [
+            'url' => 'https://mysite.com',
+            'text' => 'text-test',
+            'subject' => 'subject-test',
+        ]);
+
+        $this->assertSame($expectedUrl, $generatedUrl);;
+    }
+
     /**
      * @return array{url: string, text: string}
      */
