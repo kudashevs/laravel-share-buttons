@@ -24,7 +24,7 @@ class TemplateBasedUrlPresenter
      * Return a button's ready-to-use URL.
      *
      * @param string $name
-     * @param array{url: string, text: string, summary?: string} $arguments
+     * @param array{url: string, text: string, summary?: string, ...<string, string>} $arguments
      * @return string
      */
     public function generateUrl(string $name, array $arguments): string
@@ -70,7 +70,7 @@ class TemplateBasedUrlPresenter
         $elementReplacements = $this->retrieveElementReplacements();
         $applicableArguments = $this->retrieveApplicableArguments($arguments);
 
-        // Arguments override replacements because they have a higher priority.
+        // The arguments override replacements because they have a higher priority.
         return array_merge($elementReplacements, $applicableArguments);
     }
 
@@ -114,8 +114,8 @@ class TemplateBasedUrlPresenter
      * Process retrieved replacements. The self-processing includes:
      * - replace an url element with a provided page URL
      *
-     * @param array<string, string> $replacements
-     * @return array<string, string>
+     * @param array{url: string, text: string, summary?: string, ...<string, string>} $replacements
+     * @return array{url: string, text: string, summary?: string, ...<string, string>}
      */
     protected function selfProcessReplacements(array $replacements): array
     {
@@ -126,6 +126,10 @@ class TemplateBasedUrlPresenter
         return $replacements;
     }
 
+    /**
+     * @param array{url: string, text: string, summary?: string, ...<string, string>} $replacements
+     * @return string
+     */
     protected function selfProcessText(array $replacements): string
     {
         return $this->templater->process(
