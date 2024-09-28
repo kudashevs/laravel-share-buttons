@@ -151,7 +151,9 @@ class ShareButtons
     {
         if ($this->isExpectedCall($name)) {
             $applicableArguments = $this->prepareApplicableArguments($arguments);
-            $this->rememberProcessedCall($name, $applicableArguments);
+            $prioritizedArguments = $this->preparePrioritizedArguments($applicableArguments);
+
+            $this->rememberProcessedCall($name, $prioritizedArguments);
         } else {
             $this->handleUnexpectedCall($name);
         }
@@ -167,24 +169,16 @@ class ShareButtons
 
     /**
      * @param array<array-key, array<string, string>> $arguments
-     * @return array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
+     * @return array{text?: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
      */
     protected function prepareApplicableArguments(array $arguments): array
     {
-        $initial = [
-            'text' => $this->pageTitle,
-        ];
-
-        $applicable = $this->retrieveApplicableArguments($arguments);
-
-        return array_merge($initial, $applicable, [
-            'url' => $this->pageUrl,
-        ]);
+        return $this->retrieveApplicableArguments($arguments);
     }
 
     /**
      * @param array<array-key, array<string, string>> $arguments
-     * @return array<string, string>
+     * @return array{text?: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
      */
     protected function retrieveApplicableArguments(array $arguments): array
     {
@@ -204,7 +198,28 @@ class ShareButtons
     }
 
     /**
-     * @param array<string, string> $arguments
+     * @param array $arguments
+     * @return array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
+     */
+    protected function preparePrioritizedArguments(array $arguments): array
+    {
+        $lowPriorityArguments = [
+            'text' => $this->pageTitle,
+        ];
+
+        $highPriorityArguments = [
+            'url' => $this->pageUrl,
+        ];
+
+        return array_merge(
+            $lowPriorityArguments,
+            $arguments,
+            $highPriorityArguments,
+        );
+    }
+
+    /**
+     * @param array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
      */
     protected function rememberProcessedCall(string $name, array $arguments): void
     {
