@@ -3,6 +3,7 @@
 namespace Kudashevs\ShareButtons\Tests\Unit;
 
 use Illuminate\Http\Request;
+use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
 
@@ -15,6 +16,24 @@ class ShareButtonsTest extends ExtendedTestCase
         parent::setUp(); // it goes first to set up an application
 
         $this->share = new ShareButtons();
+    }
+
+    /** @test */
+    public function it_can_throw_an_exception_when_a_wrong_templater_option(): void
+    {
+        $this->expectException(InvalidOptionValue::class);
+        $this->expectExceptionMessage('valid templater');
+
+        new ShareButtons(['templater' => 'wrong']);
+    }
+
+    /** @test */
+    public function it_can_throw_an_exception_when_a_wrong_url_templater_option(): void
+    {
+        $this->expectException(InvalidOptionValue::class);
+        $this->expectExceptionMessage('valid templater');
+
+        new ShareButtons(['url_templater' => 'wrong']);
     }
 
     /** @test */
