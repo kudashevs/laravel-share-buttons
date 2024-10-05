@@ -37,7 +37,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(ShareButtons::class, fn() => new ShareButtons($this->prepareConfig()));
+        $this->app->bind(ShareButtons::class, fn() => new ShareButtons($this->retrieveOptions()));
         $this->app->alias(ShareButtons::class, 'sharebuttons');
 
         $this->mergeConfigFrom(__DIR__ . '/../../config/share-buttons.php', 'share-buttons');
@@ -46,7 +46,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     /**
      * @return array{templater?: class-string<Templater>, url_templater?: class-string<Templater>}
      */
-    protected function prepareConfig(): array
+    protected function retrieveOptions(): array
     {
         return [
             'templater' => config('share-buttons.templater'),
