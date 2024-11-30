@@ -55,29 +55,32 @@ different ways (via `Vanilla JS` and `jQuery`). However, you can use any custom 
 
 ### Font Awesome and default styles
 
-To enable Font Awesome icons, use the code sample below in your template. For further information on how to use Font Awesome, please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
+To enable Font Awesome icons, you can load it from a CDN. For more information on how to use Font Awesome, please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 ```
 
-To enable the default styles, you should [publish](#publish) the assets tagged as `css` (the command will create a `resources/css/share-buttons.css` file). After publishing,
-you can copy this file to your `public/css` folder and use it directly by applying the code sample below. Or you can integrate the css file into your assets compilation flow.
+To enable the default styles, [publish](#publish) the `css` asset (the command will create a `resources/css/share-buttons.css` file).
+After publishing, you can copy the file to the `public/css` folder and use it directly. Or you can integrate the css file into
+your assets building process.
 ```html
 <link rel="stylesheet" href="{{ asset('css/share-buttons.css') }}">
 ```
 
 ### JavaScript
 
-To enable interaction on social media buttons with JavaScript, you should [publish](#publish) the assets tagged as `vanilla` (the command will create a `resources/js/share-buttons.js` file).
-After publishing, you can copy this file to your `public/js` folder and use it directly by applying the code sample below. Or you can integrate this file into your assets compilation flow.
+To enable interaction on social media buttons with JavaScript, [publish](#publish) the `vanilla` asset (the command will create a `resources/js/share-buttons.js` file).
+After publishing, you can copy the file to the `public/js` folder and use it directly. Or you can integrate this file into
+your assets building process.
 ```html
 <script src="{{ asset('js/share-buttons.js') }}"></script>
 ```
 
 ### jQuery
 
-To enable interaction on social media buttons with jQuery, you should [publish](#publish) the assets tagged as `jquery` (the command will create a `resources/js/share-buttons.jquery.js` file).
-After publishing, you can copy this file to your `public/js` folder and use it directly by applying the code sample below. Or you can integrate this file into your assets compilation flow.
+To enable interaction on social media buttons with jQuery, [publish](#publish) the `jquery` asset (the command will create a `resources/js/share-buttons.jquery.js` file).
+After publishing, you can copy the file to the `public/js` folder and use it directly. Or you can integrate this file into
+your assets building process.
 ```html
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/share-buttons.jquery.js') }}"></script>
@@ -217,7 +220,7 @@ Each social media share button has its own individual configuration settings.
     'hash' => 'value'           # A boolean defines whether to use a hash instead of the url
 ]
 ```
-*note*: a text value might contain a `url` element, which will be replaced by the page url while processing.
+**Note**: a text value might contain a `url` element, which will be replaced by the page url while processing.
 
 ### Templates section
 
