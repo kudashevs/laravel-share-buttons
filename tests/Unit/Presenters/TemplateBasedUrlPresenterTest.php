@@ -42,9 +42,9 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
      * @test
      * @dataProvider provideDifferentShareButtonsValues
      */
-    public function it_can_generate_a_url(string $name, array $arguments, string $expected): void
+    public function it_can_generate_a_url_for(string $media, array $arguments, string $expected): void
     {
-        $generatedUrl = $this->presenter->generateUrl($name, $arguments);
+        $generatedUrl = $this->presenter->generateUrl($media, $arguments);
 
         $this->assertSame($expected, $generatedUrl);
     }
