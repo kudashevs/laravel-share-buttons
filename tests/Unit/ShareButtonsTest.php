@@ -110,7 +110,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_link_through_page(): void
+    public function it_can_generate_a_link_through_page_method(): void
     {
         $instance = $this->share->page('https://mysite.com')->facebook();
 
@@ -119,7 +119,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_link_through_current_page(): void
+    public function it_can_generate_a_link_through_current_page_method(): void
     {
         $this->stubRequestUrl('https://mysite.com');
 
@@ -130,7 +130,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_link_through_create_for_page(): void
+    public function it_can_generate_a_link_through_create_for_page_method(): void
     {
         $instance = $this->share->createForPage('https://mysite.com')->twitter();
 
@@ -139,7 +139,7 @@ class ShareButtonsTest extends ExtendedTestCase
     }
 
     /** @test */
-    public function it_can_generate_a_link_through_create_for_current_page(): void
+    public function it_can_generate_a_link_through_create_for_current_page_method(): void
     {
         $this->stubRequestUrl('https://mysite.com');
 
