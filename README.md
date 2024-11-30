@@ -36,17 +36,17 @@ If you don't use auto-discovery just add a ShareButtonsServiceProvider to the `c
     Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
 ],
 ```
-By default, the `ShareButtons` class instance is bound to the `sharebuttons` alias. You might want to add a
-`ShareButtonsFacade::class` to the aliases, too.
+By default, the `ShareButtons` class instance is bound to the `sharebuttons` alias.
 
-<a id="publish"></a>**Don't forget** to publish the configuration file and assets. The configuration file is required.
+<a id="publish"></a>**Note**: Don't forget to publish the configuration file (required) and assets.
 ```bash
 php artisan vendor:publish --provider="Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider"
 ```
 > In case of a major change, it is recommended to back up your config file and republish a new one from scratch.
 
-You can customize the process of publishing assets. If you want to limit the type of assets, you can use the `--tag` option
-with one of the following tags: `config`, `js` (all js files), `vanilla`, `jquery`, `css`.
+If you want to publish certain assets only, use the `--tag` option with one of the following assets tags: `config`, `css`,
+`js` (includes all possible js files), `vanilla`, `jquery`.
+
 
 ## Assets
 
