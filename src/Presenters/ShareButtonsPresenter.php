@@ -10,7 +10,7 @@ namespace Kudashevs\ShareButtons\Presenters;
 interface ShareButtonsPresenter
 {
     /**
-     * Refresh styling (style of elements representation) of the share buttons.
+     * Refresh styling (the style of elements) of share buttons.
      *
      * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return void
