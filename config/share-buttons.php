@@ -71,6 +71,10 @@ return [
             'url' => 'mailto:?subject=:text&body=:url',
             'text' => 'Default share text',
         ],
+        'mastodon' => [
+            'url' => 'https://mastodon.social/share?text=:text&url=:url',
+            'text' => 'Default share text',
+        ],
         'pinterest' => [
             'url' => 'https://pinterest.com/pin/create/button/?url=:url',
         ],
@@ -126,6 +130,7 @@ return [
         'hackernews' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-hacker-news"></span></a>',
         'linkedin' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-linkedin"></span></a>',
         'mailto' => '<a href=":url" class="social-button:class":id:title:rel><span class="fas fa-envelope"></span></a>',
+        'mastodon' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-mastodon"></span></a>',
         'pinterest' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-pinterest"></span></a>',
         'pocket' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-get-pocket"></span></a>',
         'reddit' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-reddit"></span></a>',

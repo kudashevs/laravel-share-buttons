@@ -145,6 +145,12 @@ class ShareButtonsTest extends ExtendedTestCase
                 'My share by mail title',
                 'mailto:?subject=My+share+by+mail+title&body=https%3A%2F%2Fmysite.com',
             ],
+            'mastodon' => [
+                'mastodon',
+                'https://mysite.com',
+                'My mastodon title',
+                'https://mastodon.social/share?text=My+mastodon+title&url=https%3A%2F%2Fmysite.com',
+            ],
             'pinterest' => [
                 'pinterest',
                 'https://mysite.com',

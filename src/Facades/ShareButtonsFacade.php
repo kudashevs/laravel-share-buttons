@@ -17,6 +17,7 @@ use Kudashevs\ShareButtons\ShareButtons;
  * @method ShareButtons hackernews(array $options = [])
  * @method ShareButtons linkedin(array $options = [])
  * @method ShareButtons mailto(array $options = [])
+ * @method ShareButtons mastodon(array $options = [])
  * @method ShareButtons pinterest(array $options = [])
  * @method ShareButtons pocket(array $options = [])
  * @method ShareButtons reddit(array $options = [])

@@ -13,6 +13,7 @@ a flexible and convenient way within seconds. The package was originated from th
 * Telegram
 * WhatsApp
 * Reddit
+* Mastodon
 * Hacker News
 * VKontakte
 * Pinterest
@@ -134,6 +135,7 @@ linkedin($options)      # Generates a LinkedIn share button
 telegram($options)      # Generates a Telegram share button
 whatsapp($options)      # Generates a WhatsApp share button
 reddit($options)        # Generates a Reddit share button
+mastodon($options)      # Generates a Mastodon share button
 hackernews($options)    # Generates a Hacker News share button
 vkontakte($options)     # Generates a VKontakte share button
 pinterest($options)     # Generates a Pinterest share button
