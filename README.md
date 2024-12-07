@@ -57,7 +57,7 @@ different ways (via `Vanilla JS` and `jQuery`). However, you can use any custom 
 
 To enable Font Awesome icons, you can load it from a CDN. For more information on how to use Font Awesome, please read the [introduction](https://fontawesome.com/docs/web/setup/get-started).
 ```html
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 ```
 
 To enable the default styles, [publish](#publish) the `css` asset (the command will create a `resources/css/share-buttons.css` file).
