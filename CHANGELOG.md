@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v5.3.0 - 2024-12-07](https://github.com/kudashevs/laravel-share-buttons/compare/v5.2.0...v5.3.0)
+
+- Add support for PHP 8.4
+- Add a Bluesky share provider
+- Add a Mastodon share provider
+- Update README.md
+- Some improvements
+
 ## [v5.2.0 - 2024-09-28](https://github.com/kudashevs/laravel-share-buttons/compare/v5.1.0...v5.2.0)
 
 - `ShareButtons` class now implements `Stringable` interface
