@@ -10,6 +10,7 @@ use Kudashevs\ShareButtons\ShareButtons;
  *
  * @method ShareButtons page($url, string $title = '', array $options = [])
  * @method ShareButtons currentPage($url, string $title = '', array $options = [])
+ * @method ShareButtons bluesky(array $options = [])
  * @method ShareButtons copylink(array $options = [])
  * @method ShareButtons evernote(array $options = [])
  * @method ShareButtons facebook(array $options = [])

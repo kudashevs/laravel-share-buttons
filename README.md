@@ -8,6 +8,7 @@ a flexible and convenient way within seconds. The package was originated from th
 
 * Facebook
 * X (formerly Twitter)
+* Bluesky
 * LinkedIn
 * Telegram
 * WhatsApp
@@ -127,7 +128,8 @@ Each method accepts an array of options (more information about these options in
 [//]: # (@todo don't forget to update these methods)
 ```
 facebook($options)      # Generates a Facebook share button
-twitter($options)       # Generates a Twitter share button
+twitter($options)       # Generates an X (former Twitter) share button
+bluesky($options)       # Generates a Bluesky share button
 linkedin($options)      # Generates a LinkedIn share button
 telegram($options)      # Generates a Telegram share button
 whatsapp($options)      # Generates a WhatsApp share button

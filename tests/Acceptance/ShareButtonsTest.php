@@ -103,6 +103,12 @@ class ShareButtonsTest extends ExtendedTestCase
     public static function provideDifferentShareButtonsValues(): array
     {
         return [
+            'bluesky' => [
+                'bluesky',
+                'https://mysite.com',
+                'My bluesky title',
+                'https://bsky.app/intent/compose?text=https%3A%2F%2Fmysite.com%20My+bluesky+title',
+            ],
             'copylink' => [
                 'copylink',
                 'https://mysite.com',

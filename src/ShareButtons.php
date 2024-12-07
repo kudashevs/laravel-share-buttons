@@ -13,6 +13,7 @@ use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 /**
  * @todo don't forget to update these method signatures
  *
+ * @method ShareButtons bluesky(array $options = [])
  * @method ShareButtons copylink(array $options = [])
  * @method ShareButtons evernote(array $options = [])
  * @method ShareButtons facebook(array $options = [])

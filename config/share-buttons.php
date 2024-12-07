@@ -37,6 +37,10 @@ return [
     */
 
     'buttons' => [
+        'bluesky' => [
+            'url' => 'https://bsky.app/intent/compose?text=:url%20:text',
+            'text' => 'Default share text',
+        ],
         'copylink' => [
             'url' => ':url',
             'extra' => [
@@ -115,6 +119,7 @@ return [
     */
 
     'templates' => [
+        'bluesky' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-square-bluesky"></span></a>',
         'copylink' => '<a href=":url" class="social-button:class" id="clip":title:rel><span class="fas fa-share"></span></a>',
         'evernote' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-evernote"></span></a>',
         'facebook' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-facebook-square"></span></a>',
