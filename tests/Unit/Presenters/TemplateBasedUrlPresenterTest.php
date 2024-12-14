@@ -13,7 +13,7 @@ class TemplateBasedUrlPresenterTest extends ExtendedTestCase
 
     protected function setUp(): void
     {
-        parent::setUp(); // it goes first to set up an application
+        parent::setUp();
 
         $templater = $this->createDefaultTemplater();
         $this->presenter = new TemplateBasedUrlPresenter($templater);

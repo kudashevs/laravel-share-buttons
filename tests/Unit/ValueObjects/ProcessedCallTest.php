@@ -10,7 +10,7 @@ class ProcessedCallTest extends ExtendedTestCase
 {
     protected function setUp(): void
     {
-        parent::setUp(); // it goes first to set up an application
+        parent::setUp();
     }
 
     /** @test */
