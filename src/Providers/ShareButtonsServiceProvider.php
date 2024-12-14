@@ -13,7 +13,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     /**
      * Bootstrap any package services.
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__ . '/../../config/share-buttons.php' => config_path('share-buttons.php'),
@@ -35,7 +35,7 @@ class ShareButtonsServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         $this->app->bind(ShareButtons::class, fn() => new ShareButtons($this->retrieveOptions()));
         $this->app->alias(ShareButtons::class, 'sharebuttons');
