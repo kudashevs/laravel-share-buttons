@@ -145,11 +145,11 @@ class ShareButtons implements \Stringable
     /**
      * @param string $name
      * @param array<array-key, array<string, string>> $arguments
-     * @return ShareButtons
+     * @return mixed|ShareButtons
      *
      * @throws BadMethodCallException
      */
-    public function __call(string $name, array $arguments)
+    public function __call(string $name, array $arguments): mixed
     {
         if ($this->isExpectedCall($name)) {
             $applicableArguments = $this->retrieveCallArguments($arguments);
@@ -256,7 +256,7 @@ class ShareButtons implements \Stringable
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->generateShareButtons();
     }
