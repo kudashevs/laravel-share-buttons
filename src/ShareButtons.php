@@ -101,7 +101,7 @@ class ShareButtons implements \Stringable
     /**
      * Refresh state and delete all previously remembered calls.
      *
-     * @param array<string, string> $options
+     * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      */
     protected function refreshState(array $options): void
     {
