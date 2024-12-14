@@ -191,7 +191,7 @@ class ShareButtons implements \Stringable
     }
 
     /**
-     * @param array $arguments
+     * @param array{text?: string, id?: string, class?: string, title?: string, rel?: string, summary?: string} $arguments
      * @return array{url: string, text: string, id?: string, class?: string, title?: string, rel?: string, summary?: string}
      */
     protected function prioritizeArguments(array $arguments): array
