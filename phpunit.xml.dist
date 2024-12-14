@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
          colors="true"
          stopOnError="false"
          stopOnFailure="false"
+         stopOnRisky="false"
          stopOnWarning="false"
          processIsolation="false"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         convertDeprecationsToExceptions="true"
-         verbose="true">
+         cacheDirectory=".phpunit.cache">
     <testsuites>
         <testsuite name="ShareButtons Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <coverage ignoreDeprecatedCodeUnits="true">
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
-        <exclude>
-            <file>src/Facades/ShareButtonsFacade.php</file>
-            <file>src/Providers/ShareButtonsServiceProvider.php</file>
-        </exclude>
+    <coverage>
         <report>
             <clover outputFile="build/clover.xml"/>
             <html outputDirectory="build/coverage"/>
@@ -32,4 +23,13 @@
     <php>
         <env name="APP_URL" value="https://mysite.com"/>
     </php>
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <exclude>
+            <file>src/Facades/ShareButtonsFacade.php</file>
+            <file>src/Providers/ShareButtonsServiceProvider.php</file>
+        </exclude>
+    </source>
 </phpunit>
