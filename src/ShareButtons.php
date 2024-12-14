@@ -88,7 +88,7 @@ class ShareButtons implements \Stringable
      * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
-    public function page(string $url, string $title = '', array $options = []): self
+    public function page(string $url, string $title = '', array $options = []): static
     {
         $this->refreshState($options);
 
@@ -114,7 +114,7 @@ class ShareButtons implements \Stringable
      * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
-    public function currentPage(string $title = '', array $options = []): self
+    public function currentPage(string $title = '', array $options = []): static
     {
         $url = app('request')->url();
 
@@ -127,7 +127,7 @@ class ShareButtons implements \Stringable
      * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
-    public function createForPage(string $url, string $title = '', array $options = []): self
+    public function createForPage(string $url, string $title = '', array $options = []): static
     {
         return $this->page($url, $title, $options);
     }
@@ -137,7 +137,7 @@ class ShareButtons implements \Stringable
      * @param array{block_prefix?: string, block_suffix?: string, element_prefix?: string, element_suffix?: string, id?: string, class?: string, title?: string, rel?: string} $options
      * @return $this
      */
-    public function createForCurrentPage(string $title = '', array $options = []): self
+    public function createForCurrentPage(string $title = '', array $options = []): static
     {
         return $this->currentPage($title, $options);
     }
