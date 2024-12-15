@@ -35,7 +35,6 @@ class TemplateBasedUrlPresenter
         $replacements = $this->retrieveUrlReplacements($arguments);
 
         $processedReplacements = $this->selfProcessReplacements($replacements);
-
         $encodedReplacements = $this->encodeReplacements($processedReplacements);
 
         return $this->templater->process($template, $encodedReplacements);
