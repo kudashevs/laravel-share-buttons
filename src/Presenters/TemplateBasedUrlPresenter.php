@@ -21,7 +21,7 @@ class TemplateBasedUrlPresenter
     }
 
     /**
-     * Return a button's ready-to-use URL.
+     * Return a share button's ready-to-use URL.
      *
      * @param string $name
      * @param array{url: string, text: string, summary?: string, ...<string, string>} $arguments
