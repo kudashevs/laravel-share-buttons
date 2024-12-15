@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v6.0.0 - 2024-12-15](https://github.com/kudashevs/laravel-share-buttons/compare/v5.3.0...v6.0.0)
+
+- Increase the minimum PHP version to 8.1
+- Increase the minimum Laravel version to 10.0
+- Increase the minimum PHPUnit version to 9.5
+- Update README.md
+- Some improvements
+
 ## [v5.3.0 - 2024-12-07](https://github.com/kudashevs/laravel-share-buttons/compare/v5.2.0...v5.3.0)
 
 - Add support for PHP 8.4
