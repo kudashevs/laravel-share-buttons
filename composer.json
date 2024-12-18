@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Kudashevs\\ShareButtons\\": "src"
+            "Kudashevs\\ShareButtons\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kudashevs\\ShareButtons\\Tests\\": "tests"
+            "Kudashevs\\ShareButtons\\Tests\\": "tests/"
         }
     },
     "config": {
