@@ -32,7 +32,7 @@ You can install the package via composer:
 composer require kudashevs/laravel-share-buttons
 ```
 
-If you don't use auto-discovery just add a ShareButtonsServiceProvider to the `config/app.php`
+If you don't use auto-discovery, just add a ShareButtonsServiceProvider to the `config/app.php`
 ```php
 'providers' => [
     Kudashevs\ShareButtons\Providers\ShareButtonsServiceProvider::class,
