@@ -1,4 +1,8 @@
-# Laravel Share Buttons ![test workflow](https://github.com/kudashevs/laravel-share-buttons/actions/workflows/run-tests.yml/badge.svg)
+# Laravel Share Buttons
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kudashevs/laravel-share-buttons.svg)](https://packagist.org/packages/kudashevs/laravel-share-buttons)
+[![Run Tests](https://github.com/kudashevs/laravel-share-buttons/actions/workflows/run-tests.yml/badge.svg)](https://github.com/kudashevs/laravel-share-buttons/actions/workflows/run-tests.yml)
+[![License MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
 This Laravel package provides the possibility to generate share links (social media share buttons) for your site in
 a flexible and convenient way within seconds. The package was originated from the Laravel Share.
