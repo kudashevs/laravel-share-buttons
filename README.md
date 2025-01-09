@@ -286,7 +286,6 @@ The code above will result into the following HTML code:
 
 ## Testing
 
-If you want to make sure that everything works as expected, you can run unit tests provided with the package.
 ```bash
 composer test
 ```
