@@ -5,9 +5,9 @@ namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 use Kudashevs\ShareButtons\Presenters\TemplateBasedUrlPresenter;
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
-use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
+use Kudashevs\ShareButtons\Tests\TestCase;
 
-class TemplateBasedUrlPresenterTest extends ExtendedTestCase
+class TemplateBasedUrlPresenterTest extends TestCase
 {
     private TemplateBasedUrlPresenter $presenter;
 

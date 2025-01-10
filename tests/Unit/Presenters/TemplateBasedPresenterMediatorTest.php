@@ -4,9 +4,9 @@ namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\Presenters\TemplateBasedPresenterMediator;
-use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
+use Kudashevs\ShareButtons\Tests\TestCase;
 
-class TemplateBasedPresenterMediatorTest extends ExtendedTestCase
+class TemplateBasedPresenterMediatorTest extends TestCase
 {
     private TemplateBasedPresenterMediator $mediator;
 

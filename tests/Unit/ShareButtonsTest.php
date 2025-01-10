@@ -5,9 +5,9 @@ namespace Kudashevs\ShareButtons\Tests\Unit;
 use Illuminate\Http\Request;
 use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\ShareButtons;
-use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
+use Kudashevs\ShareButtons\Tests\TestCase;
 
-class ShareButtonsTest extends ExtendedTestCase
+class ShareButtonsTest extends TestCase
 {
     private ShareButtons $share;
 

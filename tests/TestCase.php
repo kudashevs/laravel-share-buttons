@@ -4,7 +4,7 @@ namespace Kudashevs\ShareButtons\Tests;
 
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
-class ExtendedTestCase extends BaseTestCase
+class TestCase extends BaseTestCase
 {
     /**
      * Load Laravel share service provider

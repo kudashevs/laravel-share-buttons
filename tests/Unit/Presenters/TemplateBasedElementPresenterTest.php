@@ -5,9 +5,9 @@ namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 use Kudashevs\ShareButtons\Presenters\TemplateBasedElementPresenter;
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
-use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
+use Kudashevs\ShareButtons\Tests\TestCase;
 
-class TemplateBasedElementPresenterTest extends ExtendedTestCase
+class TemplateBasedElementPresenterTest extends TestCase
 {
     const DEFAULT_ELEMENT_PREFIX = '';
     const DEFAULT_ELEMENT_SUFFIX = '';

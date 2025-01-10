@@ -3,9 +3,9 @@
 namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 
 use Kudashevs\ShareButtons\Presenters\TemplateBasedBlockPresenter;
-use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
+use Kudashevs\ShareButtons\Tests\TestCase;
 
-class TemplateBasedBlockPresenterTest extends ExtendedTestCase
+class TemplateBasedBlockPresenterTest extends TestCase
 {
     const DEFAULT_BLOCK_PREFIX = '<div id="social-buttons">';
     const DEFAULT_BLOCK_SUFFIX = '</div>';

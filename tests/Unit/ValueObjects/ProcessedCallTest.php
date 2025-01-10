@@ -3,10 +3,10 @@
 namespace Kudashevs\ShareButtons\Tests\Unit\ValueObjects;
 
 use Kudashevs\ShareButtons\Exceptions\InvalidProcessedCallArgument;
-use Kudashevs\ShareButtons\Tests\ExtendedTestCase;
+use Kudashevs\ShareButtons\Tests\TestCase;
 use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
 
-class ProcessedCallTest extends ExtendedTestCase
+class ProcessedCallTest extends TestCase
 {
     protected function setUp(): void
     {
