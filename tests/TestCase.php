@@ -7,10 +7,10 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 class TestCase extends BaseTestCase
 {
     /**
-     * Load Laravel share service provider
+     * Load a Laravel ShareButtons service provider.
      *
      * @param \Illuminate\Foundation\Application $application
-     * @return array
+     * @return array<int, class-string>
      */
     protected function getPackageProviders($application)
     {
