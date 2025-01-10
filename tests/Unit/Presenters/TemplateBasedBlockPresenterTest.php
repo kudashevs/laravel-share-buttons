@@ -4,6 +4,8 @@ namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 
 use Kudashevs\ShareButtons\Presenters\TemplateBasedBlockPresenter;
 use Kudashevs\ShareButtons\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class TemplateBasedBlockPresenterTest extends TestCase
 {
@@ -19,10 +21,8 @@ class TemplateBasedBlockPresenterTest extends TestCase
         $this->presenter = new TemplateBasedBlockPresenter();
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentPresentationOptions
-     */
+    #[Test]
+    #[DataProvider('provideDifferentPresentationOptions')]
     public function it_can_retrieve_presentation_data_from_options(
         array $options,
         string $method,
@@ -91,10 +91,8 @@ class TemplateBasedBlockPresenterTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentPresentationConfigurations
-     */
+    #[Test]
+    #[DataProvider('provideDifferentPresentationConfigurations')]
     public function it_can_retrieve_presentation_data_from_configuration(string $configuration, string $method): void
     {
         $expected = config('share-buttons.' . $configuration);
@@ -118,7 +116,7 @@ class TemplateBasedBlockPresenterTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_can_retrieve_values_from_configuration_on_refresh(): void
     {
         $blockPrefix = '<element>';
@@ -133,7 +131,7 @@ class TemplateBasedBlockPresenterTest extends TestCase
         $this->assertEquals($blockSuffix, $this->presenter->getBlockSuffix());
     }
 
-    /** @test */
+    #[Test]
     public function it_cannot_update_values_from_arguments_with_wrong_type_on_refresh(): void
     {
         $this->presenter->refresh(['block_prefix' => 42, 'block_suffix' => 42]);
@@ -143,7 +141,7 @@ class TemplateBasedBlockPresenterTest extends TestCase
     }
 
 
-    /** @test */
+    #[Test]
     public function it_can_update_values_from_arguments_with_correct_type_on_refresh(): void
     {
         $blockPrefix = '<p>';

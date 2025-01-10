@@ -4,6 +4,8 @@ namespace Kudashevs\ShareButtons\Tests\Unit\Templaters;
 
 use Kudashevs\ShareButtons\Templaters\LaravelTemplater;
 use Kudashevs\ShareButtons\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class LaravelTemplaterTest extends TestCase
 {
@@ -16,10 +18,8 @@ class LaravelTemplaterTest extends TestCase
         $this->templater = new LaravelTemplater();
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentSearchReplaceValues
-     */
+    #[Test]
+    #[DataProvider('provideDifferentSearchReplaceValues')]
     public function it_performs_a_pattern_replacement(string $input, array $replacements, string $expected): void
     {
         $result = $this->templater->process($input, $replacements);

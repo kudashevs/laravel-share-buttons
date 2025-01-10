@@ -3,6 +3,8 @@
 namespace Kudashevs\ShareButtons\Tests\Unit\Templaters;
 
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class SimpleColonTemplaterTest extends TestCase
@@ -16,10 +18,8 @@ class SimpleColonTemplaterTest extends TestCase
         $this->templater = new SimpleColonTemplater();
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentSearchReplaceValues
-     */
+    #[Test]
+    #[DataProvider('provideDifferentSearchReplaceValues')]
     public function it_performs_a_pattern_replacement(string $input, array $replacements, string $expected): void
     {
         $processedString = $this->templater->process($input, $replacements);

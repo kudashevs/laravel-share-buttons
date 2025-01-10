@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class ShareButtonsTest extends TestCase
 {
@@ -18,7 +20,7 @@ class ShareButtonsTest extends TestCase
         $this->share = new ShareButtons();
     }
 
-    /** @test */
+    #[Test]
     public function it_can_throw_an_exception_when_a_wrong_templater_option(): void
     {
         $this->expectException(InvalidOptionValue::class);
@@ -27,7 +29,7 @@ class ShareButtonsTest extends TestCase
         new ShareButtons(['templater' => 'wrong']);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_throw_an_exception_when_a_wrong_url_templater_option(): void
     {
         $this->expectException(InvalidOptionValue::class);
@@ -36,7 +38,7 @@ class ShareButtonsTest extends TestCase
         new ShareButtons(['url_templater' => 'wrong']);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_throw_an_exception_when_a_wrong_share_button_name(): void
     {
         $this->expectException(\BadMethodCallException::class);
@@ -46,10 +48,8 @@ class ShareButtonsTest extends TestCase
         $instance->page('https://mysite.com')->wrong()->getRawLinks();
     }
 
-    /**
-     * @test
-     * @dataProvider providePageMethods
-     */
+    #[Test]
+    #[DataProvider('providePageMethods')]
     public function it_can_start_method_chaining_from_any_page($method): void
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->$method('https://mysite.com'));
@@ -63,10 +63,8 @@ class ShareButtonsTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider provideCurrentPageMethods
-     */
+    #[Test]
+    #[DataProvider('provideCurrentPageMethods')]
     public function it_can_start_method_chaining_from_current_page($method): void
     {
         $this->assertInstanceOf(ShareButtons::class, $this->share->$method());
@@ -80,7 +78,7 @@ class ShareButtonsTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_can_be_stringified(): void
     {
         $instance = $this->share->page('https://mysite.com', 'any')->linkedin();
@@ -89,7 +87,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('linkedin', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_use_a_predefined_title(): void
     {
         $title = config('share-buttons.buttons.twitter.text');
@@ -99,7 +97,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString(urlencode($title), (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_use_a_provided_title(): void
     {
         $title = 'Page title';
@@ -109,7 +107,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString(urlencode($title), (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_link_through_page_method(): void
     {
         $instance = $this->share->page('https://mysite.com')->facebook();
@@ -118,7 +116,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('facebook.com', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_link_through_current_page_method(): void
     {
         $this->stubRequestUrl('https://mysite.com');
@@ -129,7 +127,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('facebook.com', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_link_through_create_for_page_method(): void
     {
         $instance = $this->share->createForPage('https://mysite.com')->twitter();
@@ -138,7 +136,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('twitter.com', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_link_through_create_for_current_page_method(): void
     {
         $this->stubRequestUrl('https://mysite.com');
@@ -149,7 +147,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('twitter.com', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_empty_through_get_raw_links_when_no_calls_provided(): void
     {
         $rawLinks = $this->share->page('https://mysite.com', 'My share title')
@@ -159,7 +157,7 @@ class ShareButtonsTest extends TestCase
         $this->assertEmpty($rawLinks);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_url_through_get_raw_links(): void
     {
         $rawLinks = $this->share->page('https://mysite.com', 'My share title')
@@ -170,7 +168,7 @@ class ShareButtonsTest extends TestCase
         $this->assertNotEmpty($rawLinks);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_urls_through_get_raw_links(): void
     {
         $rawLinks = $this->share->page('https://mysite.com', 'My share title')
@@ -185,7 +183,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('telegram', $rawLinks['telegram']);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_empty_when_cast_to_string_and_no_calls_provided(): void
     {
         $instance = $this->share->page('https://mysite.com', 'My share title');
@@ -193,7 +191,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_link_when_cast_to_string(): void
     {
         $instance = $this->share->page('https://mysite.com', 'My share title')
@@ -202,7 +200,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('facebook', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_links_when_cast_to_string(): void
     {
         $instance = $this->share->page('https://mysite.com', 'My share title')
@@ -215,7 +213,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('telegram', (string)$instance);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_empty_through_render_when_no_calls_provided(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
@@ -224,7 +222,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('', $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_link_through_render(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
@@ -234,7 +232,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('facebook', $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_links_through_render(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
@@ -252,7 +250,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_empty_through_get_share_buttons_when_no_calls_provided(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
@@ -261,7 +259,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('', $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_link_through_get_share_buttons(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
@@ -271,7 +269,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('facebook', $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_links_through_get_share_buttons(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My share title')
@@ -289,7 +287,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_links_and_then_multiple_links_another_time(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'My first title')
@@ -319,10 +317,8 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
-    /**
-     * @test
-     * @dataProvider provideIntersectionGlobalLocalOptions
-     */
+    #[Test]
+    #[DataProvider('provideIntersectionGlobalLocalOptions')]
     public function it_can_override_global_options_with_local_options(string $option): void
     {
         $readyHtml = $this->share->page(
@@ -350,7 +346,7 @@ class ShareButtonsTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_can_override_link_text_with_local_options(): void
     {
         $readyHtml = $this->share->page(
@@ -365,7 +361,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('local-text', $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_override_all_of_the_overlapping_global_options_with_local_options(): void
     {
         $readyHtml = $this->share->page(
@@ -393,7 +389,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('local-text', $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_links_with_extra_options(): void
     {
         $readyHtml = $this->share->page(
@@ -425,7 +421,7 @@ class ShareButtonsTest extends TestCase
         $this->assertEquals($expectedHtml, $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_links_with_provided_arguments(): void
     {
         $readyHtml = $this->share->page('https://mysite.com', 'Page share title')
@@ -443,7 +439,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsStrings($expectedLinks, $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_multiple_links_with_extra_options_and_provided_arguments(): void
     {
         $readyHtml = $this->share->page(

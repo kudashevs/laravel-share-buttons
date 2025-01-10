@@ -5,6 +5,8 @@ namespace Kudashevs\ShareButtons\Tests\Unit\Presenters;
 use Kudashevs\ShareButtons\Exceptions\InvalidOptionValue;
 use Kudashevs\ShareButtons\Presenters\TemplateBasedPresenterMediator;
 use Kudashevs\ShareButtons\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class TemplateBasedPresenterMediatorTest extends TestCase
 {
@@ -17,7 +19,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         $this->mediator = new TemplateBasedPresenterMediator();
     }
 
-    /** @test */
+    #[Test]
     public function it_can_throw_an_exception_when_a_wrong_templater_option(): void
     {
         $this->expectException(InvalidOptionValue::class);
@@ -28,7 +30,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_throw_an_exception_when_a_wrong_url_templater_option(): void
     {
         $this->expectException(InvalidOptionValue::class);
@@ -39,10 +41,8 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         ]);
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentPresentationOptions
-     */
+    #[Test]
+    #[DataProvider('provideDifferentPresentationOptions')]
     public function it_can_retrieve_presentation_data_from_options(
         array $options,
         string $method,
@@ -131,10 +131,8 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentPresentationConfigurations
-     */
+    #[Test]
+    #[DataProvider('provideDifferentPresentationConfigurations')]
     public function it_can_retrieve_presentation_data_from_configuration(string $configuration, string $method): void
     {
         $expected = config('share-buttons.' . $configuration);
@@ -166,7 +164,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_can_format_an_element_with_presentation_data_from_configuration(): void
     {
         $elementPrefix = config('share-buttons.element_prefix');
@@ -185,7 +183,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         $this->assertEquals($expected, $element);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_format_an_element_with_presentation_data_from_options_provided_through_refresh_method(): void
     {
         $elementPrefix = '<p>';
@@ -206,7 +204,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         $this->assertEquals($expected, $element);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_full_url_for_copylink(): void
     {
         config()->set('share-buttons.buttons.copylink.extra.hash', false);
@@ -224,7 +222,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         $this->assertSame($expected, $element);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_hashed_url_for_copylink(): void
     {
         config()->set('share-buttons.buttons.copylink.extra.hash', true);
@@ -242,10 +240,8 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         $this->assertSame($expected, $element);
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentAttributeOptions
-     */
+    #[Test]
+    #[DataProvider('provideDifferentAttributeOptions')]
     public function it_can_apply_provided_attributes_to_an_element(
         string $url,
         array $options,
@@ -306,7 +302,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_cannot_override_presentation_data_with_options_provided_directly_without_calling_refresh_method(
     ): void
     {
@@ -328,7 +324,7 @@ class TemplateBasedPresenterMediatorTest extends TestCase
         $this->assertEquals($expected, $element);
     }
 
-    /** @test */
+    #[Test]
     public function it_cannot_override_presentation_data_from_arguments_with_options_provided_through_refresh_method(
     ): void
     {

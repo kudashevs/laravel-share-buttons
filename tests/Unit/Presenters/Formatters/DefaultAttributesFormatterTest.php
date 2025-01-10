@@ -3,6 +3,7 @@
 namespace Kudashevs\ShareButtons\Tests\Unit\Presenters\Formatters;
 
 use Kudashevs\ShareButtons\Presenters\Formatters\DefaultAttributesFormatter;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class DefaultAttributesFormatterTest extends TestCase
@@ -14,7 +15,7 @@ class DefaultAttributesFormatterTest extends TestCase
         $this->formatter = new DefaultAttributesFormatter();
     }
 
-    /** @test */
+    #[Test]
     public function it_skips_an_unknown_attribute(): void
     {
         $attributes = ['unknown' => 'test'];
@@ -24,7 +25,7 @@ class DefaultAttributesFormatterTest extends TestCase
         $this->assertArrayNotHasKey('unknown', $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_an_empty_string_when_no_attribute_provided(): void
     {
         $attributes = [];
@@ -34,7 +35,7 @@ class DefaultAttributesFormatterTest extends TestCase
         $this->assertSame('', $result['class']);
     }
 
-    /** @test */
+    #[Test]
     public function it_formats_some_of_the_attributes(): void
     {
         $attributes = [
@@ -54,7 +55,7 @@ class DefaultAttributesFormatterTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
-    /** @test */
+    #[Test]
     public function it_formats_all_of_the_attributes(): void
     {
         $attributes = [

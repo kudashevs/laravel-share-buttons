@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\Presenters\TemplateBasedUrlPresenter;
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 use Kudashevs\ShareButtons\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class TemplateBasedUrlPresenterTest extends TestCase
 {
@@ -19,7 +21,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->presenter = new TemplateBasedUrlPresenter($templater);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_handle_a_wrong_name_and_return_an_empty_url(): void
     {
         $generatedUrl = $this->presenter->generateUrl('wrong', $this->generateRequiredArguments());
@@ -27,7 +29,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame('', $generatedUrl);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_handle_an_empty_url_value(): void
     {
         $generatedUrl = $this->presenter->generateUrl('facebook', [
@@ -38,10 +40,8 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame('https://www.facebook.com/sharer/sharer.php?u=&quote=Title', $generatedUrl);
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentShareButtonsValues
-     */
+    #[Test]
+    #[DataProvider('provideDifferentShareButtonsValues')]
     public function it_can_generate_a_url_for(string $media, array $arguments, string $expected): void
     {
         $generatedUrl = $this->presenter->generateUrl($media, $arguments);
@@ -280,7 +280,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_can_provide_a_url_when_extra_hash_is_false(): void
     {
         config()->set('share-buttons.buttons.twitter.extra.hash', false);
@@ -294,7 +294,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame('url', $generatedUrl);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_provide_a_hash_when_extra_hash_is_true(): void
     {
         config()->set('share-buttons.buttons.twitter.extra.hash', true);
@@ -308,7 +308,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame('#', $generatedUrl);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_url_with_information_from_defaults(): void
     {
         $expectedUrl = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Default+share+text';
@@ -321,7 +321,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame($expectedUrl, $generatedUrl);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_url_with_information_from_call_options(): void
     {
         $expectedUrl = 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title';
@@ -334,7 +334,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame($expectedUrl, $generatedUrl);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_url_with_summary_for_linkedin(): void
     {
         $expectedUrl = 'https://www.linkedin.com/sharing/share-offsite?mini=true&url=https%3A%2F%2Fmysite.com&title=Default+share+text&summary=Share+text';
@@ -348,7 +348,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame($expectedUrl, $generatedUrl);;
     }
 
-    /** @test */
+    #[Test]
     public function it_can_generate_a_url_with_a_random_extra_key(): void
     {
         config()->set('share-buttons.buttons.mailto.url', 'mailto:?subject=:subject&body=:text');
@@ -364,7 +364,7 @@ class TemplateBasedUrlPresenterTest extends TestCase
         $this->assertSame($expectedUrl, $generatedUrl);;
     }
 
-    /** @test */
+    #[Test]
     public function it_can_apply_a_url_to_a_text(): void
     {
         config()->set('share-buttons.buttons.mailto.url', 'mailto:?subject=:subject&body=:text');

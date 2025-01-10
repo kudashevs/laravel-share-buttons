@@ -6,6 +6,8 @@ use Kudashevs\ShareButtons\Presenters\TemplateBasedElementPresenter;
 use Kudashevs\ShareButtons\Templaters\SimpleColonTemplater;
 use Kudashevs\ShareButtons\Templaters\Templater;
 use Kudashevs\ShareButtons\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class TemplateBasedElementPresenterTest extends TestCase
 {
@@ -22,10 +24,8 @@ class TemplateBasedElementPresenterTest extends TestCase
         $this->presenter = new TemplateBasedElementPresenter($templater);
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentPresentationOptions
-     */
+    #[Test]
+    #[DataProvider('provideDifferentPresentationOptions')]
     public function it_can_retrieve_presentation_data_from_options(
         array $options,
         string $method,
@@ -84,10 +84,8 @@ class TemplateBasedElementPresenterTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentPresentationConfigurations
-     */
+    #[Test]
+    #[DataProvider('provideDifferentPresentationConfigurations')]
     public function it_can_retrieve_presentation_data_from_configuration(string $configuration, string $method): void
     {
         $expected = config('share-buttons.' . $configuration);
@@ -111,7 +109,7 @@ class TemplateBasedElementPresenterTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_can_retrieve_values_from_configuration_on_refresh(): void
     {
         $elementPrefix = '<element>';
@@ -126,7 +124,7 @@ class TemplateBasedElementPresenterTest extends TestCase
         $this->assertEquals($elementSuffix, $this->presenter->getElementSuffix());
     }
 
-    /** @test */
+    #[Test]
     public function it_cannot_update_values_from_arguments_with_wrong_type_on_refresh(): void
     {
         $this->presenter->refresh(['element_prefix' => 42, 'element_suffix' => 42]);
@@ -135,7 +133,7 @@ class TemplateBasedElementPresenterTest extends TestCase
         $this->assertEquals(self::DEFAULT_ELEMENT_SUFFIX, $this->presenter->getElementSuffix());
     }
 
-    /** @test */
+    #[Test]
     public function it_can_update_values_from_arguments_with_correct_type_on_refresh(): void
     {
         $elementPrefix = '<p>';
@@ -147,10 +145,8 @@ class TemplateBasedElementPresenterTest extends TestCase
         $this->assertEquals($elementSuffix, $this->presenter->getElementSuffix());
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentAttributeOptions
-     */
+    #[Test]
+    #[DataProvider('provideDifferentAttributeOptions')]
     public function it_can_apply_provided_attributes_to_an_element(
         string $url,
         array $options,
@@ -211,7 +207,7 @@ class TemplateBasedElementPresenterTest extends TestCase
         ];
     }
 
-    /** @test */
+    #[Test]
     public function it_cannot_override_presentation_data_with_options_provided_directly_without_calling_refresh_method(): void
     {
         $expected = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button"><span class="fab fa-facebook-square"></span></a>';
@@ -229,7 +225,7 @@ class TemplateBasedElementPresenterTest extends TestCase
         $this->assertEquals($expected, $element);
     }
 
-    /** @test */
+    #[Test]
     public function it_cannot_override_presentation_data_from_arguments_with_options_provided_through_refresh_method(): void
     {
         $expected = '<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmysite.com&quote=Title" class="social-button arguments" id="arguments" title="arguments" rel="arguments"><span class="fab fa-facebook-square"></span></a>';
