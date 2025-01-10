@@ -6,6 +6,8 @@ use BadMethodCallException;
 use Kudashevs\ShareButtons\Facades\ShareButtonsFacade;
 use Kudashevs\ShareButtons\ShareButtons;
 use Kudashevs\ShareButtons\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 
 class ShareButtonsTest extends TestCase
 {
@@ -18,7 +20,7 @@ class ShareButtonsTest extends TestCase
         $this->share = new ShareButtons();
     }
 
-    /** @test */
+    #[Test]
     public function an_instance_can_throw_an_exception_when_a_wrong_button_name(): void
     {
         $this->expectException(BadMethodCallException::class);
@@ -28,7 +30,7 @@ class ShareButtonsTest extends TestCase
         $instance->page('https://mysite.com')->wrong()->getRawLinks();
     }
 
-    /** @test */
+    #[Test]
     public function a_facade_can_throw_an_exception_when_a_wrong_button_name(): void
     {
         $this->expectException(BadMethodCallException::class);
@@ -37,7 +39,7 @@ class ShareButtonsTest extends TestCase
         ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
     }
 
-    /** @test */
+    #[Test]
     public function an_instance_can_generate_one_share_button_url(): void
     {
         $rawLinks = $this->share->page('https://mysite.com')
@@ -48,7 +50,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('twitter', current($rawLinks));
     }
 
-    /** @test */
+    #[Test]
     public function a_facade_can_generate_one_share_button_url(): void
     {
         $rawLinks = ShareButtonsFacade::page('https://mysite.com')
@@ -59,7 +61,7 @@ class ShareButtonsTest extends TestCase
         $this->assertStringContainsString('twitter', current($rawLinks));
     }
 
-    /** @test */
+    #[Test]
     public function an_instance_can_generate_one_share_button_link(): void
     {
         $readyHtml = $this->share->page('https://mysite.com')
@@ -69,7 +71,7 @@ class ShareButtonsTest extends TestCase
         $this->assertMatchesRegularExpression('/href.*twitter/', $readyHtml);
     }
 
-    /** @test */
+    #[Test]
     public function a_facade_can_generate_one_share_button_link(): void
     {
         $readyHtml = ShareButtonsFacade::page('https://mysite.com')
@@ -79,10 +81,8 @@ class ShareButtonsTest extends TestCase
         $this->assertMatchesRegularExpression('/href.*twitter/', $readyHtml);
     }
 
-    /**
-     * @test
-     * @dataProvider provideDifferentShareButtonsValues
-     */
+    #[Test]
+    #[DataProvider('provideDifferentShareButtonsValues')]
     public function it_can_generate_an_expected_share_button(
         string $media,
         string $url,
