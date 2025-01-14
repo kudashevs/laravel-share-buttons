@@ -17,6 +17,7 @@ a flexible and convenient way within seconds. The package was originated from th
 * Bluesky
 * Mastodon
 * Hacker News
+* Tumblr
 * Telegram
 * WhatsApp
 * VKontakte
@@ -139,6 +140,7 @@ twitter($options)       # Generates an X (former Twitter) share button
 bluesky($options)       # Generates a Bluesky share button
 mastodon($options)      # Generates a Mastodon share button
 hackernews($options)    # Generates a Hacker News share button
+tumblr($options)        # Generates a Tumblr share button
 telegram($options)      # Generates a Telegram share button
 whatsapp($options)      # Generates a WhatsApp share button
 vkontakte($options)     # Generates a VKontakte share button

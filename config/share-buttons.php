@@ -94,6 +94,10 @@ return [
             'url' => 'https://telegram.me/share/url?url=:url&text=:text',
             'text' => 'Default share text',
         ],
+        'tumblr' => [
+            'url' => 'https://www.tumblr.com/share?v=3&u=:url&t=:text',
+            'text' => 'Default share text',
+        ],
         'twitter' => [
             'url' => 'https://twitter.com/intent/tweet?text=:text&url=:url',
             'text' => 'Default share text',
@@ -136,6 +140,7 @@ return [
         'reddit' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-reddit"></span></a>',
         'skype' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-skype"></span></a>',
         'telegram' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-telegram"></span></a>',
+        'tumblr' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-square-tumblr"></span></a>',
         'twitter' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-square-x-twitter"></span></a>',
         'vkontakte' => '<a href=":url" class="social-button:class":id:title:rel><span class="fab fa-vk"></span></a>',
         'whatsapp' => '<a href=":url" class="social-button:class":id:title:rel target="_blank"><span class="fab fa-square-whatsapp"></span></a>',

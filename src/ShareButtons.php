@@ -26,6 +26,7 @@ use Kudashevs\ShareButtons\ValueObjects\ProcessedCall;
  * @method ShareButtons reddit(array $options = [])
  * @method ShareButtons skype(array $options = [])
  * @method ShareButtons telegram(array $options = [])
+ * @method ShareButtons tumblr(array $options = [])
  * @method ShareButtons twitter(array $options = [])
  * @method ShareButtons vkontakte(array $options = [])
  * @method ShareButtons whatsapp(array $options = [])

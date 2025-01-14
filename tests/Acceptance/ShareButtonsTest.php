@@ -181,6 +181,12 @@ class ShareButtonsTest extends TestCase
                 'My telegram title',
                 'https://telegram.me/share/url?url=https%3A%2F%2Fmysite.com&text=My+telegram+title',
             ],
+            'tumblr' => [
+                'tumblr',
+                'https://mysite.com',
+                'My tumblr title',
+                'https://www.tumblr.com/share?v=3&u=https%3A%2F%2Fmysite.com&t=My+tumblr+title',
+            ],
             'twitter' => [
                 'twitter',
                 'https://mysite.com',
