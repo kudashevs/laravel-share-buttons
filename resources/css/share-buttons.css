@@ -16,17 +16,20 @@
     transform:scale(1.1);
 }
 
+.fa-square-bluesky {color:#1185fe;}
 .fa-share {color:#1977d4;}
 .fa-evernote {color:#1fb655;}
 .fa-facebook, .fa-facebook-square {color:#3c599f;}
 .fa-hacker-news {color:#f37022;}
 .fa-linkedin {color:#0085ae;}
 .fa-envelope {color:#ea4445;}
+.fa-mastodon {color:#563acc;}
 .fa-pinterest {color:#cb2027;}
 .fa-get-pocket {color:#ee4056;}
 .fa-reddit {color:#ff4500;}
 .fa-skype {color:#01aef2;}
 .fa-telegram {color:#0088cc;}
+.fa-square-tumblr {color:#36465d;}
 .fa-twitter, .fa-square-twitter {color:#00aced;}
 .fa-x-twitter, .fa-square-x-twitter {color:#000;}
 .fa-vk {color:#375474;}
