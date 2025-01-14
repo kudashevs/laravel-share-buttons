@@ -24,7 +24,7 @@ class ShareButtonsTest extends TestCase
     public function an_instance_can_throw_an_exception_when_a_wrong_button_name(): void
     {
         $this->expectException(BadMethodCallException::class);
-        $this->expectExceptionMessage('ShareButtons::wrong()');
+        $this->expectExceptionMessage('"wrong"');
 
         $instance = new ShareButtons();
         $instance->page('https://mysite.com')->wrong()->getRawLinks();
@@ -34,7 +34,7 @@ class ShareButtonsTest extends TestCase
     public function a_facade_can_throw_an_exception_when_a_wrong_button_name(): void
     {
         $this->expectException(BadMethodCallException::class);
-        $this->expectExceptionMessage('ShareButtons::wrong()');
+        $this->expectExceptionMessage('"wrong"');
 
         ShareButtonsFacade::page('https://mysite.com')->wrong()->getRawLinks();
     }

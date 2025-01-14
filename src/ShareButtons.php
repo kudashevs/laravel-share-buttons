@@ -231,7 +231,11 @@ class ShareButtons implements \Stringable
     protected function handleUnexpectedCall(string $name): void
     {
         throw new BadMethodCallException(
-            sprintf('Call to undefined method %s::%s().', static::class, $name)
+            sprintf(
+                'An unexpected call to a "%s" button. Check if it is registered in the `%s` file in the `buttons` and `templates` options.',
+                $name,
+                'config/share-buttons.php',
+            )
         );
     }
 
