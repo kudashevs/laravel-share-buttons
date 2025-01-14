@@ -10,15 +10,15 @@ a flexible and convenient way within seconds. The package was originated from th
 [//]: # (@todo don't forget to update these services)
 ### Available services
 
+* Reddit
+* LinkedIn
 * Facebook
 * X (formerly Twitter)
 * Bluesky
-* LinkedIn
-* Telegram
-* WhatsApp
-* Reddit
 * Mastodon
 * Hacker News
+* Telegram
+* WhatsApp
 * VKontakte
 * Pinterest
 * Pocket
