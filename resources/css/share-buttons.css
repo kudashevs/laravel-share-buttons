@@ -16,66 +16,19 @@
     transform:scale(1.1);
 }
 
-.fa-facebook, .fa-facebook-square {
-    color:#3c599f;
-}
-
-.fa-twitter, .fa-square-twitter {
-    color:#00aced;
-}
-
-.fa-x-twitter, .fa-square-x-twitter {
-    color:#000;
-}
-
-.fa-linkedin {
-    color:#0085ae;
-}
-
-.fa-telegram {
-    color:#0088cc;
-}
-
-.fa-whatsapp, .fa-square-whatsapp {
-    color:#4fce5d;
-}
-
-.fa-reddit {
-    color:#ff4500;
-}
-
-.fa-hacker-news {
-    color:#f37022;
-}
-
-.fa-vk {
-    color:#375474;
-}
-
-.fa-pinterest {
-    color:#cb2027;
-}
-
-.fa-get-pocket {
-    color:#ee4056;
-}
-
-.fa-evernote {
-    color:#1fb655;
-}
-
-.fa-skype {
-    color:#01aef2;
-}
-
-.fa-xing, .fa-square-xing {
-    color:#00555c;
-}
-
-.fa-share {
-    color:#1977d4;
-}
-
-.fa-envelope {
-    color:#ea4445;
-}
+.fa-facebook, .fa-facebook-square {color:#3c599f;}
+.fa-twitter, .fa-square-twitter {color:#00aced;}
+.fa-x-twitter, .fa-square-x-twitter {color:#000;}
+.fa-linkedin {color:#0085ae;}
+.fa-telegram {color:#0088cc;}
+.fa-whatsapp, .fa-square-whatsapp {color:#4fce5d;}
+.fa-reddit {color:#ff4500;}
+.fa-hacker-news {color:#f37022;}
+.fa-vk {color:#375474;}
+.fa-pinterest {color:#cb2027;}
+.fa-get-pocket {color:#ee4056;}
+.fa-evernote {color:#1fb655;}
+.fa-skype {color:#01aef2;}
+.fa-xing, .fa-square-xing {color:#00555c;}
+.fa-share {color:#1977d4;}
+.fa-envelope {color:#ea4445;}
