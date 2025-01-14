@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v6.1.0 - 2025-01-14](https://github.com/kudashevs/laravel-share-buttons/compare/v6.0.0...v6.1.0)
+
+- Add a Tumblr share provider
+- Update README.md
+- Some improvements
+
+Note: this release requires the config file to be updated with the new provider configurations.
+
 ## [v6.0.0 - 2024-12-15](https://github.com/kudashevs/laravel-share-buttons/compare/v5.3.0...v6.0.0)
 
 - Increase the minimum PHP version to 8.1
