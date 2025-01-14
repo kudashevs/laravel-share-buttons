@@ -232,7 +232,8 @@ class ShareButtons implements \Stringable
     {
         throw new BadMethodCallException(
             sprintf(
-                'An unexpected call to a "%s" button. Check if it is registered in the `%s` file in the `buttons` and `templates` options.',
+                'Call an unexpected method "ShareButtons::%s()". Check if "%s" is registered in the `%s` file in the `buttons` and `templates` options.',
+                $name,
                 $name,
                 'config/share-buttons.php',
             )
