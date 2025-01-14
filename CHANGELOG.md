@@ -2,6 +2,13 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v6.1.1 - 2025-01-14](https://github.com/kudashevs/laravel-share-buttons/compare/v6.1.0...v6.1.1)
+
+- Fix missing colors in styles
+- Some improvement
+
+Note: this release requires the styles file to be updated.
+
 ## [v6.1.0 - 2025-01-14](https://github.com/kudashevs/laravel-share-buttons/compare/v6.0.0...v6.1.0)
 
 - Add a Tumblr share provider
