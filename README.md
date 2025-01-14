@@ -132,15 +132,15 @@ Each method accepts an array of options (more information about these options in
 
 [//]: # (@todo don't forget to update these methods)
 ```
+reddit($options)        # Generates a Reddit share button
+linkedin($options)      # Generates a LinkedIn share button
 facebook($options)      # Generates a Facebook share button
 twitter($options)       # Generates an X (former Twitter) share button
 bluesky($options)       # Generates a Bluesky share button
-linkedin($options)      # Generates a LinkedIn share button
-telegram($options)      # Generates a Telegram share button
-whatsapp($options)      # Generates a WhatsApp share button
-reddit($options)        # Generates a Reddit share button
 mastodon($options)      # Generates a Mastodon share button
 hackernews($options)    # Generates a Hacker News share button
+telegram($options)      # Generates a Telegram share button
+whatsapp($options)      # Generates a WhatsApp share button
 vkontakte($options)     # Generates a VKontakte share button
 pinterest($options)     # Generates a Pinterest share button
 pocket($options)        # Generates a Pocket share button
