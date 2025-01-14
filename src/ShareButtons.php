@@ -166,8 +166,11 @@ class ShareButtons implements \Stringable
 
     protected function isExpectedCall(string $name): bool
     {
-        return config()->has('share-buttons.buttons.' . $name)
-            && config()->has('share-buttons.templates.' . $name);
+        /** @var \Illuminate\Config\Repository $config */
+        $config = config();
+
+        return $config->has('share-buttons.buttons.' . $name)
+            && $config->has('share-buttons.templates.' . $name);
     }
 
     /**
