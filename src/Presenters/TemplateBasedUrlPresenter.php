@@ -61,7 +61,7 @@ class TemplateBasedUrlPresenter
     }
 
     /**
-     * @param array<string, string> $arguments
+     * @param array<string, ?string> $arguments
      * @return array<string, string>
      */
     protected function retrieveUrlReplacements(array $arguments): array
@@ -84,7 +84,7 @@ class TemplateBasedUrlPresenter
     }
 
     /**
-     * @param array<string, string> $arguments
+     * @param array<string, ?string> $arguments
      * @return array<string, string>
      */
     protected function retrieveApplicableArguments(array $arguments): array
