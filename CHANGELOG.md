@@ -2,6 +2,14 @@
 
 All Notable changes to `laravel-share-buttons` will be documented in this file
 
+## [v7.0.0 - 2026-05-01](https://github.com/kudashevs/laravel-share-buttons/compare/v6.1.1...v7.0.0)
+
+- Add support for PHP 8.5
+- Increase the minimum Laravel version to 12.0
+- Increase the minimum PHP version to 8.2
+- Increase the minimum PHPUnit version to 11.0
+- Some improvements
+
 ## [v6.1.1 - 2025-01-14](https://github.com/kudashevs/laravel-share-buttons/compare/v6.1.0...v6.1.1)
 
 - Fix missing colors in styles
